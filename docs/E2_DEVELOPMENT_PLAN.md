@@ -13,11 +13,17 @@
 8. Documentation includes an example using a **clearly synthetic text sample** and steps for an authenticated real model provider; no placeholder citations disguised as scientific evidence.
 
 ## Sequence
-- E2.1: inspect E1 schema / profiles / validator and define extract interface
-- E2.2: implement prompt builder with small per-perspective ontology context
+- E2.1: inspect E1 schema / profiles / validator and define extract interface — implemented
+- E2.2: implement prompt builder with small per-perspective ontology context — implemented
 - E2.3: add offline mock transport and optional structured-output LLM adapter
 - E2.4: validate candidates, save report and quarantine failures
 - E2.5: run baseline on source text supplied by user; compare OntoGPT later
+
+E2.1/E2.2 design, synthetic usage, tests and remaining boundaries are documented in
+[E2_PROMPT_INTERFACE.md](E2_PROMPT_INTERFACE.md). The acceptance criteria above cover
+the whole E2 milestone; provider execution and quarantine are still outstanding.
+E1 requires a nonempty candidate batch, so prompt responses may alternatively be
+an explicit abstention object. The E1 schema and its validator are unchanged.
 
 ## Boundaries
 No robot-specific physical parameters, grasp trajectories, ROS interfaces, NEEM episodes, implicit DUL imports, or claims of empirical truth. Do not modify original user-provided ontologies.

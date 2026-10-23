@@ -11,6 +11,7 @@ Foundational DUL (+ optional PROV-O, OWL-Time, SOSA/SSN, QUDT) -> AICOR -> expan
 - P1.2: initial pouring multiperspective frame.
 - P1.3: refactored MAKF core, pouring specialized module, grasping smoke-test, local ontology catalog and DUL alignment draft.
 - E1: LinkML extraction contract, offline schema compiler, pouring/grasping action profiles, example candidates, structural/semantic validation and CLI.
+- E2.1/E2.2: typed source/request and provider interfaces, deterministic prompt/schema construction, bounded profile-selected context, and offline `makf prompt` CLI. See [interface and results](E2_PROMPT_INTERFACE.md).
 - Reproducible Python installable package, offline `pytest` checks, installed-wheel data resources; see README.
 
 ## Existing source layout
@@ -24,7 +25,13 @@ Foundational DUL (+ optional PROV-O, OWL-Time, SOSA/SSN, QUDT) -> AICOR -> expan
 - Some existing restrictions force grasping and tilting as pouring subactions: assess whether this is overly restrictive for alternative strategies.
 
 ## Next milestone: E2
-Build an optional LLM-backed extractor that accepts a **user-supplied** paper excerpt with source identity, assembles MAKF + action-profile guidance, generates candidate E1 JSON in schema-constrained form, runs deterministic validation, and outputs provisional candidates with traceable spans. Include an offline mock provider, rejecting tests, and a clean API for later OntoGPT comparison. Never silently upgrade unverified candidates into established facts. See `docs/E2_DEVELOPMENT_PLAN.md`.
+Continue with E2.3/E2.4: implement the `ExtractionProvider` protocol with an offline
+fixture transport and optional structured-output adapter, then parse responses,
+bind validation to the original request, run deterministic semantic checks, and
+quarantine failures. `build_extraction_prompt` already prepares messages and a
+request-bound response schema; it does not call a provider or validate responses.
+Never silently upgrade unverified candidates into established facts. See
+`docs/E2_DEVELOPMENT_PLAN.md` and `docs/E2_PROMPT_INTERFACE.md`.
 
 ## Validation recipe
 `bash scripts/setup_codex.sh && .venv/bin/python -m pytest -q && .venv/bin/python verify_resources.py && .venv/bin/makf doctor`

@@ -1,6 +1,6 @@
 # MAKF Action Knowledge — installable research package
 
-**Development stage:** P1.1 → P1.2 → P1.3 → E1. **Not E2.** This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
+**Development stage:** P1.1 → P1.2 → P1.3 → E1 → **E2.1/E2.2 prompt construction**. Live extraction is still pending. This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
 
 It contains the **unaltered original** AICOR and CRAM–AICOR Turtle ontologies, latest modular MAKF and pouring/grasping frames, a tentative DUL alignment, source inventories, the E1 LinkML extraction contract, synthetic examples, validators, tests, and historical source files. No robot/scene/execution instances are added.
 
@@ -50,6 +50,11 @@ makf schema --out /tmp/makf_extraction.schema.json
 
 To validate your own **E1 candidate JSON**: `makf validate path/to/candidates.json --profile pouring`. The CLI checks structure, ontology term declarations, relations, quotation exactness, and epistemic metadata. The bundled examples are **synthetic**, not scientific evidence.
 
+`makf prompt` prepares a provider-neutral prompt and response schema from a supplied
+UTF-8 excerpt, source metadata, and either action profile. It runs locally and makes
+no model calls. See [E2 prompt interface](docs/E2_PROMPT_INTERFACE.md) for the Python
+API, a runnable synthetic example, provenance constraints, and validation results.
+
 ## Architecture
 
 ```
@@ -64,7 +69,9 @@ DUL (declared external import; not bundled)
                           ⇣
              Provisional action knowledge candidates
                           ⇣
-                 E2 extraction (FUTURE)
+                 E2.1/E2.2 request + prompt interface
+                          ⇣
+                 E2.3+ provider extraction (FUTURE)
 ```
 
 **This is a conceptual dependency illustration, not a literal one-to-one OWL import chain:** the DUL bridge directly imports active CRAM–AICOR and external DUL; MAKF imports the bridge; pouring/grasping import MAKF. The original AICOR and expanded CRAM–AICOR share an ontology IRI; the expanded file is the active import target and the base is preserved for comparison only. A single OWL reasoner should not load both as separate definitions for that ontology IRI.
@@ -77,6 +84,7 @@ src/makf_knowledge/
   ontology.py           Direct OWL class/restriction inspection
   validation.py         E1 structural + semantic validator
   guidance.py           Action-specific ontology context generation
+  extraction.py         E2 request/provider interfaces and deterministic prompt builder
   schema.py             Minimal offline LinkML-subset JSON Schema compiler
   paths.py              Bundled assets
   resources/
@@ -112,6 +120,7 @@ historical_sources/     Original scripts, preserved for inspection
 | P1.2 | Original multiperspective pouring frame | Preserved in legacy directory |
 | P1.3 | MAKF core and refactored pouring frame; grasping test | Active modules |
 | E1 | LinkML contract, ontology profiles, synthetics, validation suite | Active module |
-| E2 | LLM-driven extraction from real literature | Not implemented |
+| E2.1/E2.2 | Extraction interface and ontology-guided prompt construction | Implemented offline |
+| E2.3+ | Provider transport, response/quarantine pipeline, live extraction | Not implemented |
 
 See `docs/` for extensive prior design decisions and source provenance.
