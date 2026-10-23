@@ -1,5 +1,8 @@
 # E2.1/E2.2: ontology-guided prompt construction
 
+This document records the prompt-construction milestone. E2.3 now adds a separate
+[provider and validation runner](E2_PROVIDER_INTERFACE.md); the prompt API remains local.
+
 This milestone prepares extraction requests locally. It does not generate candidate
 knowledge, contact a provider, parse model output or implement quarantine. Both
 pouring and grasping use the same API and policy with their packaged profiles.
@@ -74,7 +77,7 @@ Without `--out`, the artifact is printed to stdout. It includes the entire suppl
 source text. `--source-uri`, `--doi` and `--locator` record known metadata; omit
 unknown information. Omit `--perspective` to include all perspectives in the
 profile. This is a prompt artifact, not an E1 extraction result, so do not pass it
-to `makf validate`. No `makf extract` or authenticated model adapter is provided yet.
+to `makf validate`. Use the E2.3 `makf extract` command for an explicitly selected provider.
 
 ## Ontology selection and epistemic policy
 
@@ -135,10 +138,10 @@ remain source data; they cannot create additional messages or alter system polic
 The tests verify this structural boundary. They do not prove that a future model
 will obey the policy or resist every injection attempt.
 
-E2.3 should add an offline fixture provider and an optional authenticated adapter
-configured deliberately by the user. Only then should source text be sent to a
-model. E2.4 must parse output, check the request-bound schema, verify source identity
-against the original request, run E1 semantic validation, and quarantine failures.
+The E2.3 provider module now supplies an offline fixture provider and optional
+OpenAI adapter configured deliberately by the user. Its companion runner parses
+output, checks the request-bound schema, verifies original source identity,
+runs E1 semantic validation, and quarantines failures.
 Prompt instructions are not a semantic enforcement mechanism. Existing E1 checks
 verify mechanical quotations and structural relations; they do not establish
 scientific entailment, truth, or the absence of world-specific claims in free text.

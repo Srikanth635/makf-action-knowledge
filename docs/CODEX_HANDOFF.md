@@ -12,6 +12,7 @@ Foundational DUL (+ optional PROV-O, OWL-Time, SOSA/SSN, QUDT) -> AICOR -> expan
 - P1.3: refactored MAKF core, pouring specialized module, grasping smoke-test, local ontology catalog and DUL alignment draft.
 - E1: LinkML extraction contract, offline schema compiler, pouring/grasping action profiles, example candidates, structural/semantic validation and CLI.
 - E2.1/E2.2: typed source/request and provider interfaces, deterministic prompt/schema construction, bounded profile-selected context, and offline `makf prompt` CLI. See [interface and results](E2_PROMPT_INTERFACE.md).
+- E2.3: optional OpenAI structured-output adapter, fixture transport, strict parsing, original-source validation and local run artifacts/quarantine. See [provider interface](E2_PROVIDER_INTERFACE.md).
 - Reproducible Python installable package, offline `pytest` checks, installed-wheel data resources; see README.
 
 ## Existing source layout
@@ -21,20 +22,22 @@ Foundational DUL (+ optional PROV-O, OWL-Time, SOSA/SSN, QUDT) -> AICOR -> expan
 - Base AICOR and CRAM–AICOR claim the same ontology IRI; currently expanded file is active. Refactor versioned imports only after dedicated ontology review.
 - DUL import is unresolved locally; tentative alignment is not proven OWL-DL consistent.
 - Class restrictions do not encode temporal scripts, defeasible hypotheses, or evidence semantics on their own.
-- No source-to-claim semantic entailment judge, source ingestion, live model provider, fully populated RDF, SHACL, or graph DB adapter exists yet.
+- No source-to-claim entailment judge, automated source ingestion, fully populated RDF, SHACL, or graph DB adapter exists yet. The OpenAI adapter has passed offline tests; live API/schema compatibility and scientific extraction are still unverified.
 - Some existing restrictions force grasping and tilting as pouring subactions: assess whether this is overly restrictive for alternative strategies.
 
 ## Next milestone: E2
-Continue with E2.3/E2.4: implement the `ExtractionProvider` protocol with an offline
-fixture transport and optional structured-output adapter, then parse responses,
-bind validation to the original request, run deterministic semantic checks, and
-quarantine failures. `build_extraction_prompt` already prepares messages and a
-request-bound response schema; it does not call a provider or validate responses.
-Never silently upgrade unverified candidates into established facts. See
-`docs/E2_DEVELOPMENT_PLAN.md` and `docs/E2_PROMPT_INTERFACE.md`.
+Supply OpenAI credentials through environment settings, then run the prepared
+[PourIt! pilot](experiments/e23_pouring/README.md). Review raw output, exact anchors,
+epistemic status, scientific support, and whether claims generalize beyond the
+reported experiment. Only after that live experiment evaluate OntoGPT as an
+alternative, using the same passage and acceptance checks. The runner currently
+accepts or quarantines an entire batch and has no model-driven repair loop. Never
+silently upgrade unverified candidates into established facts.
 
 ## Validation recipe
 `bash scripts/setup_codex.sh && .venv/bin/python -m pytest -q && .venv/bin/python verify_resources.py && .venv/bin/makf doctor`
 
 ## Current status
-The package is source-available and tested locally. Codex Cloud deployment and live E2 extraction are not part of this commit. Keep experiments optional, with no provider key in the repository.
+The package and OpenAI adapter are tested locally. A live command was attempted
+but stopped before network IO because no credential was configured. Keep
+experiments optional, with no provider key in the repository.

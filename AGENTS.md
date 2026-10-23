@@ -6,7 +6,8 @@ Build a reusable, world-model-agnostic knowledge system for generalized, stereot
 ## Current implementation
 - P1.1 ontology inventory, P1.2 pouring frame, P1.3 generic MAKF refactor and grasping smoke test, E1 LinkML extraction contract and offline validators: complete.
 - E2.1/E2.2 request/provider interfaces and deterministic offline prompt builder: complete; see `docs/E2_PROMPT_INTERFACE.md`.
-- E2 actual LLM extraction, E3 RDF knowledge publication / SHACL, TigerGraph integration and complete OWL DL checking: NOT implemented.
+- E2.3 OpenAI/fixture transports and a request-bound validation/quarantine runner: implemented. Live scientific extraction still requires credentials and a recorded experiment; see `docs/experiments/e23_pouring/README.md`.
+- E3 RDF knowledge publication / SHACL, TigerGraph integration and complete OWL DL checking: NOT implemented.
 - Read `README.md`, `docs/CODEX_HANDOFF.md`, and `docs/E2_DEVELOPMENT_PLAN.md` before altering ontology modules or extraction behavior.
 
 ## Non-negotiable modeling rules

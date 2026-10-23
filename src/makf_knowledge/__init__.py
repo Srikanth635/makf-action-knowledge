@@ -5,6 +5,9 @@ from .guidance import build_context
 from .ontology import list_ontologies, describe_class, ontology_graph
 from .extraction import (ExtractionRequest, ExtractionPrompt, ExtractionProvider,
                          SourceDocument, SourcePassage, build_extraction_prompt)
+from .pipeline import ExtractionResult, extract
+from .providers import FixtureProvider, OpenAIProvider, ProviderError
 __all__ = ['SemanticValidator','ValidationError','validate_file','build_context','list_ontologies','describe_class','ontology_graph',
            'ExtractionRequest','ExtractionPrompt','ExtractionProvider','SourceDocument',
-           'SourcePassage','build_extraction_prompt']
+           'SourcePassage','build_extraction_prompt','ExtractionResult','extract',
+           'FixtureProvider','OpenAIProvider','ProviderError']

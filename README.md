@@ -1,6 +1,6 @@
 # MAKF Action Knowledge — installable research package
 
-**Development stage:** P1.1 → P1.2 → P1.3 → E1 → **E2.1/E2.2 prompt construction**. Live extraction is still pending. This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
+**Development stage:** P1.1 → P1.2 → P1.3 → E1 → **E2.3 optional OpenAI extraction adapter**. A live scientific pilot is prepared but awaiting credentials. This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
 
 It contains the **unaltered original** AICOR and CRAM–AICOR Turtle ontologies, latest modular MAKF and pouring/grasping frames, a tentative DUL alignment, source inventories, the E1 LinkML extraction contract, synthetic examples, validators, tests, and historical source files. No robot/scene/execution instances are added.
 
@@ -55,6 +55,13 @@ UTF-8 excerpt, source metadata, and either action profile. It runs locally and m
 no model calls. See [E2 prompt interface](docs/E2_PROMPT_INTERFACE.md) for the Python
 API, a runnable synthetic example, provenance constraints, and validation results.
 
+`makf extract --provider openai --model ...` performs one explicitly configured
+model call, validates the response against the original request and E1 semantics,
+and saves provisional candidates or quarantined output. Install the optional SDK
+with `python -m pip install -e '.[dev,openai]'`; the baseline needs no SDK or key.
+See [provider interface](docs/E2_PROVIDER_INTERFACE.md) and the
+[scientific pilot record](docs/experiments/e23_pouring/README.md).
+
 ## Architecture
 
 ```
@@ -71,7 +78,7 @@ DUL (declared external import; not bundled)
                           ⇣
                  E2.1/E2.2 request + prompt interface
                           ⇣
-                 E2.3+ provider extraction (FUTURE)
+                 E2.3 optional provider + validation/quarantine runner
 ```
 
 **This is a conceptual dependency illustration, not a literal one-to-one OWL import chain:** the DUL bridge directly imports active CRAM–AICOR and external DUL; MAKF imports the bridge; pouring/grasping import MAKF. The original AICOR and expanded CRAM–AICOR share an ontology IRI; the expanded file is the active import target and the base is preserved for comparison only. A single OWL reasoner should not load both as separate definitions for that ontology IRI.
@@ -85,6 +92,8 @@ src/makf_knowledge/
   validation.py         E1 structural + semantic validator
   guidance.py           Action-specific ontology context generation
   extraction.py         E2 request/provider interfaces and deterministic prompt builder
+  providers.py          Optional OpenAI and offline fixture transports
+  pipeline.py           Request-bound validation, audit artifacts and quarantine
   schema.py             Minimal offline LinkML-subset JSON Schema compiler
   paths.py              Bundled assets
   resources/
@@ -103,7 +112,7 @@ historical_sources/     Original scripts, preserved for inspection
 
 ## Boundaries and known limitations
 
-- No live LLM extraction, OntoGPT adapter, TigerGraph server/client integration, RDF populated action-descriptions, SHACL execution, or execution/world-model pipeline. Those are E2/E3/later.
+- OpenAI transport is implemented and tested offline, including through the real SDK with a mocked HTTP transport. Live scientific extraction has not yet run because credentials are unavailable. No OntoGPT adapter, TigerGraph integration, RDF population, SHACL or execution/world-model pipeline is implemented.
 - Official **DUL is NOT bundled**. Its OWL import is declared but not resolved or certified. Local RDFLib loading deliberately parses local files only. No OWL DL consistency check has been run.
 - E1's LinkML YAML is compiled with a documented **limited subset** converter; official LinkML validation/lint is still outstanding.
 - Exact-quote validation is mechanical and **does not prove** a scientific claim is supported or true. Hypotheses remain provisional. All included example passages are artificial.
@@ -121,6 +130,7 @@ historical_sources/     Original scripts, preserved for inspection
 | P1.3 | MAKF core and refactored pouring frame; grasping test | Active modules |
 | E1 | LinkML contract, ontology profiles, synthetics, validation suite | Active module |
 | E2.1/E2.2 | Extraction interface and ontology-guided prompt construction | Implemented offline |
-| E2.3+ | Provider transport, response/quarantine pipeline, live extraction | Not implemented |
+| E2.3 | Optional OpenAI adapter, fixture transport, validated local run artifacts | Implemented; offline tests pass |
+| E2.4/E2.5 | Scientific pilot and evaluation | Minimal validation/quarantine runner implemented; live pilot blocked on credentials |
 
 See `docs/` for extensive prior design decisions and source provenance.

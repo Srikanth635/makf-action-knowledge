@@ -15,13 +15,15 @@
 ## Sequence
 - E2.1: inspect E1 schema / profiles / validator and define extract interface — implemented
 - E2.2: implement prompt builder with small per-perspective ontology context — implemented
-- E2.3: add offline mock transport and optional structured-output LLM adapter
-- E2.4: validate candidates, save report and quarantine failures
-- E2.5: run baseline on source text supplied by user; compare OntoGPT later
+- E2.3: offline fixture transport and optional OpenAI structured-output adapter — implemented, offline-tested
+- E2.4: validate candidates, save report and quarantine failures — minimal batch-level runner implemented
+- E2.5: run a scientific pilot — prepared genuine PourIt! excerpt; live run blocked on credentials; evaluate OntoGPT only after that run
 
 E2.1/E2.2 design, synthetic usage, tests and remaining boundaries are documented in
 [E2_PROMPT_INTERFACE.md](E2_PROMPT_INTERFACE.md). The acceptance criteria above cover
-the whole E2 milestone; provider execution and quarantine are still outstanding.
+the whole E2 milestone. The [provider interface](E2_PROVIDER_INTERFACE.md) now
+implements transport and quarantine; [live pilot status](experiments/e23_pouring/README.md)
+remains separate from offline test success.
 E1 requires a nonempty candidate batch, so prompt responses may alternatively be
 an explicit abstention object. The E1 schema and its validator are unchanged.
 

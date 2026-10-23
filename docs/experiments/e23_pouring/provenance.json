@@ -1,0 +1,25 @@
+{
+  "document_id": "lin-etal-2023-pourit-author-preprint",
+  "title": "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring",
+  "authors": [
+    "Haitao Lin",
+    "Yanwei Fu",
+    "Xiangyang Xue"
+  ],
+  "year": 2023,
+  "bibliographic_uri": "https://arxiv.org/abs/2307.11299",
+  "conference": "ICCV 2023",
+  "source_kind": "author-hosted preprint PDF",
+  "retrieved_from": "https://raw.githubusercontent.com/hetolin/hetolin.github.io/eea048d3a8401d00a5e946c3f42bdab046a6d620/PourIt/resources/images/arXiv_pre.pdf",
+  "author_repository_commit": "eea048d3a8401d00a5e946c3f42bdab046a6d620",
+  "retrieved_at": "2026-10-23T22:00:01.868799+00:00",
+  "pdf_sha256": "d2cd6263d6b77549150756dfb8238054a423edec63a54b49c156198b78e93e00",
+  "text_extraction": "pdftotext (default reading order); exact contiguous slice; no whitespace or spelling normalization",
+  "pdftotext_version": "pdftotext version 25.03.0",
+  "locator": "Author-hosted preprint, section 4.3 Results and Analysis, PDF page 8",
+  "passage_id": "results-analysis-strategies",
+  "passage_sha256": "fda9d08d58e40e567ca9ba867b1bcc85c15db6bd77cb939ab0cf9b482c2772d2",
+  "word_count": 108,
+  "synthetic_demo": false,
+  "experiment_status": "prepared; live generation requires OpenAI credentials"
+}

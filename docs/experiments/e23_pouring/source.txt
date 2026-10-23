@@ -1,0 +1,6 @@
+The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring
+point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by
+the inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated
+mask of AFA provides the wrong visual feedback to adjust
+the pouring point, making the liquid spill out of the target
+container instead.
