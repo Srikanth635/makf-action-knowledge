@@ -1,0 +1,44 @@
+{
+  "batch_id": "demo-batch-grasping",
+  "profile_id": "grasping-smoke-v0.1",
+  "documents": [
+    {
+      "document_id": "synthetic-demo-grasping",
+      "title": "Synthetic illustrative paragraph (NOT a scientific publication)",
+      "synthetic_demo": true,
+      "passages": [
+        {
+          "passage_id": "synthetic-g-1",
+          "text": "Under adequate contact conditions, a contact-guided grasp may establish stable coupling with an object."
+        }
+      ]
+    }
+  ],
+  "extraction_run": {"engine": "hand-authored illustrative fixture"},
+  "candidates": [
+    {
+      "candidate_id": "demo-grasping-hypothesis",
+      "action_class": "aicor:Grasping",
+      "frame_class": "gsf:GraspingKnowledgeFrame",
+      "perspectives": ["procedural", "epistemic", "applicability"],
+      "knowledge_kind": "strategy_hypothesis",
+      "statement": "Contact-guided grasping may result in stable coupling under adequate contact conditions.",
+      "modality": "possible",
+      "epistemic_status": "hypothesis",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {"component_id": "hypothesis", "component_kind": "hypothesis", "description": "Contact stability hypothesis", "ontology_class": "gsf:ContactStabilityHypothesis", "grounding_status": "grounded"},
+        {"component_id": "strategy", "component_kind": "strategy", "description": "Contact-guided grasp strategy", "ontology_class": "gsf:ContactGuidedGraspStrategy", "grounding_status": "grounded"},
+        {"component_id": "condition", "component_kind": "applicability_condition", "description": "Adequate contact conditions", "ontology_class": "gsf:ContactConditionsPattern", "grounding_status": "grounded"},
+        {"component_id": "effect", "component_kind": "predicted_effect", "description": "Stable coupling pattern", "ontology_class": "gsf:StableCouplingPrediction", "grounding_status": "grounded"}
+      ],
+      "structural_links": [
+        {"subject_component": "hypothesis", "predicate_curie": "makf:concernsStrategy", "object_component": "strategy"},
+        {"subject_component": "hypothesis", "predicate_curie": "makf:hasApplicabilityCondition", "object_component": "condition"},
+        {"subject_component": "hypothesis", "predicate_curie": "makf:predictsPossibleEffect", "object_component": "effect"}
+      ],
+      "source_support": [{"document_id": "synthetic-demo-grasping", "passage_id": "synthetic-g-1", "exact_quote": "Under adequate contact conditions, a contact-guided grasp may establish stable coupling with an object.", "support_role": "asserts_claim"}]
+    }
+  ]
+}

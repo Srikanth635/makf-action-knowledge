@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <!-- Active replacement for the shared AICOR ontology IRI. -->
+  <uri name="http://aicor.knowledge/l2-ontology.owl" uri="../ontology/cram-aicor-ontology.ttl" />
+  <uri name="https://w3id.org/aicor/dul-alignment" uri="../ontology/dul-alignment.ttl" />
+  <uri name="https://w3id.org/aicor/makf" uri="../ontology/makf-core.ttl" />
+  <uri name="https://w3id.org/aicor/pouring-frame" uri="../ontology/pouring-frame.ttl" />
+  <uri name="https://w3id.org/aicor/grasping-smoke" uri="../ontology/grasping-smoke.ttl" />
+  <!-- Official DUL import has NOT been downloaded or resolved. -->
+</catalog>

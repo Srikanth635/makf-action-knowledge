@@ -1,0 +1,52 @@
+@prefix gsf: <https://w3id.org/aicor/grasping-smoke#> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/grasping-smoke> a owl:Ontology ;
+  owl:imports <https://w3id.org/aicor/makf> ;
+  dct:title "Grasping MAKF reuse smoke test (not a finished grasping ontology)"@en .
+
+# This intentionally defines only a MINIMAL second action, not a full grasp ontology.
+gsf:GraspingKnowledgeFrame a owl:Class ; rdfs:subClassOf makf:ActionKnowledgeFrame,
+  [ a owl:Restriction ; owl:onProperty makf:hasActionCategory ; owl:someValuesFrom aicor:Grasping ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasRolePerspective ; owl:someValuesFrom gsf:GraspingRolePerspective ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasIntentionalPerspective ; owl:someValuesFrom gsf:GraspingIntentionPattern ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasCausalPerspective ; owl:someValuesFrom gsf:GraspingCausalTemplate ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasTemporalPerspective ; owl:someValuesFrom gsf:GraspingScript ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasProceduralPerspective ; owl:someValuesFrom gsf:GraspingStrategySpace ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasObservationalPerspective ; owl:someValuesFrom gsf:GraspingObservationPerspective ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasHypothesisPerspective ; owl:someValuesFrom gsf:GraspingHypothesisSpace ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasDeviationPerspective ; owl:someValuesFrom gsf:GraspingDeviationPerspective ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityPerspective ; owl:someValuesFrom gsf:GraspingApplicabilityModel ] .
+
+gsf:GraspingRolePerspective a owl:Class ; rdfs:subClassOf makf:RolePerspective,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:AgentRole ] ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:PatientRole ] .
+gsf:GraspingIntentionPattern a owl:Class ; rdfs:subClassOf aicor:IntentionalStructure .
+gsf:GraspingCausalTemplate a owl:Class ; rdfs:subClassOf aicor:ForceDynamicTemplate .
+gsf:GraspingScript a owl:Class ; rdfs:subClassOf makf:TemporalPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:containsPhasePattern ; owl:someValuesFrom gsf:ContactEstablishmentPattern ] .
+gsf:ContactEstablishmentPattern a owl:Class ; rdfs:subClassOf makf:PhasePattern, aicor:MotionPhase .
+gsf:GraspingStrategySpace a owl:Class ; rdfs:subClassOf makf:StrategyPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:containsStrategy ; owl:someValuesFrom gsf:ContactGuidedGraspStrategy ] .
+gsf:ContactGuidedGraspStrategy a owl:Class ; rdfs:subClassOf makf:GeneralizedStrategy .
+gsf:GraspingHypothesisSpace a owl:Class ; rdfs:subClassOf makf:HypothesisPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasCandidateHypothesis ; owl:someValuesFrom gsf:ContactStabilityHypothesis ] .
+gsf:ContactStabilityHypothesis a owl:Class ; rdfs:subClassOf makf:StrategyHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:concernsStrategy ; owl:someValuesFrom gsf:ContactGuidedGraspStrategy ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityCondition ; owl:someValuesFrom gsf:ContactConditionsPattern ] ,
+  [ a owl:Restriction ; owl:onProperty makf:predictsPossibleEffect ; owl:someValuesFrom gsf:StableCouplingPrediction ] .
+gsf:ContactConditionsPattern a owl:Class ; rdfs:subClassOf makf:ApplicabilityCondition .
+gsf:StableCouplingPrediction a owl:Class ; rdfs:subClassOf makf:PredictedEffectPattern .
+gsf:GraspingApplicabilityModel a owl:Class ; rdfs:subClassOf makf:ApplicabilityPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasConditionPattern ; owl:someValuesFrom gsf:ContactConditionsPattern ] .
+gsf:GraspingObservationPerspective a owl:Class ; rdfs:subClassOf makf:ObservationPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasExpectedCue ; owl:someValuesFrom gsf:ContactCuePattern ] .
+gsf:ContactCuePattern a owl:Class ; rdfs:subClassOf makf:ObservationPattern .
+gsf:GraspingDeviationPerspective a owl:Class ; rdfs:subClassOf makf:DeviationPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasDeviationPattern ; owl:someValuesFrom gsf:SlipPattern ] .
+gsf:SlipPattern a owl:Class ; rdfs:subClassOf makf:DeviationPattern .

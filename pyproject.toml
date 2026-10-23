@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "makf-action-knowledge"
+version = "0.1.0"
+description = "World-model-agnostic multiperspective robotic action knowledge, OWL ontologies and validated E1 extraction contract"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "MAKF research prototype"}]
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Topic :: Scientific/Engineering :: Artificial Intelligence"]
+dependencies = ["rdflib>=7,<9", "PyYAML>=6,<7", "jsonschema>=4.20,<5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+makf = "makf_knowledge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+makf_knowledge = ["resources/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

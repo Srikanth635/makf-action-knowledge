@@ -1,0 +1,11 @@
+{
+  "baseline_classes": 709,
+  "cram_classes": 1017,
+  "makf_classes": 18,
+  "makf_object_properties": 31,
+  "pouring_classes": 37,
+  "grasping_test_classes": 17,
+  "migration_rows": 69,
+  "tests_status": "PASS",
+  "reasoner_status": "NOT RUN: official DUL file and external DL reasoner not present"
+}

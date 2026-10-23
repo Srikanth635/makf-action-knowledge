@@ -1,0 +1,83 @@
+{
+  "batch_id": "demo-batch-pouring",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "synthetic-demo-pouring",
+      "title": "Synthetic illustrative paragraph (NOT a scientific publication)",
+      "synthetic_demo": true,
+      "passages": [
+        {
+          "passage_id": "synthetic-p-1",
+          "text": "Under suitable fluid and opening conditions, changing the orientation of a source container may initiate outflow."
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "hand-authored illustrative fixture"
+  },
+  "candidates": [
+    {
+      "candidate_id": "demo-pouring-hypothesis",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "causal",
+        "epistemic",
+        "applicability"
+      ],
+      "knowledge_kind": "causal_hypothesis",
+      "statement": "Under appropriate fluid and opening conditions, changing the source orientation may initiate outflow.",
+      "modality": "possible",
+      "epistemic_status": "hypothesis",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "hypothesis",
+          "component_kind": "hypothesis",
+          "description": "Conditional possibility of orientation-induced efflux onset",
+          "ontology_class": "paf:OrientationInducedEffluxHypothesis",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "condition",
+          "component_kind": "applicability_condition",
+          "description": "The opening and fluid characteristics enable outflow",
+          "ontology_class": "paf:OutflowEnabledCondition",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "effect",
+          "component_kind": "predicted_effect",
+          "description": "Outflow may begin",
+          "ontology_class": "paf:FlowOnsetPredictionPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "structural_links": [
+        {
+          "subject_component": "hypothesis",
+          "predicate_curie": "makf:hasApplicabilityCondition",
+          "object_component": "condition"
+        },
+        {
+          "subject_component": "hypothesis",
+          "predicate_curie": "makf:predictsPossibleEffect",
+          "object_component": "effect"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "synthetic-demo-pouring",
+          "passage_id": "synthetic-p-1",
+          "exact_quote": "Under suitable fluid and opening conditions, changing the orientation of a source container may initiate outflow.",
+          "support_role": "asserts_claim",
+          "start_char": 0,
+          "end_char": 113
+        }
+      ]
+    }
+  ]
+}

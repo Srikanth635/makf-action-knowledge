@@ -1,0 +1,6 @@
+PASS: Turtle parsed; baseline class/property IRIs verified; DUL import present;
+      eight perspectives plus applicability; no named world instances;
+      no unreviewed AICOR-DUL event equivalences.
+      AICOR: 7940 triples; CRAM-AICOR: 11596 triples;
+      pouring frame: 366 triples; bridge: 13 triples.
+LIMIT: Not an OWL 2 DL consistency or satisfiability proof. Resolve and run imported DUL with a DL reasoner before publication.

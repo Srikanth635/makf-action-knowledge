@@ -1,0 +1,260 @@
+@prefix paf:  <https://w3id.org/aicor/pouring-frame#> .
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul:  <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/pouring-frame> a owl:Ontology ;
+  owl:versionIRI <https://w3id.org/aicor/pouring-frame/0.1.0> ;
+  owl:imports <http://aicor.knowledge/l2-ontology.owl> ,
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
+              <https://w3id.org/aicor/pouring-frame/dul-alignment> ;
+  dct:title "AICOR multiperspective stereotypical pouring action frame"@en ;
+  dct:description "TBox-only action knowledge: generic descriptions, role patterns, intentions, causal models, possible scripts, alternative strategies, conditional hypotheses, expected cues and deviation patterns. No robot, container or execution individuals."@en ;
+  owl:versionInfo "Design prototype 0.1.0; structural syntax checked, not DL-reasoner-validated."@en .
+
+# -------- Perspective links: these relate DESCRIPTIONS, not physical situations. --------
+
+paf:hasActionCategory a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range aicor:ManipulationActionCategory ;
+  rdfs:comment "Links an action knowledge frame to an abstract action category/plan, never to an occurrence."@en .
+
+paf:hasRolePerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringRolePerspective .
+paf:hasIntentionalPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range aicor:IntentionalStructure .
+paf:hasCausalPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range aicor:ForceDynamicTemplate .
+paf:hasTemporalPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringScript .
+paf:hasProceduralPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringStrategySpace .
+paf:hasObservationalPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringObservationPerspective .
+paf:hasHypothesisPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringHypothesisSpace .
+paf:hasDeviationPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringDeviationPerspective .
+paf:hasApplicabilityPerspective a owl:ObjectProperty ;
+  rdfs:domain paf:ActionKnowledgeFrame ; rdfs:range paf:PouringApplicabilityModel ;
+  rdfs:comment "Cross-cutting assumptions/conditions, not a particular world-state."@en .
+
+# Main frame: 8 perspectives plus cross-cutting applicability model.
+paf:ActionKnowledgeFrame a owl:Class ;
+  rdfs:subClassOf dul:Description ;
+  rdfs:comment "A generic, multi-perspective knowledge description; distinct from event/situation."@en .
+
+paf:PouringKnowledgeFrame a owl:Class ;
+  rdfs:subClassOf paf:ActionKnowledgeFrame ,
+    [ a owl:Restriction ; owl:onProperty paf:hasActionCategory ; owl:someValuesFrom aicor:Pouring ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasRolePerspective ; owl:someValuesFrom paf:PouringRolePerspective ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasIntentionalPerspective ; owl:someValuesFrom aicor:PouringIntention ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasCausalPerspective ; owl:someValuesFrom aicor:PouringTemplate ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasTemporalPerspective ; owl:someValuesFrom paf:PouringScript ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasProceduralPerspective ; owl:someValuesFrom paf:PouringStrategySpace ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasObservationalPerspective ; owl:someValuesFrom paf:PouringObservationPerspective ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasHypothesisPerspective ; owl:someValuesFrom paf:PouringHypothesisSpace ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasDeviationPerspective ; owl:someValuesFrom paf:PouringDeviationPerspective ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasApplicabilityPerspective ; owl:someValuesFrom paf:PouringApplicabilityModel ] ;
+  rdfs:seeAlso aicor:ManipulationFrame ;
+  rdfs:comment "Coherent schema for generalized pouring knowledge. We DO NOT inherit aicor:ManipulationFrame (which requires a manipulation problem class and robot-world family). Existentials refer to abstract knowledge objects, NOT realized pouring episodes."@en .
+
+# -------- Participant roles (no physical fillers). --------
+paf:DestinationRole a owl:Class ;
+  rdfs:subClassOf aicor:ParticipantRole , dul:Role ;
+  rdfs:comment "Destination as action participant role; distinct from GoalRole (telic role)."@en .
+
+paf:PouringRolePerspective a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:AgentRole ] ,
+    [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:SourceRole ] ,
+    [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:SubstanceRole ] ,
+    [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom paf:DestinationRole ] ,
+    [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:GoalRole ] ;
+  rdfs:comment "Role slots in a pouring stereotype. Does not bind any actual object, material or agent."@en .
+
+# -------- Temporal script: phases and PRECEDENCE DESCRIPTIONS, never time:Interval. --------
+paf:containsPhasePattern a owl:ObjectProperty ;
+  rdfs:domain paf:PouringScript ; rdfs:range aicor:MotionPhase .
+paf:admitsOrderingPattern a owl:ObjectProperty ;
+  rdfs:domain paf:PouringScript ; rdfs:range paf:PossiblePhasePrecedence .
+paf:earlierPhasePattern a owl:ObjectProperty ;
+  rdfs:domain paf:PossiblePhasePrecedence ; rdfs:range aicor:MotionPhase .
+paf:laterPhasePattern a owl:ObjectProperty ;
+  rdfs:domain paf:PossiblePhasePrecedence ; rdfs:range aicor:MotionPhase .
+
+paf:PouringScript a owl:Class ;
+  rdfs:subClassOf dul:Plan ,
+    [ a owl:Restriction ; owl:onProperty paf:containsPhasePattern ; owl:someValuesFrom paf:FlowInitiationPhasePattern ] ,
+    [ a owl:Restriction ; owl:onProperty paf:containsPhasePattern ; owl:someValuesFrom paf:FlowTerminationPhasePattern ] ;
+  rdfs:comment "Underspecified action script; neither a fully ordered plan nor a temporal execution record."@en .
+
+paf:FlowInitiationPhasePattern a owl:Class ;
+  rdfs:subClassOf aicor:PouringPhase ;
+  rdfs:comment "A description of a phase whose goal includes efflux onset."@en .
+paf:FlowTerminationPhasePattern a owl:Class ;
+  rdfs:subClassOf aicor:MotionPhase ;
+  rdfs:comment "Stereotypical phase of ending the flow; no claim that a given execution reached it."@en .
+paf:GraspPreparationPhasePattern a owl:Class ;
+  rdfs:subClassOf aicor:MotionPhase ;
+  rdfs:comment "OPTIONAL candidate phase; not all pouring strategies require grasping."@en .
+
+paf:PossiblePhasePrecedence a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:earlierPhasePattern ; owl:someValuesFrom aicor:MotionPhase ] ,
+    [ a owl:Restriction ; owl:onProperty paf:laterPhasePattern ; owl:someValuesFrom aicor:MotionPhase ] ;
+  rdfs:comment "Represents a possible order constraint over PHASE DESCRIPTIONS. Not a time interval or universally mandatory temporal order."@en .
+
+# -------- Procedural space of ALTERNATIVE abstract strategies. --------
+paf:containsStrategy a owl:ObjectProperty ;
+  rdfs:domain paf:PouringStrategySpace ; rdfs:range paf:PouringStrategy .
+paf:aimsAtTelos a owl:ObjectProperty ;
+  rdfs:domain paf:PouringStrategy ; rdfs:range aicor:PouringTelos .
+paf:usesCausalModel a owl:ObjectProperty ;
+  rdfs:domain paf:PouringStrategy ; rdfs:range aicor:PouringTemplate .
+paf:hasStrategyCondition a owl:ObjectProperty ;
+  rdfs:domain paf:PouringStrategy ; rdfs:range paf:PouringConditionPattern .
+
+paf:PouringStrategySpace a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:containsStrategy ; owl:someValuesFrom paf:PouringStrategy ] ;
+  rdfs:comment "Collection of possible generalized methods, not a single committed execution policy."@en .
+
+paf:PouringStrategy a owl:Class ;
+  rdfs:subClassOf aicor:GeneralizedActionPlan , dul:Plan ,
+    [ a owl:Restriction ; owl:onProperty paf:aimsAtTelos ; owl:someValuesFrom aicor:PouringTelos ] ,
+    [ a owl:Restriction ; owl:onProperty paf:usesCausalModel ; owl:someValuesFrom aicor:PouringTemplate ] ;
+  rdfs:comment "Generalized underspecified strategy. An AICOR plan description, never a physical execution."@en .
+
+paf:OrientationMediatedPouringStrategy a owl:Class ;
+  rdfs:subClassOf paf:PouringStrategy ;
+  rdfs:comment "Candidate family of strategies in which orientation changes are used to induce flow."@en .
+paf:FeedbackRegulatedPouringStrategy a owl:Class ;
+  rdfs:subClassOf paf:PouringStrategy ;
+  rdfs:comment "Candidate family where expected/observed flow cues can inform generalized regulation."@en .
+
+# -------- Hypotheses: NO demand for an actual EvidenceSet or event trace. --------
+paf:hasCandidateHypothesis a owl:ObjectProperty ;
+  rdfs:domain paf:PouringHypothesisSpace ; rdfs:range paf:PouringActingHypothesis .
+paf:hasApplicabilityCondition a owl:ObjectProperty ;
+  rdfs:domain paf:PouringActingHypothesis ; rdfs:range paf:PouringConditionPattern .
+paf:predictsPossibleEffect a owl:ObjectProperty ;
+  rdfs:domain paf:PouringActingHypothesis ; rdfs:range paf:PouringPredictionPattern ;
+  rdfs:comment "A relation inside a reified hypothesis; does not entail the predicted physical effect."@en .
+paf:concernsStrategy a owl:ObjectProperty ;
+  rdfs:domain paf:PouringStrategyHypothesis ; rdfs:range paf:PouringStrategy .
+paf:concernsCausalTemplate a owl:ObjectProperty ;
+  rdfs:domain paf:PouringCausalHypothesis ; rdfs:range aicor:PouringTemplate .
+paf:couldBeTestedBy a owl:ObjectProperty ;
+  rdfs:domain paf:PouringActingHypothesis ; rdfs:range paf:PouringObservationPattern .
+
+paf:PouringHypothesisSpace a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:hasCandidateHypothesis ; owl:someValuesFrom paf:PouringActingHypothesis ] .
+
+paf:PouringActingHypothesis a owl:Class ;
+  rdfs:subClassOf aicor:Hypothesis ,
+    [ a owl:Restriction ; owl:onProperty paf:hasApplicabilityCondition ; owl:someValuesFrom paf:PouringConditionPattern ] ,
+    [ a owl:Restriction ; owl:onProperty paf:predictsPossibleEffect ; owl:someValuesFrom paf:PouringPredictionPattern ] ;
+  rdfs:comment "An unverified, condition-indexed generic proposition about acting. Intentionally NOT subclass of aicor:ManipulationHypothesis, whose existing axioms require an EvidenceSet drawn from traces."@en .
+paf:PouringStrategyHypothesis a owl:Class ;
+  rdfs:subClassOf paf:PouringActingHypothesis ,
+    [ a owl:Restriction ; owl:onProperty paf:concernsStrategy ; owl:someValuesFrom paf:PouringStrategy ] .
+paf:PouringCausalHypothesis a owl:Class ;
+  rdfs:subClassOf paf:PouringActingHypothesis ,
+    [ a owl:Restriction ; owl:onProperty paf:concernsCausalTemplate ; owl:someValuesFrom aicor:PouringTemplate ] .
+
+# -------- Predictions, observation cues, constraints, deviations (all abstract). --------
+paf:hasConditionPattern a owl:ObjectProperty ;
+  rdfs:domain paf:PouringApplicabilityModel ; rdfs:range paf:PouringConditionPattern .
+paf:characterizesFlowState a owl:ObjectProperty ;
+  rdfs:domain paf:PouringPredictionPattern ; rdfs:range aicor:ForceDynamicState .
+paf:hasExpectedCue a owl:ObjectProperty ;
+  rdfs:domain paf:PouringObservationPerspective ; rdfs:range paf:PouringObservationPattern .
+paf:hasDeviationPattern a owl:ObjectProperty ;
+  rdfs:domain paf:PouringDeviationPerspective ; rdfs:range paf:PouringDeviationPattern .
+paf:concernsFailureType a owl:ObjectProperty ;
+  rdfs:domain paf:PouringDeviationPattern ; rdfs:range aicor:FailureReason .
+paf:potentiallyContradicts a owl:ObjectProperty ;
+  rdfs:domain paf:PouringDeviationPattern ; rdfs:range paf:PouringPredictionPattern .
+
+paf:PouringApplicabilityModel a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:hasConditionPattern ; owl:someValuesFrom paf:PouringConditionPattern ] .
+paf:PouringConditionPattern a owl:Class ;
+  rdfs:subClassOf aicor:ConstraintSet , dul:Description ;
+  rdfs:comment "Generic applicability requirement or assumption; no numeric/world-state value asserted."@en .
+paf:PouringPredictionPattern a owl:Class ;
+  rdfs:subClassOf dul:Description ;
+  rdfs:comment "A possible future event/state description as content of a hypothesis, not an occurring event."@en .
+paf:FlowOnsetPredictionPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringPredictionPattern ;
+  rdfs:comment "Prediction pattern for initiation of efflux, not the event itself."@en .
+paf:AccumulationPredictionPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringPredictionPattern ,
+    [ a owl:Restriction ; owl:onProperty paf:characterizesFlowState ; owl:someValuesFrom aicor:AccumulatedState ] .
+paf:PouringObservationPerspective a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:hasExpectedCue ; owl:someValuesFrom paf:PouringObservationPattern ] .
+paf:PouringObservationPattern a owl:Class ;
+  rdfs:subClassOf dul:Description ;
+  rdfs:comment "Expected perceptual indicator as DESCRIPTION, not a SOSA observation activity or a sensor measurement."@en .
+paf:FlowOnsetCuePattern a owl:Class ; rdfs:subClassOf paf:PouringObservationPattern .
+paf:FlowTerminationCuePattern a owl:Class ; rdfs:subClassOf paf:PouringObservationPattern .
+paf:PouringDeviationPerspective a owl:Class ;
+  rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty paf:hasDeviationPattern ; owl:someValuesFrom paf:PouringDeviationPattern ] .
+paf:PouringDeviationPattern a owl:Class ;
+  rdfs:subClassOf dul:Description ;
+  rdfs:comment "Possible deviation schema, not an asserted failure episode."@en .
+paf:UnexpectedNoFlowPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringDeviationPattern .
+paf:UncontrolledOutflowPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringDeviationPattern .
+paf:DestinationMissPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringDeviationPattern .
+
+# -------- Example STEREOTYPE CLASSES and CONDITIONAL HYPOTHESIS CLASSES --------
+# All are named classes (TBox). None denote a concrete pouring execution.
+
+paf:InitiationBeforeTerminationPattern a owl:Class ;
+  rdfs:subClassOf paf:PossiblePhasePrecedence ,
+    [ a owl:Restriction ; owl:onProperty paf:earlierPhasePattern ; owl:someValuesFrom paf:FlowInitiationPhasePattern ] ,
+    [ a owl:Restriction ; owl:onProperty paf:laterPhasePattern ; owl:someValuesFrom paf:FlowTerminationPhasePattern ] ;
+  rdfs:comment "Typical possible precedence pattern, not asserted as universal ordering for all pouring."@en .
+
+paf:FlowControlledPouringScript a owl:Class ;
+  rdfs:subClassOf paf:PouringScript ,
+    [ a owl:Restriction ; owl:onProperty paf:admitsOrderingPattern ; owl:someValuesFrom paf:InitiationBeforeTerminationPattern ] ;
+  rdfs:comment "A candidate script family with flow initiation preceding controlled termination."@en .
+
+paf:OutflowEnabledCondition a owl:Class ;
+  rdfs:subClassOf paf:PouringConditionPattern ;
+  rdfs:comment "Generic assumption: transferable material and a viable outlet/flow path under suitable physical conditions."@en .
+
+paf:FlowSensitivityCondition a owl:Class ;
+  rdfs:subClassOf paf:PouringConditionPattern ;
+  rdfs:comment "Generic condition under which flow responds sensitively to the action's orientation profile."@en .
+
+paf:OrientationInducedEffluxHypothesis a owl:Class ;
+  rdfs:subClassOf paf:PouringCausalHypothesis ,
+    [ a owl:Restriction ; owl:onProperty paf:hasApplicabilityCondition ; owl:someValuesFrom paf:OutflowEnabledCondition ] ,
+    [ a owl:Restriction ; owl:onProperty paf:predictsPossibleEffect ; owl:someValuesFrom paf:FlowOnsetPredictionPattern ] ;
+  rdfs:comment "Conditional hypothesis: suitably changing source orientation can cause efflux onset. NOT an unconditional causal axiom."@en .
+
+paf:RapidOrientationChangeStrategy a owl:Class ;
+  rdfs:subClassOf paf:OrientationMediatedPouringStrategy ;
+  rdfs:comment "Candidate strategy category only, not recommended for an arbitrary task."@en .
+
+paf:UncontrolledOutflowPredictionPattern a owl:Class ;
+  rdfs:subClassOf paf:PouringPredictionPattern ;
+  rdfs:comment "Predicted possibility of undesirable flow behavior; not a demonstrated outcome."@en .
+
+paf:RapidTiltOutflowRiskHypothesis a owl:Class ;
+  rdfs:subClassOf paf:PouringStrategyHypothesis ,
+    [ a owl:Restriction ; owl:onProperty paf:concernsStrategy ; owl:someValuesFrom paf:RapidOrientationChangeStrategy ] ,
+    [ a owl:Restriction ; owl:onProperty paf:hasApplicabilityCondition ; owl:someValuesFrom paf:FlowSensitivityCondition ] ,
+    [ a owl:Restriction ; owl:onProperty paf:predictsPossibleEffect ; owl:someValuesFrom paf:UncontrolledOutflowPredictionPattern ] ;
+  rdfs:comment "Conditional risk hypothesis; does not entail spillage or make safety claims."@en .

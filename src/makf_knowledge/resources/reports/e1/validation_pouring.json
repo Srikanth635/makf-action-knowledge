@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "batch_id": "demo-batch-pouring",
+  "profile_id": "pouring-v0.1",
+  "candidates": 1,
+  "warnings": [
+    "demo-pouring-hypothesis: quote matching does not prove scientific truth or entailment",
+    "demo-pouring-hypothesis: source is a SYNTHETIC demo, not published evidence"
+  ],
+  "scope": "offline structural and local-ontology checks ONLY"
+}

@@ -1,0 +1,30 @@
+@prefix paf:  <https://w3id.org/aicor/pouring-frame#> .
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul:  <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/pouring-frame/dul-alignment> a owl:Ontology ;
+  owl:imports <http://aicor.knowledge/l2-ontology.owl> ,
+              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+  dct:title "Selective AICOR-to-DUL pouring-frame alignment"@en ;
+  dct:description "Conservative subclass mappings only. Not an endorsement of broad string-based dul_* equivalence."@en .
+
+# Source files use their OWN IRIs named aicor:dul_*. These are conservative,
+# directional bridge axioms, NOT equivalences, and not exhaustive DUL imports.
+aicor:dul_Description rdfs:subClassOf dul:Description .
+aicor:dul_Concept rdfs:subClassOf dul:Concept .
+aicor:dul_InformationObject rdfs:subClassOf dul:InformationObject .
+aicor:dul_Region rdfs:subClassOf dul:Region .
+
+# Relevant domain terms, mapped directionally to DUL descriptions / concepts.
+aicor:ManipulationFrame rdfs:subClassOf dul:Description .
+aicor:RoleSlot rdfs:subClassOf dul:Concept .
+aicor:ParticipantRole rdfs:subClassOf dul:Role .
+aicor:ConstraintSet rdfs:subClassOf dul:Description .
+
+# DO NOT map aicor:Pouring or aicor:dul_Event to dul:Action/Event here.
+# Other local aicor:dul_* aliases remain UNALIGNED pending a DL audit.
+# DO NOT equate aicor:RoleBinding with dul:Situation: it is a description.
+# DO NOT assert owl:equivalentClass between broad AICOR and DUL classes before DL review.

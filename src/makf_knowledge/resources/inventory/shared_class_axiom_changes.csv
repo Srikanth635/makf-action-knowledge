@@ -1,0 +1,18 @@
+class,removed_from_cram,added_in_cram,change_type
+ActionDesignator,,restriction | aicor:hasPart some aicor:DesignatorConstraintSet || restriction | aicor:references some aicor:ActionEventType || restriction | aicor:resolvesTo some aicor:EntityDesignator || restriction | aicor:resolvesTo some aicor:LocationDesignator || restriction | aicor:resolvesTo some aicor:MotionDesignator || restriction | aicor:resolvesTo some aicor:ObjectDesignator || subclass | aicor:AttributiveDesignator || subclass | aicor:CRAMDesignator || subclass | aicor:Representation,additive only
+ActionRef,,subclass | aicor:DesignatorTarget || subclass | aicor:Representation,additive only
+BeliefState,,restriction | aicor:hasAmbiguity hasValue true || restriction | aicor:hasInaccuracy hasValue true || restriction | aicor:hasPart some aicor:StateEstimate || restriction | aicor:includes some aicor:CRAMSemanticDigitalTwin || restriction | aicor:includes some aicor:ExecutionStateBelief || restriction | aicor:includes some aicor:ProspectiveBelief || restriction | aicor:isAbout some aicor:BodyWorldSystem || restriction | aicor:isContinuouslyUpdated hasValue true || restriction | aicor:isProbabilistic hasValue true || restriction | aicor:resourceFor some aicor:ActionDesignator || subclass | aicor:Representation,additive only
+ComputationalProcess,,restriction | aicor:operatesOn some aicor:Representation,additive only
+Critic,,restriction | aicor:yieldsVerdict some aicor:Verdict || subclass | aicor:ComputationalProcess,additive only
+ExecutiveCapability,,restriction | aicor:determinedBy some aicor:CapabilityInteraction || restriction | aicor:determinedBy some aicor:ComponentCapability || restriction | aicor:determinedBy some aicor:ExecutiveComponent || restriction | aicor:determinesPerformanceOn some aicor:ManipulationProblem,additive only
+Fluent,,restriction | aicor:isPulsed hasValue true || restriction | aicor:listensTo some aicor:EventType || restriction | aicor:partOf some aicor:StructuredReactivePlan || subclass | aicor:FluentType || subclass | aicor:Representation,additive only
+ForceDynamicEvent,,subclass | aicor:Representation,additive only
+Monitor,,subclass | aicor:ComputationalProcess || subclass | aicor:dul_Description,additive only
+Projection,,restriction | aicor:drives some aicor:PlanTransformation || restriction | aicor:isMonteCarlo hasValue true || restriction | aicor:partOf some aicor:GenerativeModel || restriction | aicor:producesTimeline some aicor:EnvisionedTimeline || subclass | aicor:ComputationalProcess || subclass | aicor:Envisioning || subclass | aicor:InternalSimulation,additive only
+Prospection,,subclass | aicor:InternalSimulation,additive only
+RelationConstraint,,restriction | aicor:constrainsRelation some aicor:SpatialRelation || restriction | aicor:constraintKind hasValue relation || subclass | aicor:RequestConstraint,additive only
+StateEstimate,,subclass | aicor:Representation,additive only
+Task,,restriction | aicor:hasStatus some aicor:Fluent || subclass | aicor:Representation || subclass | aicor:dul_Description,additive only
+TaskStatus,,restriction | aicor:statusCode some http://www.w3.org/2001/XMLSchema#string || subclass | aicor:FluentType,additive only
+TerminalStatus,,disjoint with | aicor:NonterminalStatus,additive only
+Verdict,,subclass | aicor:VerdictComponent,additive only

@@ -1,0 +1,17 @@
+aicor_class,aicor_iri,external_concept_iri,mapping_status,rationale
+ManipulationFrame,http://aicor.knowledge/l2-ontology.owl#ManipulationFrame,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description,candidate-subclass,"Frame-like description, not an observed action."
+RoleSlot,http://aicor.knowledge/l2-ontology.owl#RoleSlot,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept,candidate-subclass,Slot for interpreting role filler.
+ParticipantRole,http://aicor.knowledge/l2-ontology.owl#ParticipantRole,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role,candidate-subclass,Generic participant role; review role vs concept separation.
+GeneralizedActionPlan,http://aicor.knowledge/l2-ontology.owl#GeneralizedActionPlan,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Plan,candidate-subclass,Schematic plan; review its multiple existing superclasses.
+Pouring,http://aicor.knowledge/l2-ontology.owl#Pouring,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task,candidate-concept-alignment,"Because Pouring inherits GeneralizedActionPlan, do not map to physical dul:Action automatically."
+PouringIntention,http://aicor.knowledge/l2-ontology.owl#PouringIntention,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description,candidate-subclass,Descriptive intention in the action frame.
+PouringTelos,http://aicor.knowledge/l2-ontology.owl#PouringTelos,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal,candidate-subclass,Goal characterization; confirm axioms before formal merge.
+ManipulationEpisode,http://aicor.knowledge/l2-ontology.owl#ManipulationEpisode,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation,candidate-subclass,Episode interpreted as situated description.
+ForceDynamicEvent,http://aicor.knowledge/l2-ontology.owl#ForceDynamicEvent,http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event,review-required,Current local class also subclass of Representation; avoid incoherent imports.
+EvidenceBearingTrace,http://aicor.knowledge/l2-ontology.owl#EvidenceBearingTrace,http://www.w3.org/ns/prov#Entity,candidate-subclass,"Evidence information object, not a proven fact."
+NEEM,http://aicor.knowledge/l2-ontology.owl#NEEM,http://www.w3.org/ns/prov#Entity,candidate-subclass,Narrative or record of an occurrence.
+ExpectedObservation,http://aicor.knowledge/l2-ontology.owl#ExpectedObservation,http://www.w3.org/ns/prov#Entity,candidate-subclass,Expectation artifact not a sensor event.
+Observation,http://aicor.knowledge/l2-ontology.owl#Observation,http://www.w3.org/ns/sosa/Observation,do-not-equate,AICOR Observation is information object; SOSA Observation is an activity; use bridge.
+PouringPhase,http://aicor.knowledge/l2-ontology.owl#PouringPhase,http://www.w3.org/2006/time#Interval,do-not-equate,A phase description is NOT the time interval of an observed execution.
+EffluxOnsetEvent,http://aicor.knowledge/l2-ontology.owl#EffluxOnsetEvent,http://www.w3.org/2006/time#Instant,do-not-equate,The event type is NOT the time instant where an episode begins.
+ForceCorridor,http://aicor.knowledge/l2-ontology.owl#ForceCorridor,http://qudt.org/schema/qudt/QuantityValue,do-not-equate,Force corridor is abstract region; numerical values/units are separate.

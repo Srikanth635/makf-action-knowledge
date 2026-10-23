@@ -1,0 +1,22 @@
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/dul-alignment> a owl:Ontology ;
+    owl:versionIRI <https://w3id.org/aicor/dul-alignment/0.2.0> ;
+    owl:imports <http://aicor.knowledge/l2-ontology.owl>,
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+    dct:title "AICOR to DUL selective, directional alignment"@en ;
+    dct:description "Conservative mappings that avoid interpreting generic knowledge descriptions as observed events. Not a full OWL DL alignment."@en .
+
+aicor:dul_Description rdfs:subClassOf dul:Description .
+aicor:dul_Concept rdfs:subClassOf dul:Concept .
+aicor:dul_InformationObject rdfs:subClassOf dul:InformationObject .
+aicor:dul_Region rdfs:subClassOf dul:Region .
+aicor:ManipulationFrame rdfs:subClassOf dul:Description .
+aicor:RoleSlot rdfs:subClassOf dul:Concept .
+aicor:ParticipantRole rdfs:subClassOf dul:Role .
+aicor:ConstraintSet rdfs:subClassOf dul:Description .
+# No owl:equivalentClass and no direct event/action correspondence.

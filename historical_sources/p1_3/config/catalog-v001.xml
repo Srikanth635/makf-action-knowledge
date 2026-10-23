@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN" "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <!-- CRAM-AICOR is the working replacement for baseline AICOR under SAME ontology IRI.
+       Do not map the base AICOR file to this URI at the same time. -->
+  <uri name="http://aicor.knowledge/l2-ontology.owl" uri="../sources/cram-aicor-ontology.ttl" />
+  <uri name="https://w3id.org/aicor/dul-alignment" uri="../ontologies/dul-alignment.ttl" />
+  <uri name="https://w3id.org/aicor/makf" uri="../ontologies/makf-core.ttl" />
+  <uri name="https://w3id.org/aicor/pouring-frame" uri="../ontologies/pouring-frame.ttl" />
+  <uri name="https://w3id.org/aicor/grasping-smoke" uri="../ontologies/grasping-smoke.ttl" />
+  <!-- Official DUL is NOT bundled. Supply a pinned copy before running an OWL reasoner:
+       <uri name="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" uri="../external/DUL.owl" /> -->
+</catalog>

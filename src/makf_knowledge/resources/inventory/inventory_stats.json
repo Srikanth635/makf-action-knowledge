@@ -1,0 +1,40 @@
+{
+  "input_sha256": {
+    "aicor-ontology.ttl": "e2037ab1585ecfac88d57eec8414f475f56fd222a45056f499d9465a23ac3e3c",
+    "cram-aicor-ontology.ttl": "a33fb7af8c28792825542b1c663f233102e19ae076bbf747fdd16e4297ef0cda"
+  },
+  "base_named_classes": 709,
+  "cram_named_classes": 1017,
+  "added_classes": 308,
+  "changed_shared_classes": 17,
+  "base_object_properties": 578,
+  "cram_object_properties": 811,
+  "base_datatype_properties": 84,
+  "cram_datatype_properties": 155,
+  "base_triples": 7940,
+  "cram_triples": 11596,
+  "focus_class_count": 138,
+  "focus_property_count": 195,
+  "direct_focused_class_axioms": 572,
+  "missing_focus_classes": [],
+  "local_dul_surrogates": [
+    "dul_Action",
+    "dul_Agent",
+    "dul_Concept",
+    "dul_Description",
+    "dul_Entity",
+    "dul_Event",
+    "dul_InformationObject",
+    "dul_PhysicalAgent",
+    "dul_PhysicalObject",
+    "dul_Process",
+    "dul_Quality",
+    "dul_Region",
+    "dul_Relation",
+    "dul_Situation"
+  ],
+  "external_owl_imports": [],
+  "rdfs_comments": 0,
+  "rdfs_domains": 0,
+  "rdfs_ranges": 94
+}

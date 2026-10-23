@@ -1,0 +1,47 @@
+
+CQ01 Main frame links
+  hasActionCategory -> some Pouring
+  hasApplicabilityPerspective -> some PouringApplicabilityModel
+  hasCausalPerspective -> some PouringTemplate
+  hasDeviationPerspective -> some PouringDeviationPerspective
+  hasHypothesisPerspective -> some PouringHypothesisSpace
+  hasIntentionalPerspective -> some PouringIntention
+  hasObservationalPerspective -> some PouringObservationPerspective
+  hasProceduralPerspective -> some PouringStrategySpace
+  hasRolePerspective -> some PouringRolePerspective
+  hasTemporalPerspective -> some PouringScript
+
+CQ02 Abstract pouring role schema
+  definesRole -> some AgentRole
+  definesRole -> some DestinationRole
+  definesRole -> some GoalRole
+  definesRole -> some SourceRole
+  definesRole -> some SubstanceRole
+
+CQ03 Existing intention (source ontology)
+  hasParticipantRole -> some AgentRole
+  hasParticipantRole -> some GoalRole
+  hasParticipantRole -> some SourceRole
+  hasParticipantRole -> some SubstanceRole
+  hasTelos -> some PouringTelos
+
+CQ04 Existing causal template (source ontology)
+  hasFDEvent -> some EffluxOnsetEvent
+  hasFDState -> some FlowingState
+  hasPhase -> some PouringPhase
+  hasTerminalState -> some AccumulatedState
+  realizesIntention -> some PouringIntention
+
+CQ05 Candidate ordering
+  earlierPhasePattern -> some FlowInitiationPhasePattern
+  laterPhasePattern -> some FlowTerminationPhasePattern
+
+CQ07 Rapid-tilt risk hypothesis
+  concernsStrategy -> some RapidOrientationChangeStrategy
+  hasApplicabilityCondition -> some FlowSensitivityCondition
+  predictsPossibleEffect -> some UncontrolledOutflowPredictionPattern
+
+CQ06 Strategy classes:
+  OrientationMediatedPouringStrategy
+  FeedbackRegulatedPouringStrategy
+  RapidOrientationChangeStrategy

@@ -1,0 +1,264 @@
+id: https://w3id.org/aicor/extraction-contract/v0.1
+name: makf_extraction_contract
+version: 0.1.0
+license: https://creativecommons.org/publicdomain/zero/1.0/
+description: >-
+  Candidate extraction contract for generalized action knowledge.
+  These are descriptions and hypotheses, NOT physical action or world-state instances.
+  A candidate is provisional even if a source passage contains it.
+default_prefix: makfex
+prefixes:
+  makfex: https://w3id.org/aicor/extraction-contract#
+  linkml: https://w3id.org/linkml/
+  aicor: http://aicor.knowledge/l2-ontology.owl#
+  makf: https://w3id.org/aicor/makf#
+  paf: https://w3id.org/aicor/pouring-frame#
+  gsf: https://w3id.org/aicor/grasping-smoke#
+  dul: http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#
+  prov: http://www.w3.org/ns/prov#
+  xsd: http://www.w3.org/2001/XMLSchema#
+imports:
+  - linkml:types
+default_range: string
+
+classes:
+  ExtractionBatch:
+    description: A batch of provisional action-knowledge candidates with locally traceable source passages.
+    tree_root: true
+    attributes:
+      batch_id:
+        identifier: true
+        required: true
+      profile_id:
+        required: true
+      documents:
+        range: SourceDocument
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        required: true
+      candidates:
+        range: KnowledgeCandidate
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        required: true
+      extraction_run:
+        range: ExtractionRun
+        inlined: true
+  SourceDocument:
+    description: Source bibliographic metadata, not a world-model entity.
+    attributes:
+      document_id:
+        identifier: true
+        required: true
+      title:
+        required: true
+      uri:
+        description: Source link; optional because local-only sources are permitted.
+      doi:
+        description: Optional DOI as cited in source metadata; never hallucinate.
+      synthetic_demo:
+        range: boolean
+        required: true
+        description: True only for explicitly invented tests, not scientific evidence.
+      passages:
+        range: SourcePassage
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        required: true
+  SourcePassage:
+    description: Exactly extracted text, whose quoted substrings can be checked.
+    attributes:
+      passage_id:
+        identifier: true
+        required: true
+      text:
+        required: true
+      locator:
+        description: Section, page, paragraph or text anchor if actually known.
+  ExtractionRun:
+    description: Audit metadata for generation, not evidence of empirical truth.
+    attributes:
+      engine:
+        required: true
+        description: e.g. model, human-authored test, or import converter.
+      model_name:
+        description: Model identifier if an LLM was used.
+      prompt_version:
+        description: Extraction prompt/template revision if applicable.
+      recorded_at:
+        range: datetime
+        description: Optional execution timestamp; never invent.
+  KnowledgeCandidate:
+    description: Provisional knowledge ABOUT an action type, not an action occurrence.
+    attributes:
+      candidate_id:
+        identifier: true
+        required: true
+      action_class:
+        required: true
+        description: CURIE of an existing declared OWL action class, e.g. aicor:Pouring.
+      frame_class:
+        required: true
+        description: CURIE of the MAKF action-specific knowledge frame OWL class.
+      perspectives:
+        range: PerspectiveEnum
+        multivalued: true
+        required: true
+      knowledge_kind:
+        range: KnowledgeKindEnum
+        required: true
+      statement:
+        required: true
+        description: Explicitly qualified generalized statement, not a world fact.
+      modality:
+        range: ModalityEnum
+        required: true
+      epistemic_status:
+        range: EpistemicStatusEnum
+        required: true
+      derivation_mode:
+        range: DerivationModeEnum
+        required: true
+      evidence_status:
+        range: EvidenceStatusEnum
+        required: true
+      components:
+        range: KnowledgeComponent
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        required: true
+      structural_links:
+        range: StructuralLink
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      source_support:
+        range: SourceSupport
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        required: true
+      reviewer_note:
+        description: Optional human review note; absence is not a validation failure.
+  KnowledgeComponent:
+    description: An abstract description component, never a named physical individual.
+    attributes:
+      component_id:
+        identifier: true
+        required: true
+      component_kind:
+        range: ComponentKindEnum
+        required: true
+      description:
+        required: true
+      ontology_class:
+        description: Existing named OWL class CURIE. Required when grounding_status=grounded.
+      grounding_status:
+        range: GroundingStatusEnum
+        required: true
+      grounding_note:
+        description: Required for provisional/unmapped components to explain why.
+  StructuralLink:
+    description: A candidate structural OWL-object-property link between two abstract components.
+    attributes:
+      subject_component:
+        required: true
+      predicate_curie:
+        required: true
+        description: Existing declared MAKF object property CURIE in E1.
+      object_component:
+        required: true
+  SourceSupport:
+    description: Exact quote and location; source attribution is NOT experimental validation.
+    attributes:
+      document_id:
+        required: true
+      passage_id:
+        required: true
+      exact_quote:
+        required: true
+        description: Verbatim substring in passage.text, checked by the validator.
+      support_role:
+        range: SupportRoleEnum
+        required: true
+      start_char:
+        range: integer
+      end_char:
+        range: integer
+
+enums:
+  PerspectiveEnum:
+    permissible_values:
+      role:
+      intentional:
+      causal:
+      temporal:
+      procedural:
+      observational:
+      epistemic:
+      applicability:
+      deviation:
+  KnowledgeKindEnum:
+    permissible_values:
+      definition:
+      stereotype:
+      conditional_principle:
+      strategy_description:
+      causal_hypothesis:
+      strategy_hypothesis:
+      temporal_pattern:
+      observation_expectation:
+      deviation_hypothesis:
+  ModalityEnum:
+    permissible_values:
+      necessary:
+      typical:
+      conditional:
+      possible:
+      speculative:
+  EpistemicStatusEnum:
+    permissible_values:
+      definition:
+      stereotype:
+      conditional_principle:
+      hypothesis:
+      proposed_strategy:
+  DerivationModeEnum:
+    permissible_values:
+      source_explicit:
+      source_paraphrase:
+      llm_inference:
+      llm_proposal:
+  EvidenceStatusEnum:
+    permissible_values:
+      source_anchored:
+      not_assessed:
+      corroborated:
+      contradicted:
+      unsupported:
+  ComponentKindEnum:
+    permissible_values:
+      hypothesis:
+      strategy:
+      applicability_condition:
+      predicted_effect:
+      role_pattern:
+      goal_pattern:
+      causal_mechanism:
+      phase_pattern:
+      observation_pattern:
+      deviation_pattern:
+      generic_description:
+  GroundingStatusEnum:
+    permissible_values:
+      grounded:
+      needs_mapping:
+  SupportRoleEnum:
+    permissible_values:
+      asserts_claim:
+      context_only:
+      contradicts_claim:

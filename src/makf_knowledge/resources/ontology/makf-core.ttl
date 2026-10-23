@@ -1,0 +1,89 @@
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/makf> a owl:Ontology ;
+    owl:versionIRI <https://w3id.org/aicor/makf/0.2.0> ;
+    owl:imports <https://w3id.org/aicor/dul-alignment> ;
+    dct:title "Multiperspective Action Knowledge Framework (MAKF)"@en ;
+    dct:description "Reusable TBox of stereotypical action description perspectives, generalized plans, phase patterns, assumptions and conditional hypotheses; no action-specific or physical world individuals."@en ;
+    owl:versionInfo "Experimental modular refactor v0.2.0; not DL-reasoner-certified."@en .
+
+# This is a DESCRIPTION FRAME, not an event or situated action realization.
+makf:ActionKnowledgeFrame a owl:Class ; rdfs:subClassOf dul:Description ;
+    rdfs:comment "Knowledge schema for an action category, not a robot/scene/execution."@en .
+makf:RolePerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:TemporalPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:PhasePattern a owl:Class ; rdfs:subClassOf dul:Description .
+makf:StrategyPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:HypothesisPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:ObservationPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:ApplicabilityPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:DeviationPerspective a owl:Class ; rdfs:subClassOf dul:Description .
+makf:ApplicabilityCondition a owl:Class ; rdfs:subClassOf dul:Description ;
+    rdfs:comment "Descriptive assumptions; not assessed against a particular situation."@en .
+makf:PredictedEffectPattern a owl:Class ; rdfs:subClassOf dul:Description ;
+    rdfs:comment "Reified possible effect inside a hypothesis; not an effect asserted to occur."@en .
+makf:ObservationPattern a owl:Class ; rdfs:subClassOf dul:Description .
+makf:DeviationPattern a owl:Class ; rdfs:subClassOf dul:Description .
+makf:PossiblePhasePrecedence a owl:Class ; rdfs:subClassOf dul:Description ,
+    [ a owl:Restriction ; owl:onProperty makf:earlierPhasePattern ; owl:someValuesFrom makf:PhasePattern ] ,
+    [ a owl:Restriction ; owl:onProperty makf:laterPhasePattern ; owl:someValuesFrom makf:PhasePattern ] ;
+    rdfs:comment "A hypothesized/described ordering between phase patterns; no actual intervals."@en .
+makf:GeneralizedStrategy a owl:Class ; rdfs:subClassOf dul:Plan ;
+    rdfs:comment "Reusable possible strategy, deliberately not committed to AICOR's world-contextualization plan restrictions."@en .
+makf:ActingHypothesis a owl:Class ; rdfs:subClassOf aicor:Hypothesis ,
+    [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityCondition ; owl:someValuesFrom makf:ApplicabilityCondition ] ,
+    [ a owl:Restriction ; owl:onProperty makf:predictsPossibleEffect ; owl:someValuesFrom makf:PredictedEffectPattern ] ;
+    rdfs:comment "Generic unverified acting hypothesis, without obligatory execution trace or EvidenceSet."@en .
+makf:StrategyHypothesis a owl:Class ; rdfs:subClassOf makf:ActingHypothesis ,
+    [ a owl:Restriction ; owl:onProperty makf:concernsStrategy ; owl:someValuesFrom makf:GeneralizedStrategy ] .
+makf:CausalHypothesis a owl:Class ; rdfs:subClassOf makf:ActingHypothesis ,
+    [ a owl:Restriction ; owl:onProperty makf:concernsCausalTemplate ; owl:someValuesFrom dul:Description ] .
+
+# Perspective composition: only a limited common backbone is mandatory.
+makf:hasPerspective a owl:ObjectProperty ;
+    rdfs:domain makf:ActionKnowledgeFrame ; rdfs:range dul:Description .
+makf:hasActionCategory a owl:ObjectProperty ;
+    rdfs:domain makf:ActionKnowledgeFrame ; rdfs:range dul:Description ;
+    rdfs:comment "A description of a generalized action type; concrete specializations constrain fillers to corresponding domain classes, never to an actual dul:Action occurrence."@en .
+makf:hasRolePerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:RolePerspective .
+makf:hasIntentionalPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range aicor:IntentionalStructure .
+makf:hasCausalPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range dul:Description .
+makf:hasTemporalPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:TemporalPerspective .
+makf:hasProceduralPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:StrategyPerspective .
+makf:hasObservationalPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:ObservationPerspective .
+makf:hasHypothesisPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:HypothesisPerspective .
+makf:hasDeviationPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:DeviationPerspective .
+makf:hasApplicabilityPerspective a owl:ObjectProperty ; rdfs:subPropertyOf makf:hasPerspective ; rdfs:range makf:ApplicabilityPerspective .
+
+# Generic scripts and candidate phase ordering (not OWL-Time actual events).
+makf:containsPhasePattern a owl:ObjectProperty ; rdfs:domain makf:TemporalPerspective ; rdfs:range makf:PhasePattern .
+makf:admitsOrderingPattern a owl:ObjectProperty ; rdfs:domain makf:TemporalPerspective ; rdfs:range makf:PossiblePhasePrecedence .
+makf:earlierPhasePattern a owl:ObjectProperty ; rdfs:domain makf:PossiblePhasePrecedence ; rdfs:range makf:PhasePattern .
+makf:laterPhasePattern a owl:ObjectProperty ; rdfs:domain makf:PossiblePhasePrecedence ; rdfs:range makf:PhasePattern .
+
+# Generic alternatives and strategy conditions.
+makf:containsStrategy a owl:ObjectProperty ; rdfs:domain makf:StrategyPerspective ; rdfs:range makf:GeneralizedStrategy .
+makf:aimsAtTelos a owl:ObjectProperty ; rdfs:domain makf:GeneralizedStrategy ; rdfs:range aicor:Telos .
+makf:usesCausalModel a owl:ObjectProperty ; rdfs:domain makf:GeneralizedStrategy ; rdfs:range dul:Description .
+makf:hasStrategyCondition a owl:ObjectProperty ; rdfs:domain makf:GeneralizedStrategy ; rdfs:range makf:ApplicabilityCondition .
+
+# Hypotheses link to possible predictions, not physical causal assertions.
+makf:hasCandidateHypothesis a owl:ObjectProperty ; rdfs:domain makf:HypothesisPerspective ; rdfs:range makf:ActingHypothesis .
+makf:hasApplicabilityCondition a owl:ObjectProperty ; rdfs:domain makf:ActingHypothesis ; rdfs:range makf:ApplicabilityCondition .
+makf:predictsPossibleEffect a owl:ObjectProperty ; rdfs:domain makf:ActingHypothesis ; rdfs:range makf:PredictedEffectPattern .
+makf:concernsStrategy a owl:ObjectProperty ; rdfs:domain makf:StrategyHypothesis ; rdfs:range makf:GeneralizedStrategy .
+makf:concernsCausalTemplate a owl:ObjectProperty ; rdfs:domain makf:CausalHypothesis ; rdfs:range dul:Description .
+makf:couldBeTestedBy a owl:ObjectProperty ; rdfs:domain makf:ActingHypothesis ; rdfs:range makf:ObservationPattern .
+
+# Cross-cutting conditions, predicted states, observation cues, deviations.
+makf:hasConditionPattern a owl:ObjectProperty ; rdfs:domain makf:ApplicabilityPerspective ; rdfs:range makf:ApplicabilityCondition .
+makf:characterizesExpectedState a owl:ObjectProperty ; rdfs:domain makf:PredictedEffectPattern ; rdfs:range dul:Description .
+makf:hasExpectedCue a owl:ObjectProperty ; rdfs:domain makf:ObservationPerspective ; rdfs:range makf:ObservationPattern .
+makf:hasDeviationPattern a owl:ObjectProperty ; rdfs:domain makf:DeviationPerspective ; rdfs:range makf:DeviationPattern .
+makf:concernsFailureType a owl:ObjectProperty ; rdfs:domain makf:DeviationPattern ; rdfs:range aicor:FailureReason .
+makf:potentiallyContradicts a owl:ObjectProperty ; rdfs:domain makf:DeviationPattern ; rdfs:range makf:PredictedEffectPattern .

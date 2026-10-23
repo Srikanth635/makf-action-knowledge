@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "batch_id": "demo-batch-grasping",
+  "profile_id": "grasping-smoke-v0.1",
+  "candidates": 1,
+  "warnings": [
+    "demo-grasping-hypothesis: quote matching does not prove scientific truth or entailment",
+    "demo-grasping-hypothesis: source is a SYNTHETIC demo, not published evidence"
+  ],
+  "scope": "offline structural and local-ontology checks ONLY"
+}

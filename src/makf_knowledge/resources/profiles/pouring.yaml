@@ -1,0 +1,20 @@
+profile_id: pouring-v0.1
+name: Multiperspective pouring action extraction
+ontology_action_class: aicor:Pouring
+ontology_frame_class: paf:PouringKnowledgeFrame
+allowed_component_prefixes: [aicor, makf, paf]
+allowed_predicate_prefixes: [makf]
+perspective_focus:
+  role: [aicor:PouringIntention, paf:PouringRolePerspective]
+  intentional: [aicor:PouringIntention, aicor:PouringTelos]
+  causal: [aicor:PouringTemplate, aicor:EffluxOnsetEvent, aicor:FlowingState]
+  temporal: [paf:PouringScript, makf:PhasePattern]
+  procedural: [paf:PouringStrategy, makf:GeneralizedStrategy]
+  observational: [makf:ObservationPattern, paf:PouringObservationPerspective]
+  epistemic: [makf:ActingHypothesis, paf:PouringCausalHypothesis]
+  applicability: [makf:ApplicabilityCondition, paf:OutflowEnabledCondition]
+  deviation: [makf:DeviationPattern, paf:PouringDeviationPattern]
+notes:
+  - Describe action types and stereotypical or conditional knowledge only.
+  - The schema already restricts source status, provenance, and ontology grounding.
+  - Treat causal and strategy suggestions as descriptions, not observations.

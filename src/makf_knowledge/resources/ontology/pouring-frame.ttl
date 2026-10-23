@@ -1,0 +1,110 @@
+@prefix paf: <https://w3id.org/aicor/pouring-frame#> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/aicor/pouring-frame> a owl:Ontology ;
+  owl:versionIRI <https://w3id.org/aicor/pouring-frame/0.2.0> ;
+  owl:imports <https://w3id.org/aicor/makf> ;
+  dct:title "Multiperspective stereotypical pouring frame (MAKF specialization)"@en ;
+  dct:description "Only pouring-specific role, script, strategy, observation, prediction and hypothesis patterns. No robot/world/event instances."@en .
+
+paf:PouringKnowledgeFrame a owl:Class ;
+  rdfs:subClassOf makf:ActionKnowledgeFrame ,
+    [ a owl:Restriction ; owl:onProperty makf:hasActionCategory ; owl:someValuesFrom aicor:Pouring ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasRolePerspective ; owl:someValuesFrom paf:PouringRolePerspective ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasIntentionalPerspective ; owl:someValuesFrom aicor:PouringIntention ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasCausalPerspective ; owl:someValuesFrom aicor:PouringTemplate ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasTemporalPerspective ; owl:someValuesFrom paf:PouringScript ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasProceduralPerspective ; owl:someValuesFrom paf:PouringStrategySpace ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasObservationalPerspective ; owl:someValuesFrom paf:PouringObservationPerspective ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasHypothesisPerspective ; owl:someValuesFrom paf:PouringHypothesisSpace ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasDeviationPerspective ; owl:someValuesFrom paf:PouringDeviationPerspective ] ,
+    [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityPerspective ; owl:someValuesFrom paf:PouringApplicabilityModel ] ;
+  rdfs:seeAlso aicor:ManipulationFrame ;
+  rdfs:comment "Generalized frame, NOT aicor:ManipulationFrame subclass: avoids obligatory RWMS-family dependency."@en .
+
+# Structural participant-role description, without physical role bearers.
+paf:DestinationRole a owl:Class ; rdfs:subClassOf aicor:ParticipantRole .
+paf:PouringRolePerspective a owl:Class ; rdfs:subClassOf makf:RolePerspective ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:AgentRole ] ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:SourceRole ] ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:SubstanceRole ] ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom paf:DestinationRole ] ,
+  [ a owl:Restriction ; owl:onProperty dul:definesRole ; owl:someValuesFrom aicor:GoalRole ] .
+
+# Stereotypical phase descriptions and optional candidate ordering.
+paf:PouringScript a owl:Class ; rdfs:subClassOf makf:TemporalPerspective, dul:Plan ,
+  [ a owl:Restriction ; owl:onProperty makf:containsPhasePattern ; owl:someValuesFrom paf:FlowInitiationPhasePattern ] ,
+  [ a owl:Restriction ; owl:onProperty makf:containsPhasePattern ; owl:someValuesFrom paf:FlowTerminationPhasePattern ] .
+paf:FlowInitiationPhasePattern a owl:Class ; rdfs:subClassOf makf:PhasePattern, aicor:PouringPhase .
+paf:FlowTerminationPhasePattern a owl:Class ; rdfs:subClassOf makf:PhasePattern, aicor:MotionPhase .
+paf:GraspPreparationPhasePattern a owl:Class ; rdfs:subClassOf makf:PhasePattern, aicor:MotionPhase ;
+  rdfs:comment "Candidate pattern, not a mandatory phase of every pouring method."@en .
+paf:InitiationBeforeTerminationPattern a owl:Class ; rdfs:subClassOf makf:PossiblePhasePrecedence,
+  [ a owl:Restriction ; owl:onProperty makf:earlierPhasePattern ; owl:someValuesFrom paf:FlowInitiationPhasePattern ] ,
+  [ a owl:Restriction ; owl:onProperty makf:laterPhasePattern ; owl:someValuesFrom paf:FlowTerminationPhasePattern ] .
+paf:FlowControlledPouringScript a owl:Class ; rdfs:subClassOf paf:PouringScript,
+  [ a owl:Restriction ; owl:onProperty makf:admitsOrderingPattern ; owl:someValuesFrom paf:InitiationBeforeTerminationPattern ] .
+
+# Alternative GENERALIZED strategies, retaining CRAM plan specializations.
+paf:PouringStrategySpace a owl:Class ; rdfs:subClassOf makf:StrategyPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:containsStrategy ; owl:someValuesFrom paf:PouringStrategy ] .
+paf:PouringStrategy a owl:Class ; rdfs:subClassOf makf:GeneralizedStrategy, aicor:GeneralizedActionPlan,
+  [ a owl:Restriction ; owl:onProperty makf:aimsAtTelos ; owl:someValuesFrom aicor:PouringTelos ] ,
+  [ a owl:Restriction ; owl:onProperty makf:usesCausalModel ; owl:someValuesFrom aicor:PouringTemplate ] .
+paf:OrientationMediatedPouringStrategy a owl:Class ; rdfs:subClassOf paf:PouringStrategy .
+paf:FeedbackRegulatedPouringStrategy a owl:Class ; rdfs:subClassOf paf:PouringStrategy .
+paf:RapidOrientationChangeStrategy a owl:Class ; rdfs:subClassOf paf:OrientationMediatedPouringStrategy ;
+  rdfs:comment "Candidate strategy, not a safety recommendation."@en .
+
+# Conditional hypothetical knowledge; no assertion that its effects happen.
+paf:PouringHypothesisSpace a owl:Class ; rdfs:subClassOf makf:HypothesisPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasCandidateHypothesis ; owl:someValuesFrom paf:PouringActingHypothesis ] .
+paf:PouringActingHypothesis a owl:Class ; rdfs:subClassOf makf:ActingHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityCondition ; owl:someValuesFrom paf:PouringConditionPattern ] ,
+  [ a owl:Restriction ; owl:onProperty makf:predictsPossibleEffect ; owl:someValuesFrom paf:PouringPredictionPattern ] .
+paf:PouringStrategyHypothesis a owl:Class ; rdfs:subClassOf paf:PouringActingHypothesis, makf:StrategyHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:concernsStrategy ; owl:someValuesFrom paf:PouringStrategy ] .
+paf:PouringCausalHypothesis a owl:Class ; rdfs:subClassOf paf:PouringActingHypothesis, makf:CausalHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:concernsCausalTemplate ; owl:someValuesFrom aicor:PouringTemplate ] .
+
+paf:PouringApplicabilityModel a owl:Class ; rdfs:subClassOf makf:ApplicabilityPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasConditionPattern ; owl:someValuesFrom paf:PouringConditionPattern ] .
+paf:PouringConditionPattern a owl:Class ; rdfs:subClassOf makf:ApplicabilityCondition, aicor:ConstraintSet .
+paf:OutflowEnabledCondition a owl:Class ; rdfs:subClassOf paf:PouringConditionPattern ;
+  rdfs:comment "Abstract conditions supporting an outflow path; never asserts that a specific container meets them."@en .
+paf:FlowSensitivityCondition a owl:Class ; rdfs:subClassOf paf:PouringConditionPattern .
+
+paf:PouringPredictionPattern a owl:Class ; rdfs:subClassOf makf:PredictedEffectPattern .
+paf:FlowOnsetPredictionPattern a owl:Class ; rdfs:subClassOf paf:PouringPredictionPattern .
+paf:AccumulationPredictionPattern a owl:Class ; rdfs:subClassOf paf:PouringPredictionPattern,
+  [ a owl:Restriction ; owl:onProperty makf:characterizesExpectedState ; owl:someValuesFrom aicor:AccumulatedState ] .
+paf:UncontrolledOutflowPredictionPattern a owl:Class ; rdfs:subClassOf paf:PouringPredictionPattern .
+
+paf:PouringObservationPerspective a owl:Class ; rdfs:subClassOf makf:ObservationPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasExpectedCue ; owl:someValuesFrom paf:PouringObservationPattern ] .
+paf:PouringObservationPattern a owl:Class ; rdfs:subClassOf makf:ObservationPattern .
+paf:FlowOnsetCuePattern a owl:Class ; rdfs:subClassOf paf:PouringObservationPattern .
+paf:FlowTerminationCuePattern a owl:Class ; rdfs:subClassOf paf:PouringObservationPattern .
+
+paf:PouringDeviationPerspective a owl:Class ; rdfs:subClassOf makf:DeviationPerspective,
+  [ a owl:Restriction ; owl:onProperty makf:hasDeviationPattern ; owl:someValuesFrom paf:PouringDeviationPattern ] .
+paf:PouringDeviationPattern a owl:Class ; rdfs:subClassOf makf:DeviationPattern .
+paf:UnexpectedNoFlowPattern a owl:Class ; rdfs:subClassOf paf:PouringDeviationPattern .
+paf:UncontrolledOutflowPattern a owl:Class ; rdfs:subClassOf paf:PouringDeviationPattern .
+paf:DestinationMissPattern a owl:Class ; rdfs:subClassOf paf:PouringDeviationPattern .
+
+# Two specialization examples; these are claims ABOUT possibilities.
+paf:OrientationInducedEffluxHypothesis a owl:Class ; rdfs:subClassOf paf:PouringCausalHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityCondition ; owl:someValuesFrom paf:OutflowEnabledCondition ] ,
+  [ a owl:Restriction ; owl:onProperty makf:predictsPossibleEffect ; owl:someValuesFrom paf:FlowOnsetPredictionPattern ] ;
+  rdfs:comment "Hypothesis: orientation change can initiate outflow under enabling conditions."@en .
+paf:RapidTiltOutflowRiskHypothesis a owl:Class ; rdfs:subClassOf paf:PouringStrategyHypothesis,
+  [ a owl:Restriction ; owl:onProperty makf:concernsStrategy ; owl:someValuesFrom paf:RapidOrientationChangeStrategy ] ,
+  [ a owl:Restriction ; owl:onProperty makf:hasApplicabilityCondition ; owl:someValuesFrom paf:FlowSensitivityCondition ] ,
+  [ a owl:Restriction ; owl:onProperty makf:predictsPossibleEffect ; owl:someValuesFrom paf:UncontrolledOutflowPredictionPattern ] ;
+  rdfs:comment "Conditional, unverified risk hypothesis, not a universal safety conclusion."@en .

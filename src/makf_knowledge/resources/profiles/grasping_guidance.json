@@ -1,0 +1,467 @@
+{
+  "profile_id": "grasping-smoke-v0.1",
+  "action_class": "aicor:Grasping",
+  "frame_class": "gsf:GraspingKnowledgeFrame",
+  "perspective_focus": {
+    "role": [
+      "gsf:GraspingRolePerspective"
+    ],
+    "intentional": [
+      "gsf:GraspingIntentionPattern"
+    ],
+    "causal": [
+      "gsf:GraspingCausalTemplate"
+    ],
+    "temporal": [
+      "gsf:GraspingScript",
+      "gsf:ContactEstablishmentPattern"
+    ],
+    "procedural": [
+      "gsf:ContactGuidedGraspStrategy"
+    ],
+    "observational": [
+      "gsf:ContactCuePattern"
+    ],
+    "epistemic": [
+      "gsf:ContactStabilityHypothesis"
+    ],
+    "applicability": [
+      "gsf:ContactConditionsPattern"
+    ],
+    "deviation": [
+      "gsf:SlipPattern"
+    ]
+  },
+  "known_class_declarations": [
+    {
+      "curie": "aicor:Grasping",
+      "uri": "http://aicor.knowledge/l2-ontology.owl#Grasping",
+      "parent_uris": [
+        "http://aicor.knowledge/l2-ontology.owl#PrimitiveAction",
+        "http://www.w3.org/2002/07/owl#Thing"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:ContactConditionsPattern",
+      "uri": "https://w3id.org/aicor/grasping-smoke#ContactConditionsPattern",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#ApplicabilityCondition"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:ContactCuePattern",
+      "uri": "https://w3id.org/aicor/grasping-smoke#ContactCuePattern",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#ObservationPattern"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:ContactEstablishmentPattern",
+      "uri": "https://w3id.org/aicor/grasping-smoke#ContactEstablishmentPattern",
+      "parent_uris": [
+        "http://aicor.knowledge/l2-ontology.owl#MotionPhase",
+        "https://w3id.org/aicor/makf#PhasePattern"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:ContactGuidedGraspStrategy",
+      "uri": "https://w3id.org/aicor/grasping-smoke#ContactGuidedGraspStrategy",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:ContactStabilityHypothesis",
+      "uri": "https://w3id.org/aicor/grasping-smoke#ContactStabilityHypothesis",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#StrategyHypothesis"
+      ],
+      "existential_restrictions": [
+        {
+          "property_uri": "https://w3id.org/aicor/makf#concernsStrategy",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#ContactGuidedGraspStrategy"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasApplicabilityCondition",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#ContactConditionsPattern"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#predictsPossibleEffect",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#StableCouplingPrediction"
+        }
+      ]
+    },
+    {
+      "curie": "gsf:GraspingCausalTemplate",
+      "uri": "https://w3id.org/aicor/grasping-smoke#GraspingCausalTemplate",
+      "parent_uris": [
+        "http://aicor.knowledge/l2-ontology.owl#ForceDynamicTemplate"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:GraspingIntentionPattern",
+      "uri": "https://w3id.org/aicor/grasping-smoke#GraspingIntentionPattern",
+      "parent_uris": [
+        "http://aicor.knowledge/l2-ontology.owl#IntentionalStructure"
+      ],
+      "existential_restrictions": []
+    },
+    {
+      "curie": "gsf:GraspingKnowledgeFrame",
+      "uri": "https://w3id.org/aicor/grasping-smoke#GraspingKnowledgeFrame",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#ActionKnowledgeFrame"
+      ],
+      "existential_restrictions": [
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasActionCategory",
+          "some_values_from_uri": "http://aicor.knowledge/l2-ontology.owl#Grasping"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasRolePerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingRolePerspective"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasIntentionalPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingIntentionPattern"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasCausalPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingCausalTemplate"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasTemporalPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingScript"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasProceduralPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingStrategySpace"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasObservationalPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingObservationPerspective"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasHypothesisPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingHypothesisSpace"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasDeviationPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingDeviationPerspective"
+        },
+        {
+          "property_uri": "https://w3id.org/aicor/makf#hasApplicabilityPerspective",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#GraspingApplicabilityModel"
+        }
+      ]
+    },
+    {
+      "curie": "gsf:GraspingRolePerspective",
+      "uri": "https://w3id.org/aicor/grasping-smoke#GraspingRolePerspective",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#RolePerspective"
+      ],
+      "existential_restrictions": [
+        {
+          "property_uri": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#definesRole",
+          "some_values_from_uri": "http://aicor.knowledge/l2-ontology.owl#AgentRole"
+        },
+        {
+          "property_uri": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#definesRole",
+          "some_values_from_uri": "http://aicor.knowledge/l2-ontology.owl#PatientRole"
+        }
+      ]
+    },
+    {
+      "curie": "gsf:GraspingScript",
+      "uri": "https://w3id.org/aicor/grasping-smoke#GraspingScript",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#TemporalPerspective"
+      ],
+      "existential_restrictions": [
+        {
+          "property_uri": "https://w3id.org/aicor/makf#containsPhasePattern",
+          "some_values_from_uri": "https://w3id.org/aicor/grasping-smoke#ContactEstablishmentPattern"
+        }
+      ]
+    },
+    {
+      "curie": "gsf:SlipPattern",
+      "uri": "https://w3id.org/aicor/grasping-smoke#SlipPattern",
+      "parent_uris": [
+        "https://w3id.org/aicor/makf#DeviationPattern"
+      ],
+      "existential_restrictions": []
+    }
+  ],
+  "allowed_makf_properties": [
+    {
+      "uri": "https://w3id.org/aicor/makf#admitsOrderingPattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#TemporalPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PossiblePhasePrecedence"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#aimsAtTelos",
+      "domains": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ],
+      "ranges": [
+        "http://aicor.knowledge/l2-ontology.owl#Telos"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#characterizesExpectedState",
+      "domains": [
+        "https://w3id.org/aicor/makf#PredictedEffectPattern"
+      ],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#concernsCausalTemplate",
+      "domains": [
+        "https://w3id.org/aicor/makf#CausalHypothesis"
+      ],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#concernsFailureType",
+      "domains": [
+        "https://w3id.org/aicor/makf#DeviationPattern"
+      ],
+      "ranges": [
+        "http://aicor.knowledge/l2-ontology.owl#FailureReason"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#concernsStrategy",
+      "domains": [
+        "https://w3id.org/aicor/makf#StrategyHypothesis"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#containsPhasePattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#TemporalPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PhasePattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#containsStrategy",
+      "domains": [
+        "https://w3id.org/aicor/makf#StrategyPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#couldBeTestedBy",
+      "domains": [
+        "https://w3id.org/aicor/makf#ActingHypothesis"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ObservationPattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#earlierPhasePattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#PossiblePhasePrecedence"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PhasePattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasActionCategory",
+      "domains": [
+        "https://w3id.org/aicor/makf#ActionKnowledgeFrame"
+      ],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasApplicabilityCondition",
+      "domains": [
+        "https://w3id.org/aicor/makf#ActingHypothesis"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ApplicabilityCondition"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasApplicabilityPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ApplicabilityPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasCandidateHypothesis",
+      "domains": [
+        "https://w3id.org/aicor/makf#HypothesisPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ActingHypothesis"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasCausalPerspective",
+      "domains": [],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasConditionPattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#ApplicabilityPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ApplicabilityCondition"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasDeviationPattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#DeviationPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#DeviationPattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasDeviationPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#DeviationPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasExpectedCue",
+      "domains": [
+        "https://w3id.org/aicor/makf#ObservationPerspective"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ObservationPattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasHypothesisPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#HypothesisPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasIntentionalPerspective",
+      "domains": [],
+      "ranges": [
+        "http://aicor.knowledge/l2-ontology.owl#IntentionalStructure"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasObservationalPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ObservationPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasPerspective",
+      "domains": [
+        "https://w3id.org/aicor/makf#ActionKnowledgeFrame"
+      ],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasProceduralPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#StrategyPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasRolePerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#RolePerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasStrategyCondition",
+      "domains": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#ApplicabilityCondition"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#hasTemporalPerspective",
+      "domains": [],
+      "ranges": [
+        "https://w3id.org/aicor/makf#TemporalPerspective"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#laterPhasePattern",
+      "domains": [
+        "https://w3id.org/aicor/makf#PossiblePhasePrecedence"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PhasePattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#potentiallyContradicts",
+      "domains": [
+        "https://w3id.org/aicor/makf#DeviationPattern"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PredictedEffectPattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#predictsPossibleEffect",
+      "domains": [
+        "https://w3id.org/aicor/makf#ActingHypothesis"
+      ],
+      "ranges": [
+        "https://w3id.org/aicor/makf#PredictedEffectPattern"
+      ]
+    },
+    {
+      "uri": "https://w3id.org/aicor/makf#usesCausalModel",
+      "domains": [
+        "https://w3id.org/aicor/makf#GeneralizedStrategy"
+      ],
+      "ranges": [
+        "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"
+      ]
+    }
+  ],
+  "IMPORTANT": "Vocabulary context only. It does not imply causal assertions or actual observed events."
+}

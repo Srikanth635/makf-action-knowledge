@@ -1,0 +1,18 @@
+profile_id: grasping-smoke-v0.1
+name: Minimal grasping reuse proof (NOT full grasping ontology)
+ontology_action_class: aicor:Grasping
+ontology_frame_class: gsf:GraspingKnowledgeFrame
+allowed_component_prefixes: [aicor, makf, gsf]
+allowed_predicate_prefixes: [makf]
+perspective_focus:
+  role: [gsf:GraspingRolePerspective]
+  intentional: [gsf:GraspingIntentionPattern]
+  causal: [gsf:GraspingCausalTemplate]
+  temporal: [gsf:GraspingScript, gsf:ContactEstablishmentPattern]
+  procedural: [gsf:ContactGuidedGraspStrategy]
+  observational: [gsf:ContactCuePattern]
+  epistemic: [gsf:ContactStabilityHypothesis]
+  applicability: [gsf:ContactConditionsPattern]
+  deviation: [gsf:SlipPattern]
+notes:
+  - Testing generic MAKF extraction compatibility only; does not assert real grasps.
