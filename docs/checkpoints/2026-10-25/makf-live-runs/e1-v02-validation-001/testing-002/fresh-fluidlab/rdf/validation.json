@@ -1,0 +1,17 @@
+{
+  "e1": {
+    "status": "PASS",
+    "batch_id": "e1-v02-fresh-fluidlab",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "c1: candidate has components pending ontology grounding",
+      "c1: quote matching does not prove scientific truth or entailment",
+      "c2: candidate has components pending ontology grounding",
+      "c2: quote matching does not prove scientific truth or entailment",
+      "c3: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "shacl_conforms": true
+}

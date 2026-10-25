@@ -1,0 +1,14 @@
+[
+  {
+    "name": "softgym",
+    "url": "https://arxiv.org/pdf/2011.07215",
+    "bytes": 2610665,
+    "sha256": "0e0bd8b74b7d8b3aa1a203694debf47d425adbfe2eab8bf4555b198525e89903"
+  },
+  {
+    "name": "fluidlab",
+    "url": "https://arxiv.org/pdf/2303.02346",
+    "bytes": 2734658,
+    "sha256": "8decba48c2c63b6611ac1ee3096bd0836c2c9334a3e76899a7188bbb1ae872a7"
+  }
+]

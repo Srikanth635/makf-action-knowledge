@@ -1,0 +1,26 @@
+Our simulation platform provides an efficient test bed and useful gradient information for develop-
+ing algorithms to deal with complex fluid manipulation problems, testing how the optimized policies
+perform in a real-world setting would be very helpful and informative in evaluating the sim-to-real
+gap and suggesting future research directions. Therefore, we conducted experiments on a real robot
+system, with a 7-DoF Franka Emika robot equipped with a parallel jaw gripper. We picked four
+representative tasks proposed in FluidLab, including Latte Art (Stirring), Ice Cream (Dynamic),
+Gathering and Mixing, and set up corresponding real world scenarios. We optimize the trajectories
+in simulation, and then command the robot to execute them using velocity control in the corre-
+sponding real-world scenarios. (See our project site for qualitative results.) It can be observed that
+although there’s certain sim-to-real gap in terms of material behavior and dynamics, when we apply
+the simulation-optimized trajectories to real-world, the tasks can be completed to a reasonable ex-
+tent. The sim-to-real gap mainly comes from the simulation inaccuracy and difference in material
+properties between sim and real. For example, in the latte art experiment, the frothed milk behaves
+a bit differently than in simulation: it’s more sticky and tend to mix again after the latte art pen
+passes. This could be further improved in simulation by developing more accurate material models,
+as well as increasing the simulation resolution and number of particles, which we leave to our fu-
+ture work. Another example is the ice cream experiment, where it is difficult to maintain a steady
+flow speed of the ice cream, resulting in slight different end shape of the ice cream compared to the
+simulated one. Although there exists such sim-to-real gap in material dynamics, the robot is able
+to complete the proposed tasks reasonably well. We would also like to acknowledge that given our
+current resources, we are not able to conduct all the proposed tasks in real world, such as the air
+circulation task, which remains as our future work. However, We believe the current 4 selected tasks
+cover a representative range of materials and task settings, and such experiments could shed light on
+the value of our simulator as a test bed for robotic research, point out potential sim-to-real gap and
+suggest possible improvements in our future work.
+

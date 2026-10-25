@@ -146,6 +146,13 @@ class SemanticValidator:
                 elif ctype or not comp.get('grounding_note'):
                     raise ValidationError(f'{cid}: needs_mapping requires grounding_note and no ontology_class')
             links = set()
+            kind, status = c['knowledge_kind'], c['epistemic_status']
+            if kind in {'benchmark_definition', 'task_objective', 'reported_observation'}:
+                expected = 'reported_observation' if kind == 'reported_observation' else 'definition'
+                if status != expected or c['derivation_mode'] not in {'source_explicit', 'source_paraphrase'}:
+                    raise ValidationError(f'{cid}: {kind} requires source derivation and epistemic_status={expected}')
+            if status == 'reported_observation' and kind != 'reported_observation':
+                raise ValidationError(f'{cid}: reported_observation status requires matching knowledge_kind')
             for l in c.get('structural_links', []):
                 if l['subject_component'] not in kinds or l['object_component'] not in kinds:
                     raise ValidationError(f'{cid}: link endpoints must reference local components')

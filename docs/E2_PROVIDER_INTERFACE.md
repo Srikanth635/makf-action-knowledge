@@ -4,7 +4,7 @@
 Chat Completions with strict Structured Outputs. `FixtureProvider` returns an
 explicitly supplied offline response. `extract(request, provider)` separates IO,
 JSON parsing, request-bound checks, E1 semantic validation, and artifact persistence.
-The OpenAI adapter is implemented; a live scientific result is **not yet available**.
+The OpenAI adapter is implemented and has been exercised live; see [current progress](CURRENT_PROGRESS.md) for outcomes.
 See the [prepared PourIt! pilot and blocker](experiments/e23_pouring/README.md).
 
 ## Install and configure
@@ -135,11 +135,7 @@ updated reusable installation script was exercised successfully. A built wheel
 also ran both fixture pipelines outside the checkout with the OpenAI import
 disabled. Original ontology files and canonical E1 resources remain unchanged.
 
-Live evidence is distinct: the prepared OpenAI command failed credential preflight
-before any API call. Server acceptance of the strict schema and actual scientific
-extraction quality remain unverified. The environment configuration draft stores
-the optional SDK setup, startup instructions, API credential requirement and
-required destinations; it does not create a key or apply/publish those changes.
+Live evidence and current validation outcomes are recorded in [current progress](CURRENT_PROGRESS.md). OpenAI authentication is verified. Transport v2 requests evidence IDs from a caller-derived catalogue of complete passages and source lines, with null offsets. After wire validation the runner resolves IDs to exact source text and validates canonical E1. Raw response and the catalogue are retained; unknown IDs and wrong attribution fail validation. E1 still supports verified offsets from other providers. This targets short excerpts; large documents need a separate chunking and schema-size design. See the [candidate review](experiments/e23_pouring/REVIEW.md) for coverage annotations and remaining scientific failures. No output is repaired after generation.
 
 The user-requested order is preserved: first run and review the genuine OpenAI
 experiment, **then** evaluate OntoGPT against the same source and checks. No OntoGPT
@@ -147,3 +143,7 @@ backend evaluation or recommendation has been made while the live run is blocked
 
 API references consulted: the [official OpenAI Python SDK](https://github.com/openai/openai-python)
 and [Structured Outputs cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/Structured_Outputs_Intro.ipynb).
+
+## Optional quality review
+
+The CLI now supports `--review-model`, `--revise-once` and `--select-reviewed`. See [quality review](QUALITY_REVIEW.md) for the bounded workflow, separate artifacts, explicit subset semantics, live results and limitations. Default single-call behavior is unchanged.

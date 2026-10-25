@@ -1,0 +1,7 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+[W 10/25/26 05:20:40.836 1] [cuda_driver.cpp:CUDADriver@39] CUDA driver not found.
+[W 10/25/26 05:20:40.836 1] [opengl_api.cpp:initialize_opengl@156] Can not create OpenGL context
+[W 10/25/26 05:20:40.837 1] [misc.py:adaptive_arch_select@750] Arch=[<Arch.cuda: 5>, <Arch.metal: 6>, <Arch.vulkan: 11>, <Arch.opengl: 7>, <Arch.dx11: 8>] is not supported, falling back to CPU
+[Taichi] Starting on arch=x64
+{"requested": "ti.gpu", "actual_backend": "Arch.x64", "values": [0.0, 1.0, 4.0, 9.0], "taichi_version": [1, 1, 0]}
+[W 10/25/26 05:20:41.582 1] [llvm_offline_cache.cpp:clean_cache@379] Lock /root/.cache/taichi/ticache/metadata.lock failed

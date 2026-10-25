@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-25T05:10:45.049583+00:00",
+  "github_tree_truncated": false,
+  "repository_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "tracked_result_artifacts_matching_common_extensions": [],
+  "public_tags_count": 0,
+  "public_releases_count": 0,
+  "openreview_public_search_source": "https://api.openreview.net/notes/search?term=FluidLab&limit=10",
+  "openreview_search_sha256": "9047ad7a7b6b2a7924da0aad6a405cba305a157953b351e567772eb2bd1b1612",
+  "author_code_release_note_id": "wAAUKkoszGT",
+  "author_code_release_note_date": "2023-02-09T19:23:32.266000+00:00",
+  "retrieval_limits": [
+    "Direct OpenReview forum API and PDF retrieval returned HTTP 403; public search metadata was readable. No access restriction was bypassed.",
+    "No full-paper camera-ready byte comparison was possible through those endpoints.",
+    "No checkpoint/run manifest or physical reference-scale declaration was found in inspected sources; this is not an exhaustive claim about all external artifacts."
+  ],
+  "resolved": [
+    "Official repository relationship is supported by the public author response.",
+    "A concrete code/configuration revision and candidate native-unit command are pinned."
+  ],
+  "unresolved": [
+    "Exact published experiment commit/config/checkpoint/result match.",
+    "Validated native runtime and hardware/backend.",
+    "Physical reference scales and material-unit mapping."
+  ]
+}

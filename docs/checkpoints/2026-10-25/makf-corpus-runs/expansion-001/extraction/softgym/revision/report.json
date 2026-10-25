@@ -1,0 +1,47 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T18:15:32.721779+00:00",
+  "prompt_version": "makf-e2.2-v3",
+  "source_sha256": "5eef878132b1eab0e0b3966690ece49421bcff2f54edb7f4ac7ae1f940c92253",
+  "prompt_sha256": "fcfdccad204de57127c47f2ea36dbc9c4aa00abb99ce986582c7b19591a28378",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "8eb93e8d80e5c995532c0c7996aef918a61d380aba4910a02e536acaea0bad3b",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaZBqIA8HSFYWYzjLH0QaeZKCan5",
+    "request_id": "req_736718eb0dc0425a9e2b2ae4452ad486",
+    "usage": {
+      "prompt_tokens": 8256,
+      "completion_tokens": 1252,
+      "total_tokens": 9508
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "314909ce5dd38fb3e05cc2954215c5e86baae86f569b1cf7ca231c8591912772",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "corpus-expansion-001-softgym",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "cand-1: candidate has components pending ontology grounding",
+      "cand-1: quote matching does not prove scientific truth or entailment",
+      "cand-2: quote matching does not prove scientific truth or entailment",
+      "cand-3: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 3,
+  "perspectives": [
+    "applicability",
+    "observational",
+    "procedural"
+  ],
+  "human_review_required": true,
+  "revision_of_batch_sha256": "1c58ae3dfd266b4f440951d84948801b47037dc5d1c317b09bbd7428be8c73c4",
+  "revision_review_version": "makf-quality-v2",
+  "omitted_candidate_ids": []
+}

@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T05:02:49.218798+00:00",
+  "prompt_version": "makf-e2.2-v2",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "e6ae619c38d7e3a73c0f408e1926ed955f8178c3c84c0216db1f9f188c694891",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "8f322c9fc1ac61c7a003320d48895caba9815104e3be84c60b124f81fb28bb22",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcOC2KKoq3BPpL9ABSfAt87saY5zc",
+    "request_id": "req_20bfba8842ad419b909fb3115be6b3e1",
+    "usage": {
+      "prompt_tokens": 7871,
+      "completion_tokens": 1411,
+      "total_tokens": 9282
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "8daa81eac6e6f21bba3f40727d99b9c894d37486d3f511e838ae716a5f207016",
+  "error_code": "invalid_output",
+  "error": "pouring-cand-003: hypothesis missing makf:hasApplicabilityCondition link to applicability_condition"
+}

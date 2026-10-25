@@ -1,0 +1,16 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+[W 10/25/26 05:43:53.862 1] [cuda_driver.cpp:CUDADriver@39] CUDA driver not found.
+[W 10/25/26 05:43:53.862 1] [opengl_api.cpp:initialize_opengl@156] Can not create OpenGL context
+[W 10/25/26 05:43:53.862 1] [misc.py:adaptive_arch_select@750] Arch=[<Arch.cuda: 5>, <Arch.metal: 6>, <Arch.vulkan: 11>, <Arch.opengl: 7>, <Arch.dx11: 8>] is not supported, falling back to CPU
+[Taichi] Starting on arch=x64
+===>  TaichiEnv created.
+===>    20302 particles of     milk cylinder added.
+===>    20302 particles of    water cylinder added.
+===>  PouringEnv built successfully.
+Noise {'forward_losses': [23.783401489257812, 23.783287048339844, 23.78329849243164, 23.78335189819336, 23.783321380615234], 'autodiff_runs': [(23.783361434936523, 449.6277770996094), (23.78335952758789, 449.63372802734375), (23.783405303955078, 449.6300964355469)], 'loss_range': 0.000118255615234375, 'autodiff_range': 0.005950927734375, 'note': 'Measured at base case only, not a bound for every later pose/regime.'}
+Case base_vertical_h4 PASS AD 449.6166687011719 FD [434.29374694824224, 444.1261291503906, 449.8163859049479]
+Case base_horizontal_h4 PASS AD -53.35750961303711 FD [-54.95389302571615, -53.59649658203125, -54.963429768880204]
+Case base_rotation_h4 FAIL AD 11.479289054870605 FD [12.029012044270834, 11.415481567382812, 8.96453857421875]
+Case earlier_vertical_h8 PASS AD 16373.4853515625 FD [15317.128499348959, 15897.216796875, 16431.427001953125]
+Case offset_vertical_h8 PASS AD -298.48004150390625 FD [-318.2474772135417, -300.445556640625, -302.886962890625]
+[W 10/25/26 05:47:00.592 1] [llvm_offline_cache.cpp:clean_cache@379] Lock /root/.cache/taichi/ticache/metadata.lock failed

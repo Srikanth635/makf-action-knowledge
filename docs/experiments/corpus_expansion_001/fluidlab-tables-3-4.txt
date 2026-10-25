@@ -1,0 +1,33 @@
+                                        Action space              number of particles      number of grid cells
+         Task
+                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field
+ Latte Art (Pouring)          Along x and z                -               1000                       -
+ Latte Art (Stirring)         Along x and z                -               1000                       -
+ Ice Cream (Static)          Along x, y and z              -               2000                       -
+Ice Cream (Dynamic)          Along x, y and z              -               2000                       -
+    Transporting              Along x and z         Around y                500                       -
+       Mixing                 Along x and z                -               1000                       -
+       Pouring                      -               Around z                500                       -
+  Gathering (Easy)            Along x and z                -                500                       -
+  Gathering (Hard)            Along x and z                -                500                       -
+   Air Circulation                  -               Around y                 -               128 × 9 × 128
+
+                                        Table 3: Task-specfic settings.
+
+                                                                   Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   Water                         Liquid              0.0         277.78      1.0
+                   Milk                          Liquid              0.0         277.78      1.0
+                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0
+                  Coffee                         Liquid              0.0         277.78      1.0
+                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5
+             Floating object                     Elastic           416.67        277.78      0.5
+                Sugar cube                   Viscous Liquid        208.33        277.78      1.0
+        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8
+        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5
+         Object in Transporting                   Rigid            416.67        277.78      5.0
+
+                        Table 4: Details of materials properties used in FluidLab.
+
+

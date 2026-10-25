@@ -1,0 +1,48 @@
+{
+  "status": "review_passed",
+  "review_version": "makf-quality-v3",
+  "recorded_at": "2026-10-24T19:33:19.295741+00:00",
+  "reviewed_batch_sha256": "022e0441c1e8a40c7e7ad396895e5c554092b52ff6b85e6219c7dc3b5298e246",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "60697b1925da61bba6085d2b1c63e681677dc300c7118fd88b88e4f81c82161a",
+  "assessments": [
+    {
+      "candidate_id": "c1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation supports the glass, liquid types, density difference, and complete selective-pouring objective in both the statement and component. task_objective with definition and source_paraphrase correctly describes a benchmark goal without asserting successful execution. The unmapped goal component has a candid note explaining why it is not a strategy; leaving it unresolved is appropriate."
+    },
+    {
+      "candidate_id": "c2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation includes both the summed particle-to-goal distance definition and its Pouring-specific application, including the additional lower-layer retention loss. It supports the statement and component without requiring an inferred correspondence between layers and colors. benchmark_definition with definition is appropriate. generic_description and the candid needs_mapping note correctly avoid treating a loss specification as an observed outcome."
+    },
+    {
+      "candidate_id": "c3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The full asserts_claim quotation supports both reported performance patterns, the simple-setting comparisons, DP-H's use of gradients without the Section 5.1 techniques, and its difficulty with complex, non-convex fine-grained Pouring. Both components remain within those cited observations. The statement explicitly limits the findings to FluidLab's evaluated conditions, and both knowledge_kind and epistemic_status correctly use reported_observation. makf:ObservationPattern fits these reported experimental performance patterns."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6-astra",
+    "live": true,
+    "wire_request_sha256": "9342d119192816bc97f034338c03400385dd51303e0ea7ea779ffdc703fe8f55",
+    "model_name": "gpt-6-astra",
+    "response_id": "chatcmpl-EcbmR4u7Gvx629aXzWZzQFtmd3XfK",
+    "request_id": "req_36b5bfd1e9bd44f793f7181b539a3533",
+    "usage": {
+      "prompt_tokens": 5834,
+      "completion_tokens": 376,
+      "total_tokens": 6210
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "9710b8fdd6eda7243c62733f7c0447984818d89aa210f1e8328aa08007142726"
+}

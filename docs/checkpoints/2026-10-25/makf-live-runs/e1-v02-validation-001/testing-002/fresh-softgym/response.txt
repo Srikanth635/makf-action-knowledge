@@ -1,0 +1,160 @@
+{
+  "result": {
+    "batch_id": "e1-v02-fresh-softgym",
+    "profile_id": "pouring-v0.1",
+    "documents": [
+      {
+        "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+        "title": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+        "uri": "https://arxiv.org/abs/2011.07215v2",
+        "doi": null,
+        "synthetic_demo": false,
+        "passages": [
+          {
+            "passage_id": "pourwater-task",
+            "text": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n",
+            "locator": "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4"
+          },
+          {
+            "passage_id": "fluid-model",
+            "text": "Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant\ndensity constraint is applied to each particle to enforce the incompressibility of the fluid. For each\nparticle, the constant density constraint is based on the position of that particle, as well as the positions\nof its neighboring particles.\n",
+            "locator": "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3"
+          },
+          {
+            "passage_id": "pouring-variations",
+            "text": "PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are\nmodeled as cuboids without the top face. We vary the height, length, and width of both cups, the\ndistance between the controlled cup and the target cup, as well as the volume of water in the controlled\ncup. ",
+            "locator": "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14"
+          }
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "action_class": "aicor:Pouring",
+        "frame_class": "paf:PouringKnowledgeFrame",
+        "perspectives": [
+          "procedural"
+        ],
+        "knowledge_kind": "task_objective",
+        "statement": "Within SoftGym's PourWater task, the objective is to pour a cup of water into a target cup.",
+        "modality": "conditional",
+        "epistemic_status": "definition",
+        "derivation_mode": "source_paraphrase",
+        "evidence_status": "source_anchored",
+        "components": [
+          {
+            "component_id": "g1",
+            "component_kind": "generic_description",
+            "description": "The benchmark-scoped objective of pouring a cup of water into a target cup.",
+            "ontology_class": null,
+            "grounding_status": "needs_mapping",
+            "grounding_note": "No declared class specifically represents a task objective; a strategy class would misrepresent an objective as a method."
+          }
+        ],
+        "structural_links": null,
+        "source_support": [
+          {
+            "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+            "passage_id": "pourwater-task",
+            "support_role": "asserts_claim",
+            "start_char": null,
+            "end_char": null,
+            "quote_id": "evidence-1"
+          }
+        ],
+        "reviewer_note": "Provisional task definition, not evidence that any strategy achieves the objective."
+      },
+      {
+        "candidate_id": "c2",
+        "action_class": "aicor:Pouring",
+        "frame_class": "paf:PouringKnowledgeFrame",
+        "perspectives": [
+          "procedural",
+          "observational"
+        ],
+        "knowledge_kind": "benchmark_definition",
+        "statement": "Within SoftGym's PourWater benchmark, the agent directly controls cup position and rotation through a = (dx, dy, dθ): displacement in x and y and rotation about the cup's geometric center. The reward is the fraction of water successfully poured into the target cup.",
+        "modality": "conditional",
+        "epistemic_status": "definition",
+        "derivation_mode": "source_paraphrase",
+        "evidence_status": "source_anchored",
+        "components": [
+          {
+            "component_id": "d1",
+            "component_kind": "generic_description",
+            "description": "A benchmark control interface specifying cup displacement in x and y and rotation about its geometric center, with direct control of cup position and rotation.",
+            "ontology_class": null,
+            "grounding_status": "needs_mapping",
+            "grounding_note": "The declared classes do not represent benchmark action spaces or control interfaces; this interface is not itself a pouring strategy."
+          },
+          {
+            "component_id": "d2",
+            "component_kind": "generic_description",
+            "description": "A benchmark reward metric defined as the fraction of water successfully poured into the target cup.",
+            "ontology_class": null,
+            "grounding_status": "needs_mapping",
+            "grounding_note": "No declared class specifically represents a reward metric; the metric is not an expected observation or predicted effect."
+          }
+        ],
+        "structural_links": null,
+        "source_support": [
+          {
+            "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+            "passage_id": "pourwater-task",
+            "support_role": "asserts_claim",
+            "start_char": null,
+            "end_char": null,
+            "quote_id": "evidence-1"
+          }
+        ],
+        "reviewer_note": "Provisional benchmark definition; it does not establish a successful control policy."
+      },
+      {
+        "candidate_id": "c3",
+        "action_class": "aicor:Pouring",
+        "frame_class": "paf:PouringKnowledgeFrame",
+        "perspectives": [
+          "applicability"
+        ],
+        "knowledge_kind": "benchmark_definition",
+        "statement": "For the reported SoftGym PourWater and PourWaterAmount task variations, both cups are modeled as cuboids without the top face. The varied parameters are both cups' height, length, and width, the distance between the controlled and target cups, and the water volume in the controlled cup.",
+        "modality": "conditional",
+        "epistemic_status": "definition",
+        "derivation_mode": "source_paraphrase",
+        "evidence_status": "source_anchored",
+        "components": [
+          {
+            "component_id": "a1",
+            "component_kind": "applicability_condition",
+            "description": "Scope restricted to the reported PourWater and PourWaterAmount benchmark variations, where both cups are modeled as cuboids without the top face.",
+            "ontology_class": "makf:ApplicabilityCondition",
+            "grounding_status": "grounded",
+            "grounding_note": null
+          },
+          {
+            "component_id": "d1",
+            "component_kind": "generic_description",
+            "description": "Benchmark variation parameters comprising both cups' height, length, and width, the distance between the controlled and target cups, and the volume of water in the controlled cup.",
+            "ontology_class": null,
+            "grounding_status": "needs_mapping",
+            "grounding_note": "No declared class specifically represents benchmark variation parameters. These parameters are not asserted to cause any particular outcome."
+          }
+        ],
+        "structural_links": null,
+        "source_support": [
+          {
+            "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+            "passage_id": "pouring-variations",
+            "support_role": "asserts_claim",
+            "start_char": null,
+            "end_char": null,
+            "quote_id": "evidence-11"
+          }
+        ],
+        "reviewer_note": "Provisional scope description; the passage supplies no parameter ranges or performance effects."
+      }
+    ],
+    "extraction_run": null
+  }
+}

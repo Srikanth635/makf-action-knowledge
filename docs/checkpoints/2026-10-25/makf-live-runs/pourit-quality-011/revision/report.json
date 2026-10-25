@@ -1,0 +1,45 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T08:45:13.597352+00:00",
+  "prompt_version": "makf-e2.2-v3",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "21bfe8bfea7e4215bbeaba36eb0029997fb209ed97368d18420ce30e6b06fb22",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "9987662ddfe5a5ab09284f282d7f806480f9f646c1bb719782834f532fe5d10b",
+    "model_name": "gpt-4.1-2025-04-14",
+    "response_id": "chatcmpl-EcRfGoWfZ9tgiWyvsg0nwFZhRz9EN",
+    "request_id": "req_456f9ffef8cc486eba177603c38ffc23",
+    "usage": {
+      "prompt_tokens": 10132,
+      "completion_tokens": 1251,
+      "total_tokens": 11383
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "8fda7200c135716531655c23239f7258288d9ff2d331d56c77239b285fa881b1",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "e23-pourit-pilot-20261024-010",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "pourit-pilot-cand-1r: quote matching does not prove scientific truth or entailment",
+      "pourit-pilot-cand-2r: quote matching does not prove scientific truth or entailment",
+      "pourit-pilot-cand-3r: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 3,
+  "perspectives": [
+    "applicability",
+    "causal",
+    "deviation",
+    "observational",
+    "procedural"
+  ],
+  "human_review_required": true
+}

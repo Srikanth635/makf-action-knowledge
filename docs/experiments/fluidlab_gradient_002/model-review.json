@@ -1,0 +1,31 @@
+{
+  "assessment": {
+    "supported": true,
+    "rationale": "The conservative interpretation is supported by the supplied numbers and harness, not by independent execution or scientific validation. Four cases satisfy the adjacent-pair rule, including both eight-step cases. Rotation fails: at epsilon 0.0003 its asymmetry is 0.3898 > 0.3; at 0.0001 it passes; at 0.00003 its loss difference is 0.0005378723, below the required 10 \u00d7 0.0001182556 = 0.0011825562. The latter adjacent pair also has FD relative change 0.2147 > 0.1. Thus rotation has no qualifying adjacent pair, and its case-level failure blocks the broader gate despite four passes. Individual failed epsilon checks do not invalidate otherwise passing cases under this rule. The harness blocks the shortened terminal diagnostic and contains no optimization. This gate failure does not establish incorrect autodiff.",
+    "limitations": [
+      "Noise was sampled only at the base vertical condition, with five forward and three autodiff repeats. Its observed range is neither a statistical confidence bound nor a verified allowance for other controls, horizons, poses, or perturbed evaluations. Even the reported base-case AD value lies outside the initial AD repeat range.",
+      "Finite differences subtract nearby losses susceptible to float32 quantization and accumulation error. Converting the returned losses to Python floats cannot recover precision already lost. Smaller epsilon amplifies these errors; repeatability measurements alone do not capture deterministic rounding error.",
+      "Actions are explicitly cast to float32, but finite-difference denominators use nominal epsilons rather than the actual represented perturbations. These should be recorded and checked.",
+      "The noise allowance enlarges the AD-agreement tolerance as epsilon shrinks. Passing these empirical development checks therefore does not establish derivative accuracy at the nominal relative tolerance alone.",
+      "These are coordinate derivatives with respect to selected action components in short, partial upstream losses, not pose gradients, all-control validation, or validation of the original terminal/full objective. The claimed terminal exclusion and detached-reference semantics require inspection of the underlying loss implementation, which is not supplied.",
+      "One-sided asymmetry can reflect finite-step curvature, branch/contact changes, numerical variability, or reset behavior; it does not identify a derivative bug. Pose offset alone does not validate a contact regime, and the supplied verification summary is not independent experimental evidence."
+    ],
+    "recommended_next_test": "Preserve this failed gate. Under a newly fixed diagnostic protocol, repeat baseline, plus/minus losses, and AD separately for every case and epsilon, prioritizing rotation. Record actual float32 control values, audit reset and angular-control mapping, and log contact/branch changes. Compare against a genuinely higher-precision forward/loss computation where available; merely casting final losses is insufficient. Treat any single-thread comparison as a distinct runtime condition. Use exploratory findings to predeclare an independent verification protocol, then require a new broader-gate pass before the shortened terminal diagnostic, followed by longer-horizon and original-full-objective checks. None of these steps constitutes scientific approval."
+  },
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6-astra",
+    "live": true,
+    "wire_request_sha256": "dcafafb1674149f2a1c2a96660d463033079a25362b835afd965b2583e1acf63",
+    "model_name": "gpt-6-astra",
+    "response_id": "chatcmpl-EclNjlG2qrofdu4hyIR0ihpxVMVho",
+    "request_id": "req_0a0d7c9ce1e7487faba7f57ee683632e",
+    "usage": {
+      "prompt_tokens": 5534,
+      "completion_tokens": 775,
+      "total_tokens": 6309
+    },
+    "finish_reason": "stop"
+  },
+  "scope": "Advisory review of supplied results and harness, not independent execution or scientific approval."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T04:58:31.026563+00:00",
+  "prompt_version": "makf-e2.2-v1",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "b42b341fb719a0173179d75c71d5f04402cd5ee5067103419f58c314e6a01671",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "28992342a636705282967862411a7b6722c8bd514673f83c1ee18eb706f4e409",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcO7t7ZMG6skrx8mgKnaVUQ2vH7F4",
+    "request_id": "req_39277065849b48d8a8aff453705b1752",
+    "usage": {
+      "prompt_tokens": 7534,
+      "completion_tokens": 997,
+      "total_tokens": 8531
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "c11849c6bf2ce384433839276eca7bb39743e1e513c92211bae05884a9094944",
+  "error_code": "invalid_output",
+  "error": "Request-bound E1 schema validation failed"
+}

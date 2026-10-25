@@ -1,0 +1,88 @@
+{
+  "assessments": [
+    {
+      "candidate_id": "valid-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports both the success measure and the component's reward description. The benchmark-definition metadata and task-limited wording are appropriate. Leaving the metric unmapped with a candid note is permitted."
+    },
+    {
+      "candidate_id": "valid-2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports pouring out the light blue liquid while retaining as much heavy white liquid as possible. The candidate correctly describes a task objective, not a successful strategy. The unresolved objective mapping is appropriately explained."
+    },
+    {
+      "candidate_id": "valid-3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports all three reported findings, including the CMA-ES limitations, DP-H failure conditions, and the combined simulator-and-optimization result. The statement and metadata preserve experimental scope. ObservationPattern fits the reported-result components."
+    },
+    {
+      "candidate_id": "valid-4",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation explicitly defines direct cup-position and rotation control through x/y displacement and rotation. The candidate remains a task-specific control-interface definition. Its generic description and candid unresolved mapping are appropriate."
+    },
+    {
+      "candidate_id": "valid-5",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the open-top cuboid cups and every listed variation: dimensions, inter-cup distance, and initial water volume. The candidate describes benchmark setup conditions without asserting effectiveness. The unmapped generic description is permitted."
+    },
+    {
+      "candidate_id": "valid-6",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the described cup manipulation through x/y displacement and rotation. The strategy_description, proposed_strategy, and conditional labels are acceptable for this abstract method explicitly limited to the reported task formulation. The grounding note appropriately avoids asserting the additional restrictions of paf:PouringStrategy."
+    },
+    {
+      "candidate_id": "invalid-1",
+      "evidence_complete": false,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The cited quotation states only the task goal; it does not define the fractional reward or success measure asserted in the statement and component. The uncited reward sentence cannot supply that missing evidence. The scope metadata and unresolved metric mapping are otherwise appropriate."
+    },
+    {
+      "candidate_id": "invalid-2",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the observation components but not proof of perfect pouring for every fluid. It reports near-oracle performance in most tasks using gradients coupled with optimization schemes, not universal perfection from differentiable simulation alone. The universal statement exceeds the reported-observation scope; the component class mappings remain appropriate."
+    },
+    {
+      "candidate_id": "invalid-3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": false,
+      "rationale": "The reward quotation supports the statement and component, and the benchmark-definition scope is appropriate. However, a scalar benchmark reward is not a PouringStrategy, and the passage does not establish that class's strategy restrictions."
+    },
+    {
+      "candidate_id": "invalid-4",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The statement reverses the cited objective: the source requires pouring the light liquid out, not keeping all of it inside. Although the component accurately describes the objective and its unresolved mapping is appropriate, the submitted statement is not a faithful source paraphrase."
+    },
+    {
+      "candidate_id": "invalid-5",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the statement's fractional reward but provides no evidence for the component's viscosity sensor or measurement units. That addition also exceeds the source-defined benchmark scope. The generic component's unresolved mapping is not itself a mapping failure, but its grounding note does not remedy the unsupported content."
+    },
+    {
+      "candidate_id": "invalid-6",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the observation components but never identifies viscosity as a cause, much less the sole cause of all pouring failures. The universal causal conclusion exceeds the experimental findings and reported-observation metadata. ObservationPattern remains appropriate for the individual components."
+    }
+  ]
+}

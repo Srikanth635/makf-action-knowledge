@@ -1,0 +1,52 @@
+{
+  "experiment_id": "fluidlab_gradient_002",
+  "completed_utc_date": "2026-10-25",
+  "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "runtime_image": "makf-fluidlab-smoke:005",
+  "runtime_image_id": "sha256:acde0a489d16cbb51b54802672942fa130935b42519eec599011af7d70540888",
+  "source_manifest_ref": "docs/experiments/fluidlab_smoke_001/source-manifest.json",
+  "runtime_patch_ref": "docs/experiments/fluidlab_smoke_001/runtime.patch",
+  "actual_backend": "Arch.x64",
+  "network": "none",
+  "cpu_limit": 4,
+  "memory_limit": "8 GiB",
+  "simulation_exit_code": 0,
+  "report_status": "completed",
+  "broader_gate_passed": false,
+  "case_counts": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "UNINFORMATIVE": 0
+  },
+  "terminal_test_executed": false,
+  "optimization_executed": false,
+  "scope": "Four/eight-step partial upstream objective; original terminal step 999 excluded. Gate failure denotes insufficient validation, not a proven autodiff bug.",
+  "noise_scope": "Observed repeat ranges at one base condition only; not statistical or global bounds.",
+  "source_code_model_changes": false,
+  "paper_replication": false,
+  "si_calibrated": false,
+  "scientific_review_state": "pending",
+  "rdf_publication": "No derivative/loss schema extension or publication; raw experiment artifacts only.",
+  "raw_output_directory": "/workspace/makf-simulation-runs/fluidlab-gradient-002/output",
+  "checks": {
+    "report_recomputation_checks": 170,
+    "bundled_resources_verified": 50,
+    "bundled_resources_total": 50,
+    "git_diff_check_passed": true
+  },
+  "files_sha256": {
+    "README.md": "2de11a99054086b13c51ef7429c98e94c6fcaca26a297cc6ec9e0f9692fe0abc",
+    "control-representation.json": "d7996e06e5f023522dc927861716ec5d6f520db7d69f432b7c0993a4b01af897",
+    "gradient-report.json": "35059ba9504d77cc045ea0027cfca6ce24439f85f3cdcdcab3a10000bd82600f",
+    "gradient_sweep.py": "803b0c991265f70ebd61955665921b32672a8caa7c0f8431ff035b8eb28f9862",
+    "model-availability.json": "1ed22497fd2c93f1a0955817786f69030c5eeb024aeee08c692840a46acec374",
+    "model-review.json": "fdfa3521558d92ebc475a532faa270bc9a6aa3fc7577830c7e6a78fc806c3b97",
+    "protocol.json": "4d9f4ace3fbc68dff5027e304d5a57542c65cd387a32b98aaefa45a1432ed985",
+    "review-response.json": "0ebc56559bdc4242d0b86cb17827f57354dde077dab14cb8a5cf9b5503ad3b5e",
+    "reviewed-input.json": "35f1d83eaf67ee740fd5e5c82e2e8f9e16b6c48dd59a9077ffdb401ae5bb98bf",
+    "run.log": "ad06f5586ce86447e472a1063f24f86a82c65f2202a3a01159c031c5eeaaa32d",
+    "verification.json": "917e446a6974eebf309ab99e5fbf7b3050defdce6a67f8914f7b9a52aebee36b",
+    "verify_report.py": "11c893edfc770565dca98a16e7e3b532344818f7def737a6b147e5bbb344494c"
+  }
+}

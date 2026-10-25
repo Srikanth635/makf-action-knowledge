@@ -1,0 +1,47 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v1",
+  "recorded_at": "2026-10-24T08:45:09.166413+00:00",
+  "reviewed_batch_sha256": "281b98ad8b528e2207023e0f8cae7e7c014d5c51fae346463bebb2c8f59391de",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "assessments": [
+    {
+      "candidate_id": "pourit-pilot-cand-1",
+      "evidence_complete": false,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The candidate claim describes both the strategy and its potential failure mode, but omits the explicit reason given in the source: that transparent bottlenecks lead to inaccurate size estimation (the full cited sentence is: \"Such a strategy sometimes fails due to an imperfect initial pouring point, as the transparent bottleneck results in inaccurate object size estimation.\"). The citation cuts off after mentioning failure from 'imperfect initial pouring point,' but does not explicitly quote the rest about transparent bottlenecks and their impact. Therefore, the evidence is incomplete, even though mappings and scope are otherwise correct."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-2",
+      "evidence_complete": false,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The cited quote is truncated and does not include the full claim that the method is 'less influenced by' inaccuracies in size estimation. While the components and mapping correspond to the described strategy and mechanism, every clause of the candidate (including the reduced sensitivity to object size errors) must be covered by the quoted source, which ends mid-sentence. Thus, evidence completeness is lacking, even though the claim matches the method and context."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-3",
+      "evidence_complete": false,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The cited quote is incomplete and only covers 'the pouring point, making the liquid spill out of the target.' The candidate also asserts that this is due to incorrect visual feedback from an inaccurately estimated liquid mask, which is mentioned earlier in the source text: 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point.' However, this crucial causal clause is not present in the quoted evidence, so the evidence is not fully complete for all substantive components. Scope and mappings are otherwise adequate."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "bc82f07cddd66e91edce33a913612c97694679a51d7b45adbd6e92e084ed2340",
+    "model_name": "gpt-4.1-2025-04-14",
+    "response_id": "chatcmpl-EcRfCRda5V7zcJok9SIyZJlFEfwOI",
+    "request_id": "req_a976550ee44a4607acd306c0f98db8ae",
+    "usage": {
+      "prompt_tokens": 7285,
+      "completion_tokens": 407,
+      "total_tokens": 7692
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "a86e7db1aa14824e649b7eabb0c8100233b1c2c73c4a7901ae24d5280d3a0adb"
+}

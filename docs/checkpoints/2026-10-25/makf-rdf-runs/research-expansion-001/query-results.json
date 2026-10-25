@@ -1,0 +1,20 @@
+[
+  {
+    "claim": "https://example.org/makf/data/claim/1c27cdf2e4e74bfcf5509b9e91b66a4b83c0c59cbe9924b74117cb2010fc0d5f",
+    "sourceTitle": "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring",
+    "origin": "published_research",
+    "statement": "The source describes a pouring strategy that uses object pose information to calculate liquid-to-container distance as feedback for adjusting the pouring point, and reports that this strategy is less influenced by inaccurate size estimation.",
+    "reviewState": "model_selected_provisional",
+    "supportRole": "asserts_claim",
+    "mappingGap": "Reported as less influenced by inaccurate size estimation."
+  },
+  {
+    "claim": "https://example.org/makf/data/claim/2dc0c8a92a473a0841789883e7a5c59136032cb30392cdcac177586108f613ed",
+    "sourceTitle": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+    "origin": "published_simulation",
+    "statement": "In the reported PourWater task formulation, pouring is carried out by directly controlling the held cup's position and rotation through x/y displacement and rotation updates.",
+    "reviewState": "model_selected_provisional",
+    "supportRole": "asserts_claim",
+    "mappingGap": "A reported pouring control strategy in which the held cup is manipulated via x and y displacement together with rotation."
+  }
+]

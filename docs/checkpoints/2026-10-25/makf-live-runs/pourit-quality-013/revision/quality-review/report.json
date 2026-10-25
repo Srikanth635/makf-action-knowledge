@@ -1,0 +1,48 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v2",
+  "recorded_at": "2026-10-24T08:48:15.525353+00:00",
+  "reviewed_batch_sha256": "040130cab7db056b04c39a58e73c4ec296f7c31309ac65ba3d284af04f9dd050",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "b7e44dd3c57465f0eba227cee1927f9d06c0da207365eac18c7a2f4a2ef083b3",
+  "assessments": [
+    {
+      "candidate_id": "pourit-pilot-cand-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quoted passage directly supports all substantive clauses in the statement and each component: it says the method 'only uses the estimated object pose and size for calculating container-to-container distance as the initial pouring point,' that it 'sometimes fails due to an imperfect initial pouring point,' and that 'the transparent bottleneck results in inaccurate object size estimation.' The statement is appropriately limited to 'the reported comparison' and phrased as 'is described as,' so it does not overgeneralize. The modality/epistemic framing is acceptable as a qualified description of a reported strategy rather than a broad principle. The ontology mappings fit: the method description can be treated as a strategy, the transparent-bottleneck/inaccurate-size-estimation factor is a plausible applicability condition, and the described failure is a pouring deviation pattern."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quote explicitly supports the strategy clause: 'Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point,' and the comparative effect clause: 'which is less influenced by the inaccurate size estimation.' The statement stays within the reported comparison and does not claim general superiority. The component descriptions are also supported, including the second component's comparison-conditioned phrasing around inaccurate size estimation. Mapping is acceptable: the method is a strategy, and the inaccurate-size-estimation setting under which the comparison is discussed can be modeled as an applicability condition. Although this is a comparative result from one passage, the candidate presents it as a reported description rather than a general law."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-3",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The quote supports that 'AFA method performs poorly' because 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point, making the liquid spill out of the target container instead.' However, the candidate's strategy component adds 'Use visual feedback derived from the estimated mask to adjust the pouring point.' The passage does not explicitly describe an 'AFA-based pouring strategy' in those terms; it only says the mask provides wrong visual feedback, and per instructions the unspecified mask referent should not be generalized into a clearly defined strategy component beyond what is stated. Because that strategy component is not fully supported by asserts_claim text, evidence is incomplete. Scope is not supported because labeling this as an 'AFA-based pouring strategy' with epistemic_status 'proposed_strategy' overstates what the passage provides; this is an observed explanation for poor performance in one comparison, not a clearly articulated strategy description. Mapping is also unsupported because the grounding of c1 to makf:GeneralizedStrategy is too guessy from this passage alone, and c2 as an observation pattern conflates an erroneous internal estimate with an observation cue without clear textual or ontological fit."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4-2026-03-05",
+    "live": true,
+    "wire_request_sha256": "f5352c06a000f308d7a5c1c1ac1f22c4dee5ceaccb0902120540d8344c778d61",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcRiBolCmrsSaRdjM1NCUcbDLG8Ml",
+    "request_id": "req_d6bbf45a57574bc89ca8d8433336596e",
+    "usage": {
+      "prompt_tokens": 7764,
+      "completion_tokens": 647,
+      "total_tokens": 8411
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "bc9e44f87889598e457504bacc0d2b9904453b33a4305a1e48c69f2c2b254dd3"
+}

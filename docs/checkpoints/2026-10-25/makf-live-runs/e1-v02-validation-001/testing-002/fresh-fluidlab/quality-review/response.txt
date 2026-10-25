@@ -1,0 +1,25 @@
+{
+  "assessments": [
+    {
+      "candidate_id": "c1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation supports the glass, liquid types, density difference, and complete selective-pouring objective in both the statement and component. task_objective with definition and source_paraphrase correctly describes a benchmark goal without asserting successful execution. The unmapped goal component has a candid note explaining why it is not a strategy; leaving it unresolved is appropriate."
+    },
+    {
+      "candidate_id": "c2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation includes both the summed particle-to-goal distance definition and its Pouring-specific application, including the additional lower-layer retention loss. It supports the statement and component without requiring an inferred correspondence between layers and colors. benchmark_definition with definition is appropriate. generic_description and the candid needs_mapping note correctly avoid treating a loss specification as an observed outcome."
+    },
+    {
+      "candidate_id": "c3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The full asserts_claim quotation supports both reported performance patterns, the simple-setting comparisons, DP-H's use of gradients without the Section 5.1 techniques, and its difficulty with complex, non-convex fine-grained Pouring. Both components remain within those cited observations. The statement explicitly limits the findings to FluidLab's evaluated conditions, and both knowledge_kind and epistemic_status correctly use reported_observation. makf:ObservationPattern fits these reported experimental performance patterns."
+    }
+  ]
+}

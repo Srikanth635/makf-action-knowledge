@@ -1,0 +1,12 @@
+{
+  "checks": 170,
+  "case_statuses": [
+    "PASS",
+    "PASS",
+    "FAIL",
+    "PASS",
+    "PASS"
+  ],
+  "broader_gate_passed": false,
+  "terminal_status": "blocked_by_broader_gate"
+}

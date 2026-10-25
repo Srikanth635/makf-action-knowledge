@@ -1,0 +1,41 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v2",
+  "recorded_at": "2026-10-24T18:15:45.192074+00:00",
+  "reviewed_batch_sha256": "20c30ea015139f5af9509bfbaef8ac0d14773e31d5e88bda44045d91240828cb",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "4a4af1e8eb1ada90a2fd5b26f726fd3c82f4303aacea2c42ada1d4790c78c737",
+  "assessments": [
+    {
+      "candidate_id": "cand-1",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The quoted passage supports the task objective only: \"The task is to pour the light blue liquid out of the glass while retaining as much white heavy liquid as possible.\" It does not support the statement's framing that this is \"a proposed pouring strategy\" or the metadata epistemic_status \"proposed_strategy\"; this is a task description, not an author-proposed method. The component description is likewise an objective rather than an evidenced strategy. Mapping is not supported because the only component is explicitly marked needs_mapping and the note correctly says the text supports a task objective rather than a more specific strategy class."
+    },
+    {
+      "candidate_id": "cand-3",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The cited passage does support all substantive clauses of the statement and components: CMA-ES \"struggles in fine-grained control tasks (e.g. pouring)\"; DP-H \"fails to produce good trajectories... such as Pouring with fine-grained control objective\" in more complex/non-convex settings; and \"the gradient information provided by our differentiable simulator, coupled with the optimization schemes we proposed, provides informative optimization information when dealing with complex fluid systems.\" However, scope is not supported because the metadata labels this as a \"strategy_description\" with epistemic_status \"proposed_strategy,\" but the evidence is a reported experimental comparison of optimization methods, not a pouring-specific proposed strategy. The statement is properly limited to reported evaluations, but the strategy/proposed_strategy characterization is still too strong. Mapping is not supported because the strategy component is only marked needs_mapping, and the passage does not justify grounding the optimization method to a pouring-specific strategy class with the ontology's stronger pouring-plan restrictions."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "207e1d3be64766fd7aa34465cb70f8a6c1c4a715c672e808d186b6399b36ef58",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaZN92rOQqxBeTUMIykOsjvSlnY5",
+    "request_id": "req_e51d92aa608b40819e84035097159d9a",
+    "usage": {
+      "prompt_tokens": 5293,
+      "completion_tokens": 390,
+      "total_tokens": 5683
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "94da3b4c2112e0d3d88a1249c739e3991ada3949db26e9bcde7483ecdf6b78a4"
+}

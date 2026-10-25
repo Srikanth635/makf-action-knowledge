@@ -1,0 +1,104 @@
+@prefix pub: <https://example.org/makf/publication/0.1#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+pub:BatchShape a sh:NodeShape; sh:targetClass pub:Batch;
+ sh:property [ sh:path pub:batchId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:profileId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:claim; sh:minCount 1; sh:class pub:Claim ];
+ sh:property [ sh:path pub:document; sh:minCount 1; sh:class pub:SourceSnapshot ].
+
+pub:SourceShape a sh:NodeShape; sh:targetClass pub:SourceSnapshot;
+ sh:property [ sh:path pub:documentId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path dct:title; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:syntheticDemo; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:boolean ];
+ sh:property [ sh:path pub:passage; sh:minCount 1; sh:class pub:Passage ].
+
+pub:PassageShape a sh:NodeShape; sh:targetClass pub:Passage;
+ sh:property [ sh:path pub:passageId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:text; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:document; sh:minCount 1; sh:maxCount 1; sh:class pub:SourceSnapshot ].
+
+pub:ClaimShape a sh:NodeShape; sh:targetClass pub:Claim;
+ sh:property [ sh:path pub:candidateId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:statement; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:actionClass; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ];
+ sh:property [ sh:path pub:frameClass; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ];
+ sh:property [ sh:path pub:perspective; sh:minCount 1; sh:in ("role" "intentional" "causal" "temporal" "procedural" "observational" "epistemic" "applicability" "deviation") ];
+ sh:property [ sh:path pub:knowledgeKind; sh:minCount 1; sh:maxCount 1; sh:in ("definition" "stereotype" "conditional_principle" "strategy_description" "causal_hypothesis" "strategy_hypothesis" "temporal_pattern" "observation_expectation" "deviation_hypothesis") ];
+ sh:property [ sh:path pub:modality; sh:minCount 1; sh:maxCount 1; sh:in ("necessary" "typical" "conditional" "possible" "speculative") ];
+ sh:property [ sh:path pub:epistemicStatus; sh:minCount 1; sh:maxCount 1; sh:in ("definition" "stereotype" "conditional_principle" "hypothesis" "proposed_strategy") ];
+ sh:property [ sh:path pub:derivationMode; sh:minCount 1; sh:maxCount 1; sh:in ("source_explicit" "source_paraphrase" "llm_inference" "llm_proposal") ];
+ sh:property [ sh:path pub:evidenceStatus; sh:minCount 1; sh:maxCount 1; sh:in ("source_anchored" "not_assessed" "corroborated" "contradicted" "unsupported") ];
+ sh:property [ sh:path pub:hasComponent; sh:minCount 1; sh:class pub:Component ];
+ sh:property [ sh:path pub:evidence; sh:minCount 1; sh:class pub:EvidenceAnchor ];
+ sh:property [ sh:path pub:review; sh:minCount 1; sh:class pub:Review ];
+ sh:property [ sh:path pub:structuralLink; sh:class pub:StructuralLink ];
+ sh:sparql [ sh:message "Source-derived/anchored claim needs an asserts_claim anchor.";
+  sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:derivationMode ?mode; pub:evidenceStatus ?status.
+ FILTER(?mode IN ("source_explicit","source_paraphrase") || ?status = "source_anchored")
+ FILTER NOT EXISTS { $this pub:evidence ?e. ?e pub:supportRole "asserts_claim" } }""" ];
+ sh:sparql [ sh:message "Generated ideas must remain unassessed and use context-only anchors.";
+  sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:derivationMode ?mode; pub:evidenceStatus ?status; pub:evidence ?e.
+ ?e pub:supportRole ?role. FILTER(?mode IN ("llm_inference","llm_proposal"))
+ FILTER(?status != "not_assessed" || ?role != "context_only") }""" ];
+ sh:sparql [ sh:message "Structural link endpoints must belong to the same claim.";
+  sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:structuralLink ?link. ?link pub:subjectComponent ?s; pub:objectComponent ?o.
+ FILTER(NOT EXISTS { $this pub:hasComponent ?s } || NOT EXISTS { $this pub:hasComponent ?o }) }""" ];
+ sh:sparql [ sh:message "Review must assess the claim that references it.";
+  sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:review ?r. ?r pub:assesses ?claim. FILTER(?claim != $this) }""" ].
+
+pub:ComponentShape a sh:NodeShape; sh:targetClass pub:Component;
+ sh:property [ sh:path pub:componentId; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:description; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:componentKind; sh:minCount 1; sh:maxCount 1; sh:in ("hypothesis" "strategy" "applicability_condition" "predicted_effect" "role_pattern" "goal_pattern" "causal_mechanism" "phase_pattern" "observation_pattern" "deviation_pattern" "generic_description") ];
+ sh:property [ sh:path pub:groundingStatus; sh:minCount 1; sh:maxCount 1; sh:in ("grounded" "needs_mapping") ];
+ sh:xone (
+  [ sh:property [ sh:path pub:groundingStatus; sh:hasValue "grounded" ];
+    sh:property [ sh:path pub:groundedClass; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ] ]
+  [ sh:property [ sh:path pub:groundingStatus; sh:hasValue "needs_mapping" ];
+    sh:property [ sh:path pub:groundedClass; sh:maxCount 0 ];
+    sh:property [ sh:path pub:groundingNote; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ] ]
+ ).
+
+pub:EvidenceShape a sh:NodeShape; sh:targetClass pub:EvidenceAnchor;
+ sh:property [ sh:path pub:exactQuote; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:minLength 1 ];
+ sh:property [ sh:path pub:supportRole; sh:minCount 1; sh:maxCount 1; sh:in ("asserts_claim" "context_only" "contradicts_claim") ];
+ sh:property [ sh:path pub:document; sh:minCount 1; sh:maxCount 1; sh:class pub:SourceSnapshot ];
+ sh:property [ sh:path pub:passage; sh:minCount 1; sh:maxCount 1; sh:class pub:Passage ];
+ sh:property [ sh:path pub:startChar; sh:maxCount 1; sh:datatype xsd:integer; sh:minInclusive 0 ];
+ sh:property [ sh:path pub:endChar; sh:maxCount 1; sh:datatype xsd:integer; sh:minInclusive 0 ];
+ sh:or (
+   [ sh:property [ sh:path pub:startChar; sh:maxCount 0 ]; sh:property [ sh:path pub:endChar; sh:maxCount 0 ] ]
+   [ sh:property [ sh:path pub:startChar; sh:minCount 1 ]; sh:property [ sh:path pub:endChar; sh:minCount 1 ] ]
+ );
+ sh:sparql [ sh:message "Quote must occur verbatim in the linked passage, with matching document identity.";
+ sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:exactQuote ?quote; pub:document ?d; pub:passage ?p.
+ ?p pub:text ?text; pub:document ?pd. FILTER(?d != ?pd || !CONTAINS(?text,?quote)) }""" ];
+ sh:sparql [ sh:message "Offsets must select the exact quotation (end exclusive).";
+ sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:startChar ?s; pub:endChar ?e; pub:exactQuote ?q; pub:passage ?p.
+ ?p pub:text ?t. FILTER(?e <= ?s || ?e > STRLEN(?t) || SUBSTR(?t, ?s + 1, ?e - ?s) != ?q) }""" ].
+
+pub:LinkShape a sh:NodeShape; sh:targetClass pub:StructuralLink;
+ sh:property [ sh:path pub:subjectComponent; sh:minCount 1; sh:maxCount 1; sh:class pub:Component ];
+ sh:property [ sh:path pub:objectComponent; sh:minCount 1; sh:maxCount 1; sh:class pub:Component ];
+ sh:property [ sh:path pub:predicate; sh:minCount 1; sh:maxCount 1; sh:nodeKind sh:IRI ].
+
+pub:ReviewShape a sh:NodeShape; sh:targetClass pub:Review;
+ sh:property [ sh:path pub:assesses; sh:minCount 1; sh:maxCount 1; sh:class pub:Claim ];
+ sh:property [ sh:path pub:reviewState; sh:minCount 1; sh:maxCount 1; sh:in ("pending" "model_selected_provisional" "withheld" "human_approved" "human_rejected") ];
+ sh:property [ sh:path pub:reviewerKind; sh:minCount 1; sh:maxCount 1; sh:in ("model" "human" "system") ];
+ sh:property [ sh:path pub:artifactSha256; sh:minCount 1; sh:maxCount 1; sh:datatype xsd:string; sh:pattern "^[0-9a-f]{64}$" ];
+ sh:sparql [ sh:message "Human decisions require a human reviewer; model selection requires a model reviewer.";
+ sh:select """PREFIX pub: <https://example.org/makf/publication/0.1#>
+ SELECT $this WHERE { $this pub:reviewState ?s; pub:reviewerKind ?k.
+ FILTER((?s IN ("human_approved","human_rejected") && ?k != "human") ||
+        (?s = "model_selected_provisional" && ?k != "model")) }""" ].

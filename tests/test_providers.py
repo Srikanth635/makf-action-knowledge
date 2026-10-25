@@ -1,5 +1,6 @@
 """Offline provider/pipeline tests. Fixture output is never live extraction evidence."""
 from copy import deepcopy
+from dataclasses import replace
 import json
 import socket
 import sys
@@ -15,7 +16,7 @@ from makf_knowledge import (
 )
 from makf_knowledge.cli import run
 from makf_knowledge.paths import example_path
-from makf_knowledge.providers import openai_response_schema
+from makf_knowledge.providers import evidence_catalog, openai_response_schema
 
 
 @pytest.fixture(autouse=True)
@@ -71,7 +72,17 @@ def nullable_wire(value, schema, definitions):
 
 
 def wire_batch(batch, prompt):
-    return {'result': nullable_wire(batch, {'$ref': '#/$defs/ExtractionBatch'}, prompt.response_schema['$defs'])}
+    batch = deepcopy(batch)
+    for candidate in batch['candidates']:
+        for support in candidate['source_support']:
+            support.pop('start_char', None)
+            support.pop('end_char', None)
+    wire = nullable_wire(batch, {'$ref': '#/$defs/ExtractionBatch'}, prompt.response_schema['$defs'])
+    ids = {quote: key for key, quote in evidence_catalog(prompt).items()}
+    for candidate in wire['candidates']:
+        for support in candidate['source_support']:
+            support['quote_id'] = ids[support.pop('exact_quote')]
+    return {'result': wire}
 
 
 def test_strict_schema_has_required_nullable_optionals_without_changing_e1(example):
@@ -120,7 +131,12 @@ def test_openai_wire_request_and_end_to_end_validation(example, tmp_path):
     assert result.report['provider']['model_name'] == 'test-model-snapshot'
     assert result.report['provider']['usage']['total_tokens'] == 300
     assert result.batch['documents'] == batch['documents']
-    assert result.batch['candidates'] == batch['candidates']
+    expected = deepcopy(batch['candidates'])
+    for candidate in expected:
+        for support in candidate['source_support']:
+            support.pop('start_char', None)
+            support.pop('end_char', None)
+    assert result.batch['candidates'] == expected
     assert result.batch['extraction_run']['engine'] == 'openai'
     assert result.raw_response == raw
     target = tmp_path / 'run'
@@ -148,6 +164,75 @@ def test_fixture_transport_reuses_profiles(action):
     assert result.report['status'] == 'provisional'
     assert result.report['provider']['live'] is False
     assert result.batch['extraction_run']['engine'] == 'offline_fixture'
+
+
+def test_empty_components_report_constraint_without_source_text(example):
+    request, batch = example
+    batch['candidates'][0]['components'] = []
+    prompt = build_extraction_prompt(request)
+    raw = json.dumps(wire_batch(batch, prompt))
+    result = extract(request, OpenAIProvider('test', client=Client(completion(raw))))
+    assert result.report['status'] == 'quarantined'
+    assert 'candidates/0/components (minItems)' in result.report['error']
+    assert 'abstained' not in result.report['error']
+    assert batch['candidates'][0]['statement'] not in result.report['error']
+    assert result.raw_response == raw
+    assert result.batch is None
+
+
+def test_incorrect_in_range_offsets_still_quarantined(example):
+    request, batch = example
+    support = batch['candidates'][0]['source_support'][0]
+    support.update(start_char=0, end_char=1)
+    result = extract(request, FixtureProvider(json.dumps(batch)))
+    assert result.report['status'] == 'quarantined'
+    assert 'offsets do not match' in result.report['error']
+
+
+def test_wire_quotes_are_exact_source_lines_and_offsets_are_absent():
+    text = 'First line with feedback.\nSecond line with spilling.'
+    request = ExtractionRequest('lines', (SourceDocument('doc', 'Synthetic test', True,
+        (SourcePassage('passage', text),)),))
+    prompt = build_extraction_prompt(request)
+    schema = openai_response_schema(prompt)
+    support = schema['$defs']['SourceSupport']['properties']
+    assert support['quote_id']['enum'] == list(evidence_catalog(prompt))
+    assert list(evidence_catalog(prompt).values()) == [text, *text.splitlines()]
+    assert all(quote in text for quote in evidence_catalog(prompt).values())
+    assert 'exact_quote' not in support
+    assert support['start_char'] == support['end_char'] == {'type': 'null'}
+    assert 'enum' not in prompt.response_schema['$defs']['SourceSupport']['properties']['exact_quote']
+
+
+@pytest.mark.parametrize('fault', [None, 'unknown_id', 'wrong_document'])
+def test_evidence_ids_resolve_multiline_quotes_without_repair(example, fault):
+    request, batch = example
+    passage = request.documents[0].passages[0]
+    text = passage.text + '\nThis remains a synthetic example.'
+    request = replace(request, documents=(replace(request.documents[0], passages=(
+        replace(passage, text=text),)),))
+    batch['documents'][0]['passages'][0]['text'] = text
+    support = batch['candidates'][0]['source_support'][0]
+    support['exact_quote'] = text
+    prompt = build_extraction_prompt(request)
+    wire = wire_batch(batch, prompt)
+    wire_support = wire['result']['candidates'][0]['source_support'][0]
+    if fault == 'unknown_id':
+        wire_support['quote_id'] = 'invented-evidence-id'
+    elif fault == 'wrong_document':
+        wire_support['document_id'] = 'different-document'
+    raw = json.dumps(wire)
+    provider = OpenAIProvider('test', client=Client(completion(raw)))
+    result = extract(request, provider)
+    assert result.raw_response == raw
+    if fault:
+        assert result.report['status'] == 'quarantined'
+        assert result.batch is None
+    else:
+        assert result.report['status'] == 'provisional'
+        assert result.batch['candidates'][0]['source_support'][0]['exact_quote'] == text
+        catalog = json.loads(provider.request_payload['messages'][-1]['content'])['evidence_catalog']
+        assert catalog[wire_support['quote_id']] == text
 
 
 @pytest.mark.parametrize('raw', ['{"candidates":', '{} trailing', '{"x":1,"x":2}', '{"x": NaN}'])

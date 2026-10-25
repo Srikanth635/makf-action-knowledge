@@ -1,0 +1,105 @@
+{
+  "version": "0.1",
+  "experiment_id": "fluidlab_verification_004",
+  "purpose": "Fresh development verification plus read-only shadow collision/loss instrumentation; no terminal or optimizer execution",
+  "base_pose": [
+    0.6,
+    0.7,
+    0.5,
+    0,
+    0,
+    0
+  ],
+  "base_value": 0.001,
+  "cases": [
+    {
+      "id": "base_vertical_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 1,
+      "pose_offset_x": 0,
+      "epsilons": [
+        8e-05,
+        6e-05
+      ]
+    },
+    {
+      "id": "base_horizontal_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 0,
+      "pose_offset_x": 0,
+      "epsilons": [
+        8e-05,
+        6e-05
+      ]
+    },
+    {
+      "id": "base_rotation_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 5,
+      "pose_offset_x": 0,
+      "epsilons": [
+        0.00014,
+        0.00011
+      ]
+    },
+    {
+      "id": "earlier_vertical_h8",
+      "horizon": 8,
+      "action_step": 3,
+      "component": 1,
+      "pose_offset_x": 0,
+      "epsilons": [
+        2.4e-05,
+        1.6e-05
+      ]
+    },
+    {
+      "id": "offset_vertical_h8",
+      "horizon": 8,
+      "action_step": 7,
+      "component": 1,
+      "pose_offset_x": 0.02,
+      "epsilons": [
+        8e-05,
+        6e-05
+      ]
+    }
+  ],
+  "paired_repeats": 4,
+  "autodiff_repeats": 3,
+  "schedule": "For each case: AD base; epsilon 1 four blocks; AD base; epsilon 2 four blocks; AD base. Each block begins with a base forward evaluation; signs alternate (+,-),(-,+),(+,-),(-,+). Fixed case order.",
+  "instrumented_cases": [
+    "base_rotation_h4",
+    "earlier_vertical_h8"
+  ],
+  "instrumentation_reference_forward_repeats": 3,
+  "instrumentation_reference_ad_repeats": 3,
+  "instrumentation_probes": [
+    "base_with_AD",
+    "plus",
+    "minus"
+  ],
+  "observer_scope": "Independent shadow kernels before original grid_op/g2p. Recompute inputs and tangential norm, do not divide or write simulator fields. Original forward/backward kernels unmodified. Shadow arithmetic can differ from compiled temporaries. Store per-substep contact masks and per-action MILK L1 sign snapshots.",
+  "gate": {
+    "relative_ad_fd_tolerance": 0.05,
+    "absolute_ad_fd_tolerance": 0.01,
+    "minimum_signal_ratio": 10,
+    "maximum_asymmetry": 0.3,
+    "maximum_relative_fd_change": 0.1,
+    "maximum_relative_fd_envelope_half_width": 0.1,
+    "requires": "All five cases pass both predeclared epsilons; observer runs have no zero/<=EPS/invalid shadow norms, meet baseline loss/AD agreement, and fresh-process control meets agreement. Empirical ranges are descriptive, not confidence bounds. No noise allowance is added to the AD/FD tolerance."
+  },
+  "control_agreement": {
+    "absolute_loss_floor": 0.001,
+    "range_multiplier": 5,
+    "absolute_ad_floor": 0.02,
+    "relative_ad_floor": 0.005
+  },
+  "fresh_process_case": "earlier_vertical_h8",
+  "fresh_forward_repeats": 3,
+  "fresh_ad_repeats": 3,
+  "scope": "Four/eight-step partial diff loss with original max_loss_steps=1000; no original terminal step 999. Passing is engineering readiness only, not contact/physics correctness or paper replication. No automatic transition to terminal/optimization. Prior experiment files and failed gate remain unchanged."
+}

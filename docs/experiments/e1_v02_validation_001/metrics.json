@@ -1,0 +1,19 @@
+{
+  "control_cases": 12,
+  "positive_cases": 6,
+  "negative_cases": 6,
+  "review_runs": 4,
+  "total_control_decisions": 48,
+  "false_acceptances": 0,
+  "false_rejections": 0,
+  "pilot_gate_passed": true,
+  "fresh_extracted_candidates": 6,
+  "fresh_selected_candidates": 6,
+  "fresh_rdf_conforms": true,
+  "source_status": "assistant-annotated development calibration; not held-out expert evaluation",
+  "usage": {
+    "prompt_tokens": 63487,
+    "completion_tokens": 9809,
+    "total_tokens": 73296
+  }
+}

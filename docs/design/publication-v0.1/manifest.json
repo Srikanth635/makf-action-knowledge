@@ -1,0 +1,7 @@
+{
+  "sources_graph": "https://example.org/makf/data/sources-graph/84dc95e5aae87cd4ebe71c17d06e47248ce09b854616a3a995d6a17cecd13f69",
+  "candidates_graph": "https://example.org/makf/data/candidates-graph/596cf11009af45a7ca9980c6be70d98ccf16f39ccdb13eb33f836a596a6bb04e",
+  "input_sha256": "91666b5b1cc0a0e8a9d0a8997528ab7bda1b066179228b6c4b36b00967b8dd56",
+  "assessment_sha256": "db79b79c30c4e94f2ecd790f6b4e193f6858e47e2759922f1cf4d67b84c6d638",
+  "contract_version": "draft-0.1"
+}

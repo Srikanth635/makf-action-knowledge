@@ -1,0 +1,424 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "purpose": "Predeclared CPU noise and directional gradient development checks; no optimization",
+    "base_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "base_value": 0.001,
+    "forward_noise_repeats": 5,
+    "autodiff_noise_repeats": 3,
+    "epsilons": [
+      0.0003,
+      0.0001,
+      3e-05
+    ],
+    "absolute_tolerance": 0.01,
+    "relative_tolerance": 0.05,
+    "minimum_signal_to_noise": 10,
+    "maximum_one_sided_asymmetry": 0.3,
+    "adjacent_fd_relative_stability": 0.1,
+    "minimum_informative_cases": 3,
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02
+      }
+    ],
+    "terminal_diagnostic_if_gate_passes": {
+      "horizon": 8,
+      "action_step": 7,
+      "component": 1,
+      "pose_offset_x": 0,
+      "note": "Move terminal trigger to step 7 in an explicitly shortened diagnostic; not the original 1000-step objective."
+    },
+    "gate": "No informative failed case; at least three passing cases, including both h8 cases. Each passing case requires two adjacent informative/noise-separated epsilon checks that satisfy AD agreement, one-sided asymmetry and FD stability limits.",
+    "scope": "Altered pose probes contact sensitivity without asserting a contact-free/penetrating regime. First-step detached reference is unchanged by each tested action. No parameter tuning or retry-until-pass."
+  },
+  "cases": [
+    {
+      "case": {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      "terminal_diagnostic": false,
+      "loss": 23.783374786376953,
+      "autodiff": 449.6166687011719,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "plus_loss": 23.9410400390625,
+          "minus_loss": 23.680463790893555,
+          "fd": 434.29374694824224,
+          "ad_error": 15.32292175292963,
+          "threshold": 22.880969746907553,
+          "noise_bound": 0.40013631184895837,
+          "one_sided_forward": 525.5508422851562,
+          "one_sided_backward": 343.0366516113282,
+          "asymmetry": 0.3472817013863685,
+          "informative": true,
+          "passes": false
+        },
+        {
+          "epsilon": 0.0001,
+          "plus_loss": 23.83063507080078,
+          "minus_loss": 23.741809844970703,
+          "fd": 444.1261291503906,
+          "ad_error": 5.49053955078125,
+          "threshold": 23.66934051513672,
+          "noise_bound": 1.188507080078125,
+          "one_sided_forward": 472.60284423828125,
+          "one_sided_backward": 415.6494140625,
+          "asymmetry": 0.12051012995399145,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 3e-05,
+          "plus_loss": 23.796937942504883,
+          "minus_loss": 23.769948959350586,
+          "fd": 449.8163859049479,
+          "ad_error": 0.19971720377600377,
+          "threshold": 26.438624064127602,
+          "noise_bound": 3.947804768880208,
+          "one_sided_forward": 452.1052042643229,
+          "one_sided_backward": 447.5275675455729,
+          "asymmetry": 0.010125158205596963,
+          "informative": true,
+          "passes": true
+        }
+      ],
+      "adjacent_fd_relative_changes": [
+        0.0221387159115309,
+        0.012650176678445146
+      ],
+      "status": "PASS",
+      "seconds": 17.96893811225891
+    },
+    {
+      "case": {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0
+      },
+      "terminal_diagnostic": false,
+      "loss": 23.85397720336914,
+      "autodiff": -53.35750961303711,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "plus_loss": 23.838930130004883,
+          "minus_loss": 23.871902465820312,
+          "fd": -54.95389302571615,
+          "ad_error": 1.5963834126790388,
+          "threshold": 3.147830963134766,
+          "noise_bound": 0.40013631184895837,
+          "one_sided_forward": -50.15691121419271,
+          "one_sided_backward": -59.750874837239586,
+          "asymmetry": 0.16056607788891253,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 0.0001,
+          "plus_loss": 23.84878158569336,
+          "minus_loss": 23.859500885009766,
+          "fd": -53.59649658203125,
+          "ad_error": 0.23898696899414062,
+          "threshold": 3.8683319091796875,
+          "noise_bound": 1.188507080078125,
+          "one_sided_forward": -51.9561767578125,
+          "one_sided_backward": -55.23681640625,
+          "asymmetry": 0.05939226519337017,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 3e-05,
+          "plus_loss": 23.85232162475586,
+          "minus_loss": 23.855619430541992,
+          "fd": -54.963429768880204,
+          "ad_error": 1.6059201558430942,
+          "threshold": 6.695976257324219,
+          "noise_bound": 3.947804768880208,
+          "one_sided_forward": -55.185953776041664,
+          "one_sided_backward": -54.74090576171875,
+          "asymmetry": 0.008064516129032216,
+          "informative": true,
+          "passes": true
+        }
+      ],
+      "adjacent_fd_relative_changes": [
+        0.024700642101000793,
+        0.02486986697513005
+      ],
+      "status": "PASS",
+      "seconds": 15.022799015045166
+    },
+    {
+      "case": {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0
+      },
+      "terminal_diagnostic": false,
+      "loss": 23.895198822021484,
+      "autodiff": 11.479289054870605,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "plus_loss": 23.897933959960938,
+          "minus_loss": 23.890716552734375,
+          "fd": 12.029012044270834,
+          "ad_error": 0.5497229894002285,
+          "threshold": 1.0015869140625,
+          "noise_bound": 0.40013631184895837,
+          "one_sided_forward": 9.11712646484375,
+          "one_sided_backward": 14.940897623697918,
+          "asymmetry": 0.3897872340425532,
+          "informative": true,
+          "passes": false
+        },
+        {
+          "epsilon": 0.0001,
+          "plus_loss": 23.89629554748535,
+          "minus_loss": 23.894012451171875,
+          "fd": 11.415481567382812,
+          "ad_error": 0.06380748748779297,
+          "threshold": 1.7624715328216554,
+          "noise_bound": 1.188507080078125,
+          "one_sided_forward": 10.967254638671875,
+          "one_sided_backward": 11.86370849609375,
+          "asymmetry": 0.07556270096463022,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 3e-05,
+          "plus_loss": 23.8955078125,
+          "minus_loss": 23.894969940185547,
+          "fd": 8.96453857421875,
+          "ad_error": 2.5147504806518555,
+          "threshold": 4.521769221623738,
+          "noise_bound": 3.947804768880208,
+          "one_sided_forward": 10.2996826171875,
+          "one_sided_backward": 7.62939453125,
+          "asymmetry": 0.25925925925925924,
+          "informative": false,
+          "passes": false
+        }
+      ],
+      "adjacent_fd_relative_changes": [
+        0.05100422832980977,
+        0.214703425229741
+      ],
+      "status": "FAIL",
+      "seconds": 14.929491758346558
+    },
+    {
+      "case": {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      "terminal_diagnostic": false,
+      "loss": 162.16806030273438,
+      "autodiff": 16373.4853515625,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "plus_loss": 167.67880249023438,
+          "minus_loss": 158.488525390625,
+          "fd": 15317.128499348959,
+          "ad_error": 1056.356852213541,
+          "threshold": 819.0744038899741,
+          "noise_bound": 0.40013631184895837,
+          "one_sided_forward": 18369.140625,
+          "one_sided_backward": 12265.116373697918,
+          "asymmetry": 0.33229775828460034,
+          "informative": true,
+          "passes": false
+        },
+        {
+          "epsilon": 0.0001,
+          "plus_loss": 163.83706665039062,
+          "minus_loss": 160.65762329101562,
+          "fd": 15897.216796875,
+          "ad_error": 476.2685546875,
+          "threshold": 819.8627746582032,
+          "noise_bound": 1.188507080078125,
+          "one_sided_forward": 16690.0634765625,
+          "one_sided_backward": 15104.3701171875,
+          "asymmetry": 0.0950082281952825,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 3e-05,
+          "plus_loss": 162.6655731201172,
+          "minus_loss": 161.6796875,
+          "fd": 16431.427001953125,
+          "ad_error": 57.941650390625,
+          "threshold": 825.5191548665365,
+          "noise_bound": 3.947804768880208,
+          "one_sided_forward": 16583.760579427082,
+          "one_sided_backward": 16279.093424479166,
+          "asymmetry": 0.018371415427081702,
+          "informative": true,
+          "passes": true
+        }
+      ],
+      "adjacent_fd_relative_changes": [
+        0.03648992807596812,
+        0.03251149185123276
+      ],
+      "status": "PASS",
+      "seconds": 28.898899793624878
+    },
+    {
+      "case": {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02
+      },
+      "terminal_diagnostic": false,
+      "loss": 151.8026123046875,
+      "autodiff": -298.48004150390625,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "plus_loss": 151.73477172851562,
+          "minus_loss": 151.92572021484375,
+          "fd": -318.2474772135417,
+          "ad_error": 19.767435709635436,
+          "threshold": 16.312510172526043,
+          "noise_bound": 0.40013631184895837,
+          "one_sided_forward": -226.13525390625003,
+          "one_sided_backward": -410.35970052083337,
+          "asymmetry": 0.4489340604858701,
+          "informative": true,
+          "passes": false
+        },
+        {
+          "epsilon": 0.0001,
+          "plus_loss": 151.77574157714844,
+          "minus_loss": 151.83583068847656,
+          "fd": -300.445556640625,
+          "ad_error": 1.96551513671875,
+          "threshold": 16.210784912109375,
+          "noise_bound": 1.188507080078125,
+          "one_sided_forward": -268.707275390625,
+          "one_sided_backward": -332.183837890625,
+          "asymmetry": 0.19108865411116216,
+          "informative": true,
+          "passes": true
+        },
+        {
+          "epsilon": 3e-05,
+          "plus_loss": 151.79432678222656,
+          "minus_loss": 151.8125,
+          "fd": -302.886962890625,
+          "ad_error": 4.40692138671875,
+          "threshold": 19.092152913411457,
+          "noise_bound": 3.947804768880208,
+          "one_sided_forward": -276.18408203125,
+          "one_sided_backward": -329.58984375,
+          "asymmetry": 0.16203703703703703,
+          "informative": true,
+          "passes": true
+        }
+      ],
+      "adjacent_fd_relative_changes": [
+        0.05593735016781211,
+        0.008060453400503778
+      ],
+      "status": "PASS",
+      "seconds": 29.12038540840149
+    }
+  ],
+  "terminal": {
+    "status": "blocked_by_broader_gate",
+    "reason": "No terminal test or optimizer inference after failed/insufficient broader checks."
+  },
+  "status": "completed",
+  "runtime": {
+    "backend": "Arch.x64",
+    "particle_count": 40604,
+    "dt": 0.0002,
+    "substeps": 10
+  },
+  "noise": {
+    "forward_losses": [
+      23.783401489257812,
+      23.783287048339844,
+      23.78329849243164,
+      23.78335189819336,
+      23.783321380615234
+    ],
+    "autodiff_runs": [
+      [
+        23.783361434936523,
+        449.6277770996094
+      ],
+      [
+        23.78335952758789,
+        449.63372802734375
+      ],
+      [
+        23.783405303955078,
+        449.6300964355469
+      ]
+    ],
+    "loss_range": 0.000118255615234375,
+    "autodiff_range": 0.005950927734375,
+    "note": "Measured at base case only, not a bound for every later pose/regime."
+  },
+  "broader_gate_passed": false
+}

@@ -1,0 +1,32 @@
+{
+  "assessment": {
+    "supported": true,
+    "limitations": [
+      "This is an advisory assessment of supplied results, not an execution reproduction. Commit identifiers and file hashes do not independently verify the code, patch, logs, or measurements.",
+      "Finite states and an unchanged active-particle mass ledger support a narrow forward smoke test. They do not establish physical accuracy, conservation beyond that ledger, long-horizon stability, or successful pouring.",
+      "The gradient check covers only one last-step vertical action component at one control value and initial pose over a four-step partial objective. It excludes the original terminal attraction term and does not validate other controls, earlier-action dependencies, or the full objective.",
+      "The reported threshold of 67.4423 is consistent with a max-style absolute/relative gate dominated by 15% of the autodiff magnitude. This is a permissive gate, although the actual discrepancies are much smaller. The exact tolerance formula should be documented.",
+      "Two finite-difference scales do not establish convergence or robustness near contact and other nonsmooth transitions. Unequal one-sided slopes indicate local nonlinearity; the results cannot isolate its source or establish contact-gradient correctness.",
+      "The optimization gain is only about 0.43% on the short partial objective. Three forward-accepted sign-gradient steps demonstrate local descent, not optimizer convergence, gradient-magnitude accuracy, or a learned pouring skill. Repeated evaluations also show small numerical differences that should be characterized.",
+      "Mass, speed, displacement, and loss values must remain in simulator-native units without calibration. Neither SI interpretation nor paper replication is supported. The provenance field 'long_rollout_steps': 200 should be clarified as an aggregate if it refers to the two reported 100-step runs."
+    ],
+    "rationale": "The stated interpretation is appropriately restrained and contains no material overclaim. Recomputing the central differences gives approximately 443.821 and 448.068 versus autodiff 449.615, with absolute errors 5.794 and 1.547, or approximately 1.29% and 0.34% relative to autodiff. Both satisfy the reported gate, and the derivative magnitude is clearly informative. The pilot loss decreases from 23.7832737 to 23.6804028, a reduction of approximately 0.102871 or 0.4325%, consistent with the stated fraction. The two rollouts report finite states and unchanged active mass and particle counts. Their below-threshold water counts, 14 and 46 out of 20,302 water particles, are only a limited movement diagnostic, not evidence of useful pouring. These observations support the local development-test interpretation only.",
+    "recommended_next_test": "First repeat identical loss and gradient evaluations to quantify numerical variability and confirm state reset. Then run a finite-difference epsilon sweep, including one-sided slopes, for several action components, earlier timesteps, initial poses, and contact regimes. Document the tolerance formula and compare discrepancies with measured noise. Extend checks incrementally to longer horizons and the actual terminal objective before testing optimization against a forward-only baseline on task-level pouring metrics. Keep physical-calibration and paper-replication claims separate."
+  },
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6-astra",
+    "live": true,
+    "wire_request_sha256": "dd86c550c34b7f2eb80d2befeef5342cc4501ff1bf15c170f4d0ef3678228a60",
+    "model_name": "gpt-6-astra",
+    "response_id": "chatcmpl-EclB3SMO1V9vLVEOZF7e7RuCgyz2L",
+    "request_id": "req_671dbd50b5db4532926947fc732eb180",
+    "usage": {
+      "prompt_tokens": 1949,
+      "completion_tokens": 823,
+      "total_tokens": 2772
+    },
+    "finish_reason": "stop"
+  },
+  "scope": "Advisory interpretation check, not independent execution or human scientific approval."
+}

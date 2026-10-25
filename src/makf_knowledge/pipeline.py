@@ -15,7 +15,7 @@ import jsonschema
 from .extraction import ExtractionProvider, ExtractionRequest, build_extraction_prompt
 from .guidance import load_profile
 from .paths import RESOURCE_ROOT, profile_path
-from .providers import OPENAI_WIRE_FORMAT, ProviderError, openai_response_schema
+from .providers import OPENAI_WIRE_FORMAT, ProviderError, evidence_catalog, openai_response_schema
 from .validation import SemanticValidator, ValidationError
 
 
@@ -51,8 +51,17 @@ def _check_schema(data, schema, label):
     errors = list(jsonschema.Draft202012Validator(
         schema, format_checker=jsonschema.FormatChecker()).iter_errors(data))
     if errors:
-        # Raw artifacts retain details without echoing untrusted excerpts to stderr.
-        raise ValidationError(f'{label} validation failed')
+        # Report locations and constraint names, never source values or excerpts.
+        # For the batch/abstention union, prefer errors from the intended branch.
+        if 'oneOf' in schema and isinstance(data, dict):
+            branch = schema['oneOf'][1 if data.get('abstained') is True else 0]
+            errors = list(jsonschema.Draft202012Validator(
+                {'$defs': schema['$defs'], **branch},
+                format_checker=jsonschema.FormatChecker()).iter_errors(data)) or errors
+        details = '; '.join(
+            f'{"/".join(map(str, e.absolute_path)) or "<root>"} ({e.validator})'
+            for e in errors[:8])
+        raise ValidationError(f'{label} validation failed: {details}')
 
 
 @dataclass
@@ -121,6 +130,10 @@ def extract(request: ExtractionRequest, provider: ExtractionProvider, *, root=RE
             _check_schema(data, openai_response_schema(prompt), 'Transport schema')
             data = data['result']
             if 'abstained' not in data:
+                catalog = evidence_catalog(prompt)
+                for candidate in data['candidates']:
+                    for support in candidate['source_support']:
+                        support['exact_quote'] = catalog[support.pop('quote_id')]
                 data = _remove_optional_nulls(data, {'$ref': '#/$defs/ExtractionBatch'},
                                               prompt.response_schema['$defs'])
         elif wire_format != 'e1':

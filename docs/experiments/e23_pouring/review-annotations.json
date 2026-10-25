@@ -1,0 +1,69 @@
+{
+  "reviewer_type": "codex_agent",
+  "human_approved": false,
+  "source_sha256": "fda9d08d58e40e567ca9ba867b1bcc85c15db6bd77cb939ab0cf9b482c2772d2",
+  "original_candidates_sha256": "f6f4fd6d9203f5dd865b25e97573ac351e81fc9f1625be6ced8121fdfb4b83a1",
+  "original_response_sha256": "d9362dd1e9f3ac26cb542b033bed78b563059413ea6446708640d1263f400d34",
+  "scope": "Three development examples derived from one passage; not an independent benchmark or expert acceptance.",
+  "reviews": [
+    {
+      "original_candidate_id": "pourit-008-cand1",
+      "revised_candidate_id": "pourit-review-1",
+      "issues": [
+        "incomplete_bottleneck_evidence",
+        "unsupported_typicality",
+        "causal_mapping_unjustified"
+      ],
+      "required_evidence": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation.",
+          "start_char": 0,
+          "end_char": 302
+        }
+      ],
+      "mapping_rationale": "makf:GeneralizedStrategy describes the abstract strategy; no claim that the class establishes its effectiveness. Unsupported causal-template mapping removed where present."
+    },
+    {
+      "original_candidate_id": "pourit-008-cand2",
+      "revised_candidate_id": "pourit-review-2",
+      "issues": [
+        "incomplete_comparison_evidence",
+        "missing_experimental_scope"
+      ],
+      "required_evidence": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation.",
+          "start_char": 303,
+          "end_char": 493
+        }
+      ],
+      "mapping_rationale": "makf:GeneralizedStrategy describes the abstract strategy; no claim that the class establishes its effectiveness. Unsupported causal-template mapping removed where present."
+    },
+    {
+      "original_candidate_id": "pourit-008-cand3",
+      "revised_candidate_id": "pourit-review-3",
+      "issues": [
+        "incomplete_outcome_evidence",
+        "unsupported_mask_of_liquid",
+        "overgeneralized_principle"
+      ],
+      "required_evidence": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead.",
+          "start_char": 494,
+          "end_char": 712
+        }
+      ],
+      "mapping_rationale": "makf:GeneralizedStrategy describes the abstract strategy; no claim that the class establishes its effectiveness. Unsupported causal-template mapping removed where present."
+    }
+  ]
+}

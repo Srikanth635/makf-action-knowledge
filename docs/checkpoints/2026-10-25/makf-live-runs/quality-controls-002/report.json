@@ -1,0 +1,35 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T08:47:53.388059+00:00",
+  "prompt_version": "makf-e2.2-v3",
+  "source_sha256": "6a5ae935673a99acf0f330345148fc6d4a46aee69f0bb8c07933ab6d7fc12181",
+  "prompt_sha256": "67d796420bd27d0a8a9c3bc401db4aee8f4cdcb4bd200ea552d17e93fa22d4f4",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "offline_fixture",
+    "live": false
+  },
+  "response_sha256": "cb78bcc1e1eb9d2f95458638eb45dc50179fdd5ae4c80b1e1358c50e18edff18",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "synthetic-review-controls",
+    "profile_id": "pouring-v0.1",
+    "candidates": 4,
+    "warnings": [
+      "control-1: quote matching does not prove scientific truth or entailment",
+      "control-1: source is a SYNTHETIC demo, not published evidence",
+      "control-2: quote matching does not prove scientific truth or entailment",
+      "control-2: source is a SYNTHETIC demo, not published evidence",
+      "control-3: quote matching does not prove scientific truth or entailment",
+      "control-3: source is a SYNTHETIC demo, not published evidence",
+      "control-4: quote matching does not prove scientific truth or entailment",
+      "control-4: source is a SYNTHETIC demo, not published evidence"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 4,
+  "perspectives": [
+    "procedural"
+  ],
+  "human_review_required": true
+}

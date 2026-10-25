@@ -1,0 +1,28 @@
+{
+  "graph_iri": "https://example.org/makf/data/quantitative/0aa254c3cc7ead366aee685b3b8e6989521b706d4b54cac2e0d163d425d8616d",
+  "snapshot_iri": "https://example.org/makf/data/quantitative/c419cd599a7b112bf1eb646d7eeffd0c332d6cfd0c23e8ae5f775ba807cd94ff",
+  "input_sha256": "d79599d983130c1246bdb40984dc1b3304713618964b844276a47e3e760dae81",
+  "report_sha256": "e9ab3ced39dccae4ca395727488629edb8b5cdd7bdde1335ff6586952147f16d",
+  "base_iri": "https://example.org/makf/data/",
+  "contract_version": "quantitative-rdf-0.1",
+  "quantity_count": 10,
+  "triple_count": 441,
+  "review_state": "pending",
+  "shacl_conforms": true,
+  "dependencies": {
+    "rdflib": "7.6.0",
+    "pyshacl": "0.30.1"
+  },
+  "resources_sha256": {
+    "schema.json": "c0080185d9ac4029a6b61f2c3624984d13e6baa8c52c812c602d25969d424c37",
+    "shapes.ttl": "1a27742cf72b6abd15421666d21491cd1adc2e1ec9b1a1d0fd22d17c075d27a7",
+    "vocabulary.ttl": "172efd9011f05b8191bd615c017b132c3db088f7626ede09aad5501d50d2288e"
+  },
+  "files_sha256": {
+    "dataset.trig": "f9ac8bbb5bdfcdff90f489d819241d57783e9c6130fc475f5abeb132df44ca04",
+    "evidence.json": "78369ccfa9a2f6c3d3acd14d1b6e9cd65af5fe22b3102f21791b2784f06af86f",
+    "validation.json": "ebce15a19895ec9e8e8cf13ae0fcf97bd8ca69f856250868b9ce13086d7c87c7",
+    "shacl-report.ttl": "4a53a3befd9bcdb7273ef3d6e47a83be519927771faee49ef0d2a44ee23be2be"
+  },
+  "scope": "Provisional quantitative records; no scientific approval or execution eligibility."
+}

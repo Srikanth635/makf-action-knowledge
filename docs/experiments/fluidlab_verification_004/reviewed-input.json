@@ -1,0 +1,1583 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "experiment_id": "fluidlab_verification_004",
+    "purpose": "Fresh development verification plus read-only shadow collision/loss instrumentation; no terminal or optimizer execution",
+    "base_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "base_value": 0.001,
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      },
+      {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      },
+      {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0,
+        "epsilons": [
+          0.00014,
+          0.00011
+        ]
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0,
+        "epsilons": [
+          2.4e-05,
+          1.6e-05
+        ]
+      },
+      {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      }
+    ],
+    "paired_repeats": 4,
+    "autodiff_repeats": 3,
+    "schedule": "For each case: AD base; epsilon 1 four blocks; AD base; epsilon 2 four blocks; AD base. Each block begins with a base forward evaluation; signs alternate (+,-),(-,+),(+,-),(-,+). Fixed case order.",
+    "instrumented_cases": [
+      "base_rotation_h4",
+      "earlier_vertical_h8"
+    ],
+    "instrumentation_reference_forward_repeats": 3,
+    "instrumentation_reference_ad_repeats": 3,
+    "instrumentation_probes": [
+      "base_with_AD",
+      "plus",
+      "minus"
+    ],
+    "observer_scope": "Independent shadow kernels before original grid_op/g2p. Recompute inputs and tangential norm, do not divide or write simulator fields. Original forward/backward kernels unmodified. Shadow arithmetic can differ from compiled temporaries. Store per-substep contact masks and per-action MILK L1 sign snapshots.",
+    "gate": {
+      "relative_ad_fd_tolerance": 0.05,
+      "absolute_ad_fd_tolerance": 0.01,
+      "minimum_signal_ratio": 10,
+      "maximum_asymmetry": 0.3,
+      "maximum_relative_fd_change": 0.1,
+      "maximum_relative_fd_envelope_half_width": 0.1,
+      "requires": "All five cases pass both predeclared epsilons; observer runs have no zero/<=EPS/invalid shadow norms, meet baseline loss/AD agreement, and fresh-process control meets agreement. Empirical ranges are descriptive, not confidence bounds. No noise allowance is added to the AD/FD tolerance."
+    },
+    "control_agreement": {
+      "absolute_loss_floor": 0.001,
+      "range_multiplier": 5,
+      "absolute_ad_floor": 0.02,
+      "relative_ad_floor": 0.005
+    },
+    "fresh_process_case": "earlier_vertical_h8",
+    "fresh_forward_repeats": 3,
+    "fresh_ad_repeats": 3,
+    "scope": "Four/eight-step partial diff loss with original max_loss_steps=1000; no original terminal step 999. Passing is engineering readiness only, not contact/physics correctness or paper replication. No automatic transition to terminal/optimization. Prior experiment files and failed gate remain unchanged."
+  },
+  "analysis": {
+    "scope": "Predeclared engineering development gate; not physical/scientific correctness.",
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "baseline_loss_range": 0.00014495849609375,
+        "autodiff_median": 449.62310791015625,
+        "autodiff_range": 0.006988525390625,
+        "samples": [
+          {
+            "epsilon": 8e-05,
+            "fd": 444.1441833425617,
+            "observed_fd_envelope": [
+              443.9474879382766,
+              444.6031392858936
+            ],
+            "relative_ad_fd_discrepancy": 0.012185593825594391,
+            "absolute_ad_fd_tolerance": 22.481155395507812,
+            "empirical_signal_ratio": 490.23026315789474,
+            "asymmetry": 0.10162670219100417,
+            "relative_envelope_half_width": 0.0007291121564730538,
+            "passed": true
+          },
+          {
+            "epsilon": 6e-05,
+            "fd": 445.2147566071736,
+            "observed_fd_envelope": [
+              444.60281579464345,
+              445.6359626209931
+            ],
+            "relative_ad_fd_discrepancy": 0.0098045479100765,
+            "absolute_ad_fd_tolerance": 22.481155395507812,
+            "empirical_signal_ratio": 368.5592105263158,
+            "asymmetry": 0.05496237781694422,
+            "relative_envelope_half_width": 0.0011489031682020377,
+            "passed": true
+          }
+        ],
+        "relative_fd_change": 0.002404622148579267,
+        "passed": true
+      },
+      {
+        "id": "base_horizontal_h4",
+        "baseline_loss_range": 0.000148773193359375,
+        "autodiff_median": -53.35795974731445,
+        "autodiff_range": 0.000400543212890625,
+        "samples": [
+          {
+            "epsilon": 8e-05,
+            "fd": -52.92298468628605,
+            "observed_fd_envelope": [
+              -53.70380583662995,
+              -52.595159012477545
+            ],
+            "relative_ad_fd_discrepancy": 0.008152018238484014,
+            "absolute_ad_fd_tolerance": 2.667897987365723,
+            "empirical_signal_ratio": 56.916666666666664,
+            "asymmetry": 0.01984692337781339,
+            "relative_envelope_half_width": 0.010388767012481214,
+            "passed": true
+          },
+          {
+            "epsilon": 6e-05,
+            "fd": -53.143483290769,
+            "observed_fd_envelope": [
+              -53.53290017147001,
+              -52.3884913792058
+            ],
+            "relative_ad_fd_discrepancy": 0.004019577539342663,
+            "absolute_ad_fd_tolerance": 2.667897987365723,
+            "empirical_signal_ratio": 42.86538461538461,
+            "asymmetry": 0.016902960861881124,
+            "relative_envelope_half_width": 0.010723880726359738,
+            "passed": true
+          }
+        ],
+        "relative_fd_change": 0.004149118402279227,
+        "passed": true
+      },
+      {
+        "id": "base_rotation_h4",
+        "baseline_loss_range": 0.000152587890625,
+        "autodiff_median": 11.470433235168457,
+        "autodiff_range": 0.019266128540039062,
+        "samples": [
+          {
+            "epsilon": 0.00014,
+            "fd": 11.624609618858285,
+            "observed_fd_envelope": [
+              11.457716600597502,
+              11.88005811619622
+            ],
+            "relative_ad_fd_discrepancy": 0.013262930003233132,
+            "absolute_ad_fd_tolerance": 0.5812304809429143,
+            "empirical_signal_ratio": 21.33125,
+            "asymmetry": 0.27451881198845923,
+            "relative_envelope_half_width": 0.018165836507471427,
+            "passed": true
+          },
+          {
+            "epsilon": 0.00011,
+            "fd": 11.266365221440534,
+            "observed_fd_envelope": [
+              10.79386279391571,
+              11.721528110340595
+            ],
+            "relative_ad_fd_discrepancy": 0.01779078519041885,
+            "absolute_ad_fd_tolerance": 0.5735216617584229,
+            "empirical_signal_ratio": 14.936781609195402,
+            "asymmetry": 0.27308893169150955,
+            "relative_envelope_half_width": 0.04043723970166415,
+            "passed": true
+          }
+        ],
+        "relative_fd_change": 0.030817757254968898,
+        "passed": true
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "baseline_loss_range": 0.0011444091796875,
+        "autodiff_median": 16374.8349609375,
+        "autodiff_range": 0.6728515625,
+        "samples": [
+          {
+            "epsilon": 2.4e-05,
+            "fd": 16448.651149479647,
+            "observed_fd_envelope": [
+              16427.988212952656,
+              16450.87638879794
+            ],
+            "relative_ad_fd_discrepancy": 0.0044876742701471925,
+            "absolute_ad_fd_tolerance": 822.4325574739823,
+            "empirical_signal_ratio": 689.9066666666666,
+            "asymmetry": 0.0058243776437575286,
+            "relative_envelope_half_width": 0.000695746284521588,
+            "passed": true
+          },
+          {
+            "epsilon": 1.6e-05,
+            "fd": 16452.06848128988,
+            "observed_fd_envelope": [
+              16434.66393090753,
+              16471.38037965934
+            ],
+            "relative_ad_fd_discrepancy": 0.004694456532332922,
+            "absolute_ad_fd_tolerance": 822.603424064494,
+            "empirical_signal_ratio": 460.03333333333336,
+            "asymmetry": 0.020964781461512063,
+            "relative_envelope_half_width": 0.0011158611694804565,
+            "passed": true
+          }
+        ],
+        "relative_fd_change": 0.00020771441682967525,
+        "passed": true
+      },
+      {
+        "id": "offset_vertical_h8",
+        "baseline_loss_range": 0.0008697509765625,
+        "autodiff_median": -298.48260498046875,
+        "autodiff_range": 0.058502197265625,
+        "samples": [
+          {
+            "epsilon": 8e-05,
+            "fd": -300.59826148201125,
+            "observed_fd_envelope": [
+              -302.21950845066425,
+              -298.02333982591534
+            ],
+            "relative_ad_fd_discrepancy": 0.007038152819353916,
+            "absolute_ad_fd_tolerance": 15.029913074100563,
+            "empirical_signal_ratio": 55.29824561403509,
+            "asymmetry": 0.14150818469267495,
+            "relative_envelope_half_width": 0.0069796954314721125,
+            "passed": true
+          },
+          {
+            "epsilon": 6e-05,
+            "fd": -299.7715253069847,
+            "observed_fd_envelope": [
+              -305.6843040670164,
+              -293.09580735211017
+            ],
+            "relative_ad_fd_discrepancy": 0.004299675645296913,
+            "absolute_ad_fd_tolerance": 14.988576265349236,
+            "empirical_signal_ratio": 38.024193548387096,
+            "asymmetry": 0.12748128221968638,
+            "relative_envelope_half_width": 0.020996818663838776,
+            "passed": true
+          }
+        ],
+        "relative_fd_change": 0.0027503025830907146,
+        "passed": true
+      }
+    ],
+    "observers": [
+      {
+        "id": "base_rotation_h4",
+        "baseline_agreement": {
+          "loss_error": 2.86102294921875e-05,
+          "loss_tolerance": 0.001,
+          "autodiff_error": 0.003696441650390625,
+          "autodiff_tolerance": 0.07034778594970703,
+          "passed": true
+        },
+        "hazards": [
+          {
+            "label": "base",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          },
+          {
+            "label": "plus",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          },
+          {
+            "label": "minus",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          }
+        ],
+        "passed": true
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "baseline_agreement": {
+          "loss_error": 9.1552734375e-05,
+          "loss_tolerance": 0.001983642578125,
+          "autodiff_error": 0.0654296875,
+          "autodiff_tolerance": 81.87095703125,
+          "passed": true
+        },
+        "hazards": [
+          {
+            "label": "base",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          },
+          {
+            "label": "plus",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          },
+          {
+            "label": "minus",
+            "zero_norm": 0,
+            "norm_at_or_below_EPS": 0,
+            "invalid_or_huge_norm": 0
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "fresh_process_control": {
+      "loss_error": 7.62939453125e-05,
+      "loss_tolerance": 0.0057220458984375,
+      "autodiff_error": 0.5830078125,
+      "autodiff_tolerance": 81.8741748046875,
+      "passed": true,
+      "exported_reset_match": true
+    },
+    "original_observer_masks_valid": false,
+    "observer_source": "observer-corrected/observer-report.json; original local-index masks excluded",
+    "broader_development_gate_passed": true,
+    "historical_artifact_hashes_unchanged": true
+  },
+  "verification_raw_selected": [
+    {
+      "sequence": 73,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895246505737305,
+      "autodiff": 11.479111671447754
+    },
+    {
+      "sequence": 74,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00014,
+      "block": 0,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895313262939453
+    },
+    {
+      "sequence": 75,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00014,
+      "block": 0,
+      "nominal_control": 0.00114,
+      "represented_control": 0.0011399999493733048,
+      "loss": 23.896686553955078
+    },
+    {
+      "sequence": 76,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00014,
+      "block": 0,
+      "nominal_control": 0.0008600000000000001,
+      "represented_control": 0.000859999970998615,
+      "loss": 23.893394470214844
+    },
+    {
+      "sequence": 77,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00014,
+      "block": 1,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895198822021484
+    },
+    {
+      "sequence": 78,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00014,
+      "block": 1,
+      "nominal_control": 0.0008600000000000001,
+      "represented_control": 0.000859999970998615,
+      "loss": 23.893386840820312
+    },
+    {
+      "sequence": 79,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00014,
+      "block": 1,
+      "nominal_control": 0.00114,
+      "represented_control": 0.0011399999493733048,
+      "loss": 23.896625518798828
+    },
+    {
+      "sequence": 80,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00014,
+      "block": 2,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89520263671875
+    },
+    {
+      "sequence": 81,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00014,
+      "block": 2,
+      "nominal_control": 0.00114,
+      "represented_control": 0.0011399999493733048,
+      "loss": 23.896602630615234
+    },
+    {
+      "sequence": 82,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00014,
+      "block": 2,
+      "nominal_control": 0.0008600000000000001,
+      "represented_control": 0.000859999970998615,
+      "loss": 23.893360137939453
+    },
+    {
+      "sequence": 83,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00014,
+      "block": 3,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89516830444336
+    },
+    {
+      "sequence": 84,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00014,
+      "block": 3,
+      "nominal_control": 0.0008600000000000001,
+      "represented_control": 0.000859999970998615,
+      "loss": 23.89337921142578
+    },
+    {
+      "sequence": 85,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00014,
+      "block": 3,
+      "nominal_control": 0.00114,
+      "represented_control": 0.0011399999493733048,
+      "loss": 23.896650314331055
+    },
+    {
+      "sequence": 86,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89529800415039,
+      "autodiff": 11.470433235168457
+    },
+    {
+      "sequence": 87,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00011,
+      "block": 0,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895292282104492
+    },
+    {
+      "sequence": 88,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00011,
+      "block": 0,
+      "nominal_control": 0.00111,
+      "represented_control": 0.0011099999537691474,
+      "loss": 23.896316528320312
+    },
+    {
+      "sequence": 89,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00011,
+      "block": 0,
+      "nominal_control": 0.0008900000000000001,
+      "represented_control": 0.0008900000248104334,
+      "loss": 23.89373779296875
+    },
+    {
+      "sequence": 90,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00011,
+      "block": 1,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895240783691406
+    },
+    {
+      "sequence": 91,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00011,
+      "block": 1,
+      "nominal_control": 0.0008900000000000001,
+      "represented_control": 0.0008900000248104334,
+      "loss": 23.893783569335938
+    },
+    {
+      "sequence": 92,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00011,
+      "block": 1,
+      "nominal_control": 0.00111,
+      "represented_control": 0.0011099999537691474,
+      "loss": 23.896312713623047
+    },
+    {
+      "sequence": 93,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00011,
+      "block": 2,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895309448242188
+    },
+    {
+      "sequence": 94,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00011,
+      "block": 2,
+      "nominal_control": 0.00111,
+      "represented_control": 0.0011099999537691474,
+      "loss": 23.896312713623047
+    },
+    {
+      "sequence": 95,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00011,
+      "block": 2,
+      "nominal_control": 0.0008900000000000001,
+      "represented_control": 0.0008900000248104334,
+      "loss": 23.893903732299805
+    },
+    {
+      "sequence": 96,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 0.00011,
+      "block": 3,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.8952693939209
+    },
+    {
+      "sequence": 97,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 0.00011,
+      "block": 3,
+      "nominal_control": 0.0008900000000000001,
+      "represented_control": 0.0008900000248104334,
+      "loss": 23.893884658813477
+    },
+    {
+      "sequence": 98,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 0.00011,
+      "block": 3,
+      "nominal_control": 0.00111,
+      "represented_control": 0.0011099999537691474,
+      "loss": 23.896278381347656
+    },
+    {
+      "sequence": 99,
+      "case_id": "base_rotation_h4",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895320892333984,
+      "autodiff": 11.459845542907715
+    },
+    {
+      "sequence": 100,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16836547851562,
+      "autodiff": 16374.2177734375
+    },
+    {
+      "sequence": 101,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 2.4e-05,
+      "block": 0,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16864013671875
+    },
+    {
+      "sequence": 102,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 2.4e-05,
+      "block": 0,
+      "nominal_control": 0.001024,
+      "represented_control": 0.0010239999974146485,
+      "loss": 162.56417846679688
+    },
+    {
+      "sequence": 103,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 2.4e-05,
+      "block": 0,
+      "nominal_control": 0.000976,
+      "represented_control": 0.0009759999811649323,
+      "loss": 161.77459716796875
+    },
+    {
+      "sequence": 104,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 2.4e-05,
+      "block": 1,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16796875
+    },
+    {
+      "sequence": 105,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 2.4e-05,
+      "block": 1,
+      "nominal_control": 0.000976,
+      "represented_control": 0.0009759999811649323,
+      "loss": 161.7745361328125
+    },
+    {
+      "sequence": 106,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 2.4e-05,
+      "block": 1,
+      "nominal_control": 0.001024,
+      "represented_control": 0.0010239999974146485,
+      "loss": 162.5641632080078
+    },
+    {
+      "sequence": 107,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 2.4e-05,
+      "block": 2,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1690216064453
+    },
+    {
+      "sequence": 108,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 2.4e-05,
+      "block": 2,
+      "nominal_control": 0.001024,
+      "represented_control": 0.0010239999974146485,
+      "loss": 162.56341552734375
+    },
+    {
+      "sequence": 109,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 2.4e-05,
+      "block": 2,
+      "nominal_control": 0.000976,
+      "represented_control": 0.0009759999811649323,
+      "loss": 161.77459716796875
+    },
+    {
+      "sequence": 110,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 2.4e-05,
+      "block": 3,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16796875
+    },
+    {
+      "sequence": 111,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 2.4e-05,
+      "block": 3,
+      "nominal_control": 0.000976,
+      "represented_control": 0.0009759999811649323,
+      "loss": 161.77487182617188
+    },
+    {
+      "sequence": 112,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 2.4e-05,
+      "block": 3,
+      "nominal_control": 0.001024,
+      "represented_control": 0.0010239999974146485,
+      "loss": 162.56410217285156
+    },
+    {
+      "sequence": 113,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16856384277344,
+      "autodiff": 16374.8349609375
+    },
+    {
+      "sequence": 114,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 1.6e-05,
+      "block": 0,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.168212890625
+    },
+    {
+      "sequence": 115,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 1.6e-05,
+      "block": 0,
+      "nominal_control": 0.001016,
+      "represented_control": 0.0010160000529140234,
+      "loss": 162.43411254882812
+    },
+    {
+      "sequence": 116,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 1.6e-05,
+      "block": 0,
+      "nominal_control": 0.000984,
+      "represented_control": 0.0009840000420808792,
+      "loss": 161.9080047607422
+    },
+    {
+      "sequence": 117,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 1.6e-05,
+      "block": 1,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16787719726562
+    },
+    {
+      "sequence": 118,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 1.6e-05,
+      "block": 1,
+      "nominal_control": 0.000984,
+      "represented_control": 0.0009840000420808792,
+      "loss": 161.90733337402344
+    },
+    {
+      "sequence": 119,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 1.6e-05,
+      "block": 1,
+      "nominal_control": 0.001016,
+      "represented_control": 0.0010160000529140234,
+      "loss": 162.43411254882812
+    },
+    {
+      "sequence": 120,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 1.6e-05,
+      "block": 2,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.168212890625
+    },
+    {
+      "sequence": 121,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 1.6e-05,
+      "block": 2,
+      "nominal_control": 0.001016,
+      "represented_control": 0.0010160000529140234,
+      "loss": 162.43435668945312
+    },
+    {
+      "sequence": 122,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 1.6e-05,
+      "block": 2,
+      "nominal_control": 0.000984,
+      "represented_control": 0.0009840000420808792,
+      "loss": 161.908203125
+    },
+    {
+      "sequence": 123,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "center",
+      "epsilon": 1.6e-05,
+      "block": 3,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16827392578125
+    },
+    {
+      "sequence": 124,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "minus",
+      "epsilon": 1.6e-05,
+      "block": 3,
+      "nominal_control": 0.000984,
+      "represented_control": 0.0009840000420808792,
+      "loss": 161.90753173828125
+    },
+    {
+      "sequence": 125,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "plus",
+      "epsilon": 1.6e-05,
+      "block": 3,
+      "nominal_control": 0.001016,
+      "represented_control": 0.0010160000529140234,
+      "loss": 162.43441772460938
+    },
+    {
+      "sequence": 126,
+      "case_id": "earlier_vertical_h8",
+      "phase": "verification",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16818237304688,
+      "autodiff": 16374.890625
+    }
+  ],
+  "fresh_raw": [
+    {
+      "sequence": 1,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1683349609375
+    },
+    {
+      "sequence": 2,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1680908203125
+    },
+    {
+      "sequence": 3,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16839599609375
+    },
+    {
+      "sequence": 4,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16783142089844,
+      "autodiff": 16374.841796875
+    },
+    {
+      "sequence": 5,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1679229736328,
+      "autodiff": 16374.251953125
+    },
+    {
+      "sequence": 6,
+      "case_id": "earlier_vertical_h8",
+      "phase": "fresh_control",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16818237304688,
+      "autodiff": 16374.06640625
+    }
+  ],
+  "corrected_observer_runs": [
+    {
+      "sequence": 1,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89525604248047,
+      "observer": null
+    },
+    {
+      "sequence": 2,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895214080810547,
+      "observer": null
+    },
+    {
+      "sequence": 3,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895191192626953,
+      "observer": null
+    },
+    {
+      "sequence": 4,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89519500732422,
+      "autodiff": 11.475780487060547,
+      "observer": null
+    },
+    {
+      "sequence": 5,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89521598815918,
+      "autodiff": 11.477651596069336,
+      "observer": null
+    },
+    {
+      "sequence": 6,
+      "case_id": "base_rotation_h4",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.895191192626953,
+      "autodiff": 11.463582038879395,
+      "observer": null
+    },
+    {
+      "sequence": 7,
+      "case_id": "base_rotation_h4",
+      "phase": "observed",
+      "label": "base",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 23.89517593383789,
+      "autodiff": 11.479476928710938,
+      "observer": {
+        "artifact": "collision-007.npz",
+        "frames": 40,
+        "counts_grid_particle": [
+          [
+            608380,
+            44243,
+            0,
+            0,
+            0,
+            43006,
+            43006
+          ],
+          [
+            1624160,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "5f86fcbee765e1075d4e7a8bb4dba4d1bbd6f3c1bdeb69bac4fd86deffe32f6f",
+        "particle_mask_sha256": "6bb7df7d32aa4ab18928866a4aeb402669f828e26ae909fb15fa09683c5dcb35",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    },
+    {
+      "sequence": 8,
+      "case_id": "base_rotation_h4",
+      "phase": "observed",
+      "label": "plus",
+      "epsilon": 0.00014,
+      "block": null,
+      "nominal_control": 0.00114,
+      "represented_control": 0.0011399999493733048,
+      "loss": 23.89658546447754,
+      "observer": {
+        "artifact": "collision-008.npz",
+        "frames": 40,
+        "counts_grid_particle": [
+          [
+            608380,
+            44244,
+            0,
+            0,
+            0,
+            42916,
+            42916
+          ],
+          [
+            1624160,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "b1c51ff2e2b250d4e4afff7c4c26065c2ebc21f4db4aec0d4bbc1a7fd843ff70",
+        "particle_mask_sha256": "6bb7df7d32aa4ab18928866a4aeb402669f828e26ae909fb15fa09683c5dcb35",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    },
+    {
+      "sequence": 9,
+      "case_id": "base_rotation_h4",
+      "phase": "observed",
+      "label": "minus",
+      "epsilon": 0.00014,
+      "block": null,
+      "nominal_control": 0.0008600000000000001,
+      "represented_control": 0.000859999970998615,
+      "loss": 23.89337158203125,
+      "observer": {
+        "artifact": "collision-009.npz",
+        "frames": 40,
+        "counts_grid_particle": [
+          [
+            608380,
+            44241,
+            0,
+            0,
+            0,
+            43149,
+            43149
+          ],
+          [
+            1624160,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "4e4160d57d27d6f7fac01978ff95a6a6da1ef6360d3850024a45d51faadd70d1",
+        "particle_mask_sha256": "6bb7df7d32aa4ab18928866a4aeb402669f828e26ae909fb15fa09683c5dcb35",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    },
+    {
+      "sequence": 10,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.168212890625,
+      "observer": null
+    },
+    {
+      "sequence": 11,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1683349609375,
+      "observer": null
+    },
+    {
+      "sequence": 12,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.168212890625,
+      "observer": null
+    },
+    {
+      "sequence": 13,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16818237304688,
+      "autodiff": 16374.19921875,
+      "observer": null
+    },
+    {
+      "sequence": 14,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16793823242188,
+      "autodiff": 16374.158203125,
+      "observer": null
+    },
+    {
+      "sequence": 15,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observer_reference",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.16806030273438,
+      "autodiff": 16374.19140625,
+      "observer": null
+    },
+    {
+      "sequence": 16,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observed",
+      "label": "base",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "loss": 162.1682891845703,
+      "autodiff": 16374.1259765625,
+      "observer": {
+        "artifact": "collision-016.npz",
+        "frames": 80,
+        "counts_grid_particle": [
+          [
+            1219230,
+            91497,
+            0,
+            0,
+            0,
+            87223,
+            87223
+          ],
+          [
+            3248320,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "58bc2df8a9aa61c6eb32932d826c72768357f14a5b2fe4eb260e5434a49ce769",
+        "particle_mask_sha256": "7841d77fa1a2968bcdd2a358180abb7d26dedb6504a5c4f43a0d122c27af19dc",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    },
+    {
+      "sequence": 17,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observed",
+      "label": "plus",
+      "epsilon": 2.4e-05,
+      "block": null,
+      "nominal_control": 0.001024,
+      "represented_control": 0.0010239999974146485,
+      "loss": 162.56414794921875,
+      "observer": {
+        "artifact": "collision-017.npz",
+        "frames": 80,
+        "counts_grid_particle": [
+          [
+            1219254,
+            91521,
+            0,
+            0,
+            0,
+            87036,
+            87036
+          ],
+          [
+            3248320,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "c59c1756e9c891304d446d4e5f6bd59ca0ce9d9fb84c48e4888c24ed93b5d4fb",
+        "particle_mask_sha256": "7841d77fa1a2968bcdd2a358180abb7d26dedb6504a5c4f43a0d122c27af19dc",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    },
+    {
+      "sequence": 18,
+      "case_id": "earlier_vertical_h8",
+      "phase": "observed",
+      "label": "minus",
+      "epsilon": 2.4e-05,
+      "block": null,
+      "nominal_control": 0.000976,
+      "represented_control": 0.0009759999811649323,
+      "loss": 161.77459716796875,
+      "observer": {
+        "artifact": "collision-018.npz",
+        "frames": 80,
+        "counts_grid_particle": [
+          [
+            1219207,
+            91474,
+            0,
+            0,
+            0,
+            87402,
+            87402
+          ],
+          [
+            3248320,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "minimum_norm_grid_particle": [
+          5.194098662286706e-07,
+          null
+        ],
+        "grid_mask_sha256": "c879b1c9d3db44b8ee4f4a9488102448e4a66c70707343f033b62c6bc21aa780",
+        "particle_mask_sha256": "7841d77fa1a2968bcdd2a358180abb7d26dedb6504a5c4f43a0d122c27af19dc",
+        "scope": "Recomputed shadow inputs, not original compiled temporaries; forward-only."
+      }
+    }
+  ],
+  "observer_code": "\"\"\"Read-only shadow calculations before the unmodified collision kernels.\n\nThese recompute inputs; they do not capture compiled kernel temporaries. Observed\nrounding can therefore differ from the original kernel. No observer is run in AD.\n\"\"\"\nimport hashlib\nimport numpy as np\nimport taichi as ti\nfrom fluidlab.configs.macros import DTYPE_TI, EPS\n\n\n@ti.data_oriented\nclass CollisionObserver:\n    def __init__(self, sim, max_frames=80):\n        self.sim = sim\n        self.mesh = sim.agent.rigid.mesh\n        self.frames = max_frames\n        self.width = int(np.prod(sim.res))\n        # query, active, zero norm, norm<=EPS, invalid/huge norm, inward, flag-on\n        self.counts = ti.field(ti.i32, shape=(max_frames, 2, 7))\n        self.minimum = ti.field(DTYPE_TI, shape=(max_frames, 2))\n        self.grid_mask = ti.field(ti.i32, shape=(max_frames, self.width))\n        self.particle_mask = ti.field(ti.i32, shape=(max_frames, sim.n_particles))\n        self.enabled = False\n        original_grid, original_g2p = sim.grid_op, sim.g2p\n\n        def grid(f):\n            if self.enabled:\n                self.inspect_grid(f, self.sim.cur_substep_global)\n            original_grid(f)\n\n        def particles(f):\n            if self.enabled:\n                self.inspect_particles(f, self.sim.cur_substep_global)\n            original_g2p(f)\n\n        grid.grad = original_grid.grad\n        particles.grad = original_g2p.grad\n        sim.grid_op, sim.g2p = grid, particles\n\n    def clear(self):\n        self.counts.fill(0)\n        self.minimum.fill(1e30)\n        self.grid_mask.fill(0)\n        self.particle_mask.fill(0)\n\n    @ti.func\n    def inspect(self, f, record_frame, domain, position, velocity):\n        self.counts[record_frame, domain, 0] += 1\n        code = 1\n        distance = self.mesh.sdf(f, position)\n        influence = min(ti.exp(-distance * self.mesh.softness), 1)\n        if distance <= 0 or (self.mesh.softness > 0 and influence > 0.1):\n            self.counts[record_frame, domain, 1] += 1\n            code = 2\n            relative = velocity - self.mesh.collider_v(f, position, self.sim.dt)\n            normal = self.mesh.normal(f, position)\n            normal_speed = relative.dot(normal)\n            tangent = relative - min(normal_speed, 0) * normal\n            norm = tangent.norm()\n            if norm != norm or ti.abs(norm) > 1e30:\n                self.counts[record_frame, domain, 4] += 1\n            else:\n                ti.atomic_min(self.minimum[record_frame, domain], norm)\n                if norm == 0:\n                    self.counts[record_frame, domain, 2] += 1\n                if norm <= EPS:\n                    self.counts[record_frame, domain, 3] += 1\n            if normal_speed < 0:\n                self.counts[record_frame, domain, 5] += 1\n            if normal_speed < 0 and norm > EPS:\n                self.counts[record_frame, domain, 6] += 1\n                code = 3\n        return code\n\n    @ti.kernel\n    def inspect_grid(self, f: ti.i32, record_frame: ti.i32):\n        for I in ti.grouped(ti.ndrange(*self.sim.res)):\n            if self.sim.grid[f, I].mass > EPS:\n                velocity = (1 / self.sim.grid[f, I].mass) * self.sim.grid[f, I].v_in\n                velocity += self.sim.dt * self.sim.gravity\n                if ti.static(self.sim.n_statics > 0):\n                    for i in ti.static(range(self.sim.n_statics)):\n                        velocity = self.sim.statics[i].collide(I * self.sim.dx, velocity)\n                index = (I[0] * self.sim.res[1] + I[1]) * self.sim.res[2] + I[2]\n                self.grid_mask[record_frame, index] = self.inspect(f, record_frame, 0, I * self.sim.dx, velocity)\n\n    @ti.kernel\n    def inspect_particles(self, f: ti.i32, record_frame: ti.i32):\n        for p in range(self.sim.n_particles):\n            if self.sim.particles_ng[f, p].used:\n                base = (self.sim.particles[f, p].x * self.sim.inv_dx - 0.5).cast(int)\n                fx = self.sim.particles[f, p].x * self.sim.inv_dx - base.cast(DTYPE_TI)\n                w = [0.5 * (1.5 - fx) ** 2, 0.75 - (fx - 1.0) ** 2, 0.5 * (fx - 0.5) ** 2]\n                velocity = ti.Vector.zero(DTYPE_TI, self.sim.dim)\n                for offset in ti.static(ti.grouped(self.sim.stencil_range())):\n                    weight = ti.cast(1.0, DTYPE_TI)\n                    for d in ti.static(range(self.sim.dim)):\n                        weight *= w[offset[d]][d]\n                    velocity += weight * self.sim.grid[f, base + offset].v_out\n                position = self.sim.particles[f, p].x + self.sim.dt * velocity\n                self.particle_mask[record_frame, p] = self.inspect(f, record_frame, 1, position, velocity)\n\n    def export(self, path, horizon):\n        frames = horizon * self.sim.n_substeps\n        counts = self.counts.to_numpy()[:frames]\n        minimum = self.minimum.to_numpy()[:frames]\n        grid = self.grid_mask.to_numpy()[:frames].astype(np.uint8)\n        particles = self.particle_mask.to_numpy()[:frames].astype(np.uint8)\n        np.savez_compressed(str(path), counts=counts, minimum=minimum,\n                            grid_mask=grid, particle_mask=particles)\n        return {'artifact': path.name, 'frames': frames,\n                'counts_grid_particle': counts.sum(axis=0).tolist(),\n                'minimum_norm_grid_particle': [float(v) if v < 1e29 else None for v in minimum.min(axis=0)],\n                'grid_mask_sha256': hashlib.sha256(grid.tobytes()).hexdigest(),\n                'particle_mask_sha256': hashlib.sha256(particles.tobytes()).hexdigest(),\n                'scope': 'Recomputed shadow inputs, not original compiled temporaries; forward-only.'}\n",
+  "instrumentation_amendment": {
+    "recorded_utc_before_corrected_run": "2026-10-25T07:01:52.673943+00:00",
+    "reason": "Original observer indexed records by local f; upstream max_substeps_local=20 reuses slots. Original counters aggregate multiple times and original masks retain only last visits. They cannot validate per-global-substep identity changes.",
+    "correction": "Use cur_substep_global as recording index while retaining local f for all simulator reads. Native source, derivative criteria and original artifacts unchanged.",
+    "scope": "Rerun only two observer/reference blocks in a new process, 18 forward evaluations / 8 reverse passes. Supplement existing numerical verification and fresh controls; not a numerical retry-until-pass.",
+    "protocol_ref": "protocol.json",
+    "criterion_changes": false,
+    "replacement_inputs_sha256": {
+      "collision_observer_v2.py": "e6cc5bab7b58c21ba29e67422449ec79ccc7a0a035eaabc8385aa72ed0d5e908",
+      "verify_observer_repair.py": "59b51823b159f27afb0d75d803ee54e5f39253be74ce7d4e4d195d25d3a5464c"
+    },
+    "original_mask_analysis_failure": "Mask/counter mismatch; e.g. particle counters 81208 versus 40604 identities in a local frame, unused later global frames."
+  },
+  "original_observer_invalid": {
+    "valid": false,
+    "reason": "Local-memory index reused every 20 substeps. Per-global-substep masks overwritten while counters accumulated.",
+    "example": {
+      "file": "collision-007.npz",
+      "local_frame": 0,
+      "particle_query_counter": 81208,
+      "particle_mask_query_identities": 40604
+    },
+    "action": "Retain original raw artifacts; exclude original masks from gate and branch-identity claims. Rerun corrected recording under instrumentation-amendment.json.",
+    "numerical_criteria_changed": false
+  },
+  "observer_positive_controls": {
+    "passed": true,
+    "scope": "Synthetic fixture exercises actual observer function, not native collision physics or simulation trajectories.",
+    "checks": [
+      "Zero tangential norm is detected",
+      "Nonzero inward friction flag is detected",
+      "Repeated local index retains separate global recording slots"
+    ],
+    "counts": [
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    ],
+    "minimum_norm": [
+      0.0,
+      1.0
+    ]
+  },
+  "terminal_audit": {
+    "status": "read_only_audit_no_terminal_execution",
+    "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+    "findings": [
+      "The native terminal helper selects a WATER particle with NumPy argmin, derives ranks with argsort, writes its position as best_particle_pos, and sets a height-count attraction scale. These assignments are outside Taichi autodiff.",
+      "best_particle_pos, attraction_score and attraction_scale are allocated without needs_grad. Native backward kernels differentiate particle coordinates holding those assigned fields fixed; this is a surrogate derivative.",
+      "Finite differences that rerun target selection can change the selected position, ranking/membership and height-count scale. They test a different functional dependency from simply holding those fields constant. A mismatch must not automatically be labelled simulator-gradient failure.",
+      "The native backward terminal path invokes the selection helper again. Any frozen-target diagnostic must preserve the same explicit target on forward and backward, rather than only freezing forward.",
+      "No terminal term was evaluated in this experiment. The original step-999 objective and full horizon remain unverified."
+    ],
+    "proposed_next_test": [
+      "Save a separate protocol for an explicitly shortened terminal diagnostic after assessing the development gate.",
+      "Record chosen target identity/position, selected-membership hash and scale for base and perturbed runs.",
+      "Compare recomputed-target and explicitly frozen-target modes as separate objectives. Preserve native backward semantics and make any diagnostic target override explicit.",
+      "Measure loss precision/noise and validate each mode against suitable differences before optimizer or long-horizon claims."
+    ],
+    "source_files": [
+      {
+        "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+        "sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+        "excerpts": [
+          {
+            "start_line": 38,
+            "end_line": 56,
+            "exact_text": "        self.dist_loss = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.attraction_weight = self.weights['attraction']\n        self.attraction_loss = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.attraction_loss_ = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.best_particle_pos = ti.Vector.field(3, dtype=DTYPE_TI, shape=())\n\n        if self.temporal_range_type == 'last':\n            self.temporal_range = [self.max_loss_steps-1, self.max_loss_steps]\n        elif self.temporal_range_type == 'all':\n            self.temporal_range = [0, self.max_loss_steps]\n        elif self.temporal_range_type == 'expand':\n            self.temporal_range = [0, self.temporal_init_range_end]\n            self.best_loss = self.inf\n            self.plateau_count = 0\n\n        super(PouringLoss, self).build(sim)\n        self.init_particle_pos = ti.Vector.field(3, dtype=DTYPE_TI, shape=(self.sim.n_particles))\n        self.attraction_score = ti.field(dtype=DTYPE_TI, shape=(self.sim.n_particles))\n        self.attraction_scale = ti.field(dtype=DTYPE_TI, shape=())\n"
+          },
+          {
+            "start_line": 73,
+            "end_line": 90,
+            "exact_text": "    def compute_step_loss(self, s, f):\n        if s == 0:\n            self.get_init_particles(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss(s, f)\n\n        self.compute_dist_loss(s, f)\n        self.sum_up_loss_kernel(s)\n\n    def compute_step_loss_grad(self, s, f):\n        self.sum_up_loss_kernel.grad(s)\n        self.compute_dist_loss_grad(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss_grad(s, f)\n"
+          },
+          {
+            "start_line": 102,
+            "end_line": 120,
+            "exact_text": "    def find_best_particle(self, s, f):\n        x = self.sim.get_x()\n        used = self.sim.get_used()\n        mat = self.particle_mat.to_numpy()\n        loss = np.abs(x[:, 1] - 0.05)\n        loss[np.logical_not(used)] = 1000\n        loss[mat != WATER] = 1000\n        best_particle_id = np.argmin(loss)\n        self.best_particle_pos.from_numpy(x[best_particle_id])\n\n        dist = np.linalg.norm(x - x[best_particle_id], axis=1)\n        dist[np.logical_not(used)] = 1000\n        dist[mat != WATER] = 1000\n        score = np.argsort(np.argsort(dist))\n        self.attraction_score.from_numpy(score)\n\n        x[mat != WATER] = np.array([-100, -100, -100])\n        x[np.logical_not(used)] = np.array([-100, -100, -100])\n        self.attraction_scale[None] = np.sum(x[:, 1] > 0.55) / 12500\n"
+          },
+          {
+            "start_line": 141,
+            "end_line": 149,
+            "exact_text": "    def compute_attraction_loss_kernel(self, s: ti.i32, f: ti.i32):\n        for p in range(self.n_particles):\n            if self.attraction_score[p] < 100:\n                if self.particle_used[f, p] and self.particle_mat[p] == WATER:\n                    self.attraction_loss_[s] += ti.abs(self.particle_x[f, p] - self.best_particle_pos[None]).sum() * 5000\n\n    @ti.kernel\n    def scale_attraction_loss_kernel(self, s: ti.i32, f: ti.i32):\n        self.attraction_loss[s] = self.attraction_loss_[s] * self.attraction_scale[None]\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/fluidengine/taichi_env.py",
+        "sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+        "excerpts": [
+          {
+            "start_line": 176,
+            "end_line": 183,
+            "exact_text": "    def step_grad(self, action=None):\n        if self.loss:\n            self.loss.step_grad()\n\n        if action is not None:\n            assert self.agent is not None, 'Environment has no agent to execute action.'\n            action = np.array(action).astype(DTYPE_NP)\n        self.simulator.step_grad(action=action)\n"
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation": {
+    "conclusions": [
+      "All five cases pass both new epsilon checks under a frozen engineering gate; strict AD/FD tolerance 5% plus absolute .01, no extra noise allowance. Largest median discrepancy about 1.78%; this is not scientific derivative-accuracy validation.",
+      "The earlier-action eight-step residual remains about .45-.47% at the smaller fresh scales, beyond observed repeat ranges. Fresh-process median AD differs by only .583 (~.00356%) from same-process, so this control does not explain the residual.",
+      "Corrected shadow observations find no zero, <=EPS or invalid/huge tangential norms in the six observed base/plus/minus runs. Min observed grid norm is about5.19e-7. No particle contact is active in these short shadow runs. This does not establish absence under other conditions or exact native intermediate values.",
+      "Original observer local-memory index bug was caught by mask/counter verification. Original files retained, numerical protocol/results unchanged; only recording uses global index in a separately declared rerun. Corrected 12 NPZ artifacts validate and synthetic positive controls detect zero norm and global-slot separation.",
+      "Fresh and corrected-observer baseline controls meet their predeclared tolerances; exported resets match, without proving equality of every hidden state/buffer.",
+      "177 forward evaluations and34 reverse passes across original main,fresh,corrected workers; no terminal test, optimizer, SI calibration, physics validation, paper reproduction or RDF approval. Old failed gate remains unchanged."
+    ],
+    "next_step": "Proceed to a bounded, explicitly shortened terminal diagnostic under a separate protocol. Audit distinguishes native backward with frozen NumPy-derived targets from finite differences with reselected target/ranks/scale. Keep modes separate. Preserve residual-gradient discrepancy and do not claim original1000-step objective correctness."
+  }
+}

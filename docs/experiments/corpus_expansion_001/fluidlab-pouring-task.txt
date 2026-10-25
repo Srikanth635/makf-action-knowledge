@@ -1,0 +1,2 @@
+Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass
+while retaining as much white heavy liquid as possible.

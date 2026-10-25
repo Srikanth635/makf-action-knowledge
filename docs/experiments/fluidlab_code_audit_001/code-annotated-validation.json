@@ -1,0 +1,186 @@
+{
+  "status": "PASS",
+  "schema_version": "0.1",
+  "study_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+  "quantity_count": 10,
+  "annex_record_count": 4,
+  "storage_eligible": true,
+  "comparison_ready": false,
+  "execution_eligible": false,
+  "execution_reason": "Archival scalar contract; no executable configuration validation.",
+  "quantities": {
+    "observed-particles": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "light-mu": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "light-lambda": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "light-density_rho": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "heavy-mu": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "heavy-lambda": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "heavy-density_rho": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "step": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "substeps": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "substep-time": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    }
+  },
+  "issues": [
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "light-mu"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "light-lambda"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "light-density_rho"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "heavy-mu"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "heavy-lambda"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "heavy-density_rho"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "material_model_ambiguity",
+      "quantity_ids": [
+        "light-mu",
+        "light-lambda",
+        "light-density_rho",
+        "heavy-mu",
+        "heavy-lambda",
+        "heavy-density_rho"
+      ],
+      "message": "Section 4.1 says non-Newtonian while Table 4 lists Liquid with mu=0; implementation/version check pending."
+    },
+    {
+      "code": "source_code_mismatch",
+      "quantity_ids": [
+        "step",
+        "substep-time"
+      ],
+      "message": "Both inspected commits set dt=2e-4 and n_substeps=int(2e-3/dt), differing from the paper substep duration; exact experiment version/time scale is unverified."
+    },
+    {
+      "code": "source_code_mismatch",
+      "quantity_ids": [
+        "light-density_rho",
+        "heavy-density_rho"
+      ],
+      "message": "Pinned code uses MILK below WATER and defaults RHO[MILK]=0.5 and RHO[WATER]=1.0; paper density settings are retained separately, not corrected."
+    },
+    {
+      "code": "timing_conflict",
+      "quantity_ids": [
+        "step",
+        "substeps",
+        "substep-time"
+      ],
+      "message": "Reported step differs from count times substep; no value was corrected."
+    },
+    {
+      "code": "context_incomplete",
+      "quantity_ids": [
+        "observed-particles",
+        "light-mu",
+        "light-lambda",
+        "light-density_rho",
+        "heavy-mu",
+        "heavy-lambda",
+        "heavy-density_rho",
+        "step",
+        "substeps",
+        "substep-time"
+      ],
+      "message": "Study context is incomplete for controlled comparison."
+    }
+  ],
+  "calculations": [
+    {
+      "check_id": "runtime-step-consistency",
+      "method": "count_times_substep_v1",
+      "input_ids": [
+        "step",
+        "substeps",
+        "substep-time"
+      ],
+      "reported_step_seconds": "0.002",
+      "calculated_step_seconds": "0.0010",
+      "consistent": false
+    }
+  ],
+  "conversions": [],
+  "scope": "Structural/numeric evidence checks; not source entailment, scientific approval or simulator reproduction."
+}

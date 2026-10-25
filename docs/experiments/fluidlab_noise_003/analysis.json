@@ -1,0 +1,598 @@
+{
+  "scope": "Exploratory calibration only; observed ranges are not confidence bounds.",
+  "cases": [
+    {
+      "id": "base_vertical_h4",
+      "baseline_loss_median": 23.783353805541992,
+      "baseline_loss_range": 0.0001068115234375,
+      "autodiff_median": 449.62493896484375,
+      "autodiff_range": 0.02001953125,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "represented_central_denominator": 0.0006000000284984708,
+          "plus_loss_range": 4.1961669921875e-05,
+          "minus_loss_range": 0.00012969970703125,
+          "central_difference_median_losses": 434.33505220547846,
+          "central_difference_observed_envelope": [
+            434.23332694989347,
+            434.51942923122624
+          ],
+          "empirical_signal_ratio": 2009.264705882353,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.034005868968404365,
+          "one_sided_forward": 525.748012014063,
+          "one_sided_backward": 342.9221278697825,
+          "one_sided_asymmetry": 0.3477443185070762,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.0001,
+          "represented_central_denominator": 0.00020000000949949026,
+          "plus_loss_range": 5.7220458984375e-05,
+          "minus_loss_range": 0.000102996826171875,
+          "central_difference_median_losses": 443.80185880335534,
+          "central_difference_observed_envelope": [
+            443.34409515322295,
+            444.14518154095464
+          ],
+          "empirical_signal_ratio": 831.0,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.01295097237020412,
+          "one_sided_forward": 472.69846436466884,
+          "one_sided_backward": 414.90528688209696,
+          "one_sided_asymmetry": 0.12226224927607686,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 3e-05,
+          "represented_central_denominator": 6.000004941597581e-05,
+          "plus_loss_range": 8.7738037109375e-05,
+          "minus_loss_range": 6.103515625e-05,
+          "central_difference_median_losses": 449.3709677888771,
+          "central_difference_observed_envelope": [
+            448.0358248455315,
+            450.5153760260304
+          ],
+          "empirical_signal_ratio": 252.42857142857142,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.0005648511769639276,
+          "one_sided_forward": 452.7410534812067,
+          "one_sided_backward": 446.0008886353626,
+          "one_sided_asymmetry": 0.014887461152501457,
+          "observed_fd_and_ad_ranges_overlap": true
+        }
+      ],
+      "baseline_execution_groups": {
+        "forward": {
+          "count": 5,
+          "median": 23.783348083496094,
+          "min": 23.783302307128906,
+          "max": 23.78337860107422,
+          "range": 7.62939453125e-05
+        },
+        "with_reverse_pass": {
+          "count": 3,
+          "median": 23.78337860107422,
+          "min": 23.783313751220703,
+          "max": 23.783409118652344,
+          "range": 9.5367431640625e-05
+        },
+        "tail": {
+          "count": 2,
+          "median": 23.783348083496094,
+          "min": 23.783306121826172,
+          "max": 23.783390045166016,
+          "range": 8.392333984375e-05
+        }
+      },
+      "tail_minus_initial_forward_loss_median": 0.0,
+      "exact_zero_displacement_counts_per_axis_range": [
+        [
+          2333,
+          2355
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1982,
+          2012
+        ]
+      ],
+      "exported_resets_identical": true,
+      "evaluations": 28
+    },
+    {
+      "id": "base_horizontal_h4",
+      "baseline_loss_median": 23.854004859924316,
+      "baseline_loss_range": 0.0001354217529296875,
+      "autodiff_median": -53.35725784301758,
+      "autodiff_range": 0.000537872314453125,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "represented_central_denominator": 0.0006000000284984708,
+          "plus_loss_range": 4.9591064453125e-05,
+          "minus_loss_range": 7.82012939453125e-05,
+          "central_difference_median_losses": -54.99203738639078,
+          "central_difference_observed_envelope": [
+            -55.12873069858309,
+            -54.915743444702045
+          ],
+          "empirical_signal_ratio": 243.64788732394365,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.02972756822750066,
+          "one_sided_forward": -50.179170967566684,
+          "one_sided_backward": -59.80490193757734,
+          "one_sided_asymmetry": 0.16095220722973047,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.0001,
+          "represented_central_denominator": 0.00020000000949949026,
+          "plus_loss_range": 0.0001049041748046875,
+          "minus_loss_range": 9.34600830078125e-05,
+          "central_difference_median_losses": -53.74908191971185,
+          "central_difference_observed_envelope": [
+            -54.03518420104459,
+            -53.04336295909108
+          ],
+          "empirical_signal_ratio": 79.38028169014085,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.007289874779248523,
+          "one_sided_forward": -52.65238715565785,
+          "one_sided_backward": -54.84577540704591,
+          "one_sided_asymmetry": 0.03999192709209623,
+          "observed_fd_and_ad_ranges_overlap": true
+        },
+        {
+          "epsilon": 3e-05,
+          "represented_central_denominator": 6.000004941597581e-05,
+          "plus_loss_range": 9.1552734375e-05,
+          "minus_loss_range": 0.00016021728515625,
+          "central_difference_median_losses": -53.787187146206854,
+          "central_difference_observed_envelope": [
+            -55.18590832494982,
+            -50.98974478872092
+          ],
+          "empirical_signal_ratio": 20.142857142857142,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.007993154615440699,
+          "one_sided_forward": -52.03883615705205,
+          "one_sided_backward": -55.53553474312035,
+          "one_sided_asymmetry": 0.06296326491213743,
+          "observed_fd_and_ad_ranges_overlap": true
+        }
+      ],
+      "baseline_execution_groups": {
+        "forward": {
+          "count": 5,
+          "median": 23.8540096282959,
+          "min": 23.85395622253418,
+          "max": 23.854074478149414,
+          "range": 0.000118255615234375
+        },
+        "with_reverse_pass": {
+          "count": 3,
+          "median": 23.853981018066406,
+          "min": 23.853939056396484,
+          "max": 23.8540096282959,
+          "range": 7.05718994140625e-05
+        },
+        "tail": {
+          "count": 2,
+          "median": 23.85400390625,
+          "min": 23.853992462158203,
+          "max": 23.854015350341797,
+          "range": 2.288818359375e-05
+        }
+      },
+      "tail_minus_initial_forward_loss_median": -5.7220458984375e-06,
+      "exact_zero_displacement_counts_per_axis_range": [
+        [
+          2326,
+          2352
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2008,
+          2029
+        ]
+      ],
+      "exported_resets_identical": true,
+      "evaluations": 28
+    },
+    {
+      "id": "base_rotation_h4",
+      "baseline_loss_median": 23.895219802856445,
+      "baseline_loss_range": 0.000164031982421875,
+      "autodiff_median": 11.478944778442383,
+      "autodiff_range": 0.01627826690673828,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "represented_central_denominator": 0.0006000000284984708,
+          "plus_loss_range": 8.96453857421875e-05,
+          "minus_loss_range": 2.47955322265625e-05,
+          "central_difference_median_losses": 12.032190387160478,
+          "central_difference_observed_envelope": [
+            11.920928388864409,
+            12.11166324308624
+          ],
+          "empirical_signal_ratio": 44.01162790697674,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.04598045666801135,
+          "one_sided_forward": 9.237926565204232,
+          "one_sided_backward": 14.826453124799912,
+          "one_sided_asymmetry": 0.37692943231634163,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.0002,
+          "represented_central_denominator": 0.00040000007720664144,
+          "plus_loss_range": 5.53131103515625e-05,
+          "minus_loss_range": 3.24249267578125e-05,
+          "central_difference_median_losses": 12.021062438036138,
+          "central_difference_observed_envelope": [
+            11.882779688848098,
+            12.1021247392843
+          ],
+          "empirical_signal_ratio": 29.313953488372093,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.04509731667963284,
+          "one_sided_forward": 10.05172681749047,
+          "one_sided_backward": 13.9903974854299,
+          "one_sided_asymmetry": 0.28152671659552936,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.00015,
+          "represented_central_denominator": 0.0003000000142492354,
+          "plus_loss_range": 4.9591064453125e-05,
+          "minus_loss_range": 0.000141143798828125,
+          "central_difference_median_losses": 11.475880395680138,
+          "central_difference_observed_envelope": [
+            11.266072056036124,
+            11.901854903442226
+          ],
+          "empirical_signal_ratio": 20.988372093023255,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.00026695683456898764,
+          "one_sided_forward": 9.969076981583093,
+          "one_sided_backward": 12.982683225060642,
+          "one_sided_asymmetry": 0.23212506931235488,
+          "observed_fd_and_ad_ranges_overlap": true
+        },
+        {
+          "epsilon": 0.0001,
+          "represented_central_denominator": 0.00020000000949949026,
+          "plus_loss_range": 8.392333984375e-05,
+          "minus_loss_range": 5.7220458984375e-05,
+          "central_difference_median_losses": 11.42501776788765,
+          "central_difference_observed_envelope": [
+            11.17706245739927,
+            11.882781418020043
+          ],
+          "empirical_signal_ratio": 13.930232558139535,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.004697906610371339,
+          "one_sided_forward": 10.547643578003546,
+          "one_sided_backward": 12.30239093637441,
+          "one_sided_asymmetry": 0.1426346608107382,
+          "observed_fd_and_ad_ranges_overlap": true
+        },
+        {
+          "epsilon": 7e-05,
+          "represented_central_denominator": 0.00014000001829117537,
+          "plus_loss_range": 0.000118255615234375,
+          "minus_loss_range": 6.67572021484375e-05,
+          "central_difference_median_losses": 11.253355463328763,
+          "central_difference_observed_envelope": [
+            10.803766201476645,
+            12.125286152981355
+          ],
+          "empirical_signal_ratio": 9.604651162790697,
+          "signal_separated": false,
+          "ad_relative_discrepancy": 0.01965244362332675,
+          "one_sided_forward": 10.817399113579857,
+          "one_sided_backward": 11.689311088049813,
+          "one_sided_asymmetry": 0.07459053556726085,
+          "observed_fd_and_ad_ranges_overlap": true
+        },
+        {
+          "epsilon": 5e-05,
+          "represented_central_denominator": 9.999994654208422e-05,
+          "plus_loss_range": 0.00016021728515625,
+          "minus_loss_range": 2.09808349609375e-05,
+          "central_difference_median_losses": 12.245184768676811,
+          "central_difference_observed_envelope": [
+            11.177068963309363,
+            12.989051133129141
+          ],
+          "empirical_signal_ratio": 7.465116279069767,
+          "signal_separated": false,
+          "ad_relative_discrepancy": 0.0625748001936623,
+          "one_sided_forward": 11.329670124983702,
+          "one_sided_backward": 13.160697280772625,
+          "one_sided_asymmetry": 0.13912843041105413,
+          "observed_fd_and_ad_ranges_overlap": true
+        },
+        {
+          "epsilon": 3e-05,
+          "represented_central_denominator": 6.000004941597581e-05,
+          "plus_loss_range": 6.4849853515625e-05,
+          "minus_loss_range": 3.814697265625e-05,
+          "central_difference_median_losses": 11.825551783917819,
+          "central_difference_observed_envelope": [
+            10.617565311367073,
+            12.33417766709708
+          ],
+          "empirical_signal_ratio": 4.325581395348837,
+          "signal_separated": false,
+          "ad_relative_discrepancy": 0.02931000699238446,
+          "one_sided_forward": 13.415020683125208,
+          "one_sided_backward": 10.236085968680454,
+          "one_sided_asymmetry": 0.2369683051211054,
+          "observed_fd_and_ad_ranges_overlap": true
+        }
+      ],
+      "baseline_execution_groups": {
+        "forward": {
+          "count": 5,
+          "median": 23.89519691467285,
+          "min": 23.89516830444336,
+          "max": 23.895280838012695,
+          "range": 0.0001125335693359375
+        },
+        "with_reverse_pass": {
+          "count": 3,
+          "median": 23.895225524902344,
+          "min": 23.895214080810547,
+          "max": 23.895252227783203,
+          "range": 3.814697265625e-05
+        },
+        "tail": {
+          "count": 2,
+          "median": 23.89525032043457,
+          "min": 23.89516830444336,
+          "max": 23.89533233642578,
+          "range": 0.000164031982421875
+        }
+      },
+      "tail_minus_initial_forward_loss_median": 5.340576171875e-05,
+      "exact_zero_displacement_counts_per_axis_range": [
+        [
+          2319,
+          2347
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1990,
+          2024
+        ]
+      ],
+      "exported_resets_identical": true,
+      "evaluations": 52
+    },
+    {
+      "id": "earlier_vertical_h8",
+      "baseline_loss_median": 162.1683120727539,
+      "baseline_loss_range": 0.000762939453125,
+      "autodiff_median": 16374.9375,
+      "autodiff_range": 1.521484375,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "represented_central_denominator": 0.0006000000284984708,
+          "plus_loss_range": 0.00103759765625,
+          "minus_loss_range": 0.000701904296875,
+          "central_difference_median_losses": 15317.356653649495,
+          "central_difference_observed_envelope": [
+            15315.881637443512,
+            15318.780807227684
+          ],
+          "empirical_signal_ratio": 8857.39705882353,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.0645853363623834,
+          "one_sided_forward": 18368.761846812937,
+          "one_sided_backward": 12265.952644586825,
+          "one_sided_asymmetry": 0.3322384629470808,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.0001,
+          "represented_central_denominator": 0.00020000000949949026,
+          "plus_loss_range": 0.0004119873046875,
+          "minus_loss_range": 0.0001220703125,
+          "central_difference_median_losses": 15897.292335739445,
+          "central_difference_observed_envelope": [
+            15896.224220555801,
+            15898.894508514908
+          ],
+          "empirical_signal_ratio": 4167.38,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.0291692816696586,
+          "one_sided_forward": 16685.876229491976,
+          "one_sided_backward": 15108.709360018813,
+          "one_sided_asymmetry": 0.09452106966282958,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 3e-05,
+          "represented_central_denominator": 6.000004941597581e-05,
+          "plus_loss_range": 0.0004425048828125,
+          "minus_loss_range": 0.0004119873046875,
+          "central_difference_median_losses": 16415.137440785882,
+          "central_difference_observed_envelope": [
+            16407.508052538193,
+            16421.749577267212
+          ],
+          "empirical_signal_ratio": 1290.94,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.002448955479714672,
+          "one_sided_forward": 16557.568751018633,
+          "one_sided_backward": 16272.706406905745,
+          "one_sided_asymmetry": 0.017204358224112013,
+          "observed_fd_and_ad_ranges_overlap": false
+        }
+      ],
+      "baseline_execution_groups": {
+        "forward": {
+          "count": 5,
+          "median": 162.16830444335938,
+          "min": 162.167724609375,
+          "max": 162.16845703125,
+          "range": 0.000732421875
+        },
+        "with_reverse_pass": {
+          "count": 3,
+          "median": 162.16836547851562,
+          "min": 162.16796875,
+          "max": 162.16845703125,
+          "range": 0.00048828125
+        },
+        "tail": {
+          "count": 2,
+          "median": 162.16836547851562,
+          "min": 162.16824340820312,
+          "max": 162.16848754882812,
+          "range": 0.000244140625
+        }
+      },
+      "tail_minus_initial_forward_loss_median": 6.103515625e-05,
+      "exact_zero_displacement_counts_per_axis_range": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "exported_resets_identical": true,
+      "evaluations": 28
+    },
+    {
+      "id": "offset_vertical_h8",
+      "baseline_loss_median": 151.80276489257812,
+      "baseline_loss_range": 0.0009613037109375,
+      "autodiff_median": -298.4815368652344,
+      "autodiff_range": 0.021087646484375,
+      "samples": [
+        {
+          "epsilon": 0.0003,
+          "represented_central_denominator": 0.0006000000284984708,
+          "plus_loss_range": 0.0005340576171875,
+          "minus_loss_range": 0.0005035400390625,
+          "central_difference_median_losses": -318.95953888669317,
+          "central_difference_observed_envelope": [
+            -320.2819672092979,
+            -318.55263786435324
+          ],
+          "empirical_signal_ratio": 199.0793650793651,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.06420250697921084,
+          "one_sided_forward": -228.32238046084953,
+          "one_sided_backward": -409.59666214069875,
+          "one_sided_asymmetry": 0.44256777077343584,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 0.0001,
+          "represented_central_denominator": 0.00020000000949949026,
+          "plus_loss_range": 0.000213623046875,
+          "minus_loss_range": 3.0517578125e-05,
+          "central_difference_median_losses": -301.6662454372472,
+          "central_difference_observed_envelope": [
+            -302.581772737512,
+            -301.36106967049227
+          ],
+          "empirical_signal_ratio": 62.76190476190476,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.010557059731349057,
+          "one_sided_forward": -269.92812281357357,
+          "one_sided_backward": -333.4043311129065,
+          "one_sided_asymmetry": 0.19038807350657028,
+          "observed_fd_and_ad_ranges_overlap": false
+        },
+        {
+          "epsilon": 3e-05,
+          "represented_central_denominator": 6.000004941597581e-05,
+          "plus_loss_range": 0.0006103515625,
+          "minus_loss_range": 0.0003814697265625,
+          "central_difference_median_losses": -300.59789695894324,
+          "central_difference_observed_envelope": [
+            -304.41259108278774,
+            -287.8822498794617
+          ],
+          "empirical_signal_ratio": 18.761904761904763,
+          "signal_separated": true,
+          "ad_relative_discrepancy": 0.0070405019965855695,
+          "one_sided_forward": -284.83077090237407,
+          "one_sided_backward": -316.3649924233164,
+          "one_sided_asymmetry": 0.09967670973768022,
+          "observed_fd_and_ad_ranges_overlap": true
+        }
+      ],
+      "baseline_execution_groups": {
+        "forward": {
+          "count": 5,
+          "median": 151.80282592773438,
+          "min": 151.80255126953125,
+          "max": 151.80307006835938,
+          "range": 0.000518798828125
+        },
+        "with_reverse_pass": {
+          "count": 3,
+          "median": 151.8026885986328,
+          "min": 151.80247497558594,
+          "max": 151.80276489257812,
+          "range": 0.0002899169921875
+        },
+        "tail": {
+          "count": 2,
+          "median": 151.8028335571289,
+          "min": 151.80235290527344,
+          "max": 151.80331420898438,
+          "range": 0.0009613037109375
+        }
+      },
+      "tail_minus_initial_forward_loss_median": 7.62939453125e-06,
+      "exact_zero_displacement_counts_per_axis_range": [
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "exported_resets_identical": true,
+      "evaluations": 28
+    }
+  ],
+  "verification_gate_status": "not_executed",
+  "evaluations": 164,
+  "autodiff_evaluations": 15,
+  "initial_template_unchanged": true,
+  "completeness_and_consistency_checks": "passed",
+  "previous_failed_gate_unchanged": true
+}

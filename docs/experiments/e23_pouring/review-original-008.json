@@ -1,0 +1,139 @@
+{
+  "batch_id": "e23-pourit-pilot-20261024-008",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "lin-etal-2023-pourit-author-preprint",
+      "title": "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring",
+      "uri": "https://arxiv.org/abs/2307.11299",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "results-analysis-strategies",
+          "text": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead.",
+          "locator": "Author-hosted preprint, section 4.3 Results and Analysis, PDF page 8"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "pourit-008-cand1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural",
+        "causal",
+        "observational"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "A stereotypical pouring strategy is to use estimated object pose and size to determine the initial pouring point between containers, though this can sometimes fail due to inaccurate object size estimation, especially when containers have transparent bottlenecks.",
+      "modality": "typical",
+      "epistemic_status": "stereotype",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use estimated object pose and size to calculate the initial pouring point for container-to-container transfers.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c2",
+          "component_kind": "causal_mechanism",
+          "description": "Imperfect initial pouring point estimation can occur due to transparent bottlenecks interfering with object size estimation.",
+          "ontology_class": "aicor:PouringTemplate",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "exact_quote": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring",
+          "support_role": "asserts_claim"
+        }
+      ]
+    },
+    {
+      "candidate_id": "pourit-008-cand2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural",
+        "observational"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "A pouring strategy that uses only object pose to guide feedback adjustment of the pouring point is less influenced by inaccurate object size estimation.",
+      "modality": "typical",
+      "epistemic_status": "stereotype",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use object pose information to calculate the liquid-to-container distance for feedback adjustment of the pouring point.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "exact_quote": "point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by",
+          "support_role": "asserts_claim"
+        }
+      ]
+    },
+    {
+      "candidate_id": "pourit-008-cand3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural",
+        "deviation",
+        "causal"
+      ],
+      "knowledge_kind": "conditional_principle",
+      "statement": "If the visual feedback signal for pouring is based on an inaccurately estimated mask of the liquid, the pouring point adjustment may fail, resulting in the liquid spilling out of the target container.",
+      "modality": "conditional",
+      "epistemic_status": "conditional_principle",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use vision-based feedback from a segmentation (mask) of the liquid to guide adjustment of the pouring point.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c2",
+          "component_kind": "deviation_pattern",
+          "description": "Visual feedback from an inaccurate mask can misguide pouring point adjustment, making the liquid spill out.",
+          "ontology_class": "makf:DeviationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "exact_quote": "mask of AFA provides the wrong visual feedback to adjust",
+          "support_role": "asserts_claim"
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "openai",
+    "prompt_version": "makf-e2.2-v2",
+    "recorded_at": "2026-10-24T05:04:52.155042+00:00",
+    "model_name": "gpt-4.1-2025-04-14"
+  }
+}

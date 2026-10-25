@@ -1,0 +1,556 @@
+{
+  "human_approved": false,
+  "experiment": "Bounded model review and one revision; development evaluation, not independent benchmark.",
+  "selected_source_directory": "/workspace/makf-live-runs/pourit-quality-014/revision/selection",
+  "selection": {
+    "status": "model_reviewed_subset",
+    "selected_candidate_ids": [
+      "pourit-pilot-cand-2"
+    ],
+    "withheld_candidate_ids": [
+      "pourit-pilot-cand-1",
+      "pourit-pilot-cand-3"
+    ],
+    "reviewed_batch_sha256": "e99b4f9056e02d051b8af06c03e529a8d4b8794598e1ebe263de8c243322cf07",
+    "review_response_sha256": "a2cff8aa65d959d39a0c47d7b9549c17c30f3da44a7cfb6525f121260cb327be",
+    "human_review_required": true,
+    "scope": "Explicit selection of unchanged candidates; advisory model review only."
+  },
+  "selected_candidate_annotated_coverage": {
+    "status": "PASS",
+    "missing_requirement_indexes": [],
+    "invalid_support_indexes": [],
+    "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+  },
+  "experiments": {
+    "pourit-quality-011": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v1",
+        "recorded_at": "2026-10-24T08:45:09.166413+00:00",
+        "reviewed_batch_sha256": "281b98ad8b528e2207023e0f8cae7e7c014d5c51fae346463bebb2c8f59391de",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": false,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The candidate claim describes both the strategy and its potential failure mode, but omits the explicit reason given in the source: that transparent bottlenecks lead to inaccurate size estimation (the full cited sentence is: \"Such a strategy sometimes fails due to an imperfect initial pouring point, as the transparent bottleneck results in inaccurate object size estimation.\"). The citation cuts off after mentioning failure from 'imperfect initial pouring point,' but does not explicitly quote the rest about transparent bottlenecks and their impact. Therefore, the evidence is incomplete, even though mappings and scope are otherwise correct."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": false,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The cited quote is truncated and does not include the full claim that the method is 'less influenced by' inaccuracies in size estimation. While the components and mapping correspond to the described strategy and mechanism, every clause of the candidate (including the reduced sensitivity to object size errors) must be covered by the quoted source, which ends mid-sentence. Thus, evidence completeness is lacking, even though the claim matches the method and context."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The cited quote is incomplete and only covers 'the pouring point, making the liquid spill out of the target.' The candidate also asserts that this is due to incorrect visual feedback from an inaccurately estimated liquid mask, which is mentioned earlier in the source text: 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point.' However, this crucial causal clause is not present in the quoted evidence, so the evidence is not fully complete for all substantive components. Scope and mappings are otherwise adequate."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-4.1-2025-04-14",
+          "live": true,
+          "wire_request_sha256": "bc82f07cddd66e91edce33a913612c97694679a51d7b45adbd6e92e084ed2340",
+          "model_name": "gpt-4.1-2025-04-14",
+          "response_id": "chatcmpl-EcRfCRda5V7zcJok9SIyZJlFEfwOI",
+          "request_id": "req_a976550ee44a4607acd306c0f98db8ae",
+          "usage": {
+            "prompt_tokens": 7285,
+            "completion_tokens": 407,
+            "total_tokens": 7692
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "a86e7db1aa14824e649b7eabb0c8100233b1c2c73c4a7901ae24d5280d3a0adb"
+      },
+      "revision/quality-review": {
+        "status": "review_passed",
+        "review_version": "makf-quality-v1",
+        "recorded_at": "2026-10-24T08:45:22.929751+00:00",
+        "reviewed_batch_sha256": "4ac02978e0c2c4aa8cec7721bf10187e359f252df43503b9c71168c853c93c63",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1r",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "Each substantive clause is present in the cited passage: the strategy's use of estimated pose and size is described explicitly, as is failure due to transparency-induced size estimation errors. The applicability condition about transparent bottlenecks rendering estimation inaccurate is correctly delimited by the passage ('sometimes fails due to ... transparent bottleneck'). The mapping of components to ontology classes fits: the strategy is a 'GeneralizedStrategy', applicability is an 'ApplicabilityCondition', and failure as a 'PredictedEffectPattern'. No substantive content is extrapolated beyond the passage's scope or wording. All evidence is cited."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2r",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The claim that using only object pose for feedback is less influenced by inaccurate size estimation is stated explicitly in the passage. Both major components\u2014the alternative strategy itself and its reduced sensitivity to size estimation errors\u2014are specifically cited ('Our method only use object pose ... which is less influenced by the inaccurate size estimation'). Mapping is sound, as the strategy and effect are grounded in the correct ontology classes. The conditional/relative formulation matches the passage; scope is appropriate for the described comparison. No extrapolation occurs."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3r",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The candidate accurately reflects the cited passage's claim: the AFA method's use of visual feedback from an inaccurate liquid mask causes the liquid to spill ('the inaccurately estimated mask ... provides the wrong visual feedback ... making the liquid spill out'). Both the strategy (feedback from liquid mask) and the deviation (spillage due to inaccuracy) are explicitly substantiated and correctly mapped. The scope is conditional (\"can lead to\") and is justified by the passage's discussion. No information is invented or overgeneralized."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-4.1-2025-04-14",
+          "live": true,
+          "wire_request_sha256": "df86046db6e59a5505c8956634a0be307b50ca0fefd9d52b6b0b638dc4ee6bcb",
+          "model_name": "gpt-4.1-2025-04-14",
+          "response_id": "chatcmpl-EcRfPKJqAiVtUN0fQP9DAlRLL5TMc",
+          "request_id": "req_525e5adeb2ea4770b683e194184db4e6",
+          "usage": {
+            "prompt_tokens": 7593,
+            "completion_tokens": 426,
+            "total_tokens": 8019
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "a75b1b3242fd2852f63e708b2b7d4c31c3847c262138ce93ae30f80ed8ba36bd"
+      }
+    },
+    "pourit-quality-012": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v1",
+        "recorded_at": "2026-10-24T08:46:15.004474+00:00",
+        "reviewed_batch_sha256": "281b98ad8b528e2207023e0f8cae7e7c014d5c51fae346463bebb2c8f59391de",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The cited quote is incomplete and does not support all substantive clauses. It supports that the compared method uses estimated object pose and size to calculate container-to-container distance as the initial pouring point, and that such a strategy sometimes fails due to an imperfect initial pouring point. But the candidate statement and components also claim failure is due to inaccurate size estimation and especially transparent bottlenecks; those parts are not contained in the submitted asserts_claim quote, which stops before that explanation. Component c2 additionally adds a requirement of reliable estimation of pose and size, which is not explicitly stated as an applicability condition in the quote. Mapping is also weak: c3 is a predicted effect pattern but the candidate frames the result as possible pouring failure, whereas the quote only says the strategy sometimes fails due to an imperfect initial pouring point; the exact effect pattern is underspecified. c1 as makf:GeneralizedStrategy is plausible, but c2 and c3 are not securely grounded as mapped."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The submitted quote is truncated. It supports that the method uses object pose information to calculate liquid-to-container distance as feedback to adjust the pouring point, but the claim that this is less sensitive to object size estimation errors is only partially cited because the quote ends at 'which is less influenced by'. The missing completion is necessary to support the comparative clause about size-estimation error. Scope is also overstated: the candidate presents a general pouring strategy principle, while the source gives a comparison between specific methods. The epistemic status 'proposed_strategy' is not well matched to a comparative result statement. Mapping is unsupported for c2: 'aicor:PouringTemplate' is a broad force-dynamic causal template and is not evidence for the specific mechanism 'reduction in sensitivity to object size estimation errors, since feedback relies on pose rather than size.' That should not be grounded to the pouring template as-is."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The asserts_claim quote only says 'the pouring point, making the liquid spill out of the target' and is missing the crucial preceding content about the inaccurately estimated mask providing wrong visual feedback, as well as the completion 'container instead.' Therefore the evidence does not fully support the statement or either component. Scope is also not well supported: the source specifically says 'AFA method performs poorly ... because the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point', which is a method-specific comparison. The candidate generalizes this into a broader conditional principle about any strategy relying on an inaccurately estimated liquid mask. Mapping is unsupported because c1's strategy description depends on the omitted text about visual feedback from the mask, and c2's deviation pattern is only partially evidenced by the clipped quote."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "4da7b64b61e97a3ad0af2c0243884895c000f7e25bcd78b7a56d00027d357b03",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRgGZMV7t1ldxRfke8YP1kUYzZ7H",
+          "request_id": "req_f46f6737e7804006b15d20898d1ec0a7",
+          "usage": {
+            "prompt_tokens": 7281,
+            "completion_tokens": 650,
+            "total_tokens": 7931
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "94fe59bd2c7100219fecd0e35d5028aab4ab46a6d760f935f05586318ebd7070"
+      },
+      "revision/quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v1",
+        "recorded_at": "2026-10-24T08:46:39.001063+00:00",
+        "reviewed_batch_sha256": "255a1394f4802524cc43da971702272e9f3573b1659812180c73c03fb3569669",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The quoted passage directly supports each substantive clause: Lin et al. '[17] only uses the estimated object pose and size for calculating container-to-container distance as the initial pouring point,' and 'Such a strategy sometimes fails ... as the transparent bottleneck results in inaccurate object size estimation.' The statement is properly limited to 'the reported comparison' and 'is described as,' so it does not overgeneralize beyond the cited passage. The applicability condition is explicitly stated in the quote. The unmapped generic failure description avoids overcommitting to an ontology class, and the grounded strategy/applicability mappings fit their component descriptions."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The quote explicitly states: 'Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by the inaccurate size estimation.' This covers both the strategy description and the comparative robustness clause. The candidate keeps the scope narrow by framing it as what 'the authors describe' and 'report' in the comparison, rather than a general principle. Mapping the strategy to makf:GeneralizedStrategy is reasonable, and leaving the comparative property as needs_mapping is appropriately cautious."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": true,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The quoted passage does support the substantive content of the statement: 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point, making the liquid spill out of the target container instead.' However, scope is overstated by assigning knowledge_kind 'strategy_description' and including a procedural/observational framing for AFA's 'using visual feedback from the estimated mask' when the passage only gives a failure explanation within one comparison, not a standalone generalized strategy description. Mapping is not supported for component s1: makf:GeneralizedStrategy is too strong for an inferred AFA strategy based only on a mention of wrong visual feedback from an inaccurate mask. The deviation mapping for d1 is plausible, but the candidate as a whole fails mapping support because one grounded component is not securely grounded."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "4475d4c0364accde9e9f1027de4502b7152a6ddcecaa76c57bd969d15082d47d",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRgdjeh2nFMztzN7cfy5pNbVN5nE",
+          "request_id": "req_9b67dc80d8bf4a7baa5e762c5b5d92ea",
+          "usage": {
+            "prompt_tokens": 7675,
+            "completion_tokens": 502,
+            "total_tokens": 8177
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "9537bc0f0b1d23a58ce4e85f3f70f41273524e504f265c30bcece9447ae3e40d"
+      }
+    },
+    "pourit-quality-013": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v2",
+        "recorded_at": "2026-10-24T08:47:53.121814+00:00",
+        "reviewed_batch_sha256": "281b98ad8b528e2207023e0f8cae7e7c014d5c51fae346463bebb2c8f59391de",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "prompt_sha256": "7a2c04d15b4b46262e7e581626052e64cc46ea5aced9e421e7d50f78a92ee17b",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The cited quote is incomplete. It supports the strategy clause up to \"uses the estimated object pose and size for calculating container-to-container distance as the initial pouring point\" and begins the failure clause with \"Such a strategy sometimes fails due to an imperfect initial pouring\", but it omits the rest needed for the candidate statement and components: \"point, as the transparent bottleneck results in inaccurate object size estimation.\" Because evidence_complete requires every substantive clause and component description to be supported by asserts_claim quotations, the transparent-bottleneck/size-estimation explanation and the predicted-effect description are not fully cited. Scope is also too strong in metadata: epistemic_status=\"conditional_principle\" overgeneralizes from a reported comparison, whereas the passage describes one method and why it sometimes fails in the reported discussion. The ontology mappings are acceptable: the strategy fits makf:GeneralizedStrategy, the applicability condition is a condition on reliable pose/size estimation, and the predicted effect fits makf:PredictedEffectPattern."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The quotation is truncated and does not fully support either substantive clause. It includes \"Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point\" but stops at \"which is less influenced by\" and omits the needed completion \"the inaccurate size estimation.\" Thus the claimed reduced sensitivity to size-estimation errors and component c2 are not fully evidenced by asserts_claim text. Scope is unsupported because epistemic_status=\"proposed_strategy\" is not warranted here; the passage describes the authors' method in an experimental comparison, not a separately supported proposal label, and the statement abstracts from one reported comparison. Mapping is unsupported because c2 is labeled as ontology_class \"aicor:PouringTemplate\", but the described item is a causal mechanism/explanation about reduced sensitivity to size-estimation errors, not a pouring force-dynamic template. A candid needs-mapping style note would be preferable."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The asserts_claim quote only supports the outcome tail: \"the pouring point, making the liquid spill out of the target\" and even that is truncated before \"container instead.\" It does not cite the needed preceding clauses from the source: \"the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point.\" Therefore the strategy reliance on visual feedback from an inaccurately estimated mask and the misleading-cue mechanism are not fully supported by the provided quotation. Scope is unsupported because knowledge_kind/epistemic_status as \"conditional_principle\" is too strong for a single method comparison about AFA in this passage. The mapping itself is acceptable as an abstract strategy plus deviation pattern: using visual feedback to adjust the pouring point fits makf:GeneralizedStrategy, and spilling due to wrong adjustment cues fits makf:DeviationPattern."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "38528444743c2da313d69917485bc9df1d53cc1fa7c10b5e5e42f5f0332c4933",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRhqM1qBmE7CQKsNlFZNyFBASnau",
+          "request_id": "req_873eea6602c340b3bd6626128af1ad9e",
+          "usage": {
+            "prompt_tokens": 7391,
+            "completion_tokens": 670,
+            "total_tokens": 8061
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "ccdfde2c9eb5d28eab35a812b50dbc254adba868867ab68857c389d08dcf4845"
+      },
+      "revision/quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v2",
+        "recorded_at": "2026-10-24T08:48:15.525353+00:00",
+        "reviewed_batch_sha256": "040130cab7db056b04c39a58e73c4ec296f7c31309ac65ba3d284af04f9dd050",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "prompt_sha256": "b7e44dd3c57465f0eba227cee1927f9d06c0da207365eac18c7a2f4a2ef083b3",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The quoted passage directly supports all substantive clauses in the statement and each component: it says the method 'only uses the estimated object pose and size for calculating container-to-container distance as the initial pouring point,' that it 'sometimes fails due to an imperfect initial pouring point,' and that 'the transparent bottleneck results in inaccurate object size estimation.' The statement is appropriately limited to 'the reported comparison' and phrased as 'is described as,' so it does not overgeneralize. The modality/epistemic framing is acceptable as a qualified description of a reported strategy rather than a broad principle. The ontology mappings fit: the method description can be treated as a strategy, the transparent-bottleneck/inaccurate-size-estimation factor is a plausible applicability condition, and the described failure is a pouring deviation pattern."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The quote explicitly supports the strategy clause: 'Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point,' and the comparative effect clause: 'which is less influenced by the inaccurate size estimation.' The statement stays within the reported comparison and does not claim general superiority. The component descriptions are also supported, including the second component's comparison-conditioned phrasing around inaccurate size estimation. Mapping is acceptable: the method is a strategy, and the inaccurate-size-estimation setting under which the comparison is discussed can be modeled as an applicability condition. Although this is a comparative result from one passage, the candidate presents it as a reported description rather than a general law."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The quote supports that 'AFA method performs poorly' because 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point, making the liquid spill out of the target container instead.' However, the candidate's strategy component adds 'Use visual feedback derived from the estimated mask to adjust the pouring point.' The passage does not explicitly describe an 'AFA-based pouring strategy' in those terms; it only says the mask provides wrong visual feedback, and per instructions the unspecified mask referent should not be generalized into a clearly defined strategy component beyond what is stated. Because that strategy component is not fully supported by asserts_claim text, evidence is incomplete. Scope is not supported because labeling this as an 'AFA-based pouring strategy' with epistemic_status 'proposed_strategy' overstates what the passage provides; this is an observed explanation for poor performance in one comparison, not a clearly articulated strategy description. Mapping is also unsupported because the grounding of c1 to makf:GeneralizedStrategy is too guessy from this passage alone, and c2 as an observation pattern conflates an erroneous internal estimate with an observation cue without clear textual or ontological fit."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "f5352c06a000f308d7a5c1c1ac1f22c4dee5ceaccb0902120540d8344c778d61",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRiBolCmrsSaRdjM1NCUcbDLG8Ml",
+          "request_id": "req_d6bbf45a57574bc89ca8d8433336596e",
+          "usage": {
+            "prompt_tokens": 7764,
+            "completion_tokens": 647,
+            "total_tokens": 8411
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "bc9e44f87889598e457504bacc0d2b9904453b33a4305a1e48c69f2c2b254dd3"
+      }
+    },
+    "pourit-quality-014": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v2",
+        "recorded_at": "2026-10-24T08:49:33.860347+00:00",
+        "reviewed_batch_sha256": "281b98ad8b528e2207023e0f8cae7e7c014d5c51fae346463bebb2c8f59391de",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "prompt_sha256": "7a2c04d15b4b46262e7e581626052e64cc46ea5aced9e421e7d50f78a92ee17b",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The cited quote is truncated and does not support all substantive clauses. It supports the strategy description up to using estimated object pose and size to calculate container-to-container distance as the initial pouring point, and it supports that the strategy sometimes fails due to an imperfect initial pouring point. But the candidate statement and components also claim failure is due to inaccurate size estimation and especially for containers with transparent bottlenecks; those parts are not included in the asserts_claim quote even though they appear later in the passage. Because uncited source text cannot rescue omitted support, evidence is incomplete. Scope is also too strong in metadata: epistemic_status='conditional_principle' overgeneralizes from a reported comparison/method description. The mapping to makf:GeneralizedStrategy, makf:ApplicabilityCondition, and makf:PredictedEffectPattern is acceptable for the described strategy, condition, and possible failure effect."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The quoted evidence is cut off before the key clause is completed. It supports that their method uses object pose information to calculate liquid-to-container distance as feedback to adjust the pouring point, but the candidate also claims reduced sensitivity to object size estimation errors; the quote ends at 'which is less influenced by' and does not include what it is less influenced by. Thus the statement and component c2 are not fully supported by asserts_claim quotations. Scope is unsupported because epistemic_status='proposed_strategy' is not what the passage establishes; it is a source-described method comparison, not clearly a newly proposed abstract strategy in the ontology sense, and the comparative benefit clause is incompletely quoted. Mapping is unsupported because c2 is labeled as ontology_class aicor:PouringTemplate, but the described item is a causal/explanatory claim about error sensitivity, not a pouring force-dynamic template."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The asserts_claim quote only includes the tail fragment 'the pouring point, making the liquid spill out of the target' and does not support the full candidate. Missing from the cited quote are the clauses that AFA's inaccurately estimated mask provides wrong visual feedback and that the strategy relies on visual feedback from that mask to adjust the pouring point; even 'target container' is truncated to 'target'. Therefore evidence is incomplete for both the statement and components. Scope is unsupported because knowledge_kind='conditional_principle' and epistemic_status='conditional_principle' are too strong for a single reported method comparison, even though the statement is conditional. The mapping is acceptable as-is: a strategy using visual feedback can fit makf:GeneralizedStrategy, and the spill/misleading-feedback outcome fits a makf:DeviationPattern."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "38528444743c2da313d69917485bc9df1d53cc1fa7c10b5e5e42f5f0332c4933",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRjSiCle27HhLwO9O2aIOprmdvRc",
+          "request_id": "req_fe8ffdb828764cc29318973c8bfb2ca0",
+          "usage": {
+            "prompt_tokens": 7391,
+            "completion_tokens": 635,
+            "total_tokens": 8026
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "df579f701967e518c7d8bc4e78bdf61bb42001135b7966c6cd9edac1e1284cdc"
+      },
+      "revision/quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v2",
+        "recorded_at": "2026-10-24T08:49:53.664538+00:00",
+        "reviewed_batch_sha256": "e99b4f9056e02d051b8af06c03e529a8d4b8794598e1ebe263de8c243322cf07",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "prompt_sha256": "fa270c0f9e98be0ffb41fc58ae86cadb5d429d8eb965590ef165a855b7785b60",
+        "assessments": [
+          {
+            "candidate_id": "pourit-pilot-cand-1",
+            "evidence_complete": true,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The quoted passage supports all substantive clauses and all three component descriptions: it explicitly states use of estimated object pose and size to calculate container-to-container distance as the initial pouring point, says the strategy sometimes fails, and attributes this to an imperfect initial pouring point caused by inaccurate size estimation from a transparent bottleneck. However, scope metadata is too strong/misattributed: the statement is about 'The method of Lin et al. [17]' described by the paper, not the authors' own proposed strategy. Thus epistemic_status='proposed_strategy' is not supported as-is, even though the paraphrase itself is properly conditional and source-anchored. The ontology mappings are acceptable: strategy to makf:GeneralizedStrategy, transparent-bottleneck/inaccurate-size-estimation condition to makf:ApplicabilityCondition, and failure pattern to makf:PredictedEffectPattern all fit the described components."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-2",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The quote directly supports both parts of the statement and both components: 'Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point' and 'which is less influenced by the inaccurate size estimation.' The claim is limited to a source description and reported comparative property, rather than an overgeneralized principle, so the conditional/qualified scope is acceptable. While 'proposed_strategy' can be supported here because the text says 'Our method,' the modality label 'conditional' is somewhat loose since the statement itself is descriptive rather than explicitly if-then; still, it does not overstate the evidence. Mapping is supported because the strategy component is reasonably a makf:GeneralizedStrategy, and the second component is candidly left as needs_mapping rather than forced into an ill-fitting ontology class."
+          },
+          {
+            "candidate_id": "pourit-pilot-cand-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The deviation/failure clause is supported by the quote: 'the inaccurately estimated mask of AFA provides the wrong visual feedback ... making the liquid spill out of the target container instead.' But the strategy clause is incomplete/overreaches: the source does not say the method uses 'visual feedback from an estimated mask' in general, only that 'the inaccurately estimated mask of AFA provides the wrong visual feedback.' The cited text does not explicitly establish that the relevant strategy component is an estimated-mask-based feedback strategy, and instructions say not to infer an unspecified mask's referent. Scope is also unsupported because epistemic_status='proposed_strategy' is wrong here: this is a reported comparison about AFA, not the authors' own proposal; and the statement generalizes to 'a pouring method' beyond the specifically named AFA comparison. Mapping is unsupported because grounding c1 as makf:GeneralizedStrategy depends on the unsupported inferred mask-based strategy description; c2 as makf:DeviationPattern is plausible, but each grounded component must fit the described component as stated."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "6f848dc7d34c8542135b8017ee27db4be3c785429561860f3cc1a40caf45365b",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRjmpuBzi0MDGjwbQ5j0t366yoRB",
+          "request_id": "req_6c554c4192c24b4f8d8cf1d06585b770",
+          "usage": {
+            "prompt_tokens": 7705,
+            "completion_tokens": 675,
+            "total_tokens": 8380
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "a2cff8aa65d959d39a0c47d7b9549c17c30f3da44a7cfb6525f121260cb327be"
+      }
+    },
+    "quality-controls-001": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v1",
+        "recorded_at": "2026-10-24T08:46:42.024654+00:00",
+        "reviewed_batch_sha256": "f2eb8fb2d70a72201994ecf169ae256ae3156e9dd91f0c383b545ff821995e83",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "assessments": [
+          {
+            "candidate_id": "control-1",
+            "evidence_complete": true,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The quoted asserts_claim text supports all substantive clauses of the statement, including the comparison with rapid tilt and the note that viscous liquids were not evaluated, and it supports the component description as a strategy-like instruction tied to the reported comparison. However, scope is not supported as submitted: the source is a single synthetic bench-test comparison, which does not by itself justify epistemic_status 'proposed_strategy' or modality 'conditional' as a broader strategy description beyond that reported test context."
+          },
+          {
+            "candidate_id": "control-2",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The only asserts_claim quote is just 'In a bench test with water,', which does not support the substantive claim that slow tilting reduced spillage compared with rapid tilting, does not support that viscous liquids were not evaluated, and does not support the component description. Scope is also unsupported for the same reason and because the submitted strategy framing exceeds the cited text."
+          },
+          {
+            "candidate_id": "control-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The asserted quote says only that in a bench test with water, a slow tilt reduced spillage compared with a rapid tilt, and that viscous liquids were not evaluated. It does not support 'always,' 'prevents all spillage,' or 'for every liquid.' Those are major unsupported clauses, so evidence is incomplete. Scope is also unsupported because a single water-only comparison cannot establish a universal principle, and the source explicitly limits liquid coverage."
+          },
+          {
+            "candidate_id": "control-4",
+            "evidence_complete": true,
+            "scope_supported": false,
+            "mapping_supported": false,
+            "rationale": "The quote supports the statement text itself, including the water bench-test context, reduced spillage relative to rapid tilt, and lack of evaluation for viscous liquids. But scope is unsupported for the same reason as control-1: this is an observed comparison in a synthetic bench test, not sufficient support for epistemic_status 'proposed_strategy' as a general strategy claim. Mapping is unsupported because the grounded component is labeled 'causal_mechanism' and mapped to aicor:PouringTemplate, while the source only reports an outcome comparison and does not provide evidence for a pouring causal template or mechanism."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "852102b4778369004891ff6bf10bdd19ffa9f35d65cb6760d14ef899a9fb230a",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRgg4i9LKqAKOTwUCzdsR7BMFihR",
+          "request_id": "req_bb843464d7ce4278a6f870a941409418",
+          "usage": {
+            "prompt_tokens": 6908,
+            "completion_tokens": 505,
+            "total_tokens": 7413
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "71eb91d668b34b43cc1fa631e5251fe39cec69e40b668ca0dfd3b9bea2d601b2"
+      }
+    },
+    "quality-controls-002": {
+      "quality-review": {
+        "status": "changes_required",
+        "review_version": "makf-quality-v2",
+        "recorded_at": "2026-10-24T08:47:54.477016+00:00",
+        "reviewed_batch_sha256": "3c535666b1362be9298175e58962f2d991ec8e6f630d041e28df0eb85dba4e94",
+        "human_review_required": true,
+        "scope": "Advisory model review, not scientific certification.",
+        "prompt_sha256": "b79b33406797afb0c57a8f09f89b8c93cafc30b906b24e10adbbcbafd2735af4",
+        "assessments": [
+          {
+            "candidate_id": "control-1",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The asserts_claim quote fully supports the statement's substantive clauses: the comparison is limited to a bench test with water, slow tilt reduced spillage relative to rapid tilt, and viscous liquids were not evaluated. The component description is also supported as a strategy description tied to the reported comparison. Scope is appropriately limited by the wording ('reported bench test with water') and does not overgeneralize. Mapping to makf:GeneralizedStrategy is acceptable for a procedural strategy component describing how to tilt under the reported test conditions."
+          },
+          {
+            "candidate_id": "control-2",
+            "evidence_complete": false,
+            "scope_supported": true,
+            "mapping_supported": true,
+            "rationale": "The only asserts_claim quote is incomplete: 'In a bench test with water,' does not support the substantive claim that slow tilting reduced spillage compared with rapid tilting, does not support the statement that viscous liquids were not evaluated, and does not support the component description. Because evidence_complete requires quoted support for every substantive clause and component description, this fails. The statement itself is properly scoped if it had adequate quotation support, and the strategy mapping is otherwise plausible."
+          },
+          {
+            "candidate_id": "control-3",
+            "evidence_complete": false,
+            "scope_supported": false,
+            "mapping_supported": true,
+            "rationale": "The asserts_claim quote reports only that in a bench test with water, slow tilt reduced spillage compared with rapid tilt, and that viscous liquids were not evaluated. It does not support 'always,' 'prevents all spillage,' or 'for every liquid.' Thus the statement is not fully evidenced. Scope is also unsupported: a single comparison under water-only test conditions cannot justify a universal principle, and the metadata epistemic_status 'conditional_principle' is too strong for this source. The component's strategy mapping to makf:GeneralizedStrategy is still acceptable in isolation because the component description itself is limited to the reported water bench-test comparison."
+          },
+          {
+            "candidate_id": "control-4",
+            "evidence_complete": true,
+            "scope_supported": true,
+            "mapping_supported": false,
+            "rationale": "The quoted passage supports the statement's clauses and the component description text that slow tilting reduces spillage in the reported comparison. The wording is appropriately limited to the reported bench test with water, so scope is supported. However, the grounded component is labeled causal_mechanism and mapped to aicor:PouringTemplate, which is a broad pouring causal template in the ontology. The source does not describe a pouring causal mechanism or force-dynamic template; it only reports a comparative outcome. Broad action templates are not evidence for a specific causal mechanism mapping, so mapping_supported is false."
+          }
+        ],
+        "provider": {
+          "engine": "openai",
+          "requested_model": "gpt-5.4-2026-03-05",
+          "live": true,
+          "wire_request_sha256": "c4e1fc2a5a0e04b23a98d0ed33b6faf0b879667c85dfce74314197a97187b556",
+          "model_name": "gpt-5.4-2026-03-05",
+          "response_id": "chatcmpl-EcRhrX492pfa3Obcvap74C68o7Akm",
+          "request_id": "req_ef476f4bc7614720a683ba103ea556a3",
+          "usage": {
+            "prompt_tokens": 7018,
+            "completion_tokens": 569,
+            "total_tokens": 7587
+          },
+          "finish_reason": "stop"
+        },
+        "response_sha256": "bc1c60647fcc64b2018737a9f31f37ac193cabb7b10c7edcee0bc63e0aa227e6"
+      }
+    }
+  },
+  "synthetic_control_expectations": {
+    "control-1": [
+      true,
+      true,
+      true
+    ],
+    "control-2": [
+      false,
+      true,
+      true
+    ],
+    "control-3": [
+      false,
+      false,
+      true
+    ],
+    "control-4": [
+      true,
+      true,
+      false
+    ]
+  },
+  "synthetic_control_check_order": [
+    "evidence_complete",
+    "scope_supported",
+    "mapping_supported"
+  ],
+  "control_limit": "Used in development/calibration; not held-out evaluation or human-approved benchmark."
+}

@@ -1,0 +1,47 @@
+{
+  "status": "review_passed",
+  "review_version": "makf-quality-v1",
+  "recorded_at": "2026-10-24T08:45:22.929751+00:00",
+  "reviewed_batch_sha256": "4ac02978e0c2c4aa8cec7721bf10187e359f252df43503b9c71168c853c93c63",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "assessments": [
+    {
+      "candidate_id": "pourit-pilot-cand-1r",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "Each substantive clause is present in the cited passage: the strategy's use of estimated pose and size is described explicitly, as is failure due to transparency-induced size estimation errors. The applicability condition about transparent bottlenecks rendering estimation inaccurate is correctly delimited by the passage ('sometimes fails due to ... transparent bottleneck'). The mapping of components to ontology classes fits: the strategy is a 'GeneralizedStrategy', applicability is an 'ApplicabilityCondition', and failure as a 'PredictedEffectPattern'. No substantive content is extrapolated beyond the passage's scope or wording. All evidence is cited."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-2r",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The claim that using only object pose for feedback is less influenced by inaccurate size estimation is stated explicitly in the passage. Both major components—the alternative strategy itself and its reduced sensitivity to size estimation errors—are specifically cited ('Our method only use object pose ... which is less influenced by the inaccurate size estimation'). Mapping is sound, as the strategy and effect are grounded in the correct ontology classes. The conditional/relative formulation matches the passage; scope is appropriate for the described comparison. No extrapolation occurs."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-3r",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The candidate accurately reflects the cited passage's claim: the AFA method's use of visual feedback from an inaccurate liquid mask causes the liquid to spill ('the inaccurately estimated mask ... provides the wrong visual feedback ... making the liquid spill out'). Both the strategy (feedback from liquid mask) and the deviation (spillage due to inaccuracy) are explicitly substantiated and correctly mapped. The scope is conditional (\"can lead to\") and is justified by the passage's discussion. No information is invented or overgeneralized."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "df86046db6e59a5505c8956634a0be307b50ca0fefd9d52b6b0b638dc4ee6bcb",
+    "model_name": "gpt-4.1-2025-04-14",
+    "response_id": "chatcmpl-EcRfPKJqAiVtUN0fQP9DAlRLL5TMc",
+    "request_id": "req_525e5adeb2ea4770b683e194184db4e6",
+    "usage": {
+      "prompt_tokens": 7593,
+      "completion_tokens": 426,
+      "total_tokens": 8019
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "a75b1b3242fd2852f63e708b2b7d4c31c3847c262138ce93ae30f80ed8ba36bd"
+}

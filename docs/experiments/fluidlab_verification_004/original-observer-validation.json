@@ -1,0 +1,12 @@
+{
+  "valid": false,
+  "reason": "Local-memory index reused every 20 substeps. Per-global-substep masks overwritten while counters accumulated.",
+  "example": {
+    "file": "collision-007.npz",
+    "local_frame": 0,
+    "particle_query_counter": 81208,
+    "particle_mask_query_identities": 40604
+  },
+  "action": "Retain original raw artifacts; exclude original masks from gate and branch-identity claims. Rerun corrected recording under instrumentation-amendment.json.",
+  "numerical_criteria_changed": false
+}

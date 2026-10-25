@@ -1,0 +1,439 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/makf/quantitative/0.1/schema",
+  "title": "Quantitative evidence scalar contract 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "study": {
+      "$ref": "#/$defs/study"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "minItems": 1
+    },
+    "quantities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/quantity"
+      },
+      "minItems": 1
+    },
+    "conversions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conversion"
+      }
+    },
+    "timing_checks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/timing"
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "study",
+    "artifacts",
+    "quantities",
+    "conversions",
+    "timing_checks",
+    "issues"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "text",
+        "sha256",
+        "locator"
+      ],
+      "additionalProperties": false
+    },
+    "anchor": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "exact_quote": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "exact_quote"
+      ],
+      "additionalProperties": false
+    },
+    "unit": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "explicit",
+            "dimensionless",
+            "simulation_units",
+            "unreported",
+            "unresolved"
+          ]
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "reported_text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "quantity": {
+      "type": "object",
+      "properties": {
+        "quantity_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "annex_record_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "quantity_kind": {
+          "enum": [
+            "observed_particle_count",
+            "total_particle_count",
+            "substep_count",
+            "time_step",
+            "substep_duration",
+            "duration",
+            "reported_density_parameter",
+            "lame_mu_parameter",
+            "lame_lambda_parameter",
+            "success_fraction",
+            "volume_fraction",
+            "mass_fraction"
+          ]
+        },
+        "role": {
+          "enum": [
+            "configuration",
+            "result"
+          ]
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "reported_value_text": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d{1,3})?$"
+        },
+        "unit": {
+          "$ref": "#/$defs/unit"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor"
+          },
+          "minItems": 1
+        },
+        "metric_definition": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "denominator": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "quantity_id",
+        "annex_record_id",
+        "quantity_kind",
+        "role",
+        "subject",
+        "reported_value_text",
+        "unit",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "conversion": {
+      "type": "object",
+      "properties": {
+        "conversion_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "input_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "target_unit": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "derived_value_text": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d{1,3})?$"
+        },
+        "method": {
+          "const": "unit_conversion_v1"
+        }
+      },
+      "required": [
+        "conversion_id",
+        "input_id",
+        "target_unit",
+        "derived_value_text",
+        "method"
+      ],
+      "additionalProperties": false
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "step_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "count_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "substep_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        }
+      },
+      "required": [
+        "check_id",
+        "step_id",
+        "count_id",
+        "substep_id"
+      ],
+      "additionalProperties": false
+    },
+    "issue": {
+      "type": "object",
+      "properties": {
+        "issue_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "code": {
+          "enum": [
+            "material_model_ambiguity",
+            "source_code_mismatch",
+            "context_incomplete"
+          ]
+        },
+        "quantity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "minItems": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "issue_id",
+        "code",
+        "quantity_ids",
+        "message",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "study": {
+      "type": "object",
+      "properties": {
+        "study_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source_uri": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "document_version": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "evidence_origin": {
+          "enum": [
+            "published_simulation",
+            "local_simulation"
+          ]
+        },
+        "synthetic_demo": {
+          "type": "boolean"
+        },
+        "simulator": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "version_status": {
+              "enum": [
+                "reported",
+                "not_reported"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "name",
+            "version_status"
+          ],
+          "additionalProperties": false
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "partial",
+                "complete"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/anchor"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "status",
+            "description",
+            "evidence"
+          ],
+          "additionalProperties": false
+        },
+        "transcription_method": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "review_state": {
+          "const": "pending"
+        }
+      },
+      "required": [
+        "study_id",
+        "title",
+        "source_uri",
+        "document_version",
+        "evidence_origin",
+        "synthetic_demo",
+        "simulator",
+        "context",
+        "transcription_method",
+        "review_state"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,4 @@
+PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation
+of the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing
+the displacement of the cup in the x, y dimension and its rotation around its geometric center. The
+reward is the fraction of water that is successfully poured into the target cup.

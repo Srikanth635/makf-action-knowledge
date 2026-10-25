@@ -1,0 +1,8 @@
+PREFIX demo: <https://example.org/makf-design/>
+SELECT ?claim ?statement ?source ?status WHERE {
+ GRAPH demo:provisionalCandidate {
+  ?claim a demo:Claim; demo:statement ?statement; demo:evidence ?e; demo:review ?r.
+  ?e demo:passage ?p. ?r demo:status ?status.
+ }
+ GRAPH demo:sourceRecords { ?p demo:document ?source. ?source demo:syntheticDemo false. }
+}

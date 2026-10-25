@@ -1,0 +1,48 @@
+{
+  "status": "review_passed",
+  "review_version": "makf-quality-v3",
+  "recorded_at": "2026-10-24T19:33:12.135794+00:00",
+  "reviewed_batch_sha256": "2a1b78479b20c6319f025885c376781fd68efe381a91147b0802d9c10064f5bc",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "abc387989602bd624151e0089da5cf3f3be405dac14071c67ad531cf83eb2fc4",
+  "assessments": [
+    {
+      "candidate_id": "c1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation explicitly supplies the PourWater objective and supports the component description. The task_objective, definition, and source_paraphrase metadata preserve benchmark scope without asserting strategy success. A generic_description with a candid needs_mapping note appropriately avoids treating an objective as a strategy."
+    },
+    {
+      "candidate_id": "c2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports every stated control-interface detail and the complete reward definition, including both component descriptions. The benchmark_definition and definition labels accurately characterize source-defined controls and reward, not an effective policy. Both unresolved generic descriptions have appropriate notes explaining why strategy, observation, and effect classes would misrepresent them."
+    },
+    {
+      "candidate_id": "c3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation supports both named tasks, the open-top cuboid models, and every listed variation parameter. The statement and metadata remain limited to benchmark definitions without adding parameter ranges or performance effects. makf:ApplicabilityCondition fits the explicit scope restriction; the variation parameters appropriately remain a generic_description with a candid needs_mapping note."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6-astra",
+    "live": true,
+    "wire_request_sha256": "7aeee5151c38a090624a6267a9b8c4d3220f96d8af16b9edaf9d6970d38426b0",
+    "model_name": "gpt-6-astra",
+    "response_id": "chatcmpl-EcbmKtMNPUl9KCqvw96U2ypy3WWOm",
+    "request_id": "req_7bb1c1eedc654f7781dd38b6e47e46ba",
+    "usage": {
+      "prompt_tokens": 5396,
+      "completion_tokens": 323,
+      "total_tokens": 5719
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "eba1e14b9ed9bade737022c8a662d173c9d9bcf976924dc8a7ee0c2aa137545d"
+}

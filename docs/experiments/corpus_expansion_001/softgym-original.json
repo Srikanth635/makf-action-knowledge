@@ -1,0 +1,131 @@
+{
+  "batch_id": "corpus-expansion-001-softgym",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+      "title": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+      "uri": "https://arxiv.org/abs/2011.07215v2",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "pourwater-task",
+          "text": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n",
+          "locator": "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4"
+        },
+        {
+          "passage_id": "fluid-model",
+          "text": "Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant\ndensity constraint is applied to each particle to enforce the incompressibility of the fluid. For each\nparticle, the constant density constraint is based on the position of that particle, as well as the positions\nof its neighboring particles.\n",
+          "locator": "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3"
+        },
+        {
+          "passage_id": "pouring-variations",
+          "text": "PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are\nmodeled as cuboids without the top face. We vary the height, length, and width of both cups, the\ndistance between the controlled cup and the target cup, as well as the volume of water in the controlled\ncup. ",
+          "locator": "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "cand-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported PourWater task formulation, a pouring strategy is described as controlling the cup's position and rotation via x/y displacement and rotation updates.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s1",
+          "component_kind": "strategy",
+          "description": "Strategy description for pouring that manipulates the held cup by changing its x and y position and its rotation.",
+          "ontology_class": "paf:PouringStrategy",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "cand-2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational"
+      ],
+      "knowledge_kind": "observation_expectation",
+      "statement": "For the reported PourWater task, success is evaluated by the fraction of water successfully poured into the target cup.",
+      "modality": "conditional",
+      "epistemic_status": "conditional_principle",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "o1",
+          "component_kind": "observation_pattern",
+          "description": "Observation pattern that tracks how much water reaches the target cup as the success measure.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "reward is the fraction of water that is successfully poured into the target cup."
+        }
+      ]
+    },
+    {
+      "candidate_id": "cand-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "applicability"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported task variations for pouring, applicability-relevant setup conditions include open-top cuboid cups and variation in cup dimensions, cup separation, and the initial water volume in the controlled cup.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "applicability_condition",
+          "description": "Applicability condition describing a task setup with open-top cuboid source and target cups, with variable cup dimensions, inter-cup distance, and water volume in the controlled cup.",
+          "ontology_class": "makf:ApplicabilityCondition",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pouring-variations",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are\nmodeled as cuboids without the top face. We vary the height, length, and width of both cups, the\ndistance between the controlled cup and the target cup, as well as the volume of water in the controlled\ncup. "
+        }
+      ],
+      "reviewer_note": "Uses a broad applicability-condition grounding because no more specific offered class covers the listed geometric and volumetric task variations."
+    }
+  ],
+  "extraction_run": {
+    "engine": "openai",
+    "prompt_version": "makf-e2.2-v3",
+    "recorded_at": "2026-10-24T18:13:34.143759+00:00",
+    "model_name": "gpt-5.4-2026-03-05"
+  }
+}

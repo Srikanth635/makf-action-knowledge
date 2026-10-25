@@ -1,0 +1,171 @@
+{
+  "audit_version": "0.1",
+  "audited_at": "2026-10-25T04:44:21.829245+00:00",
+  "repository": "https://github.com/zhouxian/FluidLab",
+  "discovered_via": "Official project page https://fluidlab2023.github.io/",
+  "head_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "pre_arxiv_commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+  "version_scope": "Latest fetched commit and latest repository commit dated before arXiv v1; neither is verified as exact code/artifacts used for published experiments.",
+  "evidence": [
+    {
+      "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "path": "fluidlab/configs/macros.py",
+      "line_start": 64,
+      "line_end": 83,
+      "role": "material classes",
+      "url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L64",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py",
+      "file_sha256": "b99e4f50ebbff6ab8abdc38f5134c4c96e7654753a9d667c390486fc39ab0522",
+      "exact_text": "############ material class #############\nMAT_CLASS = {\n    WATER          : MAT_LIQUID,\n    INVISCID_DEMO  : MAT_LIQUID,\n    INVISCID_DEMO2 : MAT_LIQUID,\n    INVISCID_DEMO3 : MAT_LIQUID,\n    VISCOUS_DEMO   : MAT_LIQUID,\n    MILK           : MAT_LIQUID,\n    COFFEE         : MAT_LIQUID,\n    ELASTIC        : MAT_ELASTIC,\n    ELASTIC_DEMO   : MAT_ELASTIC,\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\n    RIGID          : MAT_RIGID,\n    RIGID_HEAVY    : MAT_RIGID,\n    RIGID_LIGHT    : MAT_RIGID,\n    ICECREAM       : MAT_PLASTO_ELASTIC,\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\n    MILK_VIS       : MAT_LIQUID,\n    COFFEE_VIS     : MAT_LIQUID,\n}\n",
+      "excerpt_sha256": "94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15"
+    },
+    {
+      "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "path": "fluidlab/configs/macros.py",
+      "line_start": 143,
+      "line_end": 201,
+      "role": "material parameters",
+      "url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L143",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py",
+      "file_sha256": "b99e4f50ebbff6ab8abdc38f5134c4c96e7654753a9d667c390486fc39ab0522",
+      "exact_text": "MU = {\n    WATER          : 0.0,\n    INVISCID_DEMO  : 0.0,\n    INVISCID_DEMO2 : 0.0,\n    INVISCID_DEMO3 : 0.0,\n    VISCOUS_DEMO   : 800.0,\n    MILK           : 0.0,\n    COFFEE         : 0.0,\n    MILK_VIS       : 200.0,\n    COFFEE_VIS     : 200.0,\n    ELASTIC        : 416.67,\n    ELASTIC_DEMO   : 10.0,\n    PLASTIC_DEMO   : 160.0,\n    ICECREAM       : 416.67,\n    ICECREAM1       : 216.67,\n    RIGID          : 416.67,\n    RIGID_HEAVY    : 416.67,\n    RIGID_LIGHT    : 416.67,\n}\n\nLAMDA = {\n    WATER          : 277.78,\n    INVISCID_DEMO  : 277.78,\n    INVISCID_DEMO2 : 277.78,\n    INVISCID_DEMO3 : 277.78,\n    VISCOUS_DEMO   : 277.78,\n    MILK           : 277.78,\n    COFFEE         : 277.78,\n    MILK_VIS       : 277.78,\n    COFFEE_VIS     : 277.78,\n    ELASTIC        : 277.78,\n    ELASTIC_DEMO   : 100.0,\n    PLASTIC_DEMO   : 277.78,\n    ICECREAM       : 277.78,\n    ICECREAM1       : 277.78,\n    RIGID          : 277.78,\n    RIGID_HEAVY    : 277.78,\n    RIGID_LIGHT    : 277.78,\n}\n\nRHO = {\n    WATER          : 1.0,\n    INVISCID_DEMO  : 5.0,\n    INVISCID_DEMO2 : 1.0,\n    INVISCID_DEMO3 : 3.0,\n    VISCOUS_DEMO   : 5.0,\n    MILK           : 0.5,\n    COFFEE         : 1.0,\n    MILK_VIS       : 1.0,\n    COFFEE_VIS     : 1.0,\n    ELASTIC        : 1.0,\n    ELASTIC_DEMO   : 1.0,\n    PLASTIC_DEMO   : 1.0,\n    ICECREAM       : 0.5,\n    ICECREAM1       : 0.5,\n    RIGID          : 1.0,\n    RIGID_HEAVY    : 10.0,\n    RIGID_LIGHT    : 0.5,\n}\n",
+      "excerpt_sha256": "17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464"
+    },
+    {
+      "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "path": "fluidlab/envs/pouring_env.py",
+      "line_start": 18,
+      "line_end": 62,
+      "role": "observed budget and body placement",
+      "url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py#L18",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py",
+      "file_sha256": "85329d1dffe689d5ca7518a9a5de467f3a6219f92e338b026a7091baca1b329f",
+      "exact_text": "        self.horizon               = 1000\n        self.horizon_action        = 1000\n        self.target_file           = None\n        self._n_obs_ptcls_per_body = 500\n        self.loss                  = loss\n        self.loss_type             = loss_type\n        self.action_range          = np.array([-0.02, 0.02])\n\n        # create a taichi env\n        self.taichi_env = TaichiEnv(\n            dim=3,\n            particle_density=1e6,\n            max_substeps_local=20,\n            gravity=(0.0, -20.0, 0.0),\n            horizon=self.horizon,\n        )\n        self.build_env()\n        self.gym_misc()\n\n    def setup_agent(self):\n        agent_cfg = CfgNode(new_allowed=True)\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\n        self.taichi_env.setup_agent(agent_cfg)\n        self.agent = self.taichi_env.agent\n\n    def setup_statics(self):\n        pass\n\n    def setup_bodies(self):\n        self.taichi_env.add_body(\n            type='cylinder',\n            center=(0.6, 0.53, 0.5),\n            height=0.2,\n            radius=0.18,\n            material=MILK,\n        )\n        self.taichi_env.add_body(\n            type='cylinder',\n            center=(0.6, 0.73, 0.5),\n            height=0.2,\n            radius=0.18,\n            material=WATER,\n        )\n\n    def setup_boundary(self):\n",
+      "excerpt_sha256": "9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357"
+    },
+    {
+      "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "path": "fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "line_start": 20,
+      "line_end": 34,
+      "role": "runtime timestep",
+      "url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py#L20",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "file_sha256": "a5214be504124940399e3f06021bf4479c293790172ed3d185c36a1495c82b95",
+      "exact_text": "\n        self.n_grid              = int(64 * quality)\n        self.dx                  = 1 / self.n_grid\n        self.inv_dx              = float(self.n_grid)\n        self.dt                  = 2e-4\n        self.p_vol               = (self.dx * 0.5) ** 2\n        self.res                 = (self.n_grid,) * self.dim\n        self.max_substeps_local  = max_substeps_local\n        self.max_substeps_global = max_substeps_global\n        self.horizon             = horizon\n        self.n_substeps          = int(2e-3 / self.dt)\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\n\n        assert self.n_substeps * self.horizon < self.max_substeps_global\n        assert self.max_substeps_local % self.n_substeps == 0\n",
+      "excerpt_sha256": "21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387"
+    },
+    {
+      "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "path": "fluidlab/fluidengine/bodies/bodies.py",
+      "line_start": 62,
+      "line_end": 73,
+      "role": "body density initialization",
+      "url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py#L62",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py",
+      "file_sha256": "5c3b0c17e58a317d70e0379b24343f78f0680ffce54b225d4d9d92691b82bb35",
+      "exact_text": "        if color is not None:\n            body_color = color\n        else:\n            body_color = COLOR[material]\n\n        body_color = np.tile(body_color, [len(particles), 1])\n        body_rho = np.full(len(particles), RHO[material] )\n        body_material = np.full(len(particles), material)\n        body_used = np.full(len(particles), used)\n        body_id = np.full(len(particles), len(self.bodies))\n\n        # rotate\n",
+      "excerpt_sha256": "e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f"
+    },
+    {
+      "commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+      "path": "fluidlab/configs/macros.py",
+      "line_start": 64,
+      "line_end": 83,
+      "role": "material classes",
+      "url": "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L64",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py",
+      "file_sha256": "47d094a9b9339e9d4e1de49ffe283a975bcd82868bdee2a0b4de8faacaaf74cf",
+      "exact_text": "############ material class #############\nMAT_CLASS = {\n    WATER          : MAT_LIQUID,\n    INVISCID_DEMO  : MAT_LIQUID,\n    INVISCID_DEMO2 : MAT_LIQUID,\n    INVISCID_DEMO3 : MAT_LIQUID,\n    VISCOUS_DEMO   : MAT_LIQUID,\n    MILK           : MAT_LIQUID,\n    COFFEE         : MAT_LIQUID,\n    ELASTIC        : MAT_ELASTIC,\n    ELASTIC_DEMO   : MAT_ELASTIC,\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\n    RIGID          : MAT_RIGID,\n    RIGID_HEAVY    : MAT_RIGID,\n    RIGID_LIGHT    : MAT_RIGID,\n    ICECREAM       : MAT_PLASTO_ELASTIC,\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\n    MILK_VIS       : MAT_LIQUID,\n    COFFEE_VIS     : MAT_LIQUID,\n}\n",
+      "excerpt_sha256": "94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15"
+    },
+    {
+      "commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+      "path": "fluidlab/configs/macros.py",
+      "line_start": 143,
+      "line_end": 201,
+      "role": "material parameters",
+      "url": "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L143",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py",
+      "file_sha256": "47d094a9b9339e9d4e1de49ffe283a975bcd82868bdee2a0b4de8faacaaf74cf",
+      "exact_text": "MU = {\n    WATER          : 0.0,\n    INVISCID_DEMO  : 0.0,\n    INVISCID_DEMO2 : 0.0,\n    INVISCID_DEMO3 : 0.0,\n    VISCOUS_DEMO   : 800.0,\n    MILK           : 0.0,\n    COFFEE         : 0.0,\n    MILK_VIS       : 200.0,\n    COFFEE_VIS     : 200.0,\n    ELASTIC        : 416.67,\n    ELASTIC_DEMO   : 10.0,\n    PLASTIC_DEMO   : 160.0,\n    ICECREAM       : 416.67,\n    ICECREAM1       : 216.67,\n    RIGID          : 416.67,\n    RIGID_HEAVY    : 416.67,\n    RIGID_LIGHT    : 416.67,\n}\n\nLAMDA = {\n    WATER          : 277.78,\n    INVISCID_DEMO  : 277.78,\n    INVISCID_DEMO2 : 277.78,\n    INVISCID_DEMO3 : 277.78,\n    VISCOUS_DEMO   : 277.78,\n    MILK           : 277.78,\n    COFFEE         : 277.78,\n    MILK_VIS       : 277.78,\n    COFFEE_VIS     : 277.78,\n    ELASTIC        : 277.78,\n    ELASTIC_DEMO   : 100.0,\n    PLASTIC_DEMO   : 277.78,\n    ICECREAM       : 277.78,\n    ICECREAM1       : 277.78,\n    RIGID          : 277.78,\n    RIGID_HEAVY    : 277.78,\n    RIGID_LIGHT    : 277.78,\n}\n\nRHO = {\n    WATER          : 1.0,\n    INVISCID_DEMO  : 5.0,\n    INVISCID_DEMO2 : 1.0,\n    INVISCID_DEMO3 : 3.0,\n    VISCOUS_DEMO   : 5.0,\n    MILK           : 0.5,\n    COFFEE         : 1.0,\n    MILK_VIS       : 1.0,\n    COFFEE_VIS     : 1.0,\n    ELASTIC        : 1.0,\n    ELASTIC_DEMO   : 1.0,\n    PLASTIC_DEMO   : 1.0,\n    ICECREAM       : 0.5,\n    ICECREAM1       : 0.5,\n    RIGID          : 1.0,\n    RIGID_HEAVY    : 10.0,\n    RIGID_LIGHT    : 0.5,\n}\n",
+      "excerpt_sha256": "17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464"
+    },
+    {
+      "commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+      "path": "fluidlab/envs/pouring_env.py",
+      "line_start": 18,
+      "line_end": 62,
+      "role": "observed budget and body placement",
+      "url": "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/envs/pouring_env.py#L18",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/envs/pouring_env.py",
+      "file_sha256": "20bda633f8a36f968eb1ec098bca7f26e189921fc947dff3532f7022e1ff5474",
+      "exact_text": "        self.horizon               = 1000\n        self.horizon_action        = 1000\n        self.target_file           = None\n        self._n_obs_ptcls_per_body = 500\n        self.loss                  = loss\n        self.loss_type             = loss_type\n        self.action_range          = np.array([-0.02, 0.02])\n\n        # create a taichi env\n        self.taichi_env = TaichiEnv(\n            dim=3,\n            particle_density=1e6,\n            max_substeps_local=20,\n            gravity=(0.0, -20.0, 0.0),\n            horizon=self.horizon,\n        )\n        self.build_env()\n        self.gym_misc()\n\n    def setup_agent(self):\n        agent_cfg = CfgNode(new_allowed=True)\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\n        self.taichi_env.setup_agent(agent_cfg)\n        self.agent = self.taichi_env.agent\n\n    def setup_statics(self):\n        pass\n\n    def setup_bodies(self):\n        self.taichi_env.add_body(\n            type='cylinder',\n            center=(0.6, 0.53, 0.5),\n            height=0.2,\n            radius=0.18,\n            material=MILK,\n        )\n        self.taichi_env.add_body(\n            type='cylinder',\n            center=(0.6, 0.73, 0.5),\n            height=0.2,\n            radius=0.18,\n            material=WATER,\n        )\n\n    def setup_boundary(self):\n",
+      "excerpt_sha256": "9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357"
+    },
+    {
+      "commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+      "path": "fluidlab/engine/simulators/mpm_simulator.py",
+      "line_start": 20,
+      "line_end": 34,
+      "role": "runtime timestep",
+      "url": "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/simulators/mpm_simulator.py#L20",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/simulators/mpm_simulator.py",
+      "file_sha256": "67c8ba4cb3214a42fd797271ec159e91c111c41cc7ed045b8e20ad01a7f3b901",
+      "exact_text": "\n        self.n_grid              = int(64 * quality)\n        self.dx                  = 1 / self.n_grid\n        self.inv_dx              = float(self.n_grid)\n        self.dt                  = 2e-4\n        self.p_vol               = (self.dx * 0.5) ** 2\n        self.res                 = (self.n_grid,) * self.dim\n        self.max_substeps_local  = max_substeps_local\n        self.max_substeps_global = max_substeps_global\n        self.horizon             = horizon\n        self.n_substeps          = int(2e-3 / self.dt)\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\n\n        assert self.n_substeps * self.horizon < self.max_substeps_global\n        assert self.max_substeps_local % self.n_substeps == 0\n",
+      "excerpt_sha256": "21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387"
+    },
+    {
+      "commit": "51d06b4189922ebb3390ba3c14d0887e3e785a5c",
+      "path": "fluidlab/engine/bodies/bodies.py",
+      "line_start": 62,
+      "line_end": 73,
+      "role": "body density initialization",
+      "url": "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/bodies/bodies.py#L62",
+      "raw_url": "https://raw.githubusercontent.com/zhouxian/FluidLab/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/bodies/bodies.py",
+      "file_sha256": "5c3b0c17e58a317d70e0379b24343f78f0680ffce54b225d4d9d92691b82bb35",
+      "exact_text": "        if color is not None:\n            body_color = color\n        else:\n            body_color = COLOR[material]\n\n        body_color = np.tile(body_color, [len(particles), 1])\n        body_rho = np.full(len(particles), RHO[material] )\n        body_material = np.full(len(particles), material)\n        body_used = np.full(len(particles), used)\n        body_id = np.full(len(particles), len(self.bodies))\n\n        # rotate\n",
+      "excerpt_sha256": "e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f"
+    }
+  ],
+  "findings": [
+    {
+      "id": "time-step",
+      "status": "paper_code_discrepancy",
+      "paper": "Step 2e-3 seconds, 10 substeps of 1e-4 seconds.",
+      "code": "dt = 2e-4 and n_substeps = int(2e-3 / dt); static arithmetic gives 10 substeps and a nominal 2e-3 code-time step.",
+      "interpretation": "Suggests a mismatch in the paper substep duration, not proof of the intended paper setting; physical time-unit mapping is not established by this audit."
+    },
+    {
+      "id": "density",
+      "status": "paper_code_discrepancy",
+      "paper": "Table 4 light density 0.8, heavy density 1.5.",
+      "code": "Pouring places MILK below WATER; defaults are RHO[MILK]=0.5 and RHO[WATER]=1.0. Body initialization uses RHO[material].",
+      "interpretation": "Different density defaults/order from the paper table; retain both versions and investigate exact experiment provenance."
+    },
+    {
+      "id": "material",
+      "status": "partially_explained",
+      "paper": "Section 4.1 says non-Newtonian; Table 4 labels pouring materials Liquid with mu=0.",
+      "code": "WATER and MILK map to MAT_LIQUID; MU=0.0 and LAMDA=277.78 for both.",
+      "interpretation": "Code supports the table class/mu description, but does not resolve all source wording or identify the exact experimental configuration."
+    },
+    {
+      "id": "observation-budget",
+      "status": "supported_by_code",
+      "paper": "Observed budget of 500 particles per fluid body.",
+      "code": "_n_obs_ptcls_per_body = 500.",
+      "interpretation": "Supports the observation-budget interpretation; does not mean only 500 particles were simulated."
+    },
+    {
+      "id": "units",
+      "status": "unresolved",
+      "interpretation": "The inspected code paths do not establish physical SI reference scales for the table density/Lame parameters. No SI conversion is authorized by these findings."
+    }
+  ],
+  "source_values_changed": false,
+  "simulation_executed": false,
+  "execution_eligible": false,
+  "review_state": "pending",
+  "next_step": "Match released experiment artifacts/configuration and establish reference units before resolving the paper records or enabling execution."
+}

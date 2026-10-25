@@ -1,0 +1,43 @@
+{
+  "schema_version": "research-collection-0.1",
+  "source_count": 2,
+  "claim_count": 2,
+  "quad_count": 127,
+  "snapshots": [
+    {
+      "source_key": "pourit",
+      "evidence_origin": "published_research",
+      "bundle": "bundles/pourit",
+      "sources_graph": "https://example.org/makf/data/sources-graph/84dc95e5aae87cd4ebe71c17d06e47248ce09b854616a3a995d6a17cecd13f69",
+      "candidates_graph": "https://example.org/makf/data/candidates-graph/596cf11009af45a7ca9980c6be70d98ccf16f39ccdb13eb33f836a596a6bb04e",
+      "review_state": "model_selected_provisional",
+      "candidate_count": 1,
+      "quad_count": 61
+    },
+    {
+      "source_key": "softgym",
+      "evidence_origin": "published_simulation",
+      "bundle": "bundles/softgym",
+      "sources_graph": "https://example.org/makf/data/sources-graph/75c3cdf7744c36bd6b6c40094ff27e611b02c0dd63925f277d6eca1192f31f6a",
+      "candidates_graph": "https://example.org/makf/data/candidates-graph/2e8518cb50589ad544855d8d10541ab3bf5e6530b0100598692adb53c03fa833",
+      "review_state": "model_selected_provisional",
+      "candidate_count": 1,
+      "quad_count": 66
+    }
+  ],
+  "withheld_sources": [
+    {
+      "source_key": "fluidlab",
+      "status": "changes_required",
+      "reason": "No candidates passed the bounded advisory review; source and simulation annex retained for curation."
+    }
+  ],
+  "review_policy": "Only explicit model-selected provisional subsets; no human approval or empirical truth inferred.",
+  "simulation_scope": "Published reports only; no simulations executed or raw trajectories ingested.",
+  "numeric_annex": "docs/experiments/corpus_expansion_001/simulation-evidence.json; retained separately pending units/schema review.",
+  "files_sha256": {
+    "collection.trig": "18bcd054fafa578f29b5a8d95fcc42ff3a2091d6c541413bd6548f87be00585d",
+    "claims.rq": "7b8b6582f5365b17360880f477c9ad24e2aac77af88a96e773b4f89a2da9555a",
+    "query-results.json": "ccf852152f5cd5bb2c3877ed509105d08bc3949fcb9b992169228c3c786d4192"
+  }
+}

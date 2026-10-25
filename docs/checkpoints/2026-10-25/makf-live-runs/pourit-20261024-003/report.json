@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T05:01:19.604846+00:00",
+  "prompt_version": "makf-e2.2-v2",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "1fed7e48ebb032a07ffcce7362261c531b8c3482f9b1bc20b98b486159e51cf5",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "d9ecc5376e681f52eba9f673a0f97d8af4efe49bd89e679d2117cf9a2a32b36d",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcOAaPWF4pLWIqjhx29Qa83dIDflx",
+    "request_id": "req_f8dbc70729284c67a1b2b0239ce777e4",
+    "usage": {
+      "prompt_tokens": 7659,
+      "completion_tokens": 1247,
+      "total_tokens": 8906
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "b8f141ef809790a3e00d9a4f222d6afcf3b05c25a1030e6297454b1a56d529a2",
+  "error_code": "invalid_output",
+  "error": "e23-pourit-pilot-20261024-003-001: exact_quote does not occur verbatim in source passage"
+}

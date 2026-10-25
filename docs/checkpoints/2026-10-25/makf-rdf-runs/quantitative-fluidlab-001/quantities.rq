@@ -1,0 +1,6 @@
+PREFIX q: <https://example.org/makf/quantitative/0.1#>
+SELECT ?quantity ?kind ?reported ?unitStatus ?comparison ?execution WHERE {
+ GRAPH ?graph { ?quantity a q:Quantity; q:quantity_kind ?kind;
+ q:reported_value_text ?reported; q:unit ?u; q:comparison_ready ?comparison; q:execution_eligible ?execution.
+ ?u q:status ?unitStatus. }
+} ORDER BY ?kind ?quantity

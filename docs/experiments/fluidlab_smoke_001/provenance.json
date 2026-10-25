@@ -1,0 +1,42 @@
+{
+  "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "base_image": "python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467",
+  "runtime_image_id": "sha256:acde0a489d16cbb51b54802672942fa130935b42519eec599011af7d70540888",
+  "runtime_image_tag": "makf-fluidlab-smoke:005",
+  "container_network": "none",
+  "container_hostname": "matrix-makf-smoke",
+  "headless_selection": "Upstream is_on_server() recognizes matrix in hostname; no renderer or interactive controls loaded.",
+  "cpu_limit": 4,
+  "memory_limit": "8 GiB",
+  "seed": 0,
+  "actions": "Two zero six-component actions, reset, replay one zero action. Default constructed agent pose; optimizer initial-pose configuration not applied.",
+  "patch_scope": [
+    "Accept and forward renderer_type in PouringEnv.",
+    "Defer mesh_to_sdf import until optional SDF generation; pinned precomputed SDF used."
+  ],
+  "numerical_engine_patched": false,
+  "initialization_runtime_seconds": 19.238415718078613,
+  "si_conversion_eligible": false,
+  "paper_result_match": false,
+  "optimizer_tested": false,
+  "backward_gradients_tested": false,
+  "long_horizon_tested": false,
+  "forward_smoke_passed": true,
+  "files_sha256": {
+    "backend-attempt-002.log": "c60e542b65a689551ea15291a796cdec58dd33c242dc0b409d73ef09557c69c3",
+    "prepare_source.py": "b08403c364d19a5da1738d5e6ceacf86695f777dc460cd717bfac5eb671c24f5",
+    "smoke.py": "e748c21ecd9f4a3a3be15b240a73a98d3476affa1d6b6c2a0b9dc7e2b95a8725",
+    "pip-freeze.txt": "de115662db42d69bd1c599188438ab20f0da52ac2b50afab6ac0623e9e302cfc",
+    "backend_probe.py": "fdab47dbb8ecdecfe5ba156846de3f1a00f093b3489d5f56e65dec5d5436233d",
+    "smoke-attempt-002.log": "90518b1212055bd6aee35bab05da6ac03788fe3ccd23292b3f3515b379c807b1",
+    "runtime.patch": "5c9effa793baf084eba0e27ac70cd14651ec17066aa6cf0f39af0e03e7d81535",
+    "Dockerfile": "9d8eee65884d6a1523c2c048e4328d5e3d28ce4c4781c598a6c15165b74b71ca",
+    "smoke-report.json": "42a7d4e59a753b49d088036157f93e21c7146264e2b0cae93723e5bb6f1a1039",
+    "smoke-attempt-003.log": "cc4b93e8907dfe74be079ab21d32769b7e58d1621396a82b981848d2c6960747",
+    "source-manifest.json": "5db9cadb5bb7d38181f7f5c94b8e4efd300a9ff4adaf9be2749bac77b4a1fe33",
+    "backend.json": "aa2fa8a3bc3979ba99bfcec76b31fe01446293d9e83888edb313569ee268501c",
+    "backend-attempt-001.log": "d6a1ba7b428b96b7f8377ad713954dbd82944f3ed60d518900f09fe02155ba25",
+    "README.md": "be710051ab4eae44e204897b9d178766f6adac0b916ac4eceb4977ff71d08672",
+    "smoke-attempt-001.log": "46563aeed62acc9a5db777a67599092c214c34cf2e94b31d138740e2cac8f810"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T05:04:15.809730+00:00",
+  "prompt_version": "makf-e2.2-v2",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "004710fae9f542f1b8537d5a6203be823a6d1c5460daa6183405fbc4075b7bf5",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "61735bb5f337e3fb9075ff8c1056ffede7d6ce6b4d6e607fd1ac461aba8bf9b5",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcODQ42eRsHOm7EW0rF7jBLw9j2Ln",
+    "request_id": "req_5cb6226fdc2249ffbc9951b43cb17975",
+    "usage": {
+      "prompt_tokens": 8058,
+      "completion_tokens": 1553,
+      "total_tokens": 9611
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "30d3791243861b58498258e4cbe7c35e7af710bff024b4c72fd62a5b4c7851db",
+  "error_code": "invalid_output",
+  "error": "c1: makf:ObservationPattern violates predicate domain of makf:potentiallyContradicts"
+}

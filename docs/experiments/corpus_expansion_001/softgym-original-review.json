@@ -1,0 +1,48 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v2",
+  "recorded_at": "2026-10-24T18:15:25.632890+00:00",
+  "reviewed_batch_sha256": "1c58ae3dfd266b4f440951d84948801b47037dc5d1c317b09bbd7428be8c73c4",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "0027cdf9de814d2593aa485d8866555e146ae26c992b7a28e339bc9ca9c0d01b",
+  "assessments": [
+    {
+      "candidate_id": "cand-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": false,
+      "rationale": "The cited quote supports all substantive parts of the statement and component description: the task is PourWater, the agent directly controls cup position and rotation, and the action vector is (dx, dy, dθ) for x/y displacement and rotation. The conditional, task-limited wording is appropriate as a source paraphrase of the reported formulation. However, mapping the component to paf:PouringStrategy is not well supported from the ontology context alone: that class carries restrictions including aimsAtTelos PouringTelos and usesCausalModel PouringTemplate, while the evidence only describes the task action space/control interface, not a causal model or an explicit generalized strategy structure. A more cautious unmapped/needs_mapping choice would be safer."
+    },
+    {
+      "candidate_id": "cand-2",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The exact quote supports the claim and component description that success/reward is measured by the fraction of water successfully poured into the target cup. The observation-pattern mapping is acceptable because the component is just an observation/measure description and makf:ObservationPattern is a broad fit. But the metadata scope is too strong: epistemic_status is marked conditional_principle, which overstates what the source provides. The passage reports the reward definition for this task formulation, not a general principle about pouring or an established conditional law."
+    },
+    {
+      "candidate_id": "cand-3",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The cited passage supports the listed setup conditions: both cups are cuboids without the top face, and the task varies cup height/length/width, distance between cups, and water volume in the controlled cup. The component description is fully covered by the asserts_claim quote. Mapping to the broad class makf:ApplicabilityCondition is acceptable because the component describes task setup conditions and no narrower supported class is required. However, scope_supported is false because the candidate is labeled knowledge_kind strategy_description and epistemic_status proposed_strategy, while the content is not a strategy at all; it is a description of task/setup conditions. That metadata mischaracterizes the source-supported content."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "226b46716293283396b8592728a72f08861fa37e461460edc82b2f7089e47741",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaZ48904Mnfz1thgKbX2WnW3xfx8",
+    "request_id": "req_8bcd0bdd74a347bc99a262dc5bf4b264",
+    "usage": {
+      "prompt_tokens": 4910,
+      "completion_tokens": 480,
+      "total_tokens": 5390
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "cfaca661defbcb079428649ef76c72bd79cd254ddbdd614bbf95d42c9a338991"
+}

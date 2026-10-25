@@ -1,0 +1,11 @@
+{
+  "test": "native-unit headless FluidLab forward smoke",
+  "simulation_steps_requested": 2,
+  "optimizer_run": false,
+  "paper_reproduction": false,
+  "si_calibration": false,
+  "status": "FAIL",
+  "error_type": "AttributeError",
+  "error": "'EntryPoints' object has no attribute 'get'",
+  "elapsed_seconds": 0.8197193145751953
+}

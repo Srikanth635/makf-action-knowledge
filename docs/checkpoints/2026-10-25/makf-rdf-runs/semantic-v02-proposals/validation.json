@@ -1,0 +1,17 @@
+{
+  "e1": {
+    "status": "PASS",
+    "batch_id": "semantic-v02-source-reporting-proposals",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "v02-fluidlab-reported-comparison: quote matching does not prove scientific truth or entailment",
+      "v02-fluidlab-task-objective: candidate has components pending ontology grounding",
+      "v02-fluidlab-task-objective: quote matching does not prove scientific truth or entailment",
+      "v02-softgym-reward-definition: candidate has components pending ontology grounding",
+      "v02-softgym-reward-definition: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "shacl_conforms": true
+}

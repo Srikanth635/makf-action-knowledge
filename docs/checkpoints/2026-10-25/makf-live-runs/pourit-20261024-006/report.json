@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T05:03:34.100824+00:00",
+  "prompt_version": "makf-e2.2-v2",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "8dc8e4d7e5a23c5b0a63bb033cc2ac2157baf84cca7cd38ea6f167c7638ad476",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "f4355c24ab2ff750e76659f371bdc12d6012793f84f6f4eedf7c5e22a6eda4a0",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcOClCKgrGSpNcpNR6yIsQnWMLT1R",
+    "request_id": "req_27662f995ccf4e94a6c23901f4d2c2ee",
+    "usage": {
+      "prompt_tokens": 7963,
+      "completion_tokens": 2059,
+      "total_tokens": 10022
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "47ddd1bc2629d3abb22aee11f8f5fcf35fbaac4f28fa6c4fa0206685ccbf1228",
+  "error_code": "invalid_output",
+  "error": "pouring-mkfc-001: link endpoints must reference local components"
+}

@@ -1,0 +1,39 @@
+{
+  "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "runtime_image_id": "sha256:acde0a489d16cbb51b54802672942fa130935b42519eec599011af7d70540888",
+  "runtime_patch_ref": "docs/experiments/fluidlab_smoke_001/runtime.patch",
+  "actual_backend": "Arch.x64",
+  "network": "none",
+  "cpu_limit": 4,
+  "memory_limit": "8 GiB",
+  "source_code_model_changes": false,
+  "initial_pose_applied": [
+    0.6,
+    0.7,
+    0.5,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "long_rollout_steps": 200,
+  "gradient_scope": "Four-step partial upstream diff loss, last-step vertical action only; no terminal attraction term at original step 999.",
+  "optimization_scope": "Three one-parameter sign-gradient updates, not upstream Adam or published 500-iteration experiment.",
+  "loss_reduction_fraction": 0.004325348245709357,
+  "paper_replication": false,
+  "si_calibrated": false,
+  "scientific_review_state": "pending",
+  "files_sha256": {
+    "model-review.json": "c506a95875220d9a719ce00a3199fce7bb83fe35e2d029c5f16e21de01dd0f68",
+    "protocol.json": "c29c1f60cd381dde99e7b74152f7749fe5a2d1b4a5e89ba0bd6a1f8534d7c86d",
+    "run.log": "c5e5fdb883e923799b222a2637970b06f76405ba69e4a5ec461c9671529d9082",
+    "validate_dynamics.py": "a724a5114fc31bb46df1da0b334acd665b138ccaf714b186f88abb41a93feed1",
+    "validation-report.json": "720cc549cf13eac3e63cf5b3479f5a89eac0d22a5e48f979451959115c1c8526",
+    "local-evidence.json": "3188b52583d968f91a4eb89b3235108a99609e25a881692597ab888212d0fd0c",
+    "README.md": "0169fef099721367e989bf2eb2b23746e05d17a3eab8ef4ebea0ff599195bc00",
+    "ingest_results.py": "7913c47bb82d2e0134f449807c92819a2822c50a745cfd36082ed8dc07747b4e",
+    "local-evidence-validation.json": "5be92b74e0e35a04af609eac37f8fe3ccf3b06f91b340fd5a962279f5ad3e9c7",
+    "query-results.json": "49cf8c6b46a72e2486e20316c4ea221ccaa7ed3a5ed442b221ee800c6ac6ab2b"
+  },
+  "rollout_steps_per_case": 100,
+  "long_rollout_steps_scope": "200 is the aggregate over two independent 100-step trajectories."
+}

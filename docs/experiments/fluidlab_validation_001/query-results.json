@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tilt-duration",
+    "kind": "duration",
+    "value": "0.2000",
+    "unitStatus": "simulation_units"
+  },
+  {
+    "id": "tilt-mass-retention",
+    "kind": "mass_fraction",
+    "value": "1",
+    "unitStatus": "dimensionless"
+  },
+  {
+    "id": "tilt-particles",
+    "kind": "total_particle_count",
+    "value": "40604",
+    "unitStatus": "explicit"
+  },
+  {
+    "id": "zero-duration",
+    "kind": "duration",
+    "value": "0.2000",
+    "unitStatus": "simulation_units"
+  },
+  {
+    "id": "zero-mass-retention",
+    "kind": "mass_fraction",
+    "value": "1",
+    "unitStatus": "dimensionless"
+  },
+  {
+    "id": "zero-particles",
+    "kind": "total_particle_count",
+    "value": "40604",
+    "unitStatus": "explicit"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "path": "exp.sh",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/exp.sh",
+    "sha256": "34d04aeab1b1f8379d7b83be335a71621d9bc3f5e9a66ce7956411c822cdc96b",
+    "bytes": 1399
+  },
+  {
+    "path": "environment.yml",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/environment.yml",
+    "sha256": "e7df3e25cb1062e7a8131ca78e8bfe9442176ad9ececc98d4e6d9dbeccdf8844",
+    "bytes": 6937
+  },
+  {
+    "path": ".gitignore",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/.gitignore",
+    "sha256": "7a44bf4c941ccf91f2dbc22db7305365b0b61c1f80a1e507cb3be8b6c8387227",
+    "bytes": 1832
+  },
+  {
+    "path": "fluidlab/run.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/run.py",
+    "sha256": "3cfbf70ac146147deed569a52173dcb935d6d116a717070a9bfeccfa29507eae",
+    "bytes": 2539
+  },
+  {
+    "path": "fluidlab/envs/fluid_env.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/fluid_env.py",
+    "sha256": "bdee1428ae2787ed8e5389044b7d6b1247fbe11eac7e165e4b19025d7c33aa85",
+    "bytes": 4757
+  },
+  {
+    "path": "fluidlab/fluidengine/taichi_env.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/taichi_env.py",
+    "sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+    "bytes": 7037
+  },
+  {
+    "path": "fluidlab/optimizer/policies.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/optimizer/policies.py",
+    "sha256": "f268802924d52676cc37242569f030525e76cf9f8b693b0c8e3794f5aa6631bf",
+    "bytes": 13294
+  },
+  {
+    "path": "fluidlab/optimizer/solver.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/optimizer/solver.py",
+    "sha256": "ae6b67a3f96ec7c23ee26094df4ce2b6aa3a1d06552bd89178a73f1b75af21a4",
+    "bytes": 3509
+  },
+  {
+    "path": "fluidlab/envs/configs/agent_pouring.yaml",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/configs/agent_pouring.yaml",
+    "sha256": "ecf5da814b170530ebf8343aa6d7eda566604f2183e2f37d5e2f9e87ea3b76e9",
+    "bytes": 589
+  },
+  {
+    "path": "fluidlab/utils/misc.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/utils/misc.py",
+    "sha256": "e41118592bc757933bc206690e69eb6aabf27376ed85ef906edc48f49d43cbfd",
+    "bytes": 1107
+  },
+  {
+    "path": "fluidlab/utils/config.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/utils/config.py",
+    "sha256": "26c59ac7b787e1c34d6e28cdc1bb8be8987a50f860e1a9bbe377547e9d3e7f36",
+    "bytes": 1541
+  },
+  {
+    "path": "fluidlab/__init__.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "fluidlab/envs/__init__.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/__init__.py",
+    "sha256": "1737e6e76453b3fcbffe5d8f81f4fedfb18f5a4be9094400757e4256207ca15f",
+    "bytes": 494
+  },
+  {
+    "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+    "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/losses/pouring_loss.py",
+    "sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+    "bytes": 7812
+  }
+]

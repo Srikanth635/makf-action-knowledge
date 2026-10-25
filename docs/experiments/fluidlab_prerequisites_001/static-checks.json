@@ -1,0 +1,16 @@
+{
+  "pinned_file_count": 22,
+  "hash_checks": "PASS",
+  "configuration_checks": "PASS",
+  "code_time_arithmetic": "PASS",
+  "unexpected_launcher_keywords": [
+    "renderer_type"
+  ],
+  "patch_applies_and_parses": true,
+  "patch_runtime_tested": false,
+  "native_runtime_verified": false,
+  "paper_experiment_match": "unverified",
+  "physical_unit_scale_status": "unestablished",
+  "execution_eligible": false,
+  "scope": "Static evidence only; no FluidLab code was executed and no paper result was reproduced."
+}

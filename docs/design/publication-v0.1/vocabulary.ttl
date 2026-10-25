@@ -1,0 +1,129 @@
+@prefix pub: <https://example.org/makf/publication/0.1#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+pub:Batch a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:Claim a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:Component a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:EvidenceAnchor a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:ExtractionRun a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:Passage a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:Review a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:SourceSnapshot a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:StructuralLink a rdfs:Class ;
+    rdfs:comment "Draft 0.1 publication record; not a physical event." .
+
+pub:actionClass a rdf:Property .
+
+pub:artifactPath a rdf:Property .
+
+pub:artifactSha256 a rdf:Property .
+
+pub:assesses a rdf:Property .
+
+pub:batchId a rdf:Property .
+
+pub:candidateId a rdf:Property .
+
+pub:claim a rdf:Property .
+
+pub:componentId a rdf:Property .
+
+pub:componentKind a rdf:Property .
+
+pub:derivationMode a rdf:Property .
+
+pub:description a rdf:Property .
+
+pub:document a rdf:Property .
+
+pub:documentId a rdf:Property .
+
+pub:doi a rdf:Property .
+
+pub:endChar a rdf:Property .
+
+pub:engine a rdf:Property .
+
+pub:epistemicStatus a rdf:Property .
+
+pub:evidence a rdf:Property .
+
+pub:evidenceStatus a rdf:Property .
+
+pub:exactQuote a rdf:Property .
+
+pub:frameClass a rdf:Property .
+
+pub:groundedClass a rdf:Property .
+
+pub:groundingNote a rdf:Property .
+
+pub:groundingStatus a rdf:Property .
+
+pub:hasComponent a rdf:Property .
+
+pub:knowledgeKind a rdf:Property .
+
+pub:locator a rdf:Property .
+
+pub:modality a rdf:Property .
+
+pub:modelName a rdf:Property .
+
+pub:objectComponent a rdf:Property .
+
+pub:passage a rdf:Property .
+
+pub:passageId a rdf:Property .
+
+pub:perspective a rdf:Property .
+
+pub:predicate a rdf:Property .
+
+pub:profileId a rdf:Property .
+
+pub:promptVersion a rdf:Property .
+
+pub:recordedAt a rdf:Property .
+
+pub:review a rdf:Property .
+
+pub:reviewState a rdf:Property .
+
+pub:reviewerKind a rdf:Property .
+
+pub:reviewerNote a rdf:Property .
+
+pub:sourceURI a rdf:Property .
+
+pub:startChar a rdf:Property .
+
+pub:statement a rdf:Property .
+
+pub:structuralLink a rdf:Property .
+
+pub:subjectComponent a rdf:Property .
+
+pub:supportRole a rdf:Property .
+
+pub:syntheticDemo a rdf:Property .
+
+pub:text a rdf:Property .
+

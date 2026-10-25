@@ -1,0 +1,48 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v2",
+  "recorded_at": "2026-10-24T18:15:42.944690+00:00",
+  "reviewed_batch_sha256": "06fef25ef8739d26a17141750b7fa2c8afad305ffb7891eabd618c82fe67a600",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "3fd08164c4d302a1e2974dcb08de454a8b5cdced36b90f680ccb516c286100f2",
+  "assessments": [
+    {
+      "candidate_id": "cand-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The cited passage explicitly supports all substantive parts of the statement and component description: the task is PourWater, the agent directly controls the held cup's position and rotation, and the action vector is (dx, dy, dθ) corresponding to x/y displacement and rotation. The claim is properly limited to the reported task formulation, so it does not overgeneralize beyond the experiment. Although the content is really a task control interface rather than an author-endorsed generally effective strategy, the developer guidance allows a qualified method description under strategy_description/proposed_strategy/conditional when explicitly limited to reported test conditions. Mapping support is acceptable because the component is left as needs_mapping with a candid note rather than forcing an unsupported specific subclass grounding."
+    },
+    {
+      "candidate_id": "cand-2",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quote fully supports the statement and component description that the reward/success measure is the fraction of water successfully poured into the target cup. However, scope is not supported as submitted because the candidate is labeled observational knowledge (observation_expectation, observational perspective) and uses epistemic_status 'proposed_strategy', while the source actually states a task reward definition, not a proposed strategy or an expected observational cue. A reward metric is not the same thing as an observation expectation in the ontology sense. The mapping to the broad class makf:ObservationPattern is plausible at a very generic level, but the metadata mischaracterizes the content."
+    },
+    {
+      "candidate_id": "cand-3",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quoted passage supports the full content of the statement and component description: both cups are cuboids without the top face, and the varied factors are cup height/length/width, distance between cups, and controlled-cup water volume. But scope is not supported because the candidate is typed as knowledge_kind 'observation_expectation' even though the content is clearly task/setup or applicability information. The applicability perspective fits the text, but the knowledge_kind/epistemic framing does not. Mapping to the broad class makf:ApplicabilityCondition is supported because the passage describes setup conditions under which the reported tasks are defined."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "ec19bbf9d0f83b94050221f8fc1641d87a6927f4d36864c6aff4fe70663cee72",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaZLonyaawmJJr57uJvesks8eZBB",
+    "request_id": "req_654fa8d452d84dc7bf09a8eabc899d3a",
+    "usage": {
+      "prompt_tokens": 4955,
+      "completion_tokens": 492,
+      "total_tokens": 5447
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "6e703c522bf084974f779b2f8cd24fdd7a2c033d6ddc72856664534bdb8aa0ea"
+}

@@ -1,0 +1,124 @@
+{
+  "reviewer_type": "codex_agent",
+  "human_approved": false,
+  "scope": "Evidence annotations and manual scope/mapping assessment for this passage only. No automatic entailment scoring.",
+  "sets": {
+    "original_008": [
+      {
+        "candidate_id": "pourit-008-cand1",
+        "annotation_for_topic": "pourit-008-cand1",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      },
+      {
+        "candidate_id": "pourit-008-cand2",
+        "annotation_for_topic": "pourit-008-cand2",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      },
+      {
+        "candidate_id": "pourit-008-cand3",
+        "annotation_for_topic": "pourit-008-cand3",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      }
+    ],
+    "proposed_revisions": [
+      {
+        "candidate_id": "pourit-review-1",
+        "annotation_for_topic": "pourit-008-cand1",
+        "evidence_coverage": {
+          "status": "PASS",
+          "missing_requirement_indexes": [],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "proposed_revision_requires_human_review"
+      },
+      {
+        "candidate_id": "pourit-review-2",
+        "annotation_for_topic": "pourit-008-cand2",
+        "evidence_coverage": {
+          "status": "PASS",
+          "missing_requirement_indexes": [],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "proposed_revision_requires_human_review"
+      },
+      {
+        "candidate_id": "pourit-review-3",
+        "annotation_for_topic": "pourit-008-cand3",
+        "evidence_coverage": {
+          "status": "PASS",
+          "missing_requirement_indexes": [],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "proposed_revision_requires_human_review"
+      }
+    ],
+    "live_010": [
+      {
+        "candidate_id": "pourit-pilot-cand-1",
+        "annotation_for_topic": "pourit-008-cand1",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      },
+      {
+        "candidate_id": "pourit-pilot-cand-2",
+        "annotation_for_topic": "pourit-008-cand2",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      },
+      {
+        "candidate_id": "pourit-pilot-cand-3",
+        "annotation_for_topic": "pourit-008-cand3",
+        "evidence_coverage": {
+          "status": "FAIL",
+          "missing_requirement_indexes": [
+            0
+          ],
+          "invalid_support_indexes": [],
+          "scope": "Annotated evidence coverage only; no entailment or truth assessment."
+        },
+        "agent_scope_and_mapping_review": "changes_required"
+      }
+    ]
+  }
+}

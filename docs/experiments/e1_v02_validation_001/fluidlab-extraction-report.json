@@ -1,0 +1,44 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T19:32:55.055881+00:00",
+  "prompt_version": "makf-e2.2-v4",
+  "source_sha256": "fd45a3cecd75c04b18142848f064fd5f40b9c0bb26d006933b6583a92f2c301f",
+  "prompt_sha256": "1b6ed8833d2e4d37a92dd866bcb0f313b1ba5c977dc6f67e9103891756b1036b",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6.1-sol",
+    "live": true,
+    "wire_request_sha256": "ed33d7d88d9c4d3df4cc07a14b7ac256b0a166aa7efb76a9d09cc7e0a115cde5",
+    "model_name": "gpt-6.1-sol",
+    "response_id": "chatcmpl-Ecbm3Ru1mHvxuSfrPhsR6otcv3oH0",
+    "request_id": "req_02938624db544b0481e5f7d95fc8c4da",
+    "usage": {
+      "prompt_tokens": 7509,
+      "completion_tokens": 2205,
+      "total_tokens": 9714
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "bbb2b4541dc5f168f1c11f4980e8523c0419941116156f86c0a7f37794e10e80",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "e1-v02-fresh-fluidlab",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "c1: candidate has components pending ontology grounding",
+      "c1: quote matching does not prove scientific truth or entailment",
+      "c2: candidate has components pending ontology grounding",
+      "c2: quote matching does not prove scientific truth or entailment",
+      "c3: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 3,
+  "perspectives": [
+    "observational",
+    "procedural"
+  ],
+  "human_review_required": true
+}

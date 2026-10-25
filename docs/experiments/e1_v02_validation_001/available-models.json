@@ -1,0 +1,540 @@
+{
+  "retrieved_at": "2026-10-24T19:30:48.676781+00:00",
+  "models": [
+    {
+      "id": "gpt-6.1-sol",
+      "created": 1790552874,
+      "created_utc": "2026-09-27T23:47:54+00:00"
+    },
+    {
+      "id": "gpt-6-luna",
+      "created": 1789406102,
+      "created_utc": "2026-09-14T17:15:02+00:00"
+    },
+    {
+      "id": "gpt-6-sol",
+      "created": 1789405937,
+      "created_utc": "2026-09-14T17:12:17+00:00"
+    },
+    {
+      "id": "gpt-live-1",
+      "created": 1788889407,
+      "created_utc": "2026-09-08T17:43:27+00:00"
+    },
+    {
+      "id": "gpt-image-2.5-sunburst-2026-09-08",
+      "created": 1788851010,
+      "created_utc": "2026-09-08T07:03:30+00:00"
+    },
+    {
+      "id": "gpt-image-2.5-flare-2026-09-08",
+      "created": 1788851006,
+      "created_utc": "2026-09-08T07:03:26+00:00"
+    },
+    {
+      "id": "gpt-image-2.5-sunburst",
+      "created": 1788563162,
+      "created_utc": "2026-09-04T23:06:02+00:00"
+    },
+    {
+      "id": "gpt-image-2.5-flare",
+      "created": 1788563147,
+      "created_utc": "2026-09-04T23:05:47+00:00"
+    },
+    {
+      "id": "gpt-6-astra",
+      "created": 1787853604,
+      "created_utc": "2026-08-27T18:00:04+00:00"
+    },
+    {
+      "id": "gpt-live-transcribe",
+      "created": 1785168034,
+      "created_utc": "2026-07-27T16:00:34+00:00"
+    },
+    {
+      "id": "gpt-transcribe",
+      "created": 1785168027,
+      "created_utc": "2026-07-27T16:00:27+00:00"
+    },
+    {
+      "id": "gpt-realtime-2.1-mini",
+      "created": 1782254706,
+      "created_utc": "2026-06-23T22:45:06+00:00"
+    },
+    {
+      "id": "gpt-realtime-2.1",
+      "created": 1782254687,
+      "created_utc": "2026-06-23T22:44:47+00:00"
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "created": 1782228658,
+      "created_utc": "2026-06-23T15:30:58+00:00"
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "created": 1782228459,
+      "created_utc": "2026-06-23T15:27:39+00:00"
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "created": 1782228018,
+      "created_utc": "2026-06-23T15:20:18+00:00"
+    },
+    {
+      "id": "gpt-realtime-whisper",
+      "created": 1778012060,
+      "created_utc": "2026-05-05T20:14:20+00:00"
+    },
+    {
+      "id": "gpt-realtime-2",
+      "created": 1778006032,
+      "created_utc": "2026-05-05T18:33:52+00:00"
+    },
+    {
+      "id": "gpt-realtime-translate",
+      "created": 1777950216,
+      "created_utc": "2026-05-05T03:03:36+00:00"
+    },
+    {
+      "id": "gpt-5.5-pro-2026-04-23",
+      "created": 1776894470,
+      "created_utc": "2026-04-22T21:47:50+00:00"
+    },
+    {
+      "id": "gpt-5.5-pro",
+      "created": 1776894349,
+      "created_utc": "2026-04-22T21:45:49+00:00"
+    },
+    {
+      "id": "gpt-5.5-2026-04-23",
+      "created": 1776839241,
+      "created_utc": "2026-04-22T06:27:21+00:00"
+    },
+    {
+      "id": "gpt-5.5",
+      "created": 1776824847,
+      "created_utc": "2026-04-22T02:27:27+00:00"
+    },
+    {
+      "id": "gpt-image-2-2026-04-21",
+      "created": 1776399994,
+      "created_utc": "2026-04-17T04:26:34+00:00"
+    },
+    {
+      "id": "gpt-image-2",
+      "created": 1776399795,
+      "created_utc": "2026-04-17T04:23:15+00:00"
+    },
+    {
+      "id": "gpt-5.4-mini",
+      "created": 1773451123,
+      "created_utc": "2026-03-14T01:18:43+00:00"
+    },
+    {
+      "id": "gpt-5.4-mini-2026-03-17",
+      "created": 1773451076,
+      "created_utc": "2026-03-14T01:17:56+00:00"
+    },
+    {
+      "id": "gpt-5.4-nano",
+      "created": 1773450870,
+      "created_utc": "2026-03-14T01:14:30+00:00"
+    },
+    {
+      "id": "gpt-5.4-nano-2026-03-17",
+      "created": 1773450837,
+      "created_utc": "2026-03-14T01:13:57+00:00"
+    },
+    {
+      "id": "gpt-5.4",
+      "created": 1772691852,
+      "created_utc": "2026-03-05T06:24:12+00:00"
+    },
+    {
+      "id": "gpt-5.4-pro-2026-03-05",
+      "created": 1772659657,
+      "created_utc": "2026-03-04T21:27:37+00:00"
+    },
+    {
+      "id": "gpt-5.4-pro",
+      "created": 1772659601,
+      "created_utc": "2026-03-04T21:26:41+00:00"
+    },
+    {
+      "id": "gpt-5.4-2026-03-05",
+      "created": 1772654062,
+      "created_utc": "2026-03-04T19:54:22+00:00"
+    },
+    {
+      "id": "gpt-5.3-chat-latest",
+      "created": 1772236571,
+      "created_utc": "2026-02-27T23:56:11+00:00"
+    },
+    {
+      "id": "gpt-4o-search-preview-2025-03-11",
+      "created": 1771905621,
+      "created_utc": "2026-02-24T04:00:21+00:00"
+    },
+    {
+      "id": "gpt-4o-search-preview",
+      "created": 1771905534,
+      "created_utc": "2026-02-24T03:58:54+00:00"
+    },
+    {
+      "id": "gpt-audio-1.5",
+      "created": 1771550885,
+      "created_utc": "2026-02-20T01:28:05+00:00"
+    },
+    {
+      "id": "gpt-realtime-1.5",
+      "created": 1771461469,
+      "created_utc": "2026-02-19T00:37:49+00:00"
+    },
+    {
+      "id": "gpt-5.3-codex",
+      "created": 1770537915,
+      "created_utc": "2026-02-08T08:05:15+00:00"
+    },
+    {
+      "id": "gpt-5.2-codex",
+      "created": 1766164985,
+      "created_utc": "2025-12-19T17:23:05+00:00"
+    },
+    {
+      "id": "gpt-audio-mini-2025-12-15",
+      "created": 1765760008,
+      "created_utc": "2025-12-15T00:53:28+00:00"
+    },
+    {
+      "id": "gpt-realtime-mini-2025-12-15",
+      "created": 1765612007,
+      "created_utc": "2025-12-13T07:46:47+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-tts-2025-12-15",
+      "created": 1765610837,
+      "created_utc": "2025-12-13T07:27:17+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-tts-2025-03-20",
+      "created": 1765610731,
+      "created_utc": "2025-12-13T07:25:31+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe-2025-03-20",
+      "created": 1765610545,
+      "created_utc": "2025-12-13T07:22:25+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe-2025-12-15",
+      "created": 1765610407,
+      "created_utc": "2025-12-13T07:20:07+00:00"
+    },
+    {
+      "id": "gpt-5.2-chat-latest",
+      "created": 1765344352,
+      "created_utc": "2025-12-10T05:25:52+00:00"
+    },
+    {
+      "id": "gpt-5.2-pro",
+      "created": 1765343983,
+      "created_utc": "2025-12-10T05:19:43+00:00"
+    },
+    {
+      "id": "gpt-5.2-pro-2025-12-11",
+      "created": 1765343959,
+      "created_utc": "2025-12-10T05:19:19+00:00"
+    },
+    {
+      "id": "gpt-5.2",
+      "created": 1765313051,
+      "created_utc": "2025-12-09T20:44:11+00:00"
+    },
+    {
+      "id": "gpt-5.2-2025-12-11",
+      "created": 1765313028,
+      "created_utc": "2025-12-09T20:43:48+00:00"
+    },
+    {
+      "id": "gpt-image-1.5",
+      "created": 1764030620,
+      "created_utc": "2025-11-25T00:30:20+00:00"
+    },
+    {
+      "id": "gpt-5.1-codex-max",
+      "created": 1763671532,
+      "created_utc": "2025-11-20T20:45:32+00:00"
+    },
+    {
+      "id": "gpt-5.1-codex-mini",
+      "created": 1763007109,
+      "created_utc": "2025-11-13T04:11:49+00:00"
+    },
+    {
+      "id": "gpt-5.1-codex",
+      "created": 1762988221,
+      "created_utc": "2025-11-12T22:57:01+00:00"
+    },
+    {
+      "id": "gpt-5.1",
+      "created": 1762800673,
+      "created_utc": "2025-11-10T18:51:13+00:00"
+    },
+    {
+      "id": "gpt-5.1-2025-11-13",
+      "created": 1762800353,
+      "created_utc": "2025-11-10T18:45:53+00:00"
+    },
+    {
+      "id": "gpt-5.1-chat-latest",
+      "created": 1762547951,
+      "created_utc": "2025-11-07T20:39:11+00:00"
+    },
+    {
+      "id": "gpt-5-search-api-2025-10-14",
+      "created": 1760043960,
+      "created_utc": "2025-10-09T21:06:00+00:00"
+    },
+    {
+      "id": "gpt-realtime-mini",
+      "created": 1759517133,
+      "created_utc": "2025-10-03T18:45:33+00:00"
+    },
+    {
+      "id": "gpt-5-search-api",
+      "created": 1759514629,
+      "created_utc": "2025-10-03T18:03:49+00:00"
+    },
+    {
+      "id": "gpt-audio-mini-2025-10-06",
+      "created": 1759512137,
+      "created_utc": "2025-10-03T17:22:17+00:00"
+    },
+    {
+      "id": "gpt-audio-mini",
+      "created": 1759512027,
+      "created_utc": "2025-10-03T17:20:27+00:00"
+    },
+    {
+      "id": "gpt-5-pro",
+      "created": 1759469822,
+      "created_utc": "2025-10-03T05:37:02+00:00"
+    },
+    {
+      "id": "gpt-5-pro-2025-10-06",
+      "created": 1759469707,
+      "created_utc": "2025-10-03T05:35:07+00:00"
+    },
+    {
+      "id": "gpt-image-1-mini",
+      "created": 1758845821,
+      "created_utc": "2025-09-26T00:17:01+00:00"
+    },
+    {
+      "id": "gpt-5-codex",
+      "created": 1757527818,
+      "created_utc": "2025-09-10T18:10:18+00:00"
+    },
+    {
+      "id": "gpt-audio",
+      "created": 1756339249,
+      "created_utc": "2025-08-28T00:00:49+00:00"
+    },
+    {
+      "id": "gpt-realtime-2025-08-28",
+      "created": 1756271773,
+      "created_utc": "2025-08-27T05:16:13+00:00"
+    },
+    {
+      "id": "gpt-realtime",
+      "created": 1756271701,
+      "created_utc": "2025-08-27T05:15:01+00:00"
+    },
+    {
+      "id": "gpt-audio-2025-08-28",
+      "created": 1756256146,
+      "created_utc": "2025-08-27T00:55:46+00:00"
+    },
+    {
+      "id": "gpt-5-nano",
+      "created": 1754426384,
+      "created_utc": "2025-08-05T20:39:44+00:00"
+    },
+    {
+      "id": "gpt-5-nano-2025-08-07",
+      "created": 1754426303,
+      "created_utc": "2025-08-05T20:38:23+00:00"
+    },
+    {
+      "id": "gpt-5-mini",
+      "created": 1754425928,
+      "created_utc": "2025-08-05T20:32:08+00:00"
+    },
+    {
+      "id": "gpt-5-mini-2025-08-07",
+      "created": 1754425867,
+      "created_utc": "2025-08-05T20:31:07+00:00"
+    },
+    {
+      "id": "gpt-5",
+      "created": 1754425777,
+      "created_utc": "2025-08-05T20:29:37+00:00"
+    },
+    {
+      "id": "gpt-5-2025-08-07",
+      "created": 1754075360,
+      "created_utc": "2025-08-01T19:09:20+00:00"
+    },
+    {
+      "id": "gpt-5-chat-latest",
+      "created": 1754073306,
+      "created_utc": "2025-08-01T18:35:06+00:00"
+    },
+    {
+      "id": "gpt-4o-transcribe-diarize",
+      "created": 1750798887,
+      "created_utc": "2025-06-24T21:01:27+00:00"
+    },
+    {
+      "id": "gpt-image-1",
+      "created": 1745517030,
+      "created_utc": "2025-04-24T17:50:30+00:00"
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "created": 1744321707,
+      "created_utc": "2025-04-10T21:48:27+00:00"
+    },
+    {
+      "id": "gpt-4.1-nano-2025-04-14",
+      "created": 1744321025,
+      "created_utc": "2025-04-10T21:37:05+00:00"
+    },
+    {
+      "id": "gpt-4.1-mini",
+      "created": 1744318173,
+      "created_utc": "2025-04-10T20:49:33+00:00"
+    },
+    {
+      "id": "gpt-4.1-mini-2025-04-14",
+      "created": 1744317547,
+      "created_utc": "2025-04-10T20:39:07+00:00"
+    },
+    {
+      "id": "gpt-4.1",
+      "created": 1744316542,
+      "created_utc": "2025-04-10T20:22:22+00:00"
+    },
+    {
+      "id": "gpt-4.1-2025-04-14",
+      "created": 1744315746,
+      "created_utc": "2025-04-10T20:09:06+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-tts",
+      "created": 1742403959,
+      "created_utc": "2025-03-19T17:05:59+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe",
+      "created": 1742068596,
+      "created_utc": "2025-03-15T19:56:36+00:00"
+    },
+    {
+      "id": "gpt-4o-transcribe",
+      "created": 1742068463,
+      "created_utc": "2025-03-15T19:54:23+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-search-preview",
+      "created": 1741391161,
+      "created_utc": "2025-03-07T23:46:01+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-search-preview-2025-03-11",
+      "created": 1741390858,
+      "created_utc": "2025-03-07T23:40:58+00:00"
+    },
+    {
+      "id": "gpt-4o-2024-11-20",
+      "created": 1739331543,
+      "created_utc": "2025-02-12T03:39:03+00:00"
+    },
+    {
+      "id": "gpt-4o-2024-08-06",
+      "created": 1722814719,
+      "created_utc": "2024-08-04T23:38:39+00:00"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "created": 1721172741,
+      "created_utc": "2024-07-16T23:32:21+00:00"
+    },
+    {
+      "id": "gpt-4o-mini-2024-07-18",
+      "created": 1721172717,
+      "created_utc": "2024-07-16T23:31:57+00:00"
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "created": 1715368132,
+      "created_utc": "2024-05-10T19:08:52+00:00"
+    },
+    {
+      "id": "gpt-4o",
+      "created": 1715367049,
+      "created_utc": "2024-05-10T18:50:49+00:00"
+    },
+    {
+      "id": "gpt-4-turbo-2024-04-09",
+      "created": 1712601677,
+      "created_utc": "2024-04-08T18:41:17+00:00"
+    },
+    {
+      "id": "gpt-4-turbo",
+      "created": 1712361441,
+      "created_utc": "2024-04-05T23:57:21+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo-0125",
+      "created": 1706048358,
+      "created_utc": "2024-01-23T22:19:18+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo-1106",
+      "created": 1698959748,
+      "created_utc": "2023-11-02T21:15:48+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo-instruct-0914",
+      "created": 1694122472,
+      "created_utc": "2023-09-07T21:34:32+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo-instruct",
+      "created": 1692901427,
+      "created_utc": "2023-08-24T18:23:47+00:00"
+    },
+    {
+      "id": "gpt-4",
+      "created": 1687882411,
+      "created_utc": "2023-06-27T16:13:31+00:00"
+    },
+    {
+      "id": "gpt-4-0613",
+      "created": 1686588896,
+      "created_utc": "2023-06-12T16:54:56+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo-16k",
+      "created": 1683758102,
+      "created_utc": "2023-05-10T22:35:02+00:00"
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "created": 1677610602,
+      "created_utc": "2023-02-28T18:56:42+00:00"
+    }
+  ]
+}

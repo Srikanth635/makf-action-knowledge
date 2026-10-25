@@ -1,0 +1,14 @@
+[
+  {
+    "source": "softgym",
+    "status": "provisional",
+    "candidate_count": 3,
+    "error_code": null
+  },
+  {
+    "source": "fluidlab",
+    "status": "provisional",
+    "candidate_count": 3,
+    "error_code": null
+  }
+]

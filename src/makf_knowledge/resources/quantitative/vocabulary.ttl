@@ -1,0 +1,139 @@
+@prefix q: <https://example.org/makf/quantitative/0.1#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+q:Anchor a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Artifact a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Conversion a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Issue a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Quantity a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Snapshot a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:Study a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:TimingCalculation a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:UnitDeclaration a rdfs:Class ;
+    rdfs:comment "Draft quantitative evidence record; not a physical action or scientific acceptance." .
+
+q:affects a rdf:Property .
+
+q:annex_record_id a rdf:Property .
+
+q:artifact a rdf:Property .
+
+q:artifact_id a rdf:Property .
+
+q:calculated_step_seconds a rdf:Property .
+
+q:calculation a rdf:Property .
+
+q:check_id a rdf:Property .
+
+q:code a rdf:Property .
+
+q:comparison_ready a rdf:Property .
+
+q:computed_value a rdf:Property .
+
+q:consistent a rdf:Property .
+
+q:conversion a rdf:Property .
+
+q:conversion_id a rdf:Property .
+
+q:derived_value_text a rdf:Property .
+
+q:document_version a rdf:Property .
+
+q:evidence a rdf:Property .
+
+q:evidence_origin a rdf:Property .
+
+q:exact_quote a rdf:Property .
+
+q:execution_eligible a rdf:Property .
+
+q:input a rdf:Property .
+
+q:inputJSON a rdf:Property .
+
+q:input_sha256 a rdf:Property .
+
+q:issue a rdf:Property .
+
+q:locator a rdf:Property .
+
+q:message a rdf:Property .
+
+q:method a rdf:Property .
+
+q:quantity a rdf:Property .
+
+q:quantity_id a rdf:Property .
+
+q:quantity_kind a rdf:Property .
+
+q:recordJSON a rdf:Property .
+
+q:report_sha256 a rdf:Property .
+
+q:reported_decimal a rdf:Property .
+
+q:reported_step_seconds a rdf:Property .
+
+q:reported_text a rdf:Property .
+
+q:reported_value_text a rdf:Property .
+
+q:review_state a rdf:Property .
+
+q:role a rdf:Property .
+
+q:schema_version a rdf:Property .
+
+q:sha256 a rdf:Property .
+
+q:source_unit a rdf:Property .
+
+q:source_uri a rdf:Property .
+
+q:status a rdf:Property .
+
+q:storage_eligible a rdf:Property .
+
+q:study a rdf:Property .
+
+q:study_id a rdf:Property .
+
+q:subject a rdf:Property .
+
+q:symbol a rdf:Property .
+
+q:synthetic_demo a rdf:Property .
+
+q:target_unit a rdf:Property .
+
+q:text a rdf:Property .
+
+q:title a rdf:Property .
+
+q:transcription_method a rdf:Property .
+
+q:unit a rdf:Property .
+
+q:unit_conversion_eligible a rdf:Property .
+

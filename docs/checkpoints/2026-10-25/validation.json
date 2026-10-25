@@ -1,0 +1,22 @@
+{
+  "offline_pytest": {
+    "passed": 242,
+    "duration_seconds": 104.12,
+    "warnings": 320,
+    "warning_scope": "Existing RDFLib deprecation warnings"
+  },
+  "resources_verified": 50,
+  "resources_total": 50,
+  "doctor": "PASS: pouring and grasping structural examples",
+  "portable_artifact_references_verified": 426,
+  "restore_smoke_files_copied": 426,
+  "second_restore_files_copied": 0,
+  "different_existing_content_refused": true,
+  "experiment_artifact_hashes_verified": 110,
+  "credential_pattern_scan": {
+    "text_files_scanned": 559,
+    "findings": 0,
+    "files_over_10MiB": 0
+  },
+  "scope": "Checkpoint verification, not new scientific validation."
+}

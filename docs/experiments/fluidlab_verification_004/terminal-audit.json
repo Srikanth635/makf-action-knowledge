@@ -1,0 +1,56 @@
+{
+  "status": "read_only_audit_no_terminal_execution",
+  "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "findings": [
+    "The native terminal helper selects a WATER particle with NumPy argmin, derives ranks with argsort, writes its position as best_particle_pos, and sets a height-count attraction scale. These assignments are outside Taichi autodiff.",
+    "best_particle_pos, attraction_score and attraction_scale are allocated without needs_grad. Native backward kernels differentiate particle coordinates holding those assigned fields fixed; this is a surrogate derivative.",
+    "Finite differences that rerun target selection can change the selected position, ranking/membership and height-count scale. They test a different functional dependency from simply holding those fields constant. A mismatch must not automatically be labelled simulator-gradient failure.",
+    "The native backward terminal path invokes the selection helper again. Any frozen-target diagnostic must preserve the same explicit target on forward and backward, rather than only freezing forward.",
+    "No terminal term was evaluated in this experiment. The original step-999 objective and full horizon remain unverified."
+  ],
+  "proposed_next_test": [
+    "Save a separate protocol for an explicitly shortened terminal diagnostic after assessing the development gate.",
+    "Record chosen target identity/position, selected-membership hash and scale for base and perturbed runs.",
+    "Compare recomputed-target and explicitly frozen-target modes as separate objectives. Preserve native backward semantics and make any diagnostic target override explicit.",
+    "Measure loss precision/noise and validate each mode against suitable differences before optimizer or long-horizon claims."
+  ],
+  "source_files": [
+    {
+      "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+      "sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+      "excerpts": [
+        {
+          "start_line": 38,
+          "end_line": 56,
+          "exact_text": "        self.dist_loss = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.attraction_weight = self.weights['attraction']\n        self.attraction_loss = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.attraction_loss_ = ti.field(dtype=DTYPE_TI, shape=(self.max_loss_steps,), needs_grad=True)\n        self.best_particle_pos = ti.Vector.field(3, dtype=DTYPE_TI, shape=())\n\n        if self.temporal_range_type == 'last':\n            self.temporal_range = [self.max_loss_steps-1, self.max_loss_steps]\n        elif self.temporal_range_type == 'all':\n            self.temporal_range = [0, self.max_loss_steps]\n        elif self.temporal_range_type == 'expand':\n            self.temporal_range = [0, self.temporal_init_range_end]\n            self.best_loss = self.inf\n            self.plateau_count = 0\n\n        super(PouringLoss, self).build(sim)\n        self.init_particle_pos = ti.Vector.field(3, dtype=DTYPE_TI, shape=(self.sim.n_particles))\n        self.attraction_score = ti.field(dtype=DTYPE_TI, shape=(self.sim.n_particles))\n        self.attraction_scale = ti.field(dtype=DTYPE_TI, shape=())\n"
+        },
+        {
+          "start_line": 73,
+          "end_line": 90,
+          "exact_text": "    def compute_step_loss(self, s, f):\n        if s == 0:\n            self.get_init_particles(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss(s, f)\n\n        self.compute_dist_loss(s, f)\n        self.sum_up_loss_kernel(s)\n\n    def compute_step_loss_grad(self, s, f):\n        self.sum_up_loss_kernel.grad(s)\n        self.compute_dist_loss_grad(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss_grad(s, f)\n"
+        },
+        {
+          "start_line": 102,
+          "end_line": 120,
+          "exact_text": "    def find_best_particle(self, s, f):\n        x = self.sim.get_x()\n        used = self.sim.get_used()\n        mat = self.particle_mat.to_numpy()\n        loss = np.abs(x[:, 1] - 0.05)\n        loss[np.logical_not(used)] = 1000\n        loss[mat != WATER] = 1000\n        best_particle_id = np.argmin(loss)\n        self.best_particle_pos.from_numpy(x[best_particle_id])\n\n        dist = np.linalg.norm(x - x[best_particle_id], axis=1)\n        dist[np.logical_not(used)] = 1000\n        dist[mat != WATER] = 1000\n        score = np.argsort(np.argsort(dist))\n        self.attraction_score.from_numpy(score)\n\n        x[mat != WATER] = np.array([-100, -100, -100])\n        x[np.logical_not(used)] = np.array([-100, -100, -100])\n        self.attraction_scale[None] = np.sum(x[:, 1] > 0.55) / 12500\n"
+        },
+        {
+          "start_line": 141,
+          "end_line": 149,
+          "exact_text": "    def compute_attraction_loss_kernel(self, s: ti.i32, f: ti.i32):\n        for p in range(self.n_particles):\n            if self.attraction_score[p] < 100:\n                if self.particle_used[f, p] and self.particle_mat[p] == WATER:\n                    self.attraction_loss_[s] += ti.abs(self.particle_x[f, p] - self.best_particle_pos[None]).sum() * 5000\n\n    @ti.kernel\n    def scale_attraction_loss_kernel(self, s: ti.i32, f: ti.i32):\n        self.attraction_loss[s] = self.attraction_loss_[s] * self.attraction_scale[None]\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/fluidengine/taichi_env.py",
+      "sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+      "excerpts": [
+        {
+          "start_line": 176,
+          "end_line": 183,
+          "exact_text": "    def step_grad(self, action=None):\n        if self.loss:\n            self.loss.step_grad()\n\n        if action is not None:\n            assert self.agent is not None, 'Environment has no agent to execute action.'\n            action = np.array(action).astype(DTYPE_NP)\n        self.simulator.step_grad(action=action)\n"
+        }
+      ]
+    }
+  ]
+}

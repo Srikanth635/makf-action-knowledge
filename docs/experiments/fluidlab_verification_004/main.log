@@ -1,0 +1,316 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+[W 10/25/26 06:55:33.654 1] [cuda_driver.cpp:CUDADriver@39] CUDA driver not found.
+[W 10/25/26 06:55:33.654 1] [opengl_api.cpp:initialize_opengl@156] Can not create OpenGL context
+[W 10/25/26 06:55:33.655 1] [misc.py:adaptive_arch_select@750] Arch=[<Arch.cuda: 5>, <Arch.metal: 6>, <Arch.vulkan: 11>, <Arch.opengl: 7>, <Arch.dx11: 8>] is not supported, falling back to CPU
+[Taichi] Starting on arch=x64
+===>  TaichiEnv created.
+===>    20302 particles of     milk cylinder added.
+===>    20302 particles of    water cylinder added.
+===>  PouringEnv built successfully.
+Start 1 observer_reference base_rotation_h4 base_forward
+Done 1 loss 23.895275115966797 AD None
+Start 2 observer_reference base_rotation_h4 base_forward
+Done 2 loss 23.89520835876465 AD None
+Start 3 observer_reference base_rotation_h4 base_forward
+Done 3 loss 23.895214080810547 AD None
+Start 4 observer_reference base_rotation_h4 base_ad
+Done 4 loss 23.895164489746094 AD 11.46804428100586
+Start 5 observer_reference base_rotation_h4 base_ad
+Done 5 loss 23.895231246948242 AD 11.471238136291504
+Start 6 observer_reference base_rotation_h4 base_ad
+Done 6 loss 23.895225524902344 AD 11.478740692138672
+Start 7 observed base_rotation_h4 base
+Done 7 loss 23.895172119140625 AD 11.469961166381836
+Start 8 observed base_rotation_h4 plus
+Done 8 loss 23.896629333496094 AD None
+Start 9 observed base_rotation_h4 minus
+Done 9 loss 23.893413543701172 AD None
+Start 10 observer_reference earlier_vertical_h8 base_forward
+Done 10 loss 162.1680450439453 AD None
+Start 11 observer_reference earlier_vertical_h8 base_forward
+Done 11 loss 162.1680908203125 AD None
+Start 12 observer_reference earlier_vertical_h8 base_forward
+Done 12 loss 162.16796875 AD None
+Start 13 observer_reference earlier_vertical_h8 base_ad
+Done 13 loss 162.16812133789062 AD 16374.1298828125
+Start 14 observer_reference earlier_vertical_h8 base_ad
+Done 14 loss 162.1683349609375 AD 16373.0048828125
+Start 15 observer_reference earlier_vertical_h8 base_ad
+Done 15 loss 162.16864013671875 AD 16374.828125
+Start 16 observed earlier_vertical_h8 base
+Done 16 loss 162.16796875 AD 16374.1064453125
+Start 17 observed earlier_vertical_h8 plus
+Done 17 loss 162.56427001953125 AD None
+Start 18 observed earlier_vertical_h8 minus
+Done 18 loss 161.77459716796875 AD None
+Start 19 verification base_vertical_h4 base_ad
+Done 19 loss 23.783321380615234 AD 449.6296691894531
+Start 20 verification base_vertical_h4 center
+Done 20 loss 23.783409118652344 AD None
+Start 21 verification base_vertical_h4 plus
+Done 21 loss 23.820775985717773 AD None
+Start 22 verification base_vertical_h4 minus
+Done 22 loss 23.74974250793457 AD None
+Start 23 verification base_vertical_h4 center
+Done 23 loss 23.783308029174805 AD None
+Start 24 verification base_vertical_h4 minus
+Done 24 loss 23.749744415283203 AD None
+Start 25 verification base_vertical_h4 plus
+Done 25 loss 23.820816040039062 AD None
+Start 26 verification base_vertical_h4 center
+Done 26 loss 23.783344268798828 AD None
+Start 27 verification base_vertical_h4 plus
+Done 27 loss 23.820842742919922 AD None
+Start 28 verification base_vertical_h4 minus
+Done 28 loss 23.749706268310547 AD None
+Start 29 verification base_vertical_h4 center
+Done 29 loss 23.783401489257812 AD None
+Start 30 verification base_vertical_h4 minus
+Done 30 loss 23.74972915649414 AD None
+Start 31 verification base_vertical_h4 plus
+Done 31 loss 23.820781707763672 AD None
+Start 32 verification base_vertical_h4 base_ad
+Done 32 loss 23.78336524963379 AD 449.6226806640625
+Start 33 verification base_vertical_h4 center
+Done 33 loss 23.783355712890625 AD None
+Start 34 verification base_vertical_h4 plus
+Done 34 loss 23.810869216918945 AD None
+Start 35 verification base_vertical_h4 minus
+Done 35 loss 23.757404327392578 AD None
+Start 36 verification base_vertical_h4 center
+Done 36 loss 23.78331756591797 AD None
+Start 37 verification base_vertical_h4 minus
+Done 37 loss 23.757417678833008 AD None
+Start 38 verification base_vertical_h4 plus
+Done 38 loss 23.810855865478516 AD None
+Start 39 verification base_vertical_h4 center
+Done 39 loss 23.783432006835938 AD None
+Start 40 verification base_vertical_h4 plus
+Done 40 loss 23.81077003479004 AD None
+Start 41 verification base_vertical_h4 minus
+Done 41 loss 23.75739288330078 AD None
+Start 42 verification base_vertical_h4 center
+Done 42 loss 23.783437728881836 AD None
+Start 43 verification base_vertical_h4 minus
+Done 43 loss 23.757410049438477 AD None
+Start 44 verification base_vertical_h4 plus
+Done 44 loss 23.810810089111328 AD None
+Start 45 verification base_vertical_h4 base_ad
+Done 45 loss 23.7834529876709 AD 449.62310791015625
+Start 46 verification base_horizontal_h4 base_ad
+Done 46 loss 23.854007720947266 AD -53.35795974731445
+Start 47 verification base_horizontal_h4 center
+Done 47 loss 23.85401153564453 AD None
+Start 48 verification base_horizontal_h4 plus
+Done 48 loss 23.849748611450195 AD None
+Start 49 verification base_horizontal_h4 minus
+Done 49 loss 23.8582820892334 AD None
+Start 50 verification base_horizontal_h4 center
+Done 50 loss 23.854055404663086 AD None
+Start 51 verification base_horizontal_h4 minus
+Done 51 loss 23.858274459838867 AD None
+Start 52 verification base_horizontal_h4 plus
+Done 52 loss 23.849836349487305 AD None
+Start 53 verification base_horizontal_h4 center
+Done 53 loss 23.853984832763672 AD None
+Start 54 verification base_horizontal_h4 plus
+Done 54 loss 23.849853515625 AD None
+Start 55 verification base_horizontal_h4 minus
+Done 55 loss 23.85826873779297 AD None
+Start 56 verification base_horizontal_h4 center
+Done 56 loss 23.853906631469727 AD None
+Start 57 verification base_horizontal_h4 minus
+Done 57 loss 23.858341217041016 AD None
+Start 58 verification base_horizontal_h4 plus
+Done 58 loss 23.84978485107422 AD None
+Start 59 verification base_horizontal_h4 base_ad
+Done 59 loss 23.853965759277344 AD -53.358009338378906
+Start 60 verification base_horizontal_h4 center
+Done 60 loss 23.854026794433594 AD None
+Start 61 verification base_horizontal_h4 plus
+Done 61 loss 23.85080337524414 AD None
+Start 62 verification base_horizontal_h4 minus
+Done 62 loss 23.85721206665039 AD None
+Start 63 verification base_horizontal_h4 center
+Done 63 loss 23.854001998901367 AD None
+Start 64 verification base_horizontal_h4 minus
+Done 64 loss 23.857223510742188 AD None
+Start 65 verification base_horizontal_h4 plus
+Done 65 loss 23.850814819335938 AD None
+Start 66 verification base_horizontal_h4 center
+Done 66 loss 23.853973388671875 AD None
+Start 67 verification base_horizontal_h4 plus
+Done 67 loss 23.850866317749023 AD None
+Start 68 verification base_horizontal_h4 minus
+Done 68 loss 23.857227325439453 AD None
+Start 69 verification base_horizontal_h4 center
+Done 69 loss 23.853981018066406 AD None
+Start 70 verification base_horizontal_h4 minus
+Done 70 loss 23.85721206665039 AD None
+Start 71 verification base_horizontal_h4 plus
+Done 71 loss 23.85092544555664 AD None
+Start 72 verification base_horizontal_h4 base_ad
+Done 72 loss 23.854005813598633 AD -53.357608795166016
+Start 73 verification base_rotation_h4 base_ad
+Done 73 loss 23.895246505737305 AD 11.479111671447754
+Start 74 verification base_rotation_h4 center
+Done 74 loss 23.895313262939453 AD None
+Start 75 verification base_rotation_h4 plus
+Done 75 loss 23.896686553955078 AD None
+Start 76 verification base_rotation_h4 minus
+Done 76 loss 23.893394470214844 AD None
+Start 77 verification base_rotation_h4 center
+Done 77 loss 23.895198822021484 AD None
+Start 78 verification base_rotation_h4 minus
+Done 78 loss 23.893386840820312 AD None
+Start 79 verification base_rotation_h4 plus
+Done 79 loss 23.896625518798828 AD None
+Start 80 verification base_rotation_h4 center
+Done 80 loss 23.89520263671875 AD None
+Start 81 verification base_rotation_h4 plus
+Done 81 loss 23.896602630615234 AD None
+Start 82 verification base_rotation_h4 minus
+Done 82 loss 23.893360137939453 AD None
+Start 83 verification base_rotation_h4 center
+Done 83 loss 23.89516830444336 AD None
+Start 84 verification base_rotation_h4 minus
+Done 84 loss 23.89337921142578 AD None
+Start 85 verification base_rotation_h4 plus
+Done 85 loss 23.896650314331055 AD None
+Start 86 verification base_rotation_h4 base_ad
+Done 86 loss 23.89529800415039 AD 11.470433235168457
+Start 87 verification base_rotation_h4 center
+Done 87 loss 23.895292282104492 AD None
+Start 88 verification base_rotation_h4 plus
+Done 88 loss 23.896316528320312 AD None
+Start 89 verification base_rotation_h4 minus
+Done 89 loss 23.89373779296875 AD None
+Start 90 verification base_rotation_h4 center
+Done 90 loss 23.895240783691406 AD None
+Start 91 verification base_rotation_h4 minus
+Done 91 loss 23.893783569335938 AD None
+Start 92 verification base_rotation_h4 plus
+Done 92 loss 23.896312713623047 AD None
+Start 93 verification base_rotation_h4 center
+Done 93 loss 23.895309448242188 AD None
+Start 94 verification base_rotation_h4 plus
+Done 94 loss 23.896312713623047 AD None
+Start 95 verification base_rotation_h4 minus
+Done 95 loss 23.893903732299805 AD None
+Start 96 verification base_rotation_h4 center
+Done 96 loss 23.8952693939209 AD None
+Start 97 verification base_rotation_h4 minus
+Done 97 loss 23.893884658813477 AD None
+Start 98 verification base_rotation_h4 plus
+Done 98 loss 23.896278381347656 AD None
+Start 99 verification base_rotation_h4 base_ad
+Done 99 loss 23.895320892333984 AD 11.459845542907715
+Start 100 verification earlier_vertical_h8 base_ad
+Done 100 loss 162.16836547851562 AD 16374.2177734375
+Start 101 verification earlier_vertical_h8 center
+Done 101 loss 162.16864013671875 AD None
+Start 102 verification earlier_vertical_h8 plus
+Done 102 loss 162.56417846679688 AD None
+Start 103 verification earlier_vertical_h8 minus
+Done 103 loss 161.77459716796875 AD None
+Start 104 verification earlier_vertical_h8 center
+Done 104 loss 162.16796875 AD None
+Start 105 verification earlier_vertical_h8 minus
+Done 105 loss 161.7745361328125 AD None
+Start 106 verification earlier_vertical_h8 plus
+Done 106 loss 162.5641632080078 AD None
+Start 107 verification earlier_vertical_h8 center
+Done 107 loss 162.1690216064453 AD None
+Start 108 verification earlier_vertical_h8 plus
+Done 108 loss 162.56341552734375 AD None
+Start 109 verification earlier_vertical_h8 minus
+Done 109 loss 161.77459716796875 AD None
+Start 110 verification earlier_vertical_h8 center
+Done 110 loss 162.16796875 AD None
+Start 111 verification earlier_vertical_h8 minus
+Done 111 loss 161.77487182617188 AD None
+Start 112 verification earlier_vertical_h8 plus
+Done 112 loss 162.56410217285156 AD None
+Start 113 verification earlier_vertical_h8 base_ad
+Done 113 loss 162.16856384277344 AD 16374.8349609375
+Start 114 verification earlier_vertical_h8 center
+Done 114 loss 162.168212890625 AD None
+Start 115 verification earlier_vertical_h8 plus
+Done 115 loss 162.43411254882812 AD None
+Start 116 verification earlier_vertical_h8 minus
+Done 116 loss 161.9080047607422 AD None
+Start 117 verification earlier_vertical_h8 center
+Done 117 loss 162.16787719726562 AD None
+Start 118 verification earlier_vertical_h8 minus
+Done 118 loss 161.90733337402344 AD None
+Start 119 verification earlier_vertical_h8 plus
+Done 119 loss 162.43411254882812 AD None
+Start 120 verification earlier_vertical_h8 center
+Done 120 loss 162.168212890625 AD None
+Start 121 verification earlier_vertical_h8 plus
+Done 121 loss 162.43435668945312 AD None
+Start 122 verification earlier_vertical_h8 minus
+Done 122 loss 161.908203125 AD None
+Start 123 verification earlier_vertical_h8 center
+Done 123 loss 162.16827392578125 AD None
+Start 124 verification earlier_vertical_h8 minus
+Done 124 loss 161.90753173828125 AD None
+Start 125 verification earlier_vertical_h8 plus
+Done 125 loss 162.43441772460938 AD None
+Start 126 verification earlier_vertical_h8 base_ad
+Done 126 loss 162.16818237304688 AD 16374.890625
+Start 127 verification offset_vertical_h8 base_ad
+Done 127 loss 151.8030242919922 AD -298.48260498046875
+Start 128 verification offset_vertical_h8 center
+Done 128 loss 151.80287170410156 AD None
+Start 129 verification offset_vertical_h8 plus
+Done 129 loss 151.78062438964844 AD None
+Start 130 verification offset_vertical_h8 minus
+Done 130 loss 151.82894897460938 AD None
+Start 131 verification offset_vertical_h8 center
+Done 131 loss 151.80284118652344 AD None
+Start 132 verification offset_vertical_h8 minus
+Done 132 loss 151.8289794921875 AD None
+Start 133 verification offset_vertical_h8 plus
+Done 133 loss 151.7806396484375 AD None
+Start 134 verification offset_vertical_h8 center
+Done 134 loss 151.80233764648438 AD None
+Start 135 verification offset_vertical_h8 plus
+Done 135 loss 151.78077697753906 AD None
+Start 136 verification offset_vertical_h8 minus
+Done 136 loss 151.82855224609375 AD None
+Start 137 verification offset_vertical_h8 center
+Done 137 loss 151.80239868164062 AD None
+Start 138 verification offset_vertical_h8 minus
+Done 138 loss 151.82846069335938 AD None
+Start 139 verification offset_vertical_h8 plus
+Done 139 loss 151.78067016601562 AD None
+Start 140 verification offset_vertical_h8 base_ad
+Done 140 loss 151.80288696289062 AD -298.5277099609375
+Start 141 verification offset_vertical_h8 center
+Done 141 loss 151.80271911621094 AD None
+Start 142 verification offset_vertical_h8 plus
+Done 142 loss 151.78611755371094 AD None
+Start 143 verification offset_vertical_h8 minus
+Done 143 loss 151.82220458984375 AD None
+Start 144 verification offset_vertical_h8 center
+Done 144 loss 151.8026580810547 AD None
+Start 145 verification offset_vertical_h8 minus
+Done 145 loss 151.82269287109375 AD None
+Start 146 verification offset_vertical_h8 plus
+Done 146 loss 151.7860107421875 AD None
+Start 147 verification offset_vertical_h8 center
+Done 147 loss 151.80287170410156 AD None
+Start 148 verification offset_vertical_h8 plus
+Done 148 loss 151.7865753173828 AD None
+Start 149 verification offset_vertical_h8 minus
+Done 149 loss 151.82174682617188 AD None
+Start 150 verification offset_vertical_h8 center
+Done 150 loss 151.80320739746094 AD None
+Start 151 verification offset_vertical_h8 minus
+Done 151 loss 151.82196044921875 AD None
+Start 152 verification offset_vertical_h8 plus
+Done 152 loss 151.78610229492188 AD None
+Start 153 verification offset_vertical_h8 base_ad
+Done 153 loss 151.80307006835938 AD -298.4692077636719
+[W 10/25/26 07:05:35.976 1] [llvm_offline_cache.cpp:clean_cache@379] Lock /root/.cache/taichi/ticache/metadata.lock failed

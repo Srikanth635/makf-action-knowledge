@@ -1,0 +1,11 @@
+{
+  "test": "native-unit headless FluidLab forward smoke",
+  "simulation_steps_requested": 2,
+  "optimizer_run": false,
+  "paper_reproduction": false,
+  "si_calibration": false,
+  "status": "FAIL",
+  "error_type": "ModuleNotFoundError",
+  "error": "No module named 'cv2'",
+  "elapsed_seconds": 1.40433931350708
+}

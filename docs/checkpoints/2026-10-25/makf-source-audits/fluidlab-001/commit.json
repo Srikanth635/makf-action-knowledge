@@ -1,0 +1,113 @@
+{
+  "sha": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "node_id": "C_kwDOIcWJmNoAKDcyOTVlYjZlZDdlZTkyYjJiZTQ3MWZkMzBiNDMyMjM4NTc3ZjI4Y2U",
+  "commit": {
+    "author": {
+      "name": "Zhou Xian",
+      "email": "zhouxian.sq@gmail.com",
+      "date": "2023-12-15T20:38:50Z"
+    },
+    "committer": {
+      "name": "Zhou Xian",
+      "email": "zhouxian.sq@gmail.com",
+      "date": "2023-12-15T20:38:50Z"
+    },
+    "message": "update docker",
+    "tree": {
+      "sha": "e20b34f0feba5d515b591aee840333d2986d7b1c",
+      "url": "https://api.github.com/repos/zhouxian/FluidLab/git/trees/e20b34f0feba5d515b591aee840333d2986d7b1c"
+    },
+    "url": "https://api.github.com/repos/zhouxian/FluidLab/git/commits/7295eb6ed7ee92b2be471fd30b432238577f28ce",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/zhouxian/FluidLab/commits/7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "html_url": "https://github.com/zhouxian/FluidLab/commit/7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "comments_url": "https://api.github.com/repos/zhouxian/FluidLab/commits/7295eb6ed7ee92b2be471fd30b432238577f28ce/comments",
+  "author": {
+    "login": "zhouxian",
+    "id": 19647225,
+    "node_id": "MDQ6VXNlcjE5NjQ3MjI1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19647225?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/zhouxian",
+    "html_url": "https://github.com/zhouxian",
+    "followers_url": "https://api.github.com/users/zhouxian/followers",
+    "following_url": "https://api.github.com/users/zhouxian/following{/other_user}",
+    "gists_url": "https://api.github.com/users/zhouxian/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/zhouxian/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/zhouxian/subscriptions",
+    "organizations_url": "https://api.github.com/users/zhouxian/orgs",
+    "repos_url": "https://api.github.com/users/zhouxian/repos",
+    "events_url": "https://api.github.com/users/zhouxian/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/zhouxian/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "zhouxian",
+    "id": 19647225,
+    "node_id": "MDQ6VXNlcjE5NjQ3MjI1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19647225?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/zhouxian",
+    "html_url": "https://github.com/zhouxian",
+    "followers_url": "https://api.github.com/users/zhouxian/followers",
+    "following_url": "https://api.github.com/users/zhouxian/following{/other_user}",
+    "gists_url": "https://api.github.com/users/zhouxian/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/zhouxian/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/zhouxian/subscriptions",
+    "organizations_url": "https://api.github.com/users/zhouxian/orgs",
+    "repos_url": "https://api.github.com/users/zhouxian/repos",
+    "events_url": "https://api.github.com/users/zhouxian/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/zhouxian/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "56348da2ac22598fb46097ded0ee85b805602344",
+      "url": "https://api.github.com/repos/zhouxian/FluidLab/commits/56348da2ac22598fb46097ded0ee85b805602344",
+      "html_url": "https://github.com/zhouxian/FluidLab/commit/56348da2ac22598fb46097ded0ee85b805602344"
+    }
+  ],
+  "stats": {
+    "total": 9,
+    "additions": 5,
+    "deletions": 4
+  },
+  "files": [
+    {
+      "sha": "3356f1b12d0660ce4880d5fa34486ad13daf455e",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "blob_url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/README.md",
+      "raw_url": "https://github.com/zhouxian/FluidLab/raw/7295eb6ed7ee92b2be471fd30b432238577f28ce/README.md",
+      "contents_url": "https://api.github.com/repos/zhouxian/FluidLab/contents/README.md?ref=7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "patch": "@@ -38,14 +38,14 @@ git clone https://github.com/zhouxian/FluidLab.git\n ```\n We recommend working with a conda environment.\n ```\n+cd FluidLab/\n conda env create -f environment.yml\n conda activate fluidlab\n ```\n If installing from this yaml file doesn't work, manual installation missing packages should also work.\n \n Finally, install FluidLab.\n ```\n-cd FluidLab/\n pip install -e .\n ```\n \n@@ -74,6 +74,7 @@ Compile GLRenderer using our provided docker file. (Assuming you are using anaco\n ```\n sudo docker build -t fluidlab-glrenderer fluidlab/fluidengine/renderers/gl_renderer_src\n \n+# make sure you replace {username} with your own\n sudo docker run \\\n   -v ${PWD}/fluidlab/fluidengine/renderers/gl_renderer_src:/workspace \\\n   -v /home/{username}/anaconda3:/home/{username}/anaconda3 \\"
+    },
+    {
+      "sha": "39cca4f18206da268b9ebc79bbb8e4aa1256a965",
+      "filename": "fluidlab/fluidengine/renderers/gl_renderer_src/Dockerfile",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "blob_url": "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab%2Ffluidengine%2Frenderers%2Fgl_renderer_src%2FDockerfile",
+      "raw_url": "https://github.com/zhouxian/FluidLab/raw/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab%2Ffluidengine%2Frenderers%2Fgl_renderer_src%2FDockerfile",
+      "contents_url": "https://api.github.com/repos/zhouxian/FluidLab/contents/fluidlab%2Ffluidengine%2Frenderers%2Fgl_renderer_src%2FDockerfile?ref=7295eb6ed7ee92b2be471fd30b432238577f28ce",
+      "patch": "@@ -1,5 +1,5 @@\n-# The docker file is borrowed from https://github.com/columbia-ai-robotics/dextairity\n-FROM nvidia/cuda:9.2-devel-ubuntu18.04\n+# The docker file is borrowed from https://github.com/Xingyu-Lin/softgym\n+FROM xingyu/softgym\n \n # Dependencies for glvnd and X11.\n RUN apt-get update \\\n@@ -22,6 +22,6 @@ RUN apt update && apt install -y cmake build-essential libgl1-mesa-dev freeglut3\n # Install OpenEXR\n RUN apt update && apt install -y openexr\n \n-RUN mkdir /workspace/ && cd /workspace/\n+RUN cd /workspace/\n \n WORKDIR /workspace\n\\ No newline at end of file"
+    }
+  ]
+}

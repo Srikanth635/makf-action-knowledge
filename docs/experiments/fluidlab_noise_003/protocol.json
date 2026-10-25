@@ -1,0 +1,75 @@
+{
+  "version": "0.1",
+  "experiment_id": "fluidlab_noise_003",
+  "purpose": "Exploratory per-condition repeat and rotation sensitivity diagnostics, not replacement verification or promotion",
+  "base_pose": [
+    0.6,
+    0.7,
+    0.5,
+    0,
+    0,
+    0
+  ],
+  "base_value": 0.001,
+  "cases": [
+    {
+      "id": "base_vertical_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 1,
+      "pose_offset_x": 0
+    },
+    {
+      "id": "base_horizontal_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 0,
+      "pose_offset_x": 0
+    },
+    {
+      "id": "base_rotation_h4",
+      "horizon": 4,
+      "action_step": 3,
+      "component": 5,
+      "pose_offset_x": 0
+    },
+    {
+      "id": "earlier_vertical_h8",
+      "horizon": 8,
+      "action_step": 3,
+      "component": 1,
+      "pose_offset_x": 0
+    },
+    {
+      "id": "offset_vertical_h8",
+      "horizon": 8,
+      "action_step": 7,
+      "component": 1,
+      "pose_offset_x": 0.02
+    }
+  ],
+  "baseline_forward_repeats": 5,
+  "baseline_autodiff_repeats": 3,
+  "baseline_tail_repeats": 2,
+  "perturbation_repeats_per_sign": 3,
+  "standard_epsilons": [
+    0.0003,
+    0.0001,
+    3e-05
+  ],
+  "rotation_epsilons": [
+    0.0003,
+    0.0002,
+    0.00015,
+    0.0001,
+    7e-05,
+    5e-05,
+    3e-05
+  ],
+  "ordering": "Case order fixed; baseline forward then AD; for each epsilon alternate plus-minus and minus-plus by repeat index; two baseline forward repeats after sweep.",
+  "empirical_signal_ratio_marker": 10,
+  "summary": "Median losses, actual float32 control denominators, min/max derivative envelope from repeated plus/minus losses, empirical per-condition ranges and median AD discrepancies. Ranges and envelopes are not statistical confidence bounds. No automatic pass/fail gate.",
+  "reset_check": "Hash exported physical state immediately after reset and pose application for every run; hash source initial-state template before and after. Does not verify every internal simulator field.",
+  "branch_diagnostic": "Final active MILK displacement relative to upstream first-step reference: per-axis positive/negative/exact-zero and abs(delta)<1e-6 counts. Not a contact counter or proof of branch crossing.",
+  "scope": "Original max_loss_steps remains 1000, temporal sum is four/eight steps; terminal attraction excluded. No terminal test, optimizer or source equation changes. Existing failed gate stays unchanged."
+}

@@ -1,6 +1,10 @@
 # MAKF Action Knowledge — installable research package
 
-**Development stage:** P1.1 → P1.2 → P1.3 → E1 → **E2.3 optional OpenAI extraction adapter**. A live scientific pilot is prepared but awaiting credentials. This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
+**Resuming after the usage pause?** Start with [the saved resume handoff](docs/RESUME_HANDOFF.md):
+objectives, achieved milestones, current simulation results, portable artifacts and
+the exact next steps are recorded there.
+
+**Development stage:** E2 live extraction and advisory review; **initial E3 local RDF export with SHACL validation**. The latest selected PourIt! claim remains provisional and has an unresolved mapping. See [current progress](docs/CURRENT_PROGRESS.md). This package provides a reproducible, **offline-first** foundation for ontology-guided extraction of world-model-agnostic, generalized, stereotypical and hypothetical action knowledge.
 
 It contains the **unaltered original** AICOR and CRAM–AICOR Turtle ontologies, latest modular MAKF and pouring/grasping frames, a tentative DUL alignment, source inventories, the E1 LinkML extraction contract, synthetic examples, validators, tests, and historical source files. No robot/scene/execution instances are added.
 
@@ -46,7 +50,18 @@ makf validate pouring --profile pouring
 makf validate grasping --profile grasping
 makf guidance --profile pouring --out /tmp/pouring_guidance.json
 makf schema --out /tmp/makf_extraction.schema.json
+makf validate-quantitative fluidlab
 ```
+
+`makf validate-quantitative` checks scalar simulation evidence, exact source anchors,
+units and derivations. The bundled FluidLab example stores ten quantities from four
+published records while flagging missing units and conflicting settings. See the
+[quantitative contract](docs/QUANTITATIVE_EVIDENCE.md) for eligibility and limitations.
+
+`makf export-quantitative-rdf fluidlab --base-iri https://example.org/makf/data/ --out-dir /tmp/makf-quant-rdf`
+exports those records with exact evidence, issues and SHACL checks; install the
+optional `rdf` extra. The [FluidLab code audit](docs/experiments/fluidlab_code_audit_001/README.md)
+records pinned implementation differences while preserving the paper values.
 
 To validate your own **E1 candidate JSON**: `makf validate path/to/candidates.json --profile pouring`. The CLI checks structure, ontology term declarations, relations, quotation exactness, and epistemic metadata. The bundled examples are **synthetic**, not scientific evidence.
 
@@ -61,6 +76,18 @@ and saves provisional candidates or quarantined output. Install the optional SDK
 with `python -m pip install -e '.[dev,openai]'`; the baseline needs no SDK or key.
 See [provider interface](docs/E2_PROVIDER_INTERFACE.md) and the
 [scientific pilot record](docs/experiments/e23_pouring/README.md).
+
+`makf export-rdf` saves a validated local RDF snapshot from E1 candidates. Install
+`python -m pip install -e '.[dev,rdf]'`, then run:
+
+```bash
+makf export-rdf grasping --profile grasping \
+  --base-iri https://example.org/makf/data/ --out-dir /tmp/makf-grasping-rdf
+```
+
+This example is synthetic and pending review. See [RDF export](docs/RDF_PUBLICATION.md)
+for exporting the real selected PourIt! candidate, content-bound model decisions,
+bundle validation and queries.
 
 ## Architecture
 
@@ -94,12 +121,14 @@ src/makf_knowledge/
   extraction.py         E2 request/provider interfaces and deterministic prompt builder
   providers.py          Optional OpenAI and offline fixture transports
   pipeline.py           Request-bound validation, audit artifacts and quarantine
+  publication.py        Local provisional RDF export and SHACL validation
   schema.py             Minimal offline LinkML-subset JSON Schema compiler
   paths.py              Bundled assets
   resources/
     ontology/           Original and refactored Turtle ontologies
     schema/             LinkML YAML and generated JSON Schema
     profiles/           Pouring and grasping extraction profiles
+    publication/        Draft publication vocabulary and SHACL shapes
     examples/           Synthetic extraction batches
     inventory/          P1.1 original report and full CSV indexes
     reports/            P1.3 and E1 original validation reports
@@ -112,7 +141,7 @@ historical_sources/     Original scripts, preserved for inspection
 
 ## Boundaries and known limitations
 
-- OpenAI transport is implemented and tested offline, including through the real SDK with a mocked HTTP transport. Live scientific extraction has not yet run because credentials are unavailable. No OntoGPT adapter, TigerGraph integration, RDF population, SHACL or execution/world-model pipeline is implemented.
+- OpenAI transport and optional advisory review are implemented. Live extraction has run, but reliable evidence coverage and generalization remain open. Local provisional RDF export and SHACL validation are implemented; authenticated human promotion, graph-store publication, OntoGPT, TigerGraph and an execution/world-model pipeline remain pending.
 - Official **DUL is NOT bundled**. Its OWL import is declared but not resolved or certified. Local RDFLib loading deliberately parses local files only. No OWL DL consistency check has been run.
 - E1's LinkML YAML is compiled with a documented **limited subset** converter; official LinkML validation/lint is still outstanding.
 - Exact-quote validation is mechanical and **does not prove** a scientific claim is supported or true. Hypotheses remain provisional. All included example passages are artificial.
@@ -131,6 +160,7 @@ historical_sources/     Original scripts, preserved for inspection
 | E1 | LinkML contract, ontology profiles, synthetics, validation suite | Active module |
 | E2.1/E2.2 | Extraction interface and ontology-guided prompt construction | Implemented offline |
 | E2.3 | Optional OpenAI adapter, fixture transport, validated local run artifacts | Implemented; offline tests pass |
-| E2.4/E2.5 | Scientific pilot and evaluation | Minimal validation/quarantine runner implemented; live pilot blocked on credentials |
+| E2.4/E2.5 | Scientific pilot and evaluation | Live pilot and candidate review recorded; scientific acceptance pending |
+| E3 initial increment | Configurable local RDF snapshots, E1 + SHACL checks, content-bound model selection | Implemented; production promotion and graph integration pending |
 
 See `docs/` for extensive prior design decisions and source provenance.

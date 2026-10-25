@@ -1,0 +1,266 @@
+@prefix q: <https://example.org/makf/quantitative/0.1#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+q:AnchorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:exact_quote ],
+        [ sh:class q:Artifact ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:artifact ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ] ;
+    sh:sparql [ sh:message "Quotation must occur in its linked source artifact." ;
+            sh:select "PREFIX q: <https://example.org/makf/quantitative/0.1#> SELECT $this WHERE { $this q:exact_quote ?quote; q:artifact ?a. ?a q:text ?text. FILTER(!CONTAINS(?text,?quote)) }" ] ;
+    sh:targetClass q:Anchor .
+
+q:ArtifactShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:artifact_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:text ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:sha256 ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:locator ] ;
+    sh:targetClass q:Artifact .
+
+q:ConversionShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:target_unit ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:computed_value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:method ],
+        [ sh:class q:Quantity ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:input ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ] ;
+    sh:targetClass q:Conversion .
+
+q:IssueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class q:Quantity ;
+            sh:minCount 1 ;
+            sh:path q:affects ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:message ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:code ] ;
+    sh:targetClass q:Issue .
+
+q:QuantityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:quantity_kind ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:subject ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:comparison_ready ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:reported_value_text ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:reported_decimal ],
+        [ sh:datatype xsd:boolean ;
+            sh:hasValue true ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:storage_eligible ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:annex_record_id ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:unit_conversion_eligible ],
+        [ sh:datatype xsd:boolean ;
+            sh:hasValue false ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:execution_eligible ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:quantity_id ],
+        [ sh:class q:Study ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:study ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:role ],
+        [ sh:class q:UnitDeclaration ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:unit ],
+        [ sh:class q:Anchor ;
+            sh:minCount 1 ;
+            sh:path q:evidence ] ;
+    sh:targetClass q:Quantity .
+
+q:SnapshotShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:hasValue false ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:execution_eligible ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:comparison_ready ],
+        [ sh:class q:Artifact ;
+            sh:minCount 1 ;
+            sh:path q:artifact ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:input_sha256 ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ],
+        [ sh:datatype xsd:string ;
+            sh:hasValue "pending" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:review_state ],
+        [ sh:class q:Quantity ;
+            sh:minCount 1 ;
+            sh:path q:quantity ],
+        [ sh:datatype xsd:boolean ;
+            sh:hasValue true ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:storage_eligible ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:inputJSON ],
+        [ sh:class q:Study ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:study ] ;
+    sh:targetClass q:Snapshot .
+
+q:StudyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:hasValue "pending" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:review_state ],
+        [ sh:class q:Anchor ;
+            sh:minCount 1 ;
+            sh:path q:evidence ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:study_id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ] ;
+    sh:targetClass q:Study .
+
+q:TimingCalculationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class q:Quantity ;
+            sh:minCount 1 ;
+            sh:path q:input ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:method ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:consistent ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:reported_step_seconds ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:calculated_step_seconds ] ;
+    sh:targetClass q:TimingCalculation .
+
+q:UnitDeclarationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path q:symbol ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path q:reported_text ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:status ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path q:recordJSON ] ;
+    sh:targetClass q:UnitDeclaration .
+

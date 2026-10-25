@@ -1,0 +1,42 @@
+--- a/fluidlab/envs/pouring_env.py
++++ b/fluidlab/envs/pouring_env.py
+@@ -10,11 +10,12 @@
+ from fluidlab.fluidengine.losses import *
+ 
+ class PouringEnv(FluidEnv):
+-    def __init__(self, version, loss=True, loss_type='diff', seed=None):
++    def __init__(self, version, loss=True, loss_type='diff', seed=None, renderer_type='GGUI'):
+ 
+         if seed is not None:
+             self.seed(seed)
+ 
++        self.renderer_type         = renderer_type
+         self.horizon               = 1000
+         self.horizon_action        = 1000
+         self.target_file           = None
+@@ -68,6 +69,7 @@
+ 
+     def setup_renderer(self):
+         self.taichi_env.setup_renderer(
++            type=self.renderer_type,
+             camera_pos=(0.5, 0.6, 3.5),
+             camera_lookat=(0.5, 0.6, 0.5),
+             fov=26,
+--- a/fluidlab/utils/mesh.py
++++ b/fluidlab/utils/mesh.py
+@@ -2,7 +2,6 @@
+ import trimesh
+ import numpy as np
+ from .misc import *
+-from mesh_to_sdf import mesh_to_sdf
+ 
+ def get_raw_mesh_path(file):
+     assert file.endswith('.obj')
+@@ -61,6 +60,7 @@
+     )
+ 
+ def compute_sdf_data(mesh, res):
++    from mesh_to_sdf import mesh_to_sdf
+     '''
+     Convert mesh to sdf voxels and a transformation matrix from mesh frame to voxel frame.
+     '''

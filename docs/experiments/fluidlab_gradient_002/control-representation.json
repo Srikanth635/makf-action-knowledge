@@ -1,0 +1,32 @@
+{
+  "scope": "Post-run IEEE-754 float32 representation audit, not new simulation and not a replacement for saved nominal-epsilon classifications.",
+  "values": [
+    {
+      "nominal_epsilon": 0.0003,
+      "represented_base": 0.0010000000474974513,
+      "represented_plus": 0.0013000000035390258,
+      "represented_minus": 0.000699999975040555,
+      "represented_central_denominator": 0.0006000000284984708,
+      "used_nominal_central_denominator": 0.0006,
+      "relative_denominator_difference": 4.7497451305389404e-08
+    },
+    {
+      "nominal_epsilon": 0.0001,
+      "represented_base": 0.0010000000474974513,
+      "represented_plus": 0.0010999999940395355,
+      "represented_minus": 0.0008999999845400453,
+      "represented_central_denominator": 0.00020000000949949026,
+      "used_nominal_central_denominator": 0.0002,
+      "relative_denominator_difference": 4.7497451305389404e-08
+    },
+    {
+      "nominal_epsilon": 3e-05,
+      "represented_base": 0.0010000000474974513,
+      "represented_plus": 0.0010300000431016088,
+      "represented_minus": 0.0009699999936856329,
+      "represented_central_denominator": 6.000004941597581e-05,
+      "used_nominal_central_denominator": 6e-05,
+      "relative_denominator_difference": 8.235995967442733e-07
+    }
+  ]
+}

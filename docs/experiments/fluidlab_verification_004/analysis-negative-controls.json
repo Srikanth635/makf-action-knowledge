@@ -1,0 +1,51 @@
+{
+  "scope": "Offline deliberately corrupted copies; original artifacts unchanged. Not simulation validation.",
+  "controls": [
+    {
+      "case": "interrupted_main",
+      "outcome": "rejected",
+      "reason": "Incomplete worker"
+    },
+    {
+      "case": "missing_fresh_repeat",
+      "outcome": "rejected",
+      "reason": "Evaluation accounting"
+    },
+    {
+      "case": "nonfinite_loss",
+      "outcome": "rejected",
+      "reason": "Non-finite loss"
+    },
+    {
+      "case": "wrong_float32_control",
+      "outcome": "rejected",
+      "reason": "Represented control"
+    },
+    {
+      "case": "incomplete_corrected_observer",
+      "outcome": "rejected",
+      "reason": "Incomplete worker"
+    },
+    {
+      "case": "corrected_reset_mismatch",
+      "outcome": "rejected",
+      "reason": "Corrected observer exported reset differs"
+    },
+    {
+      "case": "large_gradient_discrepancy",
+      "outcome": "gate_blocked"
+    },
+    {
+      "case": "observed_zero_denominator",
+      "outcome": "gate_blocked"
+    },
+    {
+      "case": "fresh_loss_mismatch",
+      "outcome": "gate_blocked"
+    },
+    {
+      "case": "zero_signal",
+      "outcome": "gate_blocked"
+    }
+  ]
+}

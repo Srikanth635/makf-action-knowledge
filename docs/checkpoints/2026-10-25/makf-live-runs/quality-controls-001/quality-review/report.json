@@ -1,0 +1,54 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v1",
+  "recorded_at": "2026-10-24T08:46:42.024654+00:00",
+  "reviewed_batch_sha256": "f2eb8fb2d70a72201994ecf169ae256ae3156e9dd91f0c383b545ff821995e83",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "assessments": [
+    {
+      "candidate_id": "control-1",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quoted asserts_claim text supports all substantive clauses of the statement, including the comparison with rapid tilt and the note that viscous liquids were not evaluated, and it supports the component description as a strategy-like instruction tied to the reported comparison. However, scope is not supported as submitted: the source is a single synthetic bench-test comparison, which does not by itself justify epistemic_status 'proposed_strategy' or modality 'conditional' as a broader strategy description beyond that reported test context."
+    },
+    {
+      "candidate_id": "control-2",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The only asserts_claim quote is just 'In a bench test with water,', which does not support the substantive claim that slow tilting reduced spillage compared with rapid tilting, does not support that viscous liquids were not evaluated, and does not support the component description. Scope is also unsupported for the same reason and because the submitted strategy framing exceeds the cited text."
+    },
+    {
+      "candidate_id": "control-3",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The asserted quote says only that in a bench test with water, a slow tilt reduced spillage compared with a rapid tilt, and that viscous liquids were not evaluated. It does not support 'always,' 'prevents all spillage,' or 'for every liquid.' Those are major unsupported clauses, so evidence is incomplete. Scope is also unsupported because a single water-only comparison cannot establish a universal principle, and the source explicitly limits liquid coverage."
+    },
+    {
+      "candidate_id": "control-4",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The quote supports the statement text itself, including the water bench-test context, reduced spillage relative to rapid tilt, and lack of evaluation for viscous liquids. But scope is unsupported for the same reason as control-1: this is an observed comparison in a synthetic bench test, not sufficient support for epistemic_status 'proposed_strategy' as a general strategy claim. Mapping is unsupported because the grounded component is labeled 'causal_mechanism' and mapped to aicor:PouringTemplate, while the source only reports an outcome comparison and does not provide evidence for a pouring causal template or mechanism."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4-2026-03-05",
+    "live": true,
+    "wire_request_sha256": "852102b4778369004891ff6bf10bdd19ffa9f35d65cb6760d14ef899a9fb230a",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcRgg4i9LKqAKOTwUCzdsR7BMFihR",
+    "request_id": "req_bb843464d7ce4278a6f870a941409418",
+    "usage": {
+      "prompt_tokens": 6908,
+      "completion_tokens": 505,
+      "total_tokens": 7413
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "71eb91d668b34b43cc1fa631e5251fe39cec69e40b668ca0dfd3b9bea2d601b2"
+}

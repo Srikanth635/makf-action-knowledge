@@ -1,0 +1,12 @@
+{
+  "status": "changes_required",
+  "selected_run": null,
+  "human_review_required": true,
+  "omitted_candidate_ids": [
+    "cand-2"
+  ],
+  "withheld_candidate_ids": [
+    "cand-1",
+    "cand-3"
+  ]
+}

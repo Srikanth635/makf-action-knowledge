@@ -1,0 +1,151 @@
+{
+  "batch_id": "e23-pourit-pilot-20261024-010",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "lin-etal-2023-pourit-author-preprint",
+      "title": "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring",
+      "uri": "https://arxiv.org/abs/2307.11299",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "results-analysis-strategies",
+          "text": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead.",
+          "locator": "Author-hosted preprint, section 4.3 Results and Analysis, PDF page 8"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "pourit-pilot-cand-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural",
+        "applicability",
+        "deviation"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "The source describes a pouring strategy that uses estimated object pose and size to calculate container-to-container distance as the initial pouring point; under the reported condition of inaccurate size estimation from a transparent bottleneck, this strategy may sometimes fail because the initial pouring point is imperfect.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use estimated object pose and size to calculate container-to-container distance as the initial pouring point.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c2",
+          "component_kind": "applicability_condition",
+          "description": "Transparent bottleneck results in inaccurate object size estimation.",
+          "ontology_class": "makf:ApplicabilityCondition",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c3",
+          "component_kind": "predicted_effect",
+          "description": "The strategy sometimes fails due to an imperfect initial pouring point.",
+          "ontology_class": "makf:PredictedEffectPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead."
+        }
+      ]
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "The source describes a pouring strategy that uses object pose information to calculate liquid-to-container distance as feedback for adjusting the pouring point, and reports that this strategy is less influenced by inaccurate size estimation.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use object pose information to calculate liquid-to-container distance as feedback to adjust the pouring point.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c2",
+          "component_kind": "generic_description",
+          "description": "Reported as less influenced by inaccurate size estimation.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "The provided ontology context offers no clearly fitting class for a comparative robustness-to-estimation-error description."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead."
+        }
+      ]
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural",
+        "deviation"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "The source reports that a pouring method using visual feedback from an estimated mask to adjust the pouring point can perform poorly when the mask is inaccurately estimated, with the reported failure that liquid spills out of the target container.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "c1",
+          "component_kind": "strategy",
+          "description": "Use visual feedback from an estimated mask to adjust the pouring point.",
+          "ontology_class": "makf:GeneralizedStrategy",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "c2",
+          "component_kind": "deviation_pattern",
+          "description": "An inaccurately estimated mask provides wrong visual feedback, making the liquid spill out of the target container.",
+          "ontology_class": "makf:DeviationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-2023-pourit-author-preprint",
+          "passage_id": "results-analysis-strategies",
+          "support_role": "asserts_claim",
+          "exact_quote": "The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring\npoint, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by\nthe inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated\nmask of AFA provides the wrong visual feedback to adjust\nthe pouring point, making the liquid spill out of the target\ncontainer instead."
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "openai",
+    "prompt_version": "makf-e2.2-v3",
+    "recorded_at": "2026-10-24T08:49:42.985112+00:00",
+    "model_name": "gpt-5.4-2026-03-05"
+  }
+}

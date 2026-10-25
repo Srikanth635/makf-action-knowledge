@@ -1,0 +1,1373 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "experiment_id": "fluidlab_verification_004",
+    "purpose": "Fresh development verification plus read-only shadow collision/loss instrumentation; no terminal or optimizer execution",
+    "base_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "base_value": 0.001,
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      },
+      {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      },
+      {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0,
+        "epsilons": [
+          0.00014,
+          0.00011
+        ]
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0,
+        "epsilons": [
+          2.4e-05,
+          1.6e-05
+        ]
+      },
+      {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02,
+        "epsilons": [
+          8e-05,
+          6e-05
+        ]
+      }
+    ],
+    "paired_repeats": 4,
+    "autodiff_repeats": 3,
+    "schedule": "For each case: AD base; epsilon 1 four blocks; AD base; epsilon 2 four blocks; AD base. Each block begins with a base forward evaluation; signs alternate (+,-),(-,+),(+,-),(-,+). Fixed case order.",
+    "instrumented_cases": [
+      "base_rotation_h4",
+      "earlier_vertical_h8"
+    ],
+    "instrumentation_reference_forward_repeats": 3,
+    "instrumentation_reference_ad_repeats": 3,
+    "instrumentation_probes": [
+      "base_with_AD",
+      "plus",
+      "minus"
+    ],
+    "observer_scope": "Independent shadow kernels before original grid_op/g2p. Recompute inputs and tangential norm, do not divide or write simulator fields. Original forward/backward kernels unmodified. Shadow arithmetic can differ from compiled temporaries. Store per-substep contact masks and per-action MILK L1 sign snapshots.",
+    "gate": {
+      "relative_ad_fd_tolerance": 0.05,
+      "absolute_ad_fd_tolerance": 0.01,
+      "minimum_signal_ratio": 10,
+      "maximum_asymmetry": 0.3,
+      "maximum_relative_fd_change": 0.1,
+      "maximum_relative_fd_envelope_half_width": 0.1,
+      "requires": "All five cases pass both predeclared epsilons; observer runs have no zero/<=EPS/invalid shadow norms, meet baseline loss/AD agreement, and fresh-process control meets agreement. Empirical ranges are descriptive, not confidence bounds. No noise allowance is added to the AD/FD tolerance."
+    },
+    "control_agreement": {
+      "absolute_loss_floor": 0.001,
+      "range_multiplier": 5,
+      "absolute_ad_floor": 0.02,
+      "relative_ad_floor": 0.005
+    },
+    "fresh_process_case": "earlier_vertical_h8",
+    "fresh_forward_repeats": 3,
+    "fresh_ad_repeats": 3,
+    "scope": "Four/eight-step partial diff loss with original max_loss_steps=1000; no original terminal step 999. Passing is engineering readiness only, not contact/physics correctness or paper replication. No automatic transition to terminal/optimization. Prior experiment files and failed gate remain unchanged."
+  },
+  "mode": "fresh",
+  "status": "completed",
+  "started_utc": "2026-10-25T07:05:58Z",
+  "runs": [
+    {
+      "sequence": 1,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.1683349609375,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4436,
+            20302,
+            4499
+          ],
+          "zero_per_axis": [
+            11775,
+            0,
+            11395
+          ],
+          "positive_per_axis": [
+            4091,
+            0,
+            4408
+          ],
+          "near_zero_per_axis": [
+            15518,
+            0,
+            15540
+          ],
+          "sign_sha256": "20ae97b4f3019ba50cab1ed260f85c9afa824b45f00ad0c8a19cb75eea240cfd"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            7004,
+            20302,
+            6811
+          ],
+          "zero_per_axis": [
+            7037,
+            0,
+            6683
+          ],
+          "positive_per_axis": [
+            6261,
+            0,
+            6808
+          ],
+          "near_zero_per_axis": [
+            10901,
+            0,
+            11058
+          ],
+          "sign_sha256": "d81690ebbe8f9f05929690a2d33efad6fdc9c7f48bb3dc4e7404b9eb40a97bb1"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9319,
+            18797,
+            9314
+          ],
+          "zero_per_axis": [
+            2351,
+            0,
+            1999
+          ],
+          "positive_per_axis": [
+            8632,
+            1505,
+            8989
+          ],
+          "near_zero_per_axis": [
+            6389,
+            10,
+            6438
+          ],
+          "sign_sha256": "3faa53932da1443d338ffdc62c3508a09b6c7fe306bba3522932cb34ff97c43e"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10271,
+            17041,
+            10080
+          ],
+          "zero_per_axis": [
+            251,
+            0,
+            191
+          ],
+          "positive_per_axis": [
+            9780,
+            3261,
+            10031
+          ],
+          "near_zero_per_axis": [
+            1964,
+            19,
+            2022
+          ],
+          "sign_sha256": "6bd3607cb44ed2321286ddb503071b93970f87fea40adab5416c4caf2db003de"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10455,
+            16810,
+            9964
+          ],
+          "zero_per_axis": [
+            33,
+            1,
+            23
+          ],
+          "positive_per_axis": [
+            9814,
+            3491,
+            10315
+          ],
+          "near_zero_per_axis": [
+            412,
+            11,
+            439
+          ],
+          "sign_sha256": "1ac4940aa72fca8351cab811da4c6bbf5fada392880959edc874daf9ddc65e36"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10358,
+            17227,
+            9995
+          ],
+          "zero_per_axis": [
+            7,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            9937,
+            3075,
+            10306
+          ],
+          "near_zero_per_axis": [
+            110,
+            9,
+            97
+          ],
+          "sign_sha256": "517b5f8b43ffff973c8b19129c1be493d225856685d72f267aebb7bc27a0b681"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10022
+          ],
+          "zero_per_axis": [
+            1,
+            0,
+            2
+          ],
+          "positive_per_axis": [
+            10067,
+            2706,
+            10278
+          ],
+          "near_zero_per_axis": [
+            49,
+            7,
+            32
+          ],
+          "sign_sha256": "679a5ecce805830035180374011d45cbb62d52b619585279dbc2f2e0c93b750a"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.1680908203125,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4433,
+            20302,
+            4490
+          ],
+          "zero_per_axis": [
+            11782,
+            0,
+            11404
+          ],
+          "positive_per_axis": [
+            4087,
+            0,
+            4408
+          ],
+          "near_zero_per_axis": [
+            15515,
+            0,
+            15541
+          ],
+          "sign_sha256": "fa6147e01a902234ad3e20d7a3accac95573a5ca3b0fb413840de599e9aeb1f3"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            7002,
+            20302,
+            6812
+          ],
+          "zero_per_axis": [
+            7038,
+            0,
+            6678
+          ],
+          "positive_per_axis": [
+            6262,
+            0,
+            6812
+          ],
+          "near_zero_per_axis": [
+            10894,
+            0,
+            11064
+          ],
+          "sign_sha256": "cec38e203dc8b7d175d5ec94523f92e0230e2a6951c5e2b4e657b10e596a79e7"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9325,
+            18797,
+            9311
+          ],
+          "zero_per_axis": [
+            2335,
+            0,
+            2009
+          ],
+          "positive_per_axis": [
+            8642,
+            1505,
+            8982
+          ],
+          "near_zero_per_axis": [
+            6389,
+            10,
+            6432
+          ],
+          "sign_sha256": "469c57b7500951b66f89d36ecb5d0f10a3c43b2422bd5d0b7283a220e251a139"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10269,
+            17041,
+            10080
+          ],
+          "zero_per_axis": [
+            253,
+            0,
+            190
+          ],
+          "positive_per_axis": [
+            9780,
+            3261,
+            10032
+          ],
+          "near_zero_per_axis": [
+            1964,
+            19,
+            2022
+          ],
+          "sign_sha256": "c498ff75173df568db405901ff48781498d087819eaf41fb61e113ef3d348087"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10449,
+            16810,
+            9965
+          ],
+          "zero_per_axis": [
+            38,
+            0,
+            17
+          ],
+          "positive_per_axis": [
+            9815,
+            3492,
+            10320
+          ],
+          "near_zero_per_axis": [
+            411,
+            10,
+            434
+          ],
+          "sign_sha256": "aef4d5d42bbb92a8fa562acc993b833f3ae0304f8cc5667b87928fc8843a571c"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10357,
+            17227,
+            9995
+          ],
+          "zero_per_axis": [
+            7,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            9938,
+            3075,
+            10306
+          ],
+          "near_zero_per_axis": [
+            111,
+            9,
+            96
+          ],
+          "sign_sha256": "0262065e57c3ebccce2c62b5facf816979a7f8e0125c925a8aa114fb33b2a082"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10023
+          ],
+          "zero_per_axis": [
+            1,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            10067,
+            2706,
+            10278
+          ],
+          "near_zero_per_axis": [
+            48,
+            7,
+            31
+          ],
+          "sign_sha256": "6f2f7b687cd5f7abb9aecf55d01622c9e874216f3dd074e0e012d6d5f71d0f61"
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_forward",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.16839599609375,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4437,
+            20302,
+            4493
+          ],
+          "zero_per_axis": [
+            11775,
+            0,
+            11398
+          ],
+          "positive_per_axis": [
+            4090,
+            0,
+            4411
+          ],
+          "near_zero_per_axis": [
+            15516,
+            0,
+            15544
+          ],
+          "sign_sha256": "67ba896f1223bda283ea3f50868daad2f94959aea3a2c4749c1a384aca169aa3"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            7005,
+            20302,
+            6811
+          ],
+          "zero_per_axis": [
+            7039,
+            0,
+            6680
+          ],
+          "positive_per_axis": [
+            6258,
+            0,
+            6811
+          ],
+          "near_zero_per_axis": [
+            10899,
+            0,
+            11062
+          ],
+          "sign_sha256": "58ac3e862db17d18b3c2b7012e7f71058d7c02f12dd33a9db3304fd6b5e83973"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9318,
+            18797,
+            9317
+          ],
+          "zero_per_axis": [
+            2351,
+            0,
+            1996
+          ],
+          "positive_per_axis": [
+            8633,
+            1505,
+            8989
+          ],
+          "near_zero_per_axis": [
+            6393,
+            9,
+            6435
+          ],
+          "sign_sha256": "814e1f93ff83a6ff79026dd316e2b1a0810722df097fd6716b87a80c3ce66100"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10274,
+            17041,
+            10085
+          ],
+          "zero_per_axis": [
+            250,
+            0,
+            191
+          ],
+          "positive_per_axis": [
+            9778,
+            3261,
+            10026
+          ],
+          "near_zero_per_axis": [
+            1960,
+            18,
+            2021
+          ],
+          "sign_sha256": "07290caa1673faeb32988804df4e4901cacaf5225410e33df3759dd4986d6b43"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10454,
+            16810,
+            9968
+          ],
+          "zero_per_axis": [
+            33,
+            0,
+            17
+          ],
+          "positive_per_axis": [
+            9815,
+            3492,
+            10317
+          ],
+          "near_zero_per_axis": [
+            409,
+            10,
+            436
+          ],
+          "sign_sha256": "b245f830d0a11d08d44434bf2c4c0c1a18fbf57821f5388346a76345fdbf6d24"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10357,
+            17227,
+            9996
+          ],
+          "zero_per_axis": [
+            7,
+            0,
+            0
+          ],
+          "positive_per_axis": [
+            9938,
+            3075,
+            10306
+          ],
+          "near_zero_per_axis": [
+            108,
+            9,
+            99
+          ],
+          "sign_sha256": "fefb58367096a6ded0e355caa81931712cdc09bde8253463120399ff105f616c"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10021
+          ],
+          "zero_per_axis": [
+            2,
+            0,
+            3
+          ],
+          "positive_per_axis": [
+            10066,
+            2706,
+            10278
+          ],
+          "near_zero_per_axis": [
+            48,
+            7,
+            32
+          ],
+          "sign_sha256": "9f62a2763ce2ea0725a83777537746e5b15eb504d3eb79ab1341cdc79e87c090"
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.16783142089844,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4434,
+            20302,
+            4498
+          ],
+          "zero_per_axis": [
+            11780,
+            0,
+            11386
+          ],
+          "positive_per_axis": [
+            4088,
+            0,
+            4418
+          ],
+          "near_zero_per_axis": [
+            15512,
+            0,
+            15548
+          ],
+          "sign_sha256": "cfe07393b3db152adf8998e45fbbf22dd58289ee0e42920564c00eb1b80b4ec4"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            7004,
+            20302,
+            6812
+          ],
+          "zero_per_axis": [
+            7044,
+            0,
+            6685
+          ],
+          "positive_per_axis": [
+            6254,
+            0,
+            6805
+          ],
+          "near_zero_per_axis": [
+            10900,
+            0,
+            11061
+          ],
+          "sign_sha256": "bb17d5223979b610ac6e80df4c6a18f679f98a98ada0c5b802d6401372c6d84b"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9326,
+            18797,
+            9322
+          ],
+          "zero_per_axis": [
+            2351,
+            0,
+            2001
+          ],
+          "positive_per_axis": [
+            8625,
+            1505,
+            8979
+          ],
+          "near_zero_per_axis": [
+            6393,
+            10,
+            6441
+          ],
+          "sign_sha256": "14d91cd723bab48a7602a24b2557fe65b5c9d987b78007f628554aba831e04d8"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10276,
+            17041,
+            10084
+          ],
+          "zero_per_axis": [
+            255,
+            0,
+            192
+          ],
+          "positive_per_axis": [
+            9771,
+            3261,
+            10026
+          ],
+          "near_zero_per_axis": [
+            1965,
+            19,
+            2022
+          ],
+          "sign_sha256": "2e288768c423d066486dbed8c48ace58ac24fd199488d3405d90ca1242096bd0"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10455,
+            16809,
+            9966
+          ],
+          "zero_per_axis": [
+            31,
+            1,
+            22
+          ],
+          "positive_per_axis": [
+            9816,
+            3492,
+            10314
+          ],
+          "near_zero_per_axis": [
+            412,
+            10,
+            435
+          ],
+          "sign_sha256": "9bdaca62a22703944e376b82d70f89263658261bdeed6fc3353218c700594722"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10357,
+            17227,
+            9996
+          ],
+          "zero_per_axis": [
+            8,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            9937,
+            3075,
+            10305
+          ],
+          "near_zero_per_axis": [
+            110,
+            8,
+            97
+          ],
+          "sign_sha256": "12e9e1cd47ebf0b364416467972d0ec1b17b76f1182aa73d93f8d3ecd12071f1"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10025
+          ],
+          "zero_per_axis": [
+            2,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            10066,
+            2706,
+            10276
+          ],
+          "near_zero_per_axis": [
+            49,
+            7,
+            32
+          ],
+          "sign_sha256": "c219a8b2e3ec0bc45e928b3625d278473fc49ffde18acc85044c426e49d94f97"
+        }
+      ],
+      "autodiff": 16374.841796875
+    },
+    {
+      "sequence": 5,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.1679229736328,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4437,
+            20302,
+            4485
+          ],
+          "zero_per_axis": [
+            11774,
+            0,
+            11391
+          ],
+          "positive_per_axis": [
+            4091,
+            0,
+            4426
+          ],
+          "near_zero_per_axis": [
+            15517,
+            0,
+            15544
+          ],
+          "sign_sha256": "342dfe636a3dafaae351648006687dd4166031ebc20001cd4f526279a7d7e57a"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            6999,
+            20302,
+            6809
+          ],
+          "zero_per_axis": [
+            7045,
+            0,
+            6685
+          ],
+          "positive_per_axis": [
+            6258,
+            0,
+            6808
+          ],
+          "near_zero_per_axis": [
+            10900,
+            0,
+            11063
+          ],
+          "sign_sha256": "801fb97abcb573d337c1a4f5de6eccee50a7f6b6934d298d79342a88313119c3"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9319,
+            18797,
+            9313
+          ],
+          "zero_per_axis": [
+            2344,
+            0,
+            1999
+          ],
+          "positive_per_axis": [
+            8639,
+            1505,
+            8990
+          ],
+          "near_zero_per_axis": [
+            6389,
+            10,
+            6439
+          ],
+          "sign_sha256": "04a82eeefb203a9c089e53c26a44f106940e1ece7d68c7a605f22bb7b8678f1a"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10268,
+            17041,
+            10079
+          ],
+          "zero_per_axis": [
+            261,
+            0,
+            198
+          ],
+          "positive_per_axis": [
+            9773,
+            3261,
+            10025
+          ],
+          "near_zero_per_axis": [
+            1963,
+            19,
+            2020
+          ],
+          "sign_sha256": "f99436c7296fb94c20a100294987b6343c6afa4eefdba6872077e308820e3c4e"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10450,
+            16810,
+            9964
+          ],
+          "zero_per_axis": [
+            35,
+            0,
+            21
+          ],
+          "positive_per_axis": [
+            9817,
+            3492,
+            10317
+          ],
+          "near_zero_per_axis": [
+            409,
+            9,
+            434
+          ],
+          "sign_sha256": "141378f22016028d638f6487eceda939413554b449f80160863ef100224e665b"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10357,
+            17227,
+            9995
+          ],
+          "zero_per_axis": [
+            7,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            9938,
+            3075,
+            10306
+          ],
+          "near_zero_per_axis": [
+            110,
+            9,
+            97
+          ],
+          "sign_sha256": "0262065e57c3ebccce2c62b5facf816979a7f8e0125c925a8aa114fb33b2a082"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10023
+          ],
+          "zero_per_axis": [
+            2,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            10066,
+            2706,
+            10278
+          ],
+          "near_zero_per_axis": [
+            48,
+            7,
+            30
+          ],
+          "sign_sha256": "60359e8c3ebaa7568340ad27d268df788daf235ee5200508c871b859e0db3aab"
+        }
+      ],
+      "autodiff": 16374.251953125
+    },
+    {
+      "sequence": 6,
+      "phase": "fresh_control",
+      "case_id": "earlier_vertical_h8",
+      "label": "base_ad",
+      "epsilon": null,
+      "block": null,
+      "nominal_control": 0.001,
+      "represented_control": 0.0010000000474974513,
+      "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+      "loss": 162.16818237304688,
+      "active_particles": 40604,
+      "loss_branches": [
+        {
+          "step": 0,
+          "negative_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "positive_per_axis": [
+            0,
+            0,
+            0
+          ],
+          "near_zero_per_axis": [
+            20302,
+            20302,
+            20302
+          ],
+          "sign_sha256": "c4f77c2f217ace4656953e10594570f6319e0fe56fdc0ccc84fc04c8ab373658"
+        },
+        {
+          "step": 1,
+          "negative_per_axis": [
+            4433,
+            20302,
+            4494
+          ],
+          "zero_per_axis": [
+            11780,
+            0,
+            11385
+          ],
+          "positive_per_axis": [
+            4089,
+            0,
+            4423
+          ],
+          "near_zero_per_axis": [
+            15513,
+            0,
+            15541
+          ],
+          "sign_sha256": "ddc861f91f76c0ed5d51bff8146300a139a69292a1303e185484493d7b21aef8"
+        },
+        {
+          "step": 2,
+          "negative_per_axis": [
+            7002,
+            20302,
+            6818
+          ],
+          "zero_per_axis": [
+            7044,
+            0,
+            6674
+          ],
+          "positive_per_axis": [
+            6256,
+            0,
+            6810
+          ],
+          "near_zero_per_axis": [
+            10893,
+            0,
+            11062
+          ],
+          "sign_sha256": "c23f619ff50ebfdb49fca005ab7967670c02fc4d9ee6709f38b09b82093c5c14"
+        },
+        {
+          "step": 3,
+          "negative_per_axis": [
+            9311,
+            18797,
+            9316
+          ],
+          "zero_per_axis": [
+            2353,
+            0,
+            1994
+          ],
+          "positive_per_axis": [
+            8638,
+            1505,
+            8992
+          ],
+          "near_zero_per_axis": [
+            6394,
+            10,
+            6436
+          ],
+          "sign_sha256": "34ea45dc3213fc04c6242c4401acec7f538f30b0c587d6a9134d9122e030001a"
+        },
+        {
+          "step": 4,
+          "negative_per_axis": [
+            10274,
+            17041,
+            10082
+          ],
+          "zero_per_axis": [
+            254,
+            0,
+            190
+          ],
+          "positive_per_axis": [
+            9774,
+            3261,
+            10030
+          ],
+          "near_zero_per_axis": [
+            1958,
+            19,
+            2025
+          ],
+          "sign_sha256": "ae9174b6f5bfc8fafc1e0e86804a8e93fe31418903c6af07e0f220298a635389"
+        },
+        {
+          "step": 5,
+          "negative_per_axis": [
+            10452,
+            16809,
+            9963
+          ],
+          "zero_per_axis": [
+            37,
+            2,
+            21
+          ],
+          "positive_per_axis": [
+            9813,
+            3491,
+            10318
+          ],
+          "near_zero_per_axis": [
+            408,
+            9,
+            435
+          ],
+          "sign_sha256": "e8989e16c2c543b11156f0d14ef450fe9a639a09fee30ae0ee52a4f4a3910b1d"
+        },
+        {
+          "step": 6,
+          "negative_per_axis": [
+            10357,
+            17227,
+            9995
+          ],
+          "zero_per_axis": [
+            7,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            9938,
+            3075,
+            10306
+          ],
+          "near_zero_per_axis": [
+            112,
+            9,
+            98
+          ],
+          "sign_sha256": "0262065e57c3ebccce2c62b5facf816979a7f8e0125c925a8aa114fb33b2a082"
+        },
+        {
+          "step": 7,
+          "negative_per_axis": [
+            10234,
+            17596,
+            10022
+          ],
+          "zero_per_axis": [
+            1,
+            0,
+            1
+          ],
+          "positive_per_axis": [
+            10067,
+            2706,
+            10279
+          ],
+          "near_zero_per_axis": [
+            49,
+            7,
+            30
+          ],
+          "sign_sha256": "3b0203cdd9f83b1504d801516e2104e09383ff3d74f9d330dec61e69e953ef64"
+        }
+      ],
+      "autodiff": 16374.06640625
+    }
+  ],
+  "terminal_test_executed": false,
+  "optimization_executed": false,
+  "runtime": {
+    "backend": "Arch.x64",
+    "particle_count": 40604,
+    "dt": 0.0002,
+    "substeps": 10,
+    "EPS": 1e-12,
+    "original_max_loss_steps": 1000,
+    "friction": 0.1,
+    "collide_type": "both"
+  },
+  "initial_template_sha256_before": "1b5c640c79c9990820ae6c7f9abc7b52768bc6cb8ee92ae776be4334a30b608b",
+  "initial_template_sha256_after": "1b5c640c79c9990820ae6c7f9abc7b52768bc6cb8ee92ae776be4334a30b608b",
+  "initial_template_unchanged": true,
+  "completed_utc": "2026-10-25T07:07:40Z"
+}

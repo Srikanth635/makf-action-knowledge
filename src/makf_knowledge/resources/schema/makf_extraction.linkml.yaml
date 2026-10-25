@@ -1,6 +1,6 @@
-id: https://w3id.org/aicor/extraction-contract/v0.1
+id: https://w3id.org/aicor/extraction-contract/v0.2
 name: makf_extraction_contract
-version: 0.1.0
+version: 0.2.0
 license: https://creativecommons.org/publicdomain/zero/1.0/
 description: >-
   Candidate extraction contract for generalized action knowledge.
@@ -204,6 +204,9 @@ enums:
       deviation:
   KnowledgeKindEnum:
     permissible_values:
+      benchmark_definition:
+      task_objective:
+      reported_observation:
       definition:
       stereotype:
       conditional_principle:
@@ -222,6 +225,7 @@ enums:
       speculative:
   EpistemicStatusEnum:
     permissible_values:
+      reported_observation:
       definition:
       stereotype:
       conditional_principle:

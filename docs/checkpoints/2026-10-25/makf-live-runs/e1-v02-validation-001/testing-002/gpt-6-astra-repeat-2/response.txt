@@ -1,0 +1,88 @@
+{
+  "assessments": [
+    {
+      "candidate_id": "valid-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports both the success measure and the reward component. The benchmark_definition and definition labels preserve the task-specific scope. Leaving the metric unmapped with a generic_description and an explicit class-gap note is appropriate."
+    },
+    {
+      "candidate_id": "valid-2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports pouring out the light blue liquid while retaining as much heavy white liquid as possible, including the component description. The candidate correctly represents a task objective rather than successful execution or a strategy. The unresolved objective mapping is candid."
+    },
+    {
+      "candidate_id": "valid-3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The complete quotation supports all three reported findings, including the fine-grained pouring conditions, the complex and non-convex landscapes, and the coupling of simulator gradients with optimization schemes. Both metadata and wording preserve the reported experimental scope. ObservationPattern fits the three reported-result components."
+    },
+    {
+      "candidate_id": "valid-4",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation explicitly defines direct control of cup position and rotation through x/y displacement and rotation. The statement and component remain within the reported control-interface definition. The generic description and acknowledged mapping gap are appropriate."
+    },
+    {
+      "candidate_id": "valid-5",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports both open-top cuboid cups and every listed variation: cup dimensions, inter-cup distance, and initial water volume. The candidate describes benchmark setup conditions without asserting effectiveness. Its actual component remains candidly unmapped; the reviewer note does not establish an additional class assignment."
+    },
+    {
+      "candidate_id": "valid-6",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the described cup manipulation through x/y displacement and rotation. Under this contract, strategy_description with proposed_strategy and conditional can express this abstract control method explicitly restricted to the reported task formulation, without asserting general effectiveness. The grounding note appropriately avoids assigning PouringStrategy restrictions not established by the passage."
+    },
+    {
+      "candidate_id": "invalid-1",
+      "evidence_complete": false,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The cited quotation states only the pouring task, not its fractional reward or success measure. The uncited reward sentence in the supplied source cannot complete the evidence; it must be included as asserts_claim support. The task-specific definition metadata and unresolved metric mapping are otherwise appropriate."
+    },
+    {
+      "candidate_id": "invalid-2",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the observation components but does not prove perfect pouring for every fluid. It reports near-oracle performance in most tasks and benefits from gradients coupled with optimization schemes. 'Proves,' 'always,' 'perfect,' and 'every fluid' exceed the experimental scope despite the conditional metadata. The component classes themselves fit reported observations."
+    },
+    {
+      "candidate_id": "invalid-3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": false,
+      "rationale": "The reward quotation supports the statement and component, and the definition metadata is appropriate. However, a benchmark reward metric is not a PouringStrategy or plan, and its description does not establish that class's telos and causal-model restrictions. A candid unresolved metric description would avoid this unsupported grounding."
+    },
+    {
+      "candidate_id": "invalid-4",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The statement reverses the cited objective: the source requires pouring out the light blue liquid, not retaining all of it. Although the component accurately describes the objective, it cannot rescue the contradictory statement or its source_paraphrase characterization. The generic objective component is appropriately left unmapped."
+    },
+    {
+      "candidate_id": "invalid-5",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the main reward statement but provides no evidence for a viscosity sensor or measurement in pascal seconds. That component introduces an unsupported measurement mechanism into a source-derived benchmark definition. The unresolved generic mapping does not itself assign an incorrect ontology class, but it cannot remedy the evidence and scope failures."
+    },
+    {
+      "candidate_id": "invalid-6",
+      "evidence_complete": false,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The quotation supports the three observation components, but never identifies viscosity as a failure cause, much less the sole cause of all pouring failures. The statement turns method-specific experimental findings into an unsupported universal causal conclusion. ObservationPattern remains suitable for the actual component descriptions."
+    }
+  ]
+}

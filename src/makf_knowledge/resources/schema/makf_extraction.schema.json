@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://w3id.org/aicor/extraction-contract/v0.1/json-schema",
+  "$id": "https://w3id.org/aicor/extraction-contract/v0.2/json-schema",
   "title": "makf_extraction_contract",
   "$ref": "#/$defs/ExtractionBatch",
   "$defs": {
@@ -172,6 +172,9 @@
         "knowledge_kind": {
           "type": "string",
           "enum": [
+            "benchmark_definition",
+            "task_objective",
+            "reported_observation",
             "definition",
             "stereotype",
             "conditional_principle",
@@ -203,6 +206,7 @@
         "epistemic_status": {
           "type": "string",
           "enum": [
+            "reported_observation",
             "definition",
             "stereotype",
             "conditional_principle",

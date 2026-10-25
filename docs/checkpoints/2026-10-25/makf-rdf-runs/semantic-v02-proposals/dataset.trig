@@ -1,0 +1,254 @@
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix paf: <https://w3id.org/aicor/pouring-frame#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pub: <https://example.org/makf/publication/0.1#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/makf/data/candidates-graph/db7619bfc126c779f9ec852fea952e3ef5460da2c2ce97820163e369dd919231> {
+    <https://example.org/makf/data/batch/f75c3f160664b15b5af983824cd77ae29550af0072654d4b3a4b5936adf4f386> a pub:Batch ;
+        pub:batchId "semantic-v02-source-reporting-proposals" ;
+        pub:claim <https://example.org/makf/data/claim/82a08b41b20a488722b667df5fadfd9604c7d47a461e06a04557291c60be1148>,
+            <https://example.org/makf/data/claim/8474f72cbdfc325aa4f18a5dfef37d437409cf95e581d9f4830259e5bc41ca2b>,
+            <https://example.org/makf/data/claim/d8d2f47e0e2b20b156c891258889882002df3e441abb08cdee605a03b5fe6273> ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975>,
+            <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:profileId "pouring-v0.1" .
+
+    <https://example.org/makf/data/component/074847771254ac1ccaee61e3fd1b5660b61a9b46bd33493daaf73a4515383ee5> a pub:Component ;
+        pub:componentId "metric" ;
+        pub:componentKind "generic_description" ;
+        pub:description "The reported PourWater reward is the fraction of water reaching the target cup." ;
+        pub:groundingNote "No offered class specifically describes a benchmark reward definition." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/4a612e7c033907598c690fee2f3734a9ea3a4039ac6411ae3e8edb0c61693b4c> a pub:Component ;
+        pub:componentId "o3" ;
+        pub:componentKind "observation_pattern" ;
+        pub:description "The differentiable simulator's gradient information, coupled with the proposed optimization schemes, provides informative optimization information when dealing with complex fluid systems in the reported evaluations." ;
+        pub:groundedClass makf:ObservationPattern ;
+        pub:groundingStatus "grounded" .
+
+    <https://example.org/makf/data/component/72eef0f93ca8b4aee81ada5f21a992868352b2c029396d920054ce4a80882210> a pub:Component ;
+        pub:componentId "goal" ;
+        pub:componentKind "generic_description" ;
+        pub:description "Reported task objective: pour out the light blue liquid while retaining as much heavy white liquid as possible." ;
+        pub:groundingNote "A benchmark task objective is not a strategy; no precise offered objective-description class has been established." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/c4ce25cfc41e2a457a3922c792578e17f4a2dce1f3107dac90bdc71629243c2b> a pub:Component ;
+        pub:componentId "o2" ;
+        pub:componentKind "observation_pattern" ;
+        pub:description "DP-H fails to produce good trajectories in pouring with a fine-grained control objective under scenarios with more complex and non-convex optimization landscapes in the reported evaluations." ;
+        pub:groundedClass makf:ObservationPattern ;
+        pub:groundingStatus "grounded" .
+
+    <https://example.org/makf/data/component/f163ace2e01f7dd9e7257db0c571cb7c46c49e28f87e417f259cd1a99f55ccd6> a pub:Component ;
+        pub:componentId "o1" ;
+        pub:componentKind "observation_pattern" ;
+        pub:description "CMA-ES struggles in fine-grained control tasks such as pouring in the reported evaluations." ;
+        pub:groundedClass makf:ObservationPattern ;
+        pub:groundingStatus "grounded" .
+
+    <https://example.org/makf/data/evidence/2c482dced1ab87bf906e2b22a614c6b210c73d2920b9106bcf1ee1092cdce76a> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> ;
+        pub:exactQuote """Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass
+while retaining as much white heavy liquid as possible.
+""" ;
+        pub:passage <https://example.org/makf/data/passage/220ef63320a075fe34d96a1e32c827e9da860bbbcebcaf5f0049d235dafcb227> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/evidence/639c62d07c4939487b0f5498e690435242c946d4c536e858c35a5c553e5a9a8c> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:exactQuote "reward is the fraction of water that is successfully poured into the target cup." ;
+        pub:passage <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/evidence/6b4d6e81f2aa1e11fa20c009e013862fa5086a01c9471df74bbbff7dd9a3f931> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> ;
+        pub:exactQuote """Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple
+spatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice
+Cream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action
+sequences via trajectory sampling, and thus cannot handle delicate interactions well.
+Differentiable physics-based trajectory optimization In most of the tasks, the gradients provided
+by our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than
+8
+
+Published as a conference paper at ICLR 2023
+
+other methods in most tasks. We additionally compare with a hard version of differentiable physics
+(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,
+but fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such
+as Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we
+proposed, provides informative optimization information when dealing with complex fluid systems.
+""" ;
+        pub:passage <https://example.org/makf/data/passage/db7121ca04e669d07471c6a349747e49345b2abec130976c96cfe40ccb54f845> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/review/a41f04e93bea36c72fc82534daf9bd837e8e0f7c4e431ad37f7ed1daa2ee4b38> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "b9b8ac3b0cdfa256878cf071e14dbbc43f6034c939f68f7bb5fa27c88d01c178" ;
+        pub:assesses <https://example.org/makf/data/claim/d8d2f47e0e2b20b156c891258889882002df3e441abb08cdee605a03b5fe6273> ;
+        pub:reviewState "pending" ;
+        pub:reviewerKind "system" .
+
+    <https://example.org/makf/data/review/a6242f77c23f3eb4bbfb1cd70c0acd500774b0a7096e07e344574d913f4429d3> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "b9b8ac3b0cdfa256878cf071e14dbbc43f6034c939f68f7bb5fa27c88d01c178" ;
+        pub:assesses <https://example.org/makf/data/claim/82a08b41b20a488722b667df5fadfd9604c7d47a461e06a04557291c60be1148> ;
+        pub:reviewState "pending" ;
+        pub:reviewerKind "system" .
+
+    <https://example.org/makf/data/review/bd5f182e825cca12b33512c6b34e5f233169a28cfcff765a4f323daa447b7985> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "b9b8ac3b0cdfa256878cf071e14dbbc43f6034c939f68f7bb5fa27c88d01c178" ;
+        pub:assesses <https://example.org/makf/data/claim/8474f72cbdfc325aa4f18a5dfef37d437409cf95e581d9f4830259e5bc41ca2b> ;
+        pub:reviewState "pending" ;
+        pub:reviewerKind "system" .
+
+    <https://example.org/makf/data/claim/82a08b41b20a488722b667df5fadfd9604c7d47a461e06a04557291c60be1148> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/e71d53726034b99f9bfd0ebbe3b962542236f0b4ea473e819fbd92207467d7cb> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "v02-fluidlab-reported-comparison" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "reported_observation" ;
+        pub:evidence <https://example.org/makf/data/evidence/6b4d6e81f2aa1e11fa20c009e013862fa5086a01c9471df74bbbff7dd9a3f931> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/4a612e7c033907598c690fee2f3734a9ea3a4039ac6411ae3e8edb0c61693b4c>,
+            <https://example.org/makf/data/component/c4ce25cfc41e2a457a3922c792578e17f4a2dce1f3107dac90bdc71629243c2b>,
+            <https://example.org/makf/data/component/f163ace2e01f7dd9e7257db0c571cb7c46c49e28f87e417f259cd1a99f55ccd6> ;
+        pub:knowledgeKind "reported_observation" ;
+        pub:modality "conditional" ;
+        pub:perspective "observational",
+            "procedural" ;
+        pub:review <https://example.org/makf/data/review/a6242f77c23f3eb4bbfb1cd70c0acd500774b0a7096e07e344574d913f4429d3> ;
+        pub:statement "In the reported evaluations, the differentiable-simulation method coupled with the proposed optimization schemes is described as providing informative optimization information for complex fluid systems, while CMA-ES is reported to struggle in fine-grained control tasks such as pouring and DP-H is reported to fail in pouring with a fine-grained control objective under more complex and non-convex optimization landscapes." .
+
+    <https://example.org/makf/data/claim/8474f72cbdfc325aa4f18a5dfef37d437409cf95e581d9f4830259e5bc41ca2b> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/e71d53726034b99f9bfd0ebbe3b962542236f0b4ea473e819fbd92207467d7cb> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "v02-fluidlab-task-objective" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "definition" ;
+        pub:evidence <https://example.org/makf/data/evidence/2c482dced1ab87bf906e2b22a614c6b210c73d2920b9106bcf1ee1092cdce76a> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/72eef0f93ca8b4aee81ada5f21a992868352b2c029396d920054ce4a80882210> ;
+        pub:knowledgeKind "task_objective" ;
+        pub:modality "conditional" ;
+        pub:perspective "procedural" ;
+        pub:review <https://example.org/makf/data/review/bd5f182e825cca12b33512c6b34e5f233169a28cfcff765a4f323daa447b7985> ;
+        pub:statement "The reported FluidLab fine-grained pouring task aims to pour light blue liquid out of the glass while retaining as much heavy white liquid as possible." .
+
+    <https://example.org/makf/data/claim/d8d2f47e0e2b20b156c891258889882002df3e441abb08cdee605a03b5fe6273> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/e71d53726034b99f9bfd0ebbe3b962542236f0b4ea473e819fbd92207467d7cb> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "v02-softgym-reward-definition" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "definition" ;
+        pub:evidence <https://example.org/makf/data/evidence/639c62d07c4939487b0f5498e690435242c946d4c536e858c35a5c553e5a9a8c> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/074847771254ac1ccaee61e3fd1b5660b61a9b46bd33493daaf73a4515383ee5> ;
+        pub:knowledgeKind "benchmark_definition" ;
+        pub:modality "conditional" ;
+        pub:perspective "observational" ;
+        pub:review <https://example.org/makf/data/review/a41f04e93bea36c72fc82534daf9bd837e8e0f7c4e431ad37f7ed1daa2ee4b38> ;
+        pub:statement "For the reported PourWater task, the success measure is the fraction of water successfully poured into the target cup." .
+
+    <https://example.org/makf/data/run/e71d53726034b99f9bfd0ebbe3b962542236f0b4ea473e819fbd92207467d7cb> a prov:Activity,
+            pub:ExtractionRun ;
+        pub:engine "assistant-authored semantic migration proposals; not a new live extraction" .
+}
+
+<https://example.org/makf/data/sources-graph/241a8ebc816b2f878046b9f92e4094044d535d842970a9720160d1e40edfda87> {
+    <https://example.org/makf/data/passage/5e22056cbbaf60ce2bcf80a4af6105dd51665b79d7490d042f075eab2599febc> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14" ;
+        pub:passageId "pouring-variations" ;
+        pub:text """PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are
+modeled as cuboids without the top face. We vary the height, length, and width of both cups, the
+distance between the controlled cup and the target cup, as well as the volume of water in the controlled
+cup. """ .
+
+    <https://example.org/makf/data/passage/64cf4ba42d8b514d0534d51d653f53a5764df2b36bb7b1d95ff477f0405cc96a> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3" ;
+        pub:passageId "fluid-model" ;
+        pub:text """Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant
+density constraint is applied to each particle to enforce the incompressibility of the fluid. For each
+particle, the constant density constraint is based on the position of that particle, as well as the positions
+of its neighboring particles.
+""" .
+
+    <https://example.org/makf/data/passage/76afb103f89ed9767ee6b96652236663029b67023785f72b8778d9a2556241c9> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> ;
+        pub:locator "arXiv 2303.02346v1, Appendix B.2, loss and reward, PDF pages 15-15" ;
+        pub:passageId "pouring-loss" ;
+        pub:text """Transporting, Pouring, Gathering (Easy) and Gathering (Hard): These tasks use a single spatial
+location as the goal and the loss is computed as: L = Σi kpi − pgoal k, which is summed over all
+particles of the object(s) to be manipulated. For Pouring, we apply this loss between the particles
+of the upper layer fluid and the ground location, with an additional loss attracting the particles of the
+lower layer fluid to their initial positions.
+""" .
+
+    <https://example.org/makf/data/passage/220ef63320a075fe34d96a1e32c827e9da860bbbcebcaf5f0049d235dafcb227> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> ;
+        pub:locator "arXiv 2303.02346v1, Section 4.1, task details, PDF pages 5-5" ;
+        pub:passageId "pouring-task" ;
+        pub:text """Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass
+while retaining as much white heavy liquid as possible.
+""" .
+
+    <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4" ;
+        pub:passageId "pourwater-task" ;
+        pub:text """PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation
+of the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing
+the displacement of the cup in the x, y dimension and its rotation around its geometric center. The
+reward is the fraction of water that is successfully poured into the target cup.
+""" .
+
+    <https://example.org/makf/data/passage/db7121ca04e669d07471c6a349747e49345b2abec130976c96cfe40ccb54f845> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> ;
+        pub:locator "arXiv 2303.02346v1, Section 5.2, reported optimization results, PDF pages 8-9" ;
+        pub:passageId "trajectory-optimization" ;
+        pub:text """Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple
+spatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice
+Cream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action
+sequences via trajectory sampling, and thus cannot handle delicate interactions well.
+Differentiable physics-based trajectory optimization In most of the tasks, the gradients provided
+by our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than
+8
+
+Published as a conference paper at ICLR 2023
+
+other methods in most tasks. We additionally compare with a hard version of differentiable physics
+(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,
+but fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such
+as Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we
+proposed, provides informative optimization information when dealing with complex fluid systems.
+""" .
+
+    <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> a pub:SourceSnapshot ;
+        dct:title "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation" ;
+        pub:documentId "lin-etal-softgym-arxiv-2011.07215v2" ;
+        pub:passage <https://example.org/makf/data/passage/5e22056cbbaf60ce2bcf80a4af6105dd51665b79d7490d042f075eab2599febc>,
+            <https://example.org/makf/data/passage/64cf4ba42d8b514d0534d51d653f53a5764df2b36bb7b1d95ff477f0405cc96a>,
+            <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> ;
+        pub:sourceURI "https://arxiv.org/abs/2011.07215v2" ;
+        pub:syntheticDemo false .
+
+    <https://example.org/makf/data/source/23d77443424539f361d8cb419ebb2fe8bcf80fb8cb1daa85dafc001fdd291975> a pub:SourceSnapshot ;
+        dct:title "FluidLab: A Differentiable Environment for Benchmarking Complex Fluid Manipulation" ;
+        pub:documentId "xian-etal-fluidlab-arxiv-2303.02346v1" ;
+        pub:passage <https://example.org/makf/data/passage/220ef63320a075fe34d96a1e32c827e9da860bbbcebcaf5f0049d235dafcb227>,
+            <https://example.org/makf/data/passage/76afb103f89ed9767ee6b96652236663029b67023785f72b8778d9a2556241c9>,
+            <https://example.org/makf/data/passage/db7121ca04e669d07471c6a349747e49345b2abec130976c96cfe40ccb54f845> ;
+        pub:sourceURI "https://arxiv.org/abs/2303.02346v1" ;
+        pub:syntheticDemo false .
+}
+

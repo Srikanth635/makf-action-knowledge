@@ -1,0 +1,659 @@
+{
+  "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "files": [
+    {
+      "path": "environment.yml",
+      "sha256": "e7df3e25cb1062e7a8131ca78e8bfe9442176ad9ececc98d4e6d9dbeccdf8844",
+      "git_blob": "90c7c603ffea7c06808facd44806d1297ad643e5",
+      "bytes": 6937
+    },
+    {
+      "path": "fluidlab/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "fluidlab/assets/meshes/processed/glass-128.sdf",
+      "sha256": "afa0ed88bb7404b6be7d8d916f3d5551f0dcde3c8cf875e7a870b196d2e2fb34",
+      "git_blob": "9abe8a390af49c1e0d732cae98e629f5bd091e16",
+      "bytes": 8389016
+    },
+    {
+      "path": "fluidlab/assets/meshes/processed/glass-glass_vis.obj",
+      "sha256": "84b0e580ba51204aabd9b9d364dc01f064a36033a14382f6339675877e17fe97",
+      "git_blob": "cf5bcf44ae842a334533d31e4000bfa56c832fb6",
+      "bytes": 3118443
+    },
+    {
+      "path": "fluidlab/assets/meshes/raw/glass.obj",
+      "sha256": "e066c0e9a09feca418f6828c173d39954c05206f8f76953b4a9a32ecc1727591",
+      "git_blob": "42cd291b7622b0e87b64e7901d5ffa1d0dba9a44",
+      "bytes": 3080937
+    },
+    {
+      "path": "fluidlab/assets/meshes/raw/glass_vis.obj",
+      "sha256": "882a5d928190d1ed409dac7f1212243763181b3e716a5dfdb31c7e9756b75f9e",
+      "git_blob": "90af8cb965c828a1eb3097b7c37df1832f055cdc",
+      "bytes": 3077702
+    },
+    {
+      "path": "fluidlab/configs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "fluidlab/configs/default_config.py",
+      "sha256": "da5df86e49c8ef6ffac30705350426a9117870f22e44b93a3e607fd8d50ab996",
+      "git_blob": "5b7b912955836879336513f3fde39a7407fd404b",
+      "bytes": 1082
+    },
+    {
+      "path": "fluidlab/configs/exp_circulation.yaml",
+      "sha256": "fc4f16129e199e9d605d6b8d6409a1e09b0107efcbd1009532995914a64b8581",
+      "git_blob": "b431fd02e06c593367f77b1b2aef1e3014de02ca",
+      "bytes": 371
+    },
+    {
+      "path": "fluidlab/configs/exp_gatheringO.yaml",
+      "sha256": "5a42fbab1fe665c926d0f7d8d3081cbab6695977cd9c8dbe3b8f5809198245bd",
+      "git_blob": "940b42ce1d47b5806afd3e7c94cb8eb4319bd846",
+      "bytes": 242
+    },
+    {
+      "path": "fluidlab/configs/exp_gathering_dph.yaml",
+      "sha256": "fc494ce897db77164fdf2286d67c9d20ba0fc1531aa640735378076d648ad6f1",
+      "git_blob": "fb6daa4ab106cd05a28b159a376f086b2158869f",
+      "bytes": 240
+    },
+    {
+      "path": "fluidlab/configs/exp_gathering_easy.yaml",
+      "sha256": "2a24c226f0ad9d9350ef5078b3cf3b242a9cc41475138725bd638de422484856",
+      "git_blob": "66cb60cf1b64cf9b7e3106b8424e69f5ee5da371",
+      "bytes": 244
+    },
+    {
+      "path": "fluidlab/configs/exp_icecream_dynamic.yaml",
+      "sha256": "2869c3a5bd5e68e457a9acadaec3cf8a77a3df145afea05399d080ce4f174a72",
+      "git_blob": "04bcd050e1af5f047eebb156c6328038341852f3",
+      "bytes": 245
+    },
+    {
+      "path": "fluidlab/configs/exp_icecream_static.yaml",
+      "sha256": "3261eea6c7a3a4e97569846b269a125c6ac0971045ea183177d3bfc8a6a9e8e1",
+      "git_blob": "ec22d25d322c18a93c0b8275038adf656f3d4048",
+      "bytes": 252
+    },
+    {
+      "path": "fluidlab/configs/exp_latteart.yaml",
+      "sha256": "72dba2896dab0dee05edbba4284de71e0a9bb1f8d69d959302cf6075786f2ea9",
+      "git_blob": "fbdc33bf8a9149406a896cdcbe3054f8b7241217",
+      "bytes": 239
+    },
+    {
+      "path": "fluidlab/configs/exp_latteart_dph.yaml",
+      "sha256": "5250776dffe40c77dbad9f810ca78b39bf5772f320479e043f79c253d6747a68",
+      "git_blob": "d815cae412bfe3130df19f3a425364962e0986d7",
+      "bytes": 239
+    },
+    {
+      "path": "fluidlab/configs/exp_latteart_stir.yaml",
+      "sha256": "f7cf0e352cd9e337da10d7483b5482657658db9e0398619455c32e19de227697",
+      "git_blob": "c1bebc4a82a8230175a1330ea6ae3e4e27879037",
+      "bytes": 242
+    },
+    {
+      "path": "fluidlab/configs/exp_mixing.yaml",
+      "sha256": "41feb207291fb088ade5da7c6e49765cac4ac1191c844d590efa3b2e16a7a411",
+      "git_blob": "b9797777a11df6cff509e9d9671d6728fe772ca8",
+      "bytes": 235
+    },
+    {
+      "path": "fluidlab/configs/exp_pouring.yaml",
+      "sha256": "7d9a3b3252017965ee433e13ebf73f6a7130c822ffbd27b8ff9a5a1aa8316417",
+      "git_blob": "9ae7014aecbdb3a45d5ea20498ae954ce5cb032e",
+      "bytes": 326
+    },
+    {
+      "path": "fluidlab/configs/exp_scooping.yaml",
+      "sha256": "468c5e3061ae9808d635e5aac54bc92d78b20ddf73c75288d69a868954fa24ff",
+      "git_blob": "c39271033a13977105a4d586ad0557393aa583e6",
+      "bytes": 306
+    },
+    {
+      "path": "fluidlab/configs/exp_transporting.yaml",
+      "sha256": "b6116006a570b4034c4b3d8bcd01e3e865cf21db9198db881e7b09018b17ef2a",
+      "git_blob": "5c6b50154870757d2a62da311a108d66d9b67c31",
+      "bytes": 299
+    },
+    {
+      "path": "fluidlab/configs/macros.py",
+      "sha256": "b99e4f50ebbff6ab8abdc38f5134c4c96e7654753a9d667c390486fc39ab0522",
+      "git_blob": "0ce3f2dbf63a773818f98ca2e857f70a7e338576",
+      "bytes": 5691
+    },
+    {
+      "path": "fluidlab/envs/__init__.py",
+      "sha256": "1737e6e76453b3fcbffe5d8f81f4fedfb18f5a4be9094400757e4256207ca15f",
+      "git_blob": "9648f8a2aeae522810f387c5a73574b083add9af",
+      "bytes": 494
+    },
+    {
+      "path": "fluidlab/envs/circulation_env.py",
+      "sha256": "62fdd0255cf162030978044279fd1b390cd051d5ae7e379f57e954845b87fa87",
+      "git_blob": "651848121d31acdd2cc720fca12eb3d39dbda7c4",
+      "bytes": 4006
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_circulation.yaml",
+      "sha256": "1bb1652c3160c2d1064985ab69c8ef4279a25b528093d160f50c8cf408b6f163",
+      "git_blob": "30306119763b0a27e6664418357b6c0ebf452d98",
+      "bytes": 341
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_demosmoke.yaml",
+      "sha256": "6fd3d647f3a6e928f5397987d2cd7307b6e42cff52ab052d0e53ff7b1b9b8c64",
+      "git_blob": "0b01ee0cce7d2d4d9b70365eb83538dfa94b59c8",
+      "bytes": 379
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_gatheringO.yaml",
+      "sha256": "79044c1ba64ca79706dadd7883d5725227103a6be2d511bc328388d7841bc231",
+      "git_blob": "0bf1d5f9476d596f1511af446699e50f20774a3b",
+      "bytes": 447
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_gatheringeasy.yaml",
+      "sha256": "8eadd8bf04d052bf5ac1cc1693abf63c8f942de43992407c808196853b431e31",
+      "git_blob": "230974c2f7e97b3e5eadf7ba1d23dd07199cd2f5",
+      "bytes": 447
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_icecreamdynamic.yaml",
+      "sha256": "2c300400d4f2f929835d7d27dd5ca20cbbef06aa53e1ce6232007cabb7719b15",
+      "git_blob": "7ee5ef697954062cf5a81c2b971166dd5406e51e",
+      "bytes": 904
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_icecreamstatic.yaml",
+      "sha256": "511dfd549faa5361fca7effe2ab822a466babbb375cce916e8374594f4631d91",
+      "git_blob": "d8c8a13ec076de8e516b98caa99be1219e35c359",
+      "bytes": 379
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_latteart.yaml",
+      "sha256": "8ccfd857eb65e215dea3124147e4db9506c115830f73c26286facd38442a22c1",
+      "git_blob": "6f566737971b0e7103efb3e7c4616bcf60862ef5",
+      "bytes": 548
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_latteartstir.yaml",
+      "sha256": "eaeec352a032b53d7c76fab185a79d717986dd73a0d8dae1555eaf18b3218e05",
+      "git_blob": "fb88bb102d98794c522af384d07eb881ab19ee74",
+      "bytes": 466
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_mixing.yaml",
+      "sha256": "e8858575cad3ee531fa3fda605310f60fabad400bcd7ff2d1d481c2a9c5c4248",
+      "git_blob": "1dcaf17ade503dd8b0bd6e8606ddcfec9ccb0f39",
+      "bytes": 466
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_pouring.yaml",
+      "sha256": "ecf5da814b170530ebf8343aa6d7eda566604f2183e2f37d5e2f9e87ea3b76e9",
+      "git_blob": "0392509724d056ee60964e9ebc397b8147be3340",
+      "bytes": 589
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_scooping.yaml",
+      "sha256": "8cbc1a9b034149a6d6ced85a14116d93724e49498f75fc892829a787eafbcb3b",
+      "git_blob": "4398e18056719a01907b0c2526bfbb04db4cdee9",
+      "bytes": 430
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_transporting.yaml",
+      "sha256": "b1c715c5773bede4d40112a13eed0726c323721f259b34cc3f4472177adee189",
+      "git_blob": "4f350094d244703b73517822d860cf6e5b411f15",
+      "bytes": 687
+    },
+    {
+      "path": "fluidlab/envs/fluid_env.py",
+      "sha256": "bdee1428ae2787ed8e5389044b7d6b1247fbe11eac7e165e4b19025d7c33aa85",
+      "git_blob": "9a9f54954aa0247995e4768f1fa4f695a2d922fb",
+      "bytes": 4757
+    },
+    {
+      "path": "fluidlab/envs/gatheringeasy_env.py",
+      "sha256": "f892952b8d86461a1aa7372650d2b0238203fc4f6bd2498d2d44aeb18088a55e",
+      "git_blob": "d3509c3c523bfab4c928aec353ec7ee507952ae3",
+      "bytes": 3871
+    },
+    {
+      "path": "fluidlab/envs/gatheringo_env.py",
+      "sha256": "d4c29836ee31a333e9d386d796ee383885816340a34bb4c99b2e946b472164fe",
+      "git_blob": "ab2454932ddf5973b9bbb10a513d5a945edeffcb",
+      "bytes": 4239
+    },
+    {
+      "path": "fluidlab/envs/icecreamdynamic_env.py",
+      "sha256": "0b4ee7020a51b1f185948fd652de0107573a2420072af154a3110bfb6c05dc1b",
+      "git_blob": "51a4f9d0e0ee676b8dff024153b00565f0efc0de",
+      "bytes": 6276
+    },
+    {
+      "path": "fluidlab/envs/icecreamstatic_env.py",
+      "sha256": "4f195e0547106d463d33532ca1d31ec940ccc29c10cd82f6ed7e1dbb9d0c936a",
+      "git_blob": "b9c9a374c1ffb243cc6cb778f9ab6462f894223f",
+      "bytes": 5000
+    },
+    {
+      "path": "fluidlab/envs/latteart_env.py",
+      "sha256": "6a96ddcb0f738e6667de6ef6acc97b98b59e6373dfde9bbcc7e1c31582cf6914",
+      "git_blob": "99a5f96de1861f2b0dc45fe7a72d2eafcf3b5daf",
+      "bytes": 5015
+    },
+    {
+      "path": "fluidlab/envs/latteartstir_env.py",
+      "sha256": "384acbf8f621f5bc7baef80fcd0b874ad7e95d877369c5d14c37d7ddc94a78a5",
+      "git_blob": "884435a872fcc210e0aa5c32326eb58dd9e2ec9a",
+      "bytes": 19564
+    },
+    {
+      "path": "fluidlab/envs/mixing_env.py",
+      "sha256": "a7d098d4011b28045beec58871c06fa4e0d4bf39cfb4d568feced260f3728b93",
+      "git_blob": "ab0f28185b16a1012ab579c5649484c8d1177582",
+      "bytes": 19144
+    },
+    {
+      "path": "fluidlab/envs/pouring_env.py",
+      "sha256": "85329d1dffe689d5ca7518a9a5de467f3a6219f92e338b026a7091baca1b329f",
+      "git_blob": "5d0bd292872981dab93c81abe9a54db8c36b9b41",
+      "bytes": 2988
+    },
+    {
+      "path": "fluidlab/envs/transporting_env.py",
+      "sha256": "3d07346cef6a0a639f166724dd88a572b2cbb19d6ab4115e651c2937e1ab770f",
+      "git_blob": "5393a22135b638e56ac8a865c01cad164ab55a54",
+      "bytes": 4163
+    },
+    {
+      "path": "fluidlab/fluidengine/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/__init__.py",
+      "sha256": "1a28317d7848c6a193b8ee286777cf4933564f2d77f31e3c1a4ba4b2081ab62f",
+      "git_blob": "c67808b4b25efb688aad3f60484af2e8aec06022",
+      "bytes": 184
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent.py",
+      "sha256": "aa56c6bc90f3994202cfe33be4f343cc8d5e491d79c4754604c63139580d1650",
+      "git_blob": "8de27979f71ebee7d5183d3ee91c547b3110eb13",
+      "bytes": 5191
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_circulation.py",
+      "sha256": "29103edd624de047607d36070809a0dc802401e42c4c28f9a08f015e46530fc8",
+      "git_blob": "a98720238cbf26d5a063d3ad11a8e1f730a7d9bb",
+      "bytes": 588
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_icecreamdynamic.py",
+      "sha256": "787a00d7fcc02022b7741a23d2683aaddcdd6441a9c4f7c49de0ce047d7149cd",
+      "git_blob": "756351adcba0763bf9b16c06fca00427c754c8f3",
+      "bytes": 2773
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_injector.py",
+      "sha256": "b1d2bf7c328320ff3498eed5a54932335bde9b6eefe3f64f38dbdb8a2422963d",
+      "git_blob": "c4f03dd21907e04bf1759f905ac3a0755bdc5077",
+      "bytes": 1169
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_jetbot.py",
+      "sha256": "072720cbc072629b7794a6d1bd1c0849ce715bbcbb8ab4f6b1d2da0e71531ead",
+      "git_blob": "abcafb3845c56072657538e4b1bb6f3d4f4509c0",
+      "bytes": 1669
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_pouring.py",
+      "sha256": "e2f6e767659d8163cb17a97ceb2d44989196c81393a11ec9e9c1e6cfc5d3af6a",
+      "git_blob": "8c5f68365a203e33cbd0908b7e9461d01d273648",
+      "bytes": 1713
+    },
+    {
+      "path": "fluidlab/fluidengine/agents/agent_rigid.py",
+      "sha256": "f6b8b40e42a870189e223eba7a86b2080c294cf339c76e8bef7484356fef507c",
+      "git_blob": "d2faf4ef5da3ad01a796b79210bd575d16a773e0",
+      "bytes": 602
+    },
+    {
+      "path": "fluidlab/fluidengine/bodies/__init__.py",
+      "sha256": "2de8046845bbd4f15b409386591311da5ff638ea07c87bf929ab1b26f404dca2",
+      "git_blob": "03c9cd23e8c3e18dacdc09bec3dce68abec6f778",
+      "bytes": 26
+    },
+    {
+      "path": "fluidlab/fluidengine/bodies/bodies.py",
+      "sha256": "5c3b0c17e58a317d70e0379b24343f78f0680ffce54b225d4d9d92691b82bb35",
+      "git_blob": "d3df11cfa9aae6943f42464b7a2fe6efe393b56b",
+      "bytes": 9538
+    },
+    {
+      "path": "fluidlab/fluidengine/boundaries/__init__.py",
+      "sha256": "ad87207a0ebe4196011c24b7a4d080d9dbd1c344c65b26afbbb7370241d189a0",
+      "git_blob": "db5975abd274888bc0cd69ca5e1220d81338d400",
+      "bytes": 25
+    },
+    {
+      "path": "fluidlab/fluidengine/boundaries/boundaries.py",
+      "sha256": "270da58fac401e5ccf3f1871463f10bb62632fcaa224e7ea545ddb53639deba1",
+      "git_blob": "6e24545417781e219e96944d2da1536332d87cfd",
+      "bytes": 4206
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/__init__.py",
+      "sha256": "fbe0761f99f19fb14534b1af2cb4052ab61f73db3a43bddd63bbfa610c637cfb",
+      "git_blob": "4db5047f3b920588bac152790eb5dce7967ed359",
+      "bytes": 91
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/aircon.py",
+      "sha256": "8ebd4790f998714582090ce351c559b15da5cc84017080e5b54b83ae0720aafb",
+      "git_blob": "6d61b6111913e14c1fc230230707f4a257f79f7f",
+      "bytes": 7696
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/effector.py",
+      "sha256": "434ef69e46c17de50f8117e9f7c03c1bfd2e31d1a85108160fefd4fe43645f19",
+      "git_blob": "89b465605ce7aab89405ffa7ee190c25df2e1609",
+      "bytes": 10583
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/injector.py",
+      "sha256": "6edf33dfa77fff3d8ef9dff4aa0932ee66011cc5f7df4c297d56dbaca9b647fb",
+      "git_blob": "fa82ce16263c69a1acd7bb4425440697398a2d10",
+      "bytes": 9680
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/rigid.py",
+      "sha256": "38292dfe91d12bb61aaf1114b86a80a4a1674d6c35101ddd66308a8399755e7f",
+      "git_blob": "074537897276bd7cdd118cab13cf98174488cea0",
+      "bytes": 1140
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/__init__.py",
+      "sha256": "b59d782f1a0d4c9cc4b44ac8958c2aa4451c1c3ef2c0d88ffad79fe77723b9dc",
+      "git_blob": "be760b6a3ef8bfde07f7bdb33face73c8f2d59ea",
+      "bytes": 367
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/circulation_loss.py",
+      "sha256": "24472fb8148b3c6b94ed020574bd76ad2ae88ef8ff6167e73b793957dca5d708",
+      "git_blob": "0126bb75cd7dcb864dc3bb510f4cbf11f8289ab3",
+      "bytes": 4942
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/gatheringO_loss.py",
+      "sha256": "028f461d730015564b8c82ad4e9a898d79c97f1ebc85d47f9c9cd1133142630e",
+      "git_blob": "7f86a2c2b14068c98b3aa236d8d1cbbc06ed6ead",
+      "bytes": 4646
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/gatheringeasy_loss.py",
+      "sha256": "55e206090b525d151afb1586dd6cc54293d34cf2e12ad43fe18f1b4a1c29428e",
+      "git_blob": "98eff1244a12627358bb364c077f546d100bdccd",
+      "bytes": 4621
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/icecreamdynamic_loss.py",
+      "sha256": "e65ef4893a612a194b1a7a87199c4ebf30bdd9a9b464b838a07365ef8c9d5df3",
+      "git_blob": "109994a0da1edc13dd8c239b7973868657ecf6b2",
+      "bytes": 1670
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/icecreamstatic_loss.py",
+      "sha256": "639c0b4151819c1b027cad174a632c573873d0b00683d5fb348c510187236aa6",
+      "git_blob": "15dd323e8c3cd015a2791171d0c6abd91502d800",
+      "bytes": 2610
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/latteart_loss.py",
+      "sha256": "b6e2c222c5d8f421748e1f32e0cd5f7f8176fcb7b1863565722e649d3861c1e0",
+      "git_blob": "638a0fe426bc89a7aa50349adb90e6f0b6b1a414",
+      "bytes": 1400
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/latteartstir_loss.py",
+      "sha256": "9d1fce628c2689b28e0afb4e0cb9e876b7997bee0e2d2bec76766b0ed3d9b46a",
+      "git_blob": "79fe7fa567d83b921f4a01eca5329959e8b0665a",
+      "bytes": 3586
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/loss.py",
+      "sha256": "b5dc6193127c7cd95f52aedf3873141e3d0cb5fdceb4db66a4036d3c37ecf61e",
+      "git_blob": "a2c1744493dc7b425a36c214651ff8687ef96913",
+      "bytes": 2277
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/mixing_loss.py",
+      "sha256": "f65635d1973251e21f1027a4e3669966f3bb47fc8c14723b63dbe0d05cc955ec",
+      "git_blob": "c61f717bc9493432cf6a0c9c1236b893707c3666",
+      "bytes": 4530
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+      "sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+      "git_blob": "3aa9cc65418d073e05a309d493e0a07227812cfd",
+      "bytes": 7812
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/rltest_loss.py",
+      "sha256": "a5ee33613e8b3c10161dbd75e490e1d868470089815a55ae4b58e35bd96a82be",
+      "git_blob": "a35e25140441bff8ff59f247420f97830b48ad53",
+      "bytes": 1618
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/shapematching_loss.py",
+      "sha256": "8d6514ad10b91ddb7667a56297e6ef2d301662806d5649f576b92955014e2213",
+      "git_blob": "c04a09c6e53f4fdb343a0c322ced7d67276ac879",
+      "bytes": 4976
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/transporting_loss.py",
+      "sha256": "0bb8ee0a9cedc0d01e1155b75b53763139b278968a11698be74f3ec0c06a6118",
+      "git_blob": "5b9e87f13c08f9bf4c9b15810aab204a09e3f165",
+      "bytes": 5925
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/__init__.py",
+      "sha256": "14d13c7642bc3b38397a9f1b5230570c6cd6ce015c92656ba2a4fd21d91c4485",
+      "git_blob": "1b00be3a2dad1bdf03790b55461c071b26af9ac9",
+      "bytes": 107
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/dynamic.py",
+      "sha256": "9f1524acb8e4333495caa77f75fd6231586617688ea72511dfeab412a5245991",
+      "git_blob": "dee47c250952c3df34c1d25b83aff61f91abcf0b",
+      "bytes": 6579
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/mesh.py",
+      "sha256": "498590a3b099b316ea8107c67a2e920d35cc1d8557dc289731595667637db147",
+      "git_blob": "c9da32a7edbf3162f81898a8c9b9f47c7235cc5c",
+      "bytes": 5823
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/static.py",
+      "sha256": "545b74cd794fafb194b2685b1b9c3ada134b4d7bb58519e0356c17fc01e87380",
+      "git_blob": "ddea5602de4234afa2d2b84f247c3a19743340c3",
+      "bytes": 3915
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/statics.py",
+      "sha256": "72f667a0162755a5f13992ea196c112f4b242570db8468ccfdadd2d31b04f483",
+      "git_blob": "fb5355c20f407e016857fe168ad308bd181602d0",
+      "bytes": 447
+    },
+    {
+      "path": "fluidlab/fluidengine/renderers/__init__.py",
+      "sha256": "1d66d68596a61602a45e6a4ded3efe604d2439c94c5c6898c117f4b3e8d1d6d2",
+      "git_blob": "33cf66f050c4cb03a492674c01bdcb96da047411",
+      "bytes": 151
+    },
+    {
+      "path": "fluidlab/fluidengine/renderers/ggui_renderer.py",
+      "sha256": "d5ea646869fd529cbea4040caaff0a50cc8053a4b445b4959fd56d2a923d3bfc",
+      "git_blob": "0c825b45e6a1b444e3dcab7b642852d77140b79f",
+      "bytes": 9415
+    },
+    {
+      "path": "fluidlab/fluidengine/renderers/gl_renderer.py",
+      "sha256": "84723a402564e3a687d4d5982f588192c50511406e570f3363c1f2e8b8957ad8",
+      "git_blob": "e9a99acce2dcf87c00701f8c5ea4da03921d0f1a",
+      "bytes": 8815
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/__init__.py",
+      "sha256": "461fcef92531c1a69b623304d9b7f1f4b9c3ffaab9478991667043b51c00f608",
+      "git_blob": "29144701a31721036b7e037e205676c475efcfab",
+      "bytes": 76
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "sha256": "a5214be504124940399e3f06021bf4479c293790172ed3d185c36a1495c82b95",
+      "git_blob": "2407e56618841f9e14d7b774308bb37146092f28",
+      "bytes": 39313
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/smoke_field.py",
+      "sha256": "73219ba656d0537aa75f33b69c59303cec3dd887a32333912e3f2358a603c81f",
+      "git_blob": "74878004637b293640b24a8777de7592a609d793",
+      "bytes": 18609
+    },
+    {
+      "path": "fluidlab/fluidengine/taichi_env.py",
+      "sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+      "git_blob": "f7a6755503e4dcd2ffa869c46bfdc8bc4033bb93",
+      "bytes": 7037
+    },
+    {
+      "path": "fluidlab/optimizer/__init__.py",
+      "sha256": "0e127af2d0470c3c11f1ffcf218b0fe6623fcbfe2ae2976829856b19a62795a2",
+      "git_blob": "a9538c6179399c4f773c1d00eb9f00fbaed0737f",
+      "bytes": 26
+    },
+    {
+      "path": "fluidlab/optimizer/optim.py",
+      "sha256": "2a0b7556adc0ce0a29de6166b631e2065df4dbf91e1be3a0561f95cb4b06e856",
+      "git_blob": "de4c69bac14bdf926c4a2bf7a3cbe2a860e880d2",
+      "bytes": 1475
+    },
+    {
+      "path": "fluidlab/optimizer/policies.py",
+      "sha256": "f268802924d52676cc37242569f030525e76cf9f8b693b0c8e3794f5aa6631bf",
+      "git_blob": "70273fdc8c7bf70a8e0135ea713cb32da93eadf1",
+      "bytes": 13294
+    },
+    {
+      "path": "fluidlab/optimizer/recorder.py",
+      "sha256": "4cd97606486598fbcea971ed5cf06dadc32b7b3cb6872537d51a15f4dcfdbfe8",
+      "git_blob": "837d6102aceebfaf8a570a089611fe4233c29c16",
+      "bytes": 3664
+    },
+    {
+      "path": "fluidlab/optimizer/solver.py",
+      "sha256": "ae6b67a3f96ec7c23ee26094df4ce2b6aa3a1d06552bd89178a73f1b75af21a4",
+      "git_blob": "cced174d5c4bf0bc98a3567fe2e5e7cc519b2051",
+      "bytes": 3509
+    },
+    {
+      "path": "fluidlab/run.py",
+      "sha256": "3cfbf70ac146147deed569a52173dcb935d6d116a717070a9bfeccfa29507eae",
+      "git_blob": "33d879e7f822b71bbad31ac5d8516bec4047a791",
+      "bytes": 2539
+    },
+    {
+      "path": "fluidlab/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "fluidlab/utils/cleanup_tmp.py",
+      "sha256": "5e78d1a2b00d76c1b582e2c7a8e9230336a7d7fda19dcc102675d0aed2aef825",
+      "git_blob": "370b6f577b4bca7c2d3111b3a6b8fc65de80aaac",
+      "bytes": 95
+    },
+    {
+      "path": "fluidlab/utils/config.py",
+      "sha256": "26c59ac7b787e1c34d6e28cdc1bb8be8987a50f860e1a9bbe377547e9d3e7f36",
+      "git_blob": "9a7420a59608f2f8b5617f3b808035ec45bf66b4",
+      "bytes": 1541
+    },
+    {
+      "path": "fluidlab/utils/geom.py",
+      "sha256": "d1385077846cdad5133ae168c795096ba9c058a92d083032d27cf21c36761f9f",
+      "git_blob": "7413ffaa51d31b4bc9e55eda35f307ef837a54af",
+      "bytes": 3843
+    },
+    {
+      "path": "fluidlab/utils/ggui_color_picker.py",
+      "sha256": "0e60aa69a4787557d36cb6abd66ba9c83b64ae27ac497cbd22d11c9836f6a2ef",
+      "git_blob": "b8fc0efce07fa9d23e0a35357846d4e096b6c057",
+      "bytes": 1813
+    },
+    {
+      "path": "fluidlab/utils/gl_color_picker.py",
+      "sha256": "d036f687f26ca4d0b2aa2cf330d622e02e3bf8cb0224ade79467b76ba36c5614",
+      "git_blob": "f4cf8823fc77172c6d7ad3926b305e7ae7abc6f3",
+      "bytes": 2242
+    },
+    {
+      "path": "fluidlab/utils/logger.py",
+      "sha256": "958744a9fda2f1350810f2496f317aeed7829470983bb55b2bbf61a5ee3f6dfe",
+      "git_blob": "0c130db18d873392a989cdd6df2e08a2b85e9199",
+      "bytes": 2236
+    },
+    {
+      "path": "fluidlab/utils/mesh.py",
+      "sha256": "b868618af0017a1503e5d171b8d9a43b67a6719b468dc2d56890461017c8fb8e",
+      "git_blob": "28e2b0d57570a538d07f8f96a29ec6c20815efa2",
+      "bytes": 3307
+    },
+    {
+      "path": "fluidlab/utils/misc.py",
+      "sha256": "e41118592bc757933bc206690e69eb6aabf27376ed85ef906edc48f49d43cbfd",
+      "git_blob": "5f168812517b42689a0bca500ea3ad13214e8ceb",
+      "bytes": 1107
+    },
+    {
+      "path": "fluidlab/utils/process_obj.py",
+      "sha256": "687b41f884053107c579d62860bb85f4ddb81f58dd86f64cfc48101f66ad886e",
+      "git_blob": "19e4fd693cb46026cd1ba4f057d68daa3785f434",
+      "bytes": 3170
+    },
+    {
+      "path": "fluidlab/utils/timer.py",
+      "sha256": "960d976185c9418abe37bfdd3e45fae23dc8e7ec6bfdf552fdb966df9aa3d174",
+      "git_blob": "ede8eb36394bc4b8971c72abe99a75beaf7982a9",
+      "bytes": 471
+    },
+    {
+      "path": "fluidlab/utils/visualize_sdf.py",
+      "sha256": "99f2863c7a14c6c5cd02f360d3c4f89ac17bda9167b2647c35c5b9bde9840a96",
+      "git_blob": "98802c2b2334176655e92a5a22eec663b96a6729",
+      "bytes": 603
+    },
+    {
+      "path": "setup.py",
+      "sha256": "43d99ed9925af099fc037bc23a3de2db459cf10c86678bff668bf71d4f779c6c",
+      "git_blob": "14fe9d61dfdacd293f8280784bbbb0033c9d0443",
+      "bytes": 146
+    }
+  ]
+}

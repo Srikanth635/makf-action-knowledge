@@ -1,0 +1,21 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+Traceback (most recent call last):
+  File "smoke.py", line 8, in <module>
+    import gym
+  File "/usr/local/lib/python3.7/site-packages/gym/__init__.py", line 13, in <module>
+    from gym.envs import make, spec, register
+  File "/usr/local/lib/python3.7/site-packages/gym/envs/__init__.py", line 10, in <module>
+    _load_env_plugins()
+  File "/usr/local/lib/python3.7/site-packages/gym/envs/registration.py", line 250, in load_env_plugins
+    for plugin in metadata.entry_points().get(entry_point, []):
+AttributeError: 'EntryPoints' object has no attribute 'get'
+Traceback (most recent call last):
+  File "smoke.py", line 8, in <module>
+    import gym
+  File "/usr/local/lib/python3.7/site-packages/gym/__init__.py", line 13, in <module>
+    from gym.envs import make, spec, register
+  File "/usr/local/lib/python3.7/site-packages/gym/envs/__init__.py", line 10, in <module>
+    _load_env_plugins()
+  File "/usr/local/lib/python3.7/site-packages/gym/envs/registration.py", line 250, in load_env_plugins
+    for plugin in metadata.entry_points().get(entry_point, []):
+AttributeError: 'EntryPoints' object has no attribute 'get'

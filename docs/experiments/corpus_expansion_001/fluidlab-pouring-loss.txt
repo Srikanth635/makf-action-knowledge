@@ -1,0 +1,5 @@
+Transporting, Pouring, Gathering (Easy) and Gathering (Hard): These tasks use a single spatial
+location as the goal and the loss is computed as: L = Σi kpi − pgoal k, which is summed over all
+particles of the object(s) to be manipulated. For Pouring, we apply this loss between the particles
+of the upper layer fluid and the ground location, with an additional loss attracting the particles of the
+lower layer fluid to their initial positions.

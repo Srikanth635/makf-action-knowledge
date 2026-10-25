@@ -1,0 +1,48 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v2",
+  "recorded_at": "2026-10-24T18:15:25.631140+00:00",
+  "reviewed_batch_sha256": "8377ccbb39e200a05994232bb6feb469a86745049d9856b0139edefcd064d3f8",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "prompt_sha256": "c84648afe43fbc505e2e1acae8744ac8a710ff00e5a053ed97f8f4d237823171",
+  "assessments": [
+    {
+      "candidate_id": "cand-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": false,
+      "rationale": "The quoted task description directly supports the statement and the single component description: the task is to pour the light blue liquid out while retaining as much white heavy liquid as possible. As a qualified strategy_description limited to the reported task, the scope is acceptable; it does not overgeneralize beyond the experiment. However, mapping the component to paf:PouringStrategy is not supported by the evidence provided. The quote gives a task objective, not a demonstrated generalized strategy or causal model, and the ontology notes that paf:PouringStrategy carries restrictions such as aiming at a pouring telos and using a pouring template. The submitted evidence does not ground those strategy-specific aspects."
+    },
+    {
+      "candidate_id": "cand-2",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The cited quotes together support the substantive content: the setup involves two non-Newtonian liquids with different densities, and the pouring loss is applied between upper-layer particles and the ground location with an additional attraction of lower-layer particles to initial positions. However, the metadata overstates the claim. Labeling this as knowledge_kind 'conditional_principle' and epistemic_status 'conditional_principle' is too strong for a task-specific objective/loss description from one reported setup; this is better treated as a reported condition/objective under the experiment, not a general principle. Mapping is also unsupported as submitted: c1 is grounded to the very broad makf:ApplicabilityCondition, but its description mixes setup details with upper/lower-layer arrangement that is only partially explicit across passages, and g1 is explicitly needs_mapping rather than grounded. Since each component is not securely grounded to an ontology class, mapping_supported should be false."
+    },
+    {
+      "candidate_id": "cand-3",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": true,
+      "rationale": "The single quoted passage supports all substantive clauses in the statement and all three component descriptions: CMA-ES struggles in fine-grained control tasks such as pouring and the passage gives the reason; DP-H fails in complex/non-convex cases such as pouring with a fine-grained control objective; and the differentiable simulator plus proposed optimization schemes is reported to provide informative optimization information for complex fluid systems. The component mappings to makf:ObservationPattern are acceptable because each describes a reported observed performance pattern. But scope is not fully supported because the metadata classifies this as an observation_expectation with epistemic_status 'conditional_principle'. The source reports specific experimental observations and an author interpretation from comparative evaluations, not a general expectation or principle. The statement text itself is properly qualified ('In the reported evaluations'), but the knowledge_kind/epistemic_status overgeneralize."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "e6058d2cfa96dc551f66642d0c0346252ca0ca7d4ac016697f19010022e8db4e",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaZ4fXefeJaL1RQeoB3ykbVWGjMM",
+    "request_id": "req_69a91aef18394037aee76f17c569d6ee",
+    "usage": {
+      "prompt_tokens": 5748,
+      "completion_tokens": 587,
+      "total_tokens": 6335
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "64958a13cf3703fcc415d64c21760291a0897a6d6d8221ec2a5041d0327609b6"
+}

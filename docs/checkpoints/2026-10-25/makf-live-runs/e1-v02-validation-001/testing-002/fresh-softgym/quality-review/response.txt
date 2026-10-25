@@ -1,0 +1,25 @@
+{
+  "assessments": [
+    {
+      "candidate_id": "c1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation explicitly supplies the PourWater objective and supports the component description. The task_objective, definition, and source_paraphrase metadata preserve benchmark scope without asserting strategy success. A generic_description with a candid needs_mapping note appropriately avoids treating an objective as a strategy."
+    },
+    {
+      "candidate_id": "c2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quotation supports every stated control-interface detail and the complete reward definition, including both component descriptions. The benchmark_definition and definition labels accurately characterize source-defined controls and reward, not an effective policy. Both unresolved generic descriptions have appropriate notes explaining why strategy, observation, and effect classes would misrepresent them."
+    },
+    {
+      "candidate_id": "c3",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The asserts_claim quotation supports both named tasks, the open-top cuboid models, and every listed variation parameter. The statement and metadata remain limited to benchmark definitions without adding parameter ranges or performance effects. makf:ApplicabilityCondition fits the explicit scope restriction; the variation parameters appropriately remain a generic_description with a candid needs_mapping note."
+    }
+  ]
+}

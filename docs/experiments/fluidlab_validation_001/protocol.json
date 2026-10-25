@@ -1,0 +1,28 @@
+{
+  "rollout_steps": 100,
+  "control_values": [
+    0.0,
+    0.00115
+  ],
+  "initial_pose": [
+    0.6,
+    0.7,
+    0.5,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "gradient_horizon": 4,
+  "gradient_parameter": "last-step vertical displacement control, component 1",
+  "gradient_control": 0.001,
+  "epsilons": [
+    0.0001,
+    3e-05
+  ],
+  "absolute_tolerance": 0.01,
+  "relative_tolerance": 0.15,
+  "minimum_gradient_magnitude": 1e-05,
+  "optimizer_iterations_if_gate_passes": 3,
+  "optimizer_horizon": 4,
+  "note": "Short local CPU development check; no SI calibration or paper replication."
+}

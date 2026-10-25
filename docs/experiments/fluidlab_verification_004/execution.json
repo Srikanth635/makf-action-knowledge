@@ -1,0 +1,24 @@
+{
+  "recorded_utc_before_launch": "2026-10-25T06:55:22.037935+00:00",
+  "expected_main_evaluations": 153,
+  "expected_main_reverse_passes": 23,
+  "expected_fresh_evaluations": 6,
+  "expected_fresh_reverse_passes": 3,
+  "image": "makf-fluidlab-smoke:005",
+  "image_id": "sha256:acde0a489d16cbb51b54802672942fa130935b42519eec599011af7d70540888",
+  "source_mount": "/workspace/makf-simulation-runs/fluidlab-smoke-001/source",
+  "output_mount": "/workspace/makf-simulation-runs/fluidlab-verification-004/output",
+  "cpu_limit_per_worker": 4,
+  "memory_limit_per_worker": "8 GiB",
+  "network": "none",
+  "worker_schedule": "sequential main then fresh, separate new containers; no shared Taichi cache",
+  "input_sha256": {
+    "protocol.json": "2253a64a774ece60fd54190781d28c377e5eabc3c0c397c4c19db33dee1e3701",
+    "collision_observer.py": "3aec126e70c7d51f76e1a12a1fed41bfcf5fcfecc8524bcf9186c01f45ee1060",
+    "verify_dynamics.py": "92d6c7fc36e95e5eae45bb641052e122f8f0bc5af3bded9e3943da2eb41cdde0"
+  },
+  "historical_provenance_sha256": {
+    "fluidlab_gradient_002": "3ae6c207c4a86deff064aec095dcd2a083dee195ab96ddfa9d524ba299ed91e5",
+    "fluidlab_noise_003": "99c6b1bed503f33a560974640c1ccc1d26cd5dad82fb5265659184df37a7b070"
+  }
+}

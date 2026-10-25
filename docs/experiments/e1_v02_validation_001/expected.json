@@ -1,0 +1,69 @@
+{
+  "annotation_origin": "assistant-authored, not independent domain ground truth",
+  "scope": "Development calibration on known sources; not a held-out benchmark.",
+  "decision_rule": "Pass only if evidence_complete, scope_supported and mapping_supported are all true.",
+  "pilot_gate": "No false acceptance or rejection in this small fixed set; failures block reliance on automatic promotion.",
+  "repetitions_per_model": 2,
+  "cases": [
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-1"
+    },
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-2"
+    },
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-3"
+    },
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-4"
+    },
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-5"
+    },
+    {
+      "expected_pass": true,
+      "reason": "Source-scoped description with complete cited evidence and candid or appropriate mapping.",
+      "candidate_id": "valid-6"
+    },
+    {
+      "expected_pass": false,
+      "reason": "incomplete reward citation",
+      "candidate_id": "invalid-1"
+    },
+    {
+      "expected_pass": false,
+      "reason": "unsupported universal claim",
+      "candidate_id": "invalid-2"
+    },
+    {
+      "expected_pass": false,
+      "reason": "unrelated grounded class",
+      "candidate_id": "invalid-3"
+    },
+    {
+      "expected_pass": false,
+      "reason": "opposite task objective",
+      "candidate_id": "invalid-4"
+    },
+    {
+      "expected_pass": false,
+      "reason": "unsupported component detail",
+      "candidate_id": "invalid-5"
+    },
+    {
+      "expected_pass": false,
+      "reason": "invented causal conclusion",
+      "candidate_id": "invalid-6"
+    }
+  ]
+}

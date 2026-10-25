@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-25T05:55:35.448429+00:00",
+  "image": "makf-fluidlab-smoke:005",
+  "image_id": "sha256:acde0a489d16cbb51b54802672942fa130935b42519eec599011af7d70540888",
+  "container": "makf-fluidlab-noise-003",
+  "network": "none",
+  "hostname": "matrix-makf-noise",
+  "memory_limit": "8 GiB",
+  "cpu_limit": 4,
+  "pids_limit": 256,
+  "thread_environment": {
+    "OMP_NUM_THREADS": 4,
+    "MKL_NUM_THREADS": 4,
+    "OPENBLAS_NUM_THREADS": 4
+  },
+  "source_mount": "/workspace/makf-simulation-runs/fluidlab-smoke-001/source",
+  "output_mount": "/workspace/makf-simulation-runs/fluidlab-noise-003/output",
+  "command": [
+    "python",
+    "repeat_probes.py"
+  ],
+  "input_sha256": {
+    "protocol.json": "1a119433ffba066dbb8416099abded760df22a702d25015334add034be2421c3",
+    "repeat_probes.py": "c969c894f207fcdb8fbe3ac4f9a07b2b058e2c4fed626957ded1f99a0f6db32f"
+  },
+  "historical_gate_provenance_sha256": "3ae6c207c4a86deff064aec095dcd2a083dee195ab96ddfa9d524ba299ed91e5",
+  "expected_forward_evaluations": 164,
+  "expected_reverse_evaluations": 15,
+  "status": "Input hashes recorded during execution, before completion. Protocol and harness were saved before launch; this metadata was not written before launch."
+}

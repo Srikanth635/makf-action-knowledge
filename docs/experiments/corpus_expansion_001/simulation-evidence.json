@@ -1,0 +1,99 @@
+{
+  "schema_version": "research-evidence-annex-0.1",
+  "scope": "Published simulation configuration transcriptions; not independently reproduced runs or physical measurements. Not promoted to E1 quantitative claims.",
+  "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+  "bibliographic_uri": "https://arxiv.org/abs/2303.02346v1",
+  "evidence_origin": "published_simulation",
+  "simulation_reproduced": false,
+  "transcription_method": "Assistant transcription from PDF text with Tables 3 and 4 visually checked on PDF page 15; no human/domain approval.",
+  "review_state": "pending_domain_review",
+  "evidence": [
+    {
+      "file": "fluidlab-tables-3-4.txt",
+      "extraction": "pdftotext -layout",
+      "start_char_in_extracted_text": 61326,
+      "end_char_in_extracted_text": 64003,
+      "sha256": "d121d230e6a125cc2a36fb5bd5ed550945a3ada2af88b38a4ea15f72e487f67e",
+      "pdf_page": 15,
+      "exact_text": "                                        Action space              number of particles      number of grid cells\n         Task\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\n Latte Art (Pouring)          Along x and z                -               1000                       -\n Latte Art (Stirring)         Along x and z                -               1000                       -\n Ice Cream (Static)          Along x, y and z              -               2000                       -\nIce Cream (Dynamic)          Along x, y and z              -               2000                       -\n    Transporting              Along x and z         Around y                500                       -\n       Mixing                 Along x and z                -               1000                       -\n       Pouring                      -               Around z                500                       -\n  Gathering (Easy)            Along x and z                -                500                       -\n  Gathering (Hard)            Along x and z                -                500                       -\n   Air Circulation                  -               Around y                 -               128 × 9 × 128\n\n                                        Table 3: Task-specfic settings.\n\n                                                                   Lamé parameters\n                  Material                        Type                                    Density ρ\n                                                                      µ            λ\n                   Water                         Liquid              0.0         277.78      1.0\n                   Milk                          Liquid              0.0         277.78      1.0\n                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0\n                  Coffee                         Liquid              0.0         277.78      1.0\n                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5\n             Floating object                     Elastic           416.67        277.78      0.5\n                Sugar cube                   Viscous Liquid        208.33        277.78      1.0\n        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\n        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\n         Object in Transporting                   Rigid            416.67        277.78      5.0\n\n                        Table 4: Details of materials properties used in FluidLab.\n\n\n"
+    },
+    {
+      "file": "fluidlab-runtime-settings.txt",
+      "extraction": "pdftotext -layout",
+      "start_char_in_extracted_text": 59787,
+      "end_char_in_extracted_text": 60170,
+      "sha256": "cfec9c4550b090f627244926512746238f8227795352bbdfdc59c317a2019b4d",
+      "pdf_page": 14,
+      "exact_text": "All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\n"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "fluidlab-pouring-observation-budget",
+      "locator": "Appendix B.1 and Table 3, PDF pages 14-15",
+      "task": "Pouring",
+      "observed_particles_per_fluid_body": 500,
+      "translation_control": "none in Table 3",
+      "rotation_control": "around z",
+      "unit": "particle count",
+      "qualification": "500 is the observed particle count per fluid body, not the full simulation particle count.",
+      "source_file": "fluidlab-tables-3-4.txt"
+    },
+    {
+      "record_id": "fluidlab-light-liquid-parameters",
+      "locator": "Table 4, PDF page 15",
+      "material_label": "Light Liquid in Pouring",
+      "source_material_type": "Liquid",
+      "source_values": {
+        "mu": 0.0,
+        "lambda": 277.78,
+        "density_rho": 0.8
+      },
+      "unit_status": "not specified in the cited table; no SI conversion asserted",
+      "qualification": "Reported simulator parameters, not a measured real-fluid property.",
+      "source_file": "fluidlab-tables-3-4.txt"
+    },
+    {
+      "record_id": "fluidlab-heavy-liquid-parameters",
+      "locator": "Table 4, PDF page 15",
+      "material_label": "Heavy Liquid in Pouring",
+      "source_material_type": "Liquid",
+      "source_values": {
+        "mu": 0.0,
+        "lambda": 277.78,
+        "density_rho": 1.5
+      },
+      "unit_status": "not specified in the cited table; no SI conversion asserted",
+      "qualification": "Reported simulator parameters, not a measured real-fluid property.",
+      "source_file": "fluidlab-tables-3-4.txt"
+    },
+    {
+      "record_id": "fluidlab-runtime-timing",
+      "locator": "Appendix B.1, PDF page 14",
+      "reported_step_seconds": 0.002,
+      "reported_substeps_per_step": 10,
+      "reported_substep_seconds": 0.0001,
+      "status": "needs_source_resolution",
+      "source_file": "fluidlab-runtime-settings.txt",
+      "qualification": "10 * 0.0001 s = 0.001 s, which differs from the stated 0.002 s step. Do not use as executable configuration without checking code/version."
+    }
+  ],
+  "open_issues": [
+    {
+      "issue": "material-model wording",
+      "sources": [
+        "fluidlab-pouring-task.txt",
+        "fluidlab-tables-3-4.txt"
+      ],
+      "detail": "Section 4.1 describes two non-Newtonian liquids; Table 4 labels the pouring materials Liquid with mu=0. This requires checking the implementation/version, not silently choosing a model."
+    },
+    {
+      "issue": "units",
+      "detail": "The material parameter table does not supply physical units; retain reported values without inventing kg/m^3 or Pa."
+    },
+    {
+      "issue": "timestep arithmetic",
+      "detail": "Reported step and substep duration/count do not agree arithmetically."
+    }
+  ]
+}

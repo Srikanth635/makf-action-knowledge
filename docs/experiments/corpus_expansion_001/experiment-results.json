@@ -1,0 +1,194 @@
+{
+  "scope": "Advisory model selection only; original and revision artifacts preserved.",
+  "new_source_count": 2,
+  "exact_passage_count": 6,
+  "published_simulation_setting_records": 4,
+  "sources": [
+    {
+      "source": "softgym",
+      "initial_candidates": 3,
+      "revised_candidates": 3,
+      "selected_candidate_count": 1,
+      "selected_candidate_ids": [
+        "cand-1"
+      ],
+      "withheld_candidate_ids": [
+        "cand-2",
+        "cand-3"
+      ],
+      "omitted_candidate_ids": [],
+      "status": "model_reviewed_subset",
+      "model_calls": [
+        {
+          "artifact": "softgym/report.json",
+          "status": "provisional",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "745589aaaaf8c4be1807aa8d4f26e93a71c9dda9e98342911d2cc0175291b0d0",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaXIn9JsTUJJ716TepUexohaQo8k",
+            "request_id": "req_4a27ec397c4a4239b729b7d95607facd",
+            "usage": {
+              "prompt_tokens": 6626,
+              "completion_tokens": 1207,
+              "total_tokens": 7833
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "softgym/quality-review/report.json",
+          "status": "changes_required",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "226b46716293283396b8592728a72f08861fa37e461460edc82b2f7089e47741",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZ48904Mnfz1thgKbX2WnW3xfx8",
+            "request_id": "req_8bcd0bdd74a347bc99a262dc5bf4b264",
+            "usage": {
+              "prompt_tokens": 4910,
+              "completion_tokens": 480,
+              "total_tokens": 5390
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "softgym/revision/report.json",
+          "status": "provisional",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "8eb93e8d80e5c995532c0c7996aef918a61d380aba4910a02e536acaea0bad3b",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZBqIA8HSFYWYzjLH0QaeZKCan5",
+            "request_id": "req_736718eb0dc0425a9e2b2ae4452ad486",
+            "usage": {
+              "prompt_tokens": 8256,
+              "completion_tokens": 1252,
+              "total_tokens": 9508
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "softgym/revision/quality-review/report.json",
+          "status": "changes_required",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "ec19bbf9d0f83b94050221f8fc1641d87a6927f4d36864c6aff4fe70663cee72",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZLonyaawmJJr57uJvesks8eZBB",
+            "request_id": "req_654fa8d452d84dc7bf09a8eabc899d3a",
+            "usage": {
+              "prompt_tokens": 4955,
+              "completion_tokens": 492,
+              "total_tokens": 5447
+            },
+            "finish_reason": "stop"
+          }
+        }
+      ]
+    },
+    {
+      "source": "fluidlab",
+      "initial_candidates": 3,
+      "revised_candidates": 2,
+      "selected_candidate_count": 0,
+      "selected_candidate_ids": [],
+      "withheld_candidate_ids": [
+        "cand-1",
+        "cand-3"
+      ],
+      "omitted_candidate_ids": [
+        "cand-2"
+      ],
+      "status": "changes_required",
+      "model_calls": [
+        {
+          "artifact": "fluidlab/report.json",
+          "status": "provisional",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "8d4f2af333464c6e7035872e4503fd8645da0f807374c6339afb4311f5bf3793",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaXIMbN3uvvqGzlV4zBWmyncMa51",
+            "request_id": "req_055141128659470d8cbd839b0a5f4b17",
+            "usage": {
+              "prompt_tokens": 7359,
+              "completion_tokens": 1726,
+              "total_tokens": 9085
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "fluidlab/quality-review/report.json",
+          "status": "changes_required",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "e6058d2cfa96dc551f66642d0c0346252ca0ca7d4ac016697f19010022e8db4e",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZ4fXefeJaL1RQeoB3ykbVWGjMM",
+            "request_id": "req_69a91aef18394037aee76f17c569d6ee",
+            "usage": {
+              "prompt_tokens": 5748,
+              "completion_tokens": 587,
+              "total_tokens": 6335
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "fluidlab/revision/report.json",
+          "status": "provisional",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "65dfb491fc0a178ff1a1cc0fe3c5494d3b47f4c7b6d7cc4d00b207b757eaf84d",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZDAkthab3ljgFGZeCcO277EvSQ",
+            "request_id": "req_c30650338f814c98a92124fd8844d909",
+            "usage": {
+              "prompt_tokens": 9715,
+              "completion_tokens": 1428,
+              "total_tokens": 11143
+            },
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "artifact": "fluidlab/revision/quality-review/report.json",
+          "status": "changes_required",
+          "provider": {
+            "engine": "openai",
+            "requested_model": "gpt-5.4",
+            "live": true,
+            "wire_request_sha256": "207e1d3be64766fd7aa34465cb70f8a6c1c4a715c672e808d186b6399b36ef58",
+            "model_name": "gpt-5.4-2026-03-05",
+            "response_id": "chatcmpl-EcaZN92rOQqxBeTUMIykOsjvSlnY5",
+            "request_id": "req_e51d92aa608b40819e84035097159d9a",
+            "usage": {
+              "prompt_tokens": 5293,
+              "completion_tokens": 390,
+              "total_tokens": 5683
+            },
+            "finish_reason": "stop"
+          }
+        }
+      ]
+    }
+  ]
+}

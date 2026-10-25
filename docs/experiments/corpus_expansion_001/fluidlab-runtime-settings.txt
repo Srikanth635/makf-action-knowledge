@@ -1,0 +1,4 @@
+All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for
+ensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in
+real time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an
+Nvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.

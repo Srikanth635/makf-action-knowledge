@@ -1,0 +1,25 @@
+{
+  "version": "0.1",
+  "purpose": "Predeclared CPU noise and directional gradient development checks; no optimization",
+  "base_pose": [0.6, 0.7, 0.5, 0, 0, 0],
+  "base_value": 0.001,
+  "forward_noise_repeats": 5,
+  "autodiff_noise_repeats": 3,
+  "epsilons": [0.0003, 0.0001, 0.00003],
+  "absolute_tolerance": 0.01,
+  "relative_tolerance": 0.05,
+  "minimum_signal_to_noise": 10,
+  "maximum_one_sided_asymmetry": 0.3,
+  "adjacent_fd_relative_stability": 0.1,
+  "minimum_informative_cases": 3,
+  "cases": [
+    {"id": "base_vertical_h4", "horizon": 4, "action_step": 3, "component": 1, "pose_offset_x": 0},
+    {"id": "base_horizontal_h4", "horizon": 4, "action_step": 3, "component": 0, "pose_offset_x": 0},
+    {"id": "base_rotation_h4", "horizon": 4, "action_step": 3, "component": 5, "pose_offset_x": 0},
+    {"id": "earlier_vertical_h8", "horizon": 8, "action_step": 3, "component": 1, "pose_offset_x": 0},
+    {"id": "offset_vertical_h8", "horizon": 8, "action_step": 7, "component": 1, "pose_offset_x": 0.02}
+  ],
+  "terminal_diagnostic_if_gate_passes": {"horizon": 8, "action_step": 7, "component": 1, "pose_offset_x": 0, "note": "Move terminal trigger to step 7 in an explicitly shortened diagnostic; not the original 1000-step objective."},
+  "gate": "No informative failed case; at least three passing cases, including both h8 cases. Each passing case requires two adjacent informative/noise-separated epsilon checks that satisfy AD agreement, one-sided asymmetry and FD stability limits.",
+  "scope": "Altered pose probes contact sensitivity without asserting a contact-free/penetrating regime. First-step detached reference is unchanged by each tested action. No parameter tuning or retry-until-pass."
+}

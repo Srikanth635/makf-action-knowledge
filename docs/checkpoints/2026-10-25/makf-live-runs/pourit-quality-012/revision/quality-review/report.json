@@ -1,0 +1,47 @@
+{
+  "status": "changes_required",
+  "review_version": "makf-quality-v1",
+  "recorded_at": "2026-10-24T08:46:39.001063+00:00",
+  "reviewed_batch_sha256": "255a1394f4802524cc43da971702272e9f3573b1659812180c73c03fb3569669",
+  "human_review_required": true,
+  "scope": "Advisory model review, not scientific certification.",
+  "assessments": [
+    {
+      "candidate_id": "pourit-pilot-cand-1",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quoted passage directly supports each substantive clause: Lin et al. '[17] only uses the estimated object pose and size for calculating container-to-container distance as the initial pouring point,' and 'Such a strategy sometimes fails ... as the transparent bottleneck results in inaccurate object size estimation.' The statement is properly limited to 'the reported comparison' and 'is described as,' so it does not overgeneralize beyond the cited passage. The applicability condition is explicitly stated in the quote. The unmapped generic failure description avoids overcommitting to an ontology class, and the grounded strategy/applicability mappings fit their component descriptions."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-2",
+      "evidence_complete": true,
+      "scope_supported": true,
+      "mapping_supported": true,
+      "rationale": "The quote explicitly states: 'Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by the inaccurate size estimation.' This covers both the strategy description and the comparative robustness clause. The candidate keeps the scope narrow by framing it as what 'the authors describe' and 'report' in the comparison, rather than a general principle. Mapping the strategy to makf:GeneralizedStrategy is reasonable, and leaving the comparative property as needs_mapping is appropriately cautious."
+    },
+    {
+      "candidate_id": "pourit-pilot-cand-3",
+      "evidence_complete": true,
+      "scope_supported": false,
+      "mapping_supported": false,
+      "rationale": "The quoted passage does support the substantive content of the statement: 'the inaccurately estimated mask of AFA provides the wrong visual feedback to adjust the pouring point, making the liquid spill out of the target container instead.' However, scope is overstated by assigning knowledge_kind 'strategy_description' and including a procedural/observational framing for AFA's 'using visual feedback from the estimated mask' when the passage only gives a failure explanation within one comparison, not a standalone generalized strategy description. Mapping is not supported for component s1: makf:GeneralizedStrategy is too strong for an inferred AFA strategy based only on a mention of wrong visual feedback from an inaccurate mask. The deviation mapping for d1 is plausible, but the candidate as a whole fails mapping support because one grounded component is not securely grounded."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4-2026-03-05",
+    "live": true,
+    "wire_request_sha256": "4475d4c0364accde9e9f1027de4502b7152a6ddcecaa76c57bd969d15082d47d",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcRgdjeh2nFMztzN7cfy5pNbVN5nE",
+    "request_id": "req_9b67dc80d8bf4a7baa5e762c5b5d92ea",
+    "usage": {
+      "prompt_tokens": 7675,
+      "completion_tokens": 502,
+      "total_tokens": 8177
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "9537bc0f0b1d23a58ce4e85f3f70f41273524e504f265c30bcece9447ae3e40d"
+}

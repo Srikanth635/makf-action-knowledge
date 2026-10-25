@@ -1,0 +1,5263 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "experiment_id": "fluidlab_noise_003",
+    "purpose": "Exploratory per-condition repeat and rotation sensitivity diagnostics, not replacement verification or promotion",
+    "base_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "base_value": 0.001,
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02
+      }
+    ],
+    "baseline_forward_repeats": 5,
+    "baseline_autodiff_repeats": 3,
+    "baseline_tail_repeats": 2,
+    "perturbation_repeats_per_sign": 3,
+    "standard_epsilons": [
+      0.0003,
+      0.0001,
+      3e-05
+    ],
+    "rotation_epsilons": [
+      0.0003,
+      0.0002,
+      0.00015,
+      0.0001,
+      7e-05,
+      5e-05,
+      3e-05
+    ],
+    "ordering": "Case order fixed; baseline forward then AD; for each epsilon alternate plus-minus and minus-plus by repeat index; two baseline forward repeats after sweep.",
+    "empirical_signal_ratio_marker": 10,
+    "summary": "Median losses, actual float32 control denominators, min/max derivative envelope from repeated plus/minus losses, empirical per-condition ranges and median AD discrepancies. Ranges and envelopes are not statistical confidence bounds. No automatic pass/fail gate.",
+    "reset_check": "Hash exported physical state immediately after reset and pose application for every run; hash source initial-state template before and after. Does not verify every internal simulator field.",
+    "branch_diagnostic": "Final active MILK displacement relative to upstream first-step reference: per-axis positive/negative/exact-zero and abs(delta)<1e-6 counts. Not a contact counter or proof of branch crossing.",
+    "scope": "Original max_loss_steps remains 1000, temporal sum is four/eight steps; terminal attraction excluded. No terminal test, optimizer or source equation changes. Existing failed gate stays unchanged."
+  },
+  "status": "completed",
+  "cases": [
+    {
+      "case": {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      "status": "completed",
+      "baseline_forward": [
+        {
+          "sequence": 1,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.78335952758789,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8641,
+              1505,
+              8985
+            ],
+            "negative_per_axis": [
+              9326,
+              18797,
+              9312
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2005
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6387,
+              10,
+              6434
+            ]
+          }
+        },
+        {
+          "sequence": 2,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783348083496094,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8638,
+              1505,
+              8991
+            ],
+            "negative_per_axis": [
+              9318,
+              18797,
+              9313
+            ],
+            "exact_zero_per_axis": [
+              2346,
+              0,
+              1998
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6390,
+              10,
+              6440
+            ]
+          }
+        },
+        {
+          "sequence": 3,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783302307128906,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8642,
+              1505,
+              8985
+            ],
+            "negative_per_axis": [
+              9320,
+              18797,
+              9318
+            ],
+            "exact_zero_per_axis": [
+              2340,
+              0,
+              1999
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6395,
+              10,
+              6436
+            ]
+          }
+        },
+        {
+          "sequence": 4,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783344268798828,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8641,
+              1505,
+              8993
+            ],
+            "negative_per_axis": [
+              9323,
+              18797,
+              9311
+            ],
+            "exact_zero_per_axis": [
+              2338,
+              0,
+              1998
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6398,
+              10,
+              6434
+            ]
+          }
+        },
+        {
+          "sequence": 5,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.78337860107422,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8645,
+              1505,
+              8989
+            ],
+            "negative_per_axis": [
+              9316,
+              18797,
+              9320
+            ],
+            "exact_zero_per_axis": [
+              2341,
+              0,
+              1993
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6395,
+              9,
+              6438
+            ]
+          }
+        }
+      ],
+      "baseline_autodiff": [
+        {
+          "sequence": 6,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783313751220703,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8632,
+              1505,
+              8983
+            ],
+            "negative_per_axis": [
+              9325,
+              18797,
+              9321
+            ],
+            "exact_zero_per_axis": [
+              2345,
+              0,
+              1998
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6385,
+              10,
+              6443
+            ]
+          },
+          "autodiff": 449.6408386230469
+        },
+        {
+          "sequence": 7,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.78337860107422,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8638,
+              1505,
+              8982
+            ],
+            "negative_per_axis": [
+              9319,
+              18797,
+              9315
+            ],
+            "exact_zero_per_axis": [
+              2345,
+              0,
+              2005
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6390,
+              10,
+              6438
+            ]
+          },
+          "autodiff": 449.6208190917969
+        },
+        {
+          "sequence": 8,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783409118652344,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8636,
+              1505,
+              8994
+            ],
+            "negative_per_axis": [
+              9321,
+              18797,
+              9314
+            ],
+            "exact_zero_per_axis": [
+              2345,
+              0,
+              1994
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6401,
+              10,
+              6436
+            ]
+          },
+          "autodiff": 449.62493896484375
+        }
+      ],
+      "probes": [
+        {
+          "epsilon": 0.0003,
+          "plus": [
+            {
+              "sequence": 9,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.941085815429688,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8662,
+                  1853,
+                  8976
+                ],
+                "negative_per_axis": [
+                  9294,
+                  18449,
+                  9326
+                ],
+                "exact_zero_per_axis": [
+                  2346,
+                  0,
+                  2000
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6394,
+                  13,
+                  6431
+                ]
+              }
+            },
+            {
+              "sequence": 12,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.941078186035156,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8660,
+                  1853,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9293,
+                  18449,
+                  9324
+                ],
+                "exact_zero_per_axis": [
+                  2349,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6391,
+                  12,
+                  6435
+                ]
+              }
+            },
+            {
+              "sequence": 13,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.941043853759766,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8659,
+                  1853,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9299,
+                  18449,
+                  9322
+                ],
+                "exact_zero_per_axis": [
+                  2344,
+                  0,
+                  2011
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6392,
+                  12,
+                  6435
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 10,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.680477142333984,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8628,
+                  1108,
+                  9009
+                ],
+                "negative_per_axis": [
+                  9339,
+                  19194,
+                  9311
+                ],
+                "exact_zero_per_axis": [
+                  2335,
+                  0,
+                  1982
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6367,
+                  7,
+                  6441
+                ]
+              }
+            },
+            {
+              "sequence": 11,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.680374145507812,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8626,
+                  1108,
+                  8995
+                ],
+                "negative_per_axis": [
+                  9338,
+                  19194,
+                  9313
+                ],
+                "exact_zero_per_axis": [
+                  2338,
+                  0,
+                  1994
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6366,
+                  7,
+                  6443
+                ]
+              }
+            },
+            {
+              "sequence": 14,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.680503845214844,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8632,
+                  1108,
+                  8992
+                ],
+                "negative_per_axis": [
+                  9337,
+                  19194,
+                  9304
+                ],
+                "exact_zero_per_axis": [
+                  2333,
+                  0,
+                  2006
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6367,
+                  7,
+                  6437
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0001,
+          "plus": [
+            {
+              "sequence": 15,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.830669403076172,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8640,
+                  1634,
+                  8992
+                ],
+                "negative_per_axis": [
+                  9310,
+                  18666,
+                  9318
+                ],
+                "exact_zero_per_axis": [
+                  2352,
+                  2,
+                  1992
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6396,
+                  11,
+                  6435
+                ]
+              }
+            },
+            {
+              "sequence": 18,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.830612182617188,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  1633,
+                  8978
+                ],
+                "negative_per_axis": [
+                  9318,
+                  18667,
+                  9320
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  2,
+                  2004
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6392,
+                  11,
+                  6440
+                ]
+              }
+            },
+            {
+              "sequence": 19,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.830623626708984,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8641,
+                  1635,
+                  8984
+                ],
+                "negative_per_axis": [
+                  9314,
+                  18666,
+                  9307
+                ],
+                "exact_zero_per_axis": [
+                  2347,
+                  1,
+                  2011
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6394,
+                  11,
+                  6436
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 16,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.741840362548828,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8627,
+                  1369,
+                  8982
+                ],
+                "negative_per_axis": [
+                  9335,
+                  18933,
+                  9318
+                ],
+                "exact_zero_per_axis": [
+                  2340,
+                  0,
+                  2002
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6399,
+                  9,
+                  6434
+                ]
+              }
+            },
+            {
+              "sequence": 17,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.741943359375,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8632,
+                  1369,
+                  8990
+                ],
+                "negative_per_axis": [
+                  9334,
+                  18933,
+                  9317
+                ],
+                "exact_zero_per_axis": [
+                  2336,
+                  0,
+                  1995
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6388,
+                  9,
+                  6432
+                ]
+              }
+            },
+            {
+              "sequence": 20,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.741863250732422,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8631,
+                  1369,
+                  8987
+                ],
+                "negative_per_axis": [
+                  9330,
+                  18933,
+                  9328
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  0,
+                  1987
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6394,
+                  9,
+                  6426
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 3e-05,
+          "plus": [
+            {
+              "sequence": 21,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.79693603515625,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8629,
+                  1530,
+                  8997
+                ],
+                "negative_per_axis": [
+                  9323,
+                  18772,
+                  9306
+                ],
+                "exact_zero_per_axis": [
+                  2350,
+                  0,
+                  1999
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6386,
+                  14,
+                  6432
+                ]
+              }
+            },
+            {
+              "sequence": 24,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.796905517578125,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  1530,
+                  8994
+                ],
+                "negative_per_axis": [
+                  9317,
+                  18772,
+                  9305
+                ],
+                "exact_zero_per_axis": [
+                  2342,
+                  0,
+                  2003
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6392,
+                  13,
+                  6429
+                ]
+              }
+            },
+            {
+              "sequence": 25,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.796993255615234,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8645,
+                  1530,
+                  8984
+                ],
+                "negative_per_axis": [
+                  9316,
+                  18772,
+                  9310
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  0,
+                  2008
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6391,
+                  12,
+                  6426
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 22,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.769962310791016,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8621,
+                  1465,
+                  8987
+                ],
+                "negative_per_axis": [
+                  9326,
+                  18837,
+                  9315
+                ],
+                "exact_zero_per_axis": [
+                  2355,
+                  0,
+                  2000
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6387,
+                  9,
+                  6440
+                ]
+              }
+            },
+            {
+              "sequence": 23,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.769973754882812,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8633,
+                  1465,
+                  8980
+                ],
+                "negative_per_axis": [
+                  9328,
+                  18836,
+                  9317
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  1,
+                  2005
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6393,
+                  8,
+                  6437
+                ]
+              }
+            },
+            {
+              "sequence": 26,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.770023345947266,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8623,
+                  1465,
+                  8986
+                ],
+                "negative_per_axis": [
+                  9335,
+                  18837,
+                  9323
+                ],
+                "exact_zero_per_axis": [
+                  2344,
+                  0,
+                  1993
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6398,
+                  8,
+                  6431
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "baseline_tail": [
+        {
+          "sequence": 27,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783390045166016,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8638,
+              1505,
+              8993
+            ],
+            "negative_per_axis": [
+              9321,
+              18797,
+              9317
+            ],
+            "exact_zero_per_axis": [
+              2343,
+              0,
+              1992
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6388,
+              10,
+              6439
+            ]
+          }
+        },
+        {
+          "sequence": 28,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.783306121826172,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8638,
+              1505,
+              8978
+            ],
+            "negative_per_axis": [
+              9322,
+              18797,
+              9312
+            ],
+            "exact_zero_per_axis": [
+              2342,
+              0,
+              2012
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6397,
+              10,
+              6440
+            ]
+          }
+        }
+      ],
+      "exported_resets_identical": true,
+      "seconds": 115.52912378311157
+    },
+    {
+      "case": {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0
+      },
+      "status": "completed",
+      "baseline_forward": [
+        {
+          "sequence": 29,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.854000091552734,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8904,
+              28,
+              8892
+            ],
+            "negative_per_axis": [
+              9061,
+              20274,
+              9395
+            ],
+            "exact_zero_per_axis": [
+              2337,
+              0,
+              2015
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6404,
+              0,
+              6478
+            ]
+          }
+        },
+        {
+          "sequence": 30,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.854034423828125,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8907,
+              28,
+              8876
+            ],
+            "negative_per_axis": [
+              9056,
+              20274,
+              9398
+            ],
+            "exact_zero_per_axis": [
+              2339,
+              0,
+              2028
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6407,
+              0,
+              6478
+            ]
+          }
+        },
+        {
+          "sequence": 31,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.8540096282959,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8905,
+              28,
+              8880
+            ],
+            "negative_per_axis": [
+              9062,
+              20274,
+              9402
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2020
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6408,
+              0,
+              6478
+            ]
+          }
+        },
+        {
+          "sequence": 32,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.85395622253418,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8904,
+              28,
+              8887
+            ],
+            "negative_per_axis": [
+              9061,
+              20274,
+              9400
+            ],
+            "exact_zero_per_axis": [
+              2337,
+              0,
+              2015
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6418,
+              0,
+              6476
+            ]
+          }
+        },
+        {
+          "sequence": 33,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.854074478149414,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8907,
+              28,
+              8877
+            ],
+            "negative_per_axis": [
+              9052,
+              20274,
+              9403
+            ],
+            "exact_zero_per_axis": [
+              2343,
+              0,
+              2022
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6407,
+              0,
+              6478
+            ]
+          }
+        }
+      ],
+      "baseline_autodiff": [
+        {
+          "sequence": 34,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.853939056396484,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8912,
+              28,
+              8891
+            ],
+            "negative_per_axis": [
+              9057,
+              20274,
+              9393
+            ],
+            "exact_zero_per_axis": [
+              2333,
+              0,
+              2018
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6404,
+              0,
+              6476
+            ]
+          },
+          "autodiff": -53.35776138305664
+        },
+        {
+          "sequence": 35,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.853981018066406,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8911,
+              28,
+              8883
+            ],
+            "negative_per_axis": [
+              9065,
+              20274,
+              9390
+            ],
+            "exact_zero_per_axis": [
+              2326,
+              0,
+              2029
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6413,
+              0,
+              6485
+            ]
+          },
+          "autodiff": -53.35722351074219
+        },
+        {
+          "sequence": 36,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.8540096282959,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8905,
+              28,
+              8888
+            ],
+            "negative_per_axis": [
+              9064,
+              20274,
+              9399
+            ],
+            "exact_zero_per_axis": [
+              2333,
+              0,
+              2015
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6405,
+              0,
+              6486
+            ]
+          },
+          "autodiff": -53.35725784301758
+        }
+      ],
+      "probes": [
+        {
+          "epsilon": 0.0003,
+          "plus": [
+            {
+              "sequence": 37,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.838909149169922,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  9002,
+                  33,
+                  8875
+                ],
+                "negative_per_axis": [
+                  8959,
+                  20269,
+                  9418
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6427,
+                  1,
+                  6473
+                ]
+              }
+            },
+            {
+              "sequence": 40,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.838951110839844,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8995,
+                  33,
+                  8875
+                ],
+                "negative_per_axis": [
+                  8955,
+                  20269,
+                  9411
+                ],
+                "exact_zero_per_axis": [
+                  2352,
+                  0,
+                  2016
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6424,
+                  1,
+                  6473
+                ]
+              }
+            },
+            {
+              "sequence": 41,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.838958740234375,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  9004,
+                  33,
+                  8871
+                ],
+                "negative_per_axis": [
+                  8952,
+                  20269,
+                  9406
+                ],
+                "exact_zero_per_axis": [
+                  2346,
+                  0,
+                  2025
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6425,
+                  1,
+                  6471
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 38,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.871986389160156,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8831,
+                  17,
+                  8901
+                ],
+                "negative_per_axis": [
+                  9132,
+                  20285,
+                  9385
+                ],
+                "exact_zero_per_axis": [
+                  2339,
+                  0,
+                  2016
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6391,
+                  0,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 39,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.871946334838867,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8840,
+                  17,
+                  8904
+                ],
+                "negative_per_axis": [
+                  9131,
+                  20285,
+                  9379
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2019
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6392,
+                  0,
+                  6476
+                ]
+              }
+            },
+            {
+              "sequence": 42,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.87190818786621,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8832,
+                  17,
+                  8907
+                ],
+                "negative_per_axis": [
+                  9130,
+                  20285,
+                  9381
+                ],
+                "exact_zero_per_axis": [
+                  2340,
+                  0,
+                  2014
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6395,
+                  0,
+                  6477
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0001,
+          "plus": [
+            {
+              "sequence": 43,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.848730087280273,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8934,
+                  30,
+                  8886
+                ],
+                "negative_per_axis": [
+                  9019,
+                  20272,
+                  9398
+                ],
+                "exact_zero_per_axis": [
+                  2349,
+                  0,
+                  2018
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6414,
+                  1,
+                  6485
+                ]
+              }
+            },
+            {
+              "sequence": 46,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.848834991455078,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8929,
+                  30,
+                  8892
+                ],
+                "negative_per_axis": [
+                  9033,
+                  20272,
+                  9402
+                ],
+                "exact_zero_per_axis": [
+                  2340,
+                  0,
+                  2008
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6413,
+                  1,
+                  6480
+                ]
+              }
+            },
+            {
+              "sequence": 47,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.848739624023438,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8936,
+                  30,
+                  8885
+                ],
+                "negative_per_axis": [
+                  9028,
+                  20272,
+                  9402
+                ],
+                "exact_zero_per_axis": [
+                  2338,
+                  0,
+                  2015
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6412,
+                  1,
+                  6476
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 44,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.85948944091797,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8884,
+                  27,
+                  8883
+                ],
+                "negative_per_axis": [
+                  9079,
+                  20275,
+                  9394
+                ],
+                "exact_zero_per_axis": [
+                  2339,
+                  0,
+                  2025
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6404,
+                  1,
+                  6473
+                ]
+              }
+            },
+            {
+              "sequence": 45,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.85953712463379,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8890,
+                  27,
+                  8890
+                ],
+                "negative_per_axis": [
+                  9083,
+                  20275,
+                  9397
+                ],
+                "exact_zero_per_axis": [
+                  2329,
+                  0,
+                  2015
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6407,
+                  1,
+                  6478
+                ]
+              }
+            },
+            {
+              "sequence": 48,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.85944366455078,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8881,
+                  27,
+                  8887
+                ],
+                "negative_per_axis": [
+                  9089,
+                  20275,
+                  9403
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6406,
+                  1,
+                  6480
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 3e-05,
+          "plus": [
+            {
+              "sequence": 49,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.85239028930664,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8920,
+                  28,
+                  8890
+                ],
+                "negative_per_axis": [
+                  9039,
+                  20274,
+                  9394
+                ],
+                "exact_zero_per_axis": [
+                  2343,
+                  0,
+                  2018
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6410,
+                  0,
+                  6478
+                ]
+              }
+            },
+            {
+              "sequence": 52,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.85244369506836,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8915,
+                  28,
+                  8886
+                ],
+                "negative_per_axis": [
+                  9045,
+                  20274,
+                  9399
+                ],
+                "exact_zero_per_axis": [
+                  2342,
+                  0,
+                  2017
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6410,
+                  0,
+                  6480
+                ]
+              }
+            },
+            {
+              "sequence": 53,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.852481842041016,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8923,
+                  28,
+                  8888
+                ],
+                "negative_per_axis": [
+                  9048,
+                  20274,
+                  9399
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2015
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6411,
+                  0,
+                  6476
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 50,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.855670928955078,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8903,
+                  28,
+                  8877
+                ],
+                "negative_per_axis": [
+                  9055,
+                  20274,
+                  9398
+                ],
+                "exact_zero_per_axis": [
+                  2344,
+                  0,
+                  2027
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6401,
+                  0,
+                  6476
+                ]
+              }
+            },
+            {
+              "sequence": 51,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.855541229248047,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8905,
+                  28,
+                  8883
+                ],
+                "negative_per_axis": [
+                  9065,
+                  20274,
+                  9392
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2027
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6400,
+                  0,
+                  6478
+                ]
+              }
+            },
+            {
+              "sequence": 54,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.855701446533203,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8903,
+                  28,
+                  8885
+                ],
+                "negative_per_axis": [
+                  9068,
+                  20274,
+                  9394
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2023
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6404,
+                  0,
+                  6477
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "baseline_tail": [
+        {
+          "sequence": 55,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.854015350341797,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8905,
+              28,
+              8881
+            ],
+            "negative_per_axis": [
+              9060,
+              20274,
+              9407
+            ],
+            "exact_zero_per_axis": [
+              2337,
+              0,
+              2014
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6404,
+              0,
+              6482
+            ]
+          }
+        },
+        {
+          "sequence": 56,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.853992462158203,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8905,
+              28,
+              8881
+            ],
+            "negative_per_axis": [
+              9068,
+              20274,
+              9394
+            ],
+            "exact_zero_per_axis": [
+              2329,
+              0,
+              2027
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6408,
+              0,
+              6476
+            ]
+          }
+        }
+      ],
+      "exported_resets_identical": true,
+      "seconds": 59.14836120605469
+    },
+    {
+      "case": {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0
+      },
+      "status": "completed",
+      "baseline_forward": [
+        {
+          "sequence": 57,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.89523696899414,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8651,
+              11,
+              8966
+            ],
+            "negative_per_axis": [
+              9321,
+              20291,
+              9324
+            ],
+            "exact_zero_per_axis": [
+              2330,
+              0,
+              2012
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6358,
+              0,
+              6474
+            ]
+          }
+        },
+        {
+          "sequence": 58,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.89519691467285,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8645,
+              11,
+              8974
+            ],
+            "negative_per_axis": [
+              9327,
+              20291,
+              9323
+            ],
+            "exact_zero_per_axis": [
+              2330,
+              0,
+              2005
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6360,
+              0,
+              6467
+            ]
+          }
+        },
+        {
+          "sequence": 59,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.895191192626953,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8647,
+              11,
+              8977
+            ],
+            "negative_per_axis": [
+              9317,
+              20291,
+              9314
+            ],
+            "exact_zero_per_axis": [
+              2338,
+              0,
+              2011
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6365,
+              0,
+              6474
+            ]
+          }
+        },
+        {
+          "sequence": 60,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.89516830444336,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8644,
+              11,
+              8966
+            ],
+            "negative_per_axis": [
+              9323,
+              20291,
+              9319
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2017
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6361,
+              0,
+              6470
+            ]
+          }
+        },
+        {
+          "sequence": 61,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.895280838012695,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8644,
+              11,
+              8962
+            ],
+            "negative_per_axis": [
+              9323,
+              20291,
+              9316
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2024
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6360,
+              0,
+              6472
+            ]
+          }
+        }
+      ],
+      "baseline_autodiff": [
+        {
+          "sequence": 62,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.895252227783203,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8642,
+              11,
+              8962
+            ],
+            "negative_per_axis": [
+              9325,
+              20291,
+              9322
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2018
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6355,
+              0,
+              6475
+            ]
+          },
+          "autodiff": 11.48620891571045
+        },
+        {
+          "sequence": 63,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.895225524902344,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8644,
+              11,
+              8964
+            ],
+            "negative_per_axis": [
+              9323,
+              20291,
+              9324
+            ],
+            "exact_zero_per_axis": [
+              2335,
+              0,
+              2014
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6362,
+              0,
+              6472
+            ]
+          },
+          "autodiff": 11.478944778442383
+        },
+        {
+          "sequence": 64,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.895214080810547,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8640,
+              11,
+              8970
+            ],
+            "negative_per_axis": [
+              9320,
+              20291,
+              9317
+            ],
+            "exact_zero_per_axis": [
+              2342,
+              0,
+              2015
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6359,
+              0,
+              6474
+            ]
+          },
+          "autodiff": 11.469930648803711
+        }
+      ],
+      "probes": [
+        {
+          "epsilon": 0.0003,
+          "plus": [
+            {
+              "sequence": 65,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.898014068603516,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8628,
+                  26,
+                  8960
+                ],
+                "negative_per_axis": [
+                  9345,
+                  20276,
+                  9333
+                ],
+                "exact_zero_per_axis": [
+                  2329,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6361,
+                  3,
+                  6476
+                ]
+              }
+            },
+            {
+              "sequence": 68,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.897924423217773,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8630,
+                  26,
+                  8962
+                ],
+                "negative_per_axis": [
+                  9338,
+                  20276,
+                  9335
+                ],
+                "exact_zero_per_axis": [
+                  2334,
+                  0,
+                  2005
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6365,
+                  3,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 69,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 23.897991180419922,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8627,
+                  26,
+                  8952
+                ],
+                "negative_per_axis": [
+                  9335,
+                  20276,
+                  9334
+                ],
+                "exact_zero_per_axis": [
+                  2340,
+                  0,
+                  2016
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6362,
+                  3,
+                  6475
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 66,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.890771865844727,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8652,
+                  9,
+                  8976
+                ],
+                "negative_per_axis": [
+                  9312,
+                  20293,
+                  9319
+                ],
+                "exact_zero_per_axis": [
+                  2338,
+                  0,
+                  2007
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6370,
+                  1,
+                  6467
+                ]
+              }
+            },
+            {
+              "sequence": 67,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.890771865844727,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8663,
+                  9,
+                  8973
+                ],
+                "negative_per_axis": [
+                  9316,
+                  20293,
+                  9321
+                ],
+                "exact_zero_per_axis": [
+                  2323,
+                  0,
+                  2008
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6368,
+                  1,
+                  6467
+                ]
+              }
+            },
+            {
+              "sequence": 70,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 23.8907470703125,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8655,
+                  9,
+                  8975
+                ],
+                "negative_per_axis": [
+                  9311,
+                  20293,
+                  9324
+                ],
+                "exact_zero_per_axis": [
+                  2336,
+                  0,
+                  2003
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6366,
+                  1,
+                  6469
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0002,
+          "plus": [
+            {
+              "sequence": 71,
+              "nominal_control": 0.0012000000000000001,
+              "represented_control": 0.0012000000569969416,
+              "loss": 23.897249221801758,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8642,
+                  18,
+                  8960
+                ],
+                "negative_per_axis": [
+                  9334,
+                  20283,
+                  9330
+                ],
+                "exact_zero_per_axis": [
+                  2326,
+                  1,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6362,
+                  3,
+                  6470
+                ]
+              }
+            },
+            {
+              "sequence": 74,
+              "nominal_control": 0.0012000000000000001,
+              "represented_control": 0.0012000000569969416,
+              "loss": 23.89723014831543,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  18,
+                  8964
+                ],
+                "negative_per_axis": [
+                  9336,
+                  20283,
+                  9325
+                ],
+                "exact_zero_per_axis": [
+                  2323,
+                  1,
+                  2013
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6363,
+                  3,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 75,
+              "nominal_control": 0.0012000000000000001,
+              "represented_control": 0.0012000000569969416,
+              "loss": 23.897193908691406,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8635,
+                  18,
+                  8961
+                ],
+                "negative_per_axis": [
+                  9336,
+                  20283,
+                  9339
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  1,
+                  2002
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6359,
+                  3,
+                  6475
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 72,
+              "nominal_control": 0.0008,
+              "represented_control": 0.0007999999797903001,
+              "loss": 23.892440795898438,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8654,
+                  11,
+                  8968
+                ],
+                "negative_per_axis": [
+                  9316,
+                  20291,
+                  9318
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2016
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6370,
+                  1,
+                  6473
+                ]
+              }
+            },
+            {
+              "sequence": 73,
+              "nominal_control": 0.0008,
+              "represented_control": 0.0007999999797903001,
+              "loss": 23.89240837097168,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8653,
+                  11,
+                  8965
+                ],
+                "negative_per_axis": [
+                  9319,
+                  20291,
+                  9325
+                ],
+                "exact_zero_per_axis": [
+                  2330,
+                  0,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6365,
+                  1,
+                  6468
+                ]
+              }
+            },
+            {
+              "sequence": 76,
+              "nominal_control": 0.0008,
+              "represented_control": 0.0007999999797903001,
+              "loss": 23.89242172241211,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8653,
+                  11,
+                  8968
+                ],
+                "negative_per_axis": [
+                  9313,
+                  20291,
+                  9316
+                ],
+                "exact_zero_per_axis": [
+                  2336,
+                  0,
+                  2018
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6362,
+                  1,
+                  6471
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.00015,
+          "plus": [
+            {
+              "sequence": 77,
+              "nominal_control": 0.00115,
+              "represented_control": 0.0011500000255182385,
+              "loss": 23.896739959716797,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8640,
+                  16,
+                  8960
+                ],
+                "negative_per_axis": [
+                  9331,
+                  20286,
+                  9324
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2018
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6367,
+                  3,
+                  6471
+                ]
+              }
+            },
+            {
+              "sequence": 80,
+              "nominal_control": 0.00115,
+              "represented_control": 0.0011500000255182385,
+              "loss": 23.89671516418457,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8639,
+                  16,
+                  8956
+                ],
+                "negative_per_axis": [
+                  9330,
+                  20286,
+                  9328
+                ],
+                "exact_zero_per_axis": [
+                  2333,
+                  0,
+                  2018
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6361,
+                  3,
+                  6472
+                ]
+              }
+            },
+            {
+              "sequence": 81,
+              "nominal_control": 0.00115,
+              "represented_control": 0.0011500000255182385,
+              "loss": 23.896690368652344,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8640,
+                  16,
+                  8954
+                ],
+                "negative_per_axis": [
+                  9339,
+                  20286,
+                  9329
+                ],
+                "exact_zero_per_axis": [
+                  2323,
+                  0,
+                  2019
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6368,
+                  3,
+                  6477
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 78,
+              "nominal_control": 0.0008500000000000001,
+              "represented_control": 0.0008500000112690032,
+              "loss": 23.893169403076172,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8652,
+                  11,
+                  8966
+                ],
+                "negative_per_axis": [
+                  9309,
+                  20291,
+                  9316
+                ],
+                "exact_zero_per_axis": [
+                  2341,
+                  0,
+                  2020
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6357,
+                  0,
+                  6472
+                ]
+              }
+            },
+            {
+              "sequence": 79,
+              "nominal_control": 0.0008500000000000001,
+              "represented_control": 0.0008500000112690032,
+              "loss": 23.893272399902344,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8653,
+                  11,
+                  8974
+                ],
+                "negative_per_axis": [
+                  9315,
+                  20291,
+                  9321
+                ],
+                "exact_zero_per_axis": [
+                  2334,
+                  0,
+                  2007
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  0,
+                  6466
+                ]
+              }
+            },
+            {
+              "sequence": 82,
+              "nominal_control": 0.0008500000000000001,
+              "represented_control": 0.0008500000112690032,
+              "loss": 23.893310546875,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8653,
+                  11,
+                  8970
+                ],
+                "negative_per_axis": [
+                  9317,
+                  20291,
+                  9325
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2007
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6358,
+                  0,
+                  6465
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0001,
+          "plus": [
+            {
+              "sequence": 83,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.89623260498047,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8642,
+                  14,
+                  8966
+                ],
+                "negative_per_axis": [
+                  9329,
+                  20287,
+                  9324
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  1,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6367,
+                  1,
+                  6477
+                ]
+              }
+            },
+            {
+              "sequence": 86,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.896316528320312,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8641,
+                  14,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9336,
+                  20288,
+                  9332
+                ],
+                "exact_zero_per_axis": [
+                  2325,
+                  0,
+                  2007
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6367,
+                  1,
+                  6479
+                ]
+              }
+            },
+            {
+              "sequence": 87,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 23.89627456665039,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8648,
+                  14,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9328,
+                  20288,
+                  9330
+                ],
+                "exact_zero_per_axis": [
+                  2326,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6365,
+                  1,
+                  6471
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 84,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.893997192382812,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8647,
+                  11,
+                  8983
+                ],
+                "negative_per_axis": [
+                  9318,
+                  20291,
+                  9329
+                ],
+                "exact_zero_per_axis": [
+                  2337,
+                  0,
+                  1990
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  0,
+                  6457
+                ]
+              }
+            },
+            {
+              "sequence": 85,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.89398956298828,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8656,
+                  11,
+                  8971
+                ],
+                "negative_per_axis": [
+                  9318,
+                  20291,
+                  9319
+                ],
+                "exact_zero_per_axis": [
+                  2328,
+                  0,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6358,
+                  0,
+                  6463
+                ]
+              }
+            },
+            {
+              "sequence": 88,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 23.893939971923828,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  11,
+                  8970
+                ],
+                "negative_per_axis": [
+                  9322,
+                  20291,
+                  9323
+                ],
+                "exact_zero_per_axis": [
+                  2337,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6357,
+                  0,
+                  6471
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 7e-05,
+          "plus": [
+            {
+              "sequence": 89,
+              "nominal_control": 0.00107,
+              "represented_control": 0.001069999998435378,
+              "loss": 23.89605712890625,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8646,
+                  12,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9324,
+                  20290,
+                  9333
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2000
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  1,
+                  6475
+                ]
+              }
+            },
+            {
+              "sequence": 92,
+              "nominal_control": 0.00107,
+              "represented_control": 0.001069999998435378,
+              "loss": 23.895938873291016,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8640,
+                  12,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9328,
+                  20290,
+                  9327
+                ],
+                "exact_zero_per_axis": [
+                  2334,
+                  0,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6354,
+                  1,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 93,
+              "nominal_control": 0.00107,
+              "represented_control": 0.001069999998435378,
+              "loss": 23.895977020263672,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8648,
+                  12,
+                  8961
+                ],
+                "negative_per_axis": [
+                  9323,
+                  20290,
+                  9329
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2012
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6361,
+                  1,
+                  6470
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 90,
+              "nominal_control": 0.00093,
+              "represented_control": 0.0009299999801442027,
+              "loss": 23.894359588623047,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8650,
+                  11,
+                  8981
+                ],
+                "negative_per_axis": [
+                  9316,
+                  20291,
+                  9318
+                ],
+                "exact_zero_per_axis": [
+                  2336,
+                  0,
+                  2003
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6356,
+                  0,
+                  6467
+                ]
+              }
+            },
+            {
+              "sequence": 91,
+              "nominal_control": 0.00093,
+              "represented_control": 0.0009299999801442027,
+              "loss": 23.894426345825195,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8645,
+                  11,
+                  8976
+                ],
+                "negative_per_axis": [
+                  9326,
+                  20291,
+                  9317
+                ],
+                "exact_zero_per_axis": [
+                  2331,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6358,
+                  0,
+                  6467
+                ]
+              }
+            },
+            {
+              "sequence": 94,
+              "nominal_control": 0.00093,
+              "represented_control": 0.0009299999801442027,
+              "loss": 23.89440155029297,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8647,
+                  11,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9322,
+                  20291,
+                  9317
+                ],
+                "exact_zero_per_axis": [
+                  2333,
+                  0,
+                  2016
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  0,
+                  6465
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 5e-05,
+          "plus": [
+            {
+              "sequence": 95,
+              "nominal_control": 0.00105,
+              "represented_control": 0.0010499999625608325,
+              "loss": 23.895841598510742,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8645,
+                  11,
+                  8966
+                ],
+                "negative_per_axis": [
+                  9328,
+                  20291,
+                  9328
+                ],
+                "exact_zero_per_axis": [
+                  2329,
+                  0,
+                  2008
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6353,
+                  1,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 98,
+              "nominal_control": 0.00105,
+              "represented_control": 0.0010499999625608325,
+              "loss": 23.895681381225586,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  11,
+                  8965
+                ],
+                "negative_per_axis": [
+                  9331,
+                  20291,
+                  9324
+                ],
+                "exact_zero_per_axis": [
+                  2328,
+                  0,
+                  2013
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6364,
+                  1,
+                  6471
+                ]
+              }
+            },
+            {
+              "sequence": 99,
+              "nominal_control": 0.00105,
+              "represented_control": 0.0010499999625608325,
+              "loss": 23.89578628540039,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8648,
+                  11,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9335,
+                  20291,
+                  9326
+                ],
+                "exact_zero_per_axis": [
+                  2319,
+                  0,
+                  2013
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6363,
+                  1,
+                  6468
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 96,
+              "nominal_control": 0.00095,
+              "represented_control": 0.0009500000160187483,
+              "loss": 23.894563674926758,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8649,
+                  11,
+                  8973
+                ],
+                "negative_per_axis": [
+                  9320,
+                  20291,
+                  9320
+                ],
+                "exact_zero_per_axis": [
+                  2333,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  0,
+                  6464
+                ]
+              }
+            },
+            {
+              "sequence": 97,
+              "nominal_control": 0.00095,
+              "represented_control": 0.0009500000160187483,
+              "loss": 23.894542694091797,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8646,
+                  11,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9309,
+                  20291,
+                  9314
+                ],
+                "exact_zero_per_axis": [
+                  2347,
+                  0,
+                  2019
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6359,
+                  0,
+                  6474
+                ]
+              }
+            },
+            {
+              "sequence": 100,
+              "nominal_control": 0.00095,
+              "represented_control": 0.0009500000160187483,
+              "loss": 23.894561767578125,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8649,
+                  11,
+                  8969
+                ],
+                "negative_per_axis": [
+                  9321,
+                  20291,
+                  9319
+                ],
+                "exact_zero_per_axis": [
+                  2332,
+                  0,
+                  2014
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6365,
+                  0,
+                  6467
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 3e-05,
+          "plus": [
+            {
+              "sequence": 101,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.895641326904297,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8641,
+                  11,
+                  8973
+                ],
+                "negative_per_axis": [
+                  9323,
+                  20291,
+                  9318
+                ],
+                "exact_zero_per_axis": [
+                  2338,
+                  0,
+                  2011
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6358,
+                  0,
+                  6472
+                ]
+              }
+            },
+            {
+              "sequence": 104,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.89562225341797,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8651,
+                  11,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9321,
+                  20291,
+                  9325
+                ],
+                "exact_zero_per_axis": [
+                  2330,
+                  0,
+                  2014
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6357,
+                  0,
+                  6467
+                ]
+              }
+            },
+            {
+              "sequence": 105,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 23.89557647705078,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8643,
+                  11,
+                  8964
+                ],
+                "negative_per_axis": [
+                  9322,
+                  20291,
+                  9329
+                ],
+                "exact_zero_per_axis": [
+                  2337,
+                  0,
+                  2009
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6355,
+                  0,
+                  6470
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 102,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.894901275634766,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8644,
+                  11,
+                  8963
+                ],
+                "negative_per_axis": [
+                  9328,
+                  20291,
+                  9319
+                ],
+                "exact_zero_per_axis": [
+                  2330,
+                  0,
+                  2020
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6362,
+                  0,
+                  6471
+                ]
+              }
+            },
+            {
+              "sequence": 103,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.894939422607422,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8658,
+                  11,
+                  8976
+                ],
+                "negative_per_axis": [
+                  9318,
+                  20291,
+                  9319
+                ],
+                "exact_zero_per_axis": [
+                  2326,
+                  0,
+                  2007
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6358,
+                  0,
+                  6470
+                ]
+              }
+            },
+            {
+              "sequence": 106,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 23.894912719726562,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  8651,
+                  11,
+                  8972
+                ],
+                "negative_per_axis": [
+                  9322,
+                  20291,
+                  9313
+                ],
+                "exact_zero_per_axis": [
+                  2329,
+                  0,
+                  2017
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  6360,
+                  0,
+                  6477
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "baseline_tail": [
+        {
+          "sequence": 107,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.89533233642578,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8648,
+              11,
+              8970
+            ],
+            "negative_per_axis": [
+              9321,
+              20291,
+              9322
+            ],
+            "exact_zero_per_axis": [
+              2333,
+              0,
+              2010
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6365,
+              0,
+              6466
+            ]
+          }
+        },
+        {
+          "sequence": 108,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 23.89516830444336,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              8641,
+              11,
+              8968
+            ],
+            "negative_per_axis": [
+              9317,
+              20291,
+              9323
+            ],
+            "exact_zero_per_axis": [
+              2344,
+              0,
+              2011
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              6357,
+              0,
+              6469
+            ]
+          }
+        }
+      ],
+      "exported_resets_identical": true,
+      "seconds": 145.03287887573242
+    },
+    {
+      "case": {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      "status": "completed",
+      "baseline_forward": [
+        {
+          "sequence": 109,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.1678009033203,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10279
+            ],
+            "negative_per_axis": [
+              10235,
+              17596,
+              10021
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              49,
+              7,
+              30
+            ]
+          }
+        },
+        {
+          "sequence": 110,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16831970214844,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10278
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              49,
+              7,
+              29
+            ]
+          }
+        },
+        {
+          "sequence": 111,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16830444335938,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10278
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10023
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              1
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              48,
+              7,
+              32
+            ]
+          }
+        },
+        {
+          "sequence": 112,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.167724609375,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10067,
+              2706,
+              10278
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              47,
+              7,
+              31
+            ]
+          }
+        },
+        {
+          "sequence": 113,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16845703125,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10278
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10024
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              0
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              47,
+              7,
+              30
+            ]
+          }
+        }
+      ],
+      "baseline_autodiff": [
+        {
+          "sequence": 114,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16836547851562,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10279
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              1
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              48,
+              7,
+              30
+            ]
+          },
+          "autodiff": 16374.02734375
+        },
+        {
+          "sequence": 115,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16796875,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10067,
+              2706,
+              10279
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              1
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              47,
+              7,
+              31
+            ]
+          },
+          "autodiff": 16374.9375
+        },
+        {
+          "sequence": 116,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16845703125,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10067,
+              2706,
+              10279
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10023
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              0
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              49,
+              7,
+              31
+            ]
+          },
+          "autodiff": 16375.548828125
+        }
+      ],
+      "probes": [
+        {
+          "epsilon": 0.0003,
+          "plus": [
+            {
+              "sequence": 117,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 167.67893981933594,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10059,
+                  3771,
+                  10286
+                ],
+                "negative_per_axis": [
+                  10242,
+                  16531,
+                  10016
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  38,
+                  4,
+                  26
+                ]
+              }
+            },
+            {
+              "sequence": 120,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 167.67941284179688,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10059,
+                  3771,
+                  10286
+                ],
+                "negative_per_axis": [
+                  10242,
+                  16531,
+                  10016
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  38,
+                  4,
+                  26
+                ]
+              }
+            },
+            {
+              "sequence": 121,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 167.67837524414062,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10059,
+                  3771,
+                  10286
+                ],
+                "negative_per_axis": [
+                  10242,
+                  16531,
+                  10016
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  38,
+                  4,
+                  25
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 118,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 158.48814392089844,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10102,
+                  1647,
+                  10285
+                ],
+                "negative_per_axis": [
+                  10197,
+                  18655,
+                  10017
+                ],
+                "exact_zero_per_axis": [
+                  3,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  42,
+                  4,
+                  33
+                ]
+              }
+            },
+            {
+              "sequence": 119,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 158.488525390625,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10104,
+                  1647,
+                  10284
+                ],
+                "negative_per_axis": [
+                  10197,
+                  18655,
+                  10017
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  45,
+                  3,
+                  34
+                ]
+              }
+            },
+            {
+              "sequence": 122,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 158.4888458251953,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10104,
+                  1647,
+                  10284
+                ],
+                "negative_per_axis": [
+                  10197,
+                  18655,
+                  10018
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  43,
+                  3,
+                  33
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0001,
+          "plus": [
+            {
+              "sequence": 123,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 163.83689880371094,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10088,
+                  3064,
+                  10281
+                ],
+                "negative_per_axis": [
+                  10212,
+                  17237,
+                  10019
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  1,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  45,
+                  10,
+                  28
+                ]
+              }
+            },
+            {
+              "sequence": 126,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 163.83718872070312,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10087,
+                  3064,
+                  10282
+                ],
+                "negative_per_axis": [
+                  10213,
+                  17238,
+                  10017
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  3
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  46,
+                  9,
+                  27
+                ]
+              }
+            },
+            {
+              "sequence": 127,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 163.83677673339844,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10087,
+                  3064,
+                  10281
+                ],
+                "negative_per_axis": [
+                  10211,
+                  17237,
+                  10019
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  1,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  46,
+                  9,
+                  27
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 124,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 160.65740966796875,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10086,
+                  2364,
+                  10276
+                ],
+                "negative_per_axis": [
+                  10215,
+                  17938,
+                  10025
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  55,
+                  8,
+                  36
+                ]
+              }
+            },
+            {
+              "sequence": 125,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 160.65753173828125,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10087,
+                  2364,
+                  10277
+                ],
+                "negative_per_axis": [
+                  10215,
+                  17938,
+                  10025
+                ],
+                "exact_zero_per_axis": [
+                  0,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  54,
+                  8,
+                  35
+                ]
+              }
+            },
+            {
+              "sequence": 128,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 160.65744018554688,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10086,
+                  2363,
+                  10277
+                ],
+                "negative_per_axis": [
+                  10215,
+                  17939,
+                  10024
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  54,
+                  7,
+                  35
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 3e-05,
+          "plus": [
+            {
+              "sequence": 129,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 162.66476440429688,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10062,
+                  2797,
+                  10278
+                ],
+                "negative_per_axis": [
+                  10237,
+                  17505,
+                  10024
+                ],
+                "exact_zero_per_axis": [
+                  3,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  45,
+                  4,
+                  31
+                ]
+              }
+            },
+            {
+              "sequence": 132,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 162.6652069091797,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10064,
+                  2797,
+                  10278
+                ],
+                "negative_per_axis": [
+                  10237,
+                  17505,
+                  10024
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  43,
+                  4,
+                  32
+                ]
+              }
+            },
+            {
+              "sequence": 133,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 162.6650390625,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10064,
+                  2797,
+                  10278
+                ],
+                "negative_per_axis": [
+                  10237,
+                  17505,
+                  10024
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  42,
+                  4,
+                  30
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 130,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 161.68031311035156,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10070,
+                  2624,
+                  10277
+                ],
+                "negative_per_axis": [
+                  10231,
+                  17677,
+                  10024
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  1,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  50,
+                  6,
+                  31
+                ]
+              }
+            },
+            {
+              "sequence": 131,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 161.67990112304688,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10070,
+                  2625,
+                  10278
+                ],
+                "negative_per_axis": [
+                  10231,
+                  17677,
+                  10023
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  52,
+                  6,
+                  32
+                ]
+              }
+            },
+            {
+              "sequence": 134,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 161.6801300048828,
+              "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  10070,
+                  2625,
+                  10278
+                ],
+                "negative_per_axis": [
+                  10231,
+                  17677,
+                  10023
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  51,
+                  6,
+                  32
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "baseline_tail": [
+        {
+          "sequence": 135,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16824340820312,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10279
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              1
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              48,
+              7,
+              31
+            ]
+          }
+        },
+        {
+          "sequence": 136,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 162.16848754882812,
+          "reset_state_sha256": "331a9bd8a0922ea7af3400dfca13f89bc9d98e320f955c61a1ad16726ce279f1",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              10066,
+              2706,
+              10280
+            ],
+            "negative_per_axis": [
+              10234,
+              17596,
+              10022
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              0
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              49,
+              7,
+              31
+            ]
+          }
+        }
+      ],
+      "exported_resets_identical": true,
+      "seconds": 117.50811862945557
+    },
+    {
+      "case": {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02
+      },
+      "status": "completed",
+      "baseline_forward": [
+        {
+          "sequence": 137,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80276489257812,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15970,
+              576,
+              10228
+            ],
+            "negative_per_axis": [
+              4329,
+              19726,
+              10072
+            ],
+            "exact_zero_per_axis": [
+              3,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              102,
+              2,
+              67
+            ]
+          }
+        },
+        {
+          "sequence": 138,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80282592773438,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15969,
+              576,
+              10229
+            ],
+            "negative_per_axis": [
+              4332,
+              19726,
+              10070
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              3
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              101,
+              2,
+              68
+            ]
+          }
+        },
+        {
+          "sequence": 139,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80307006835938,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15970,
+              576,
+              10228
+            ],
+            "negative_per_axis": [
+              4330,
+              19726,
+              10071
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              3
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              100,
+              2,
+              66
+            ]
+          }
+        },
+        {
+          "sequence": 140,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80287170410156,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15970,
+              576,
+              10230
+            ],
+            "negative_per_axis": [
+              4331,
+              19726,
+              10070
+            ],
+            "exact_zero_per_axis": [
+              1,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              102,
+              2,
+              64
+            ]
+          }
+        },
+        {
+          "sequence": 141,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80255126953125,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15970,
+              576,
+              10229
+            ],
+            "negative_per_axis": [
+              4330,
+              19726,
+              10071
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              102,
+              2,
+              64
+            ]
+          }
+        }
+      ],
+      "baseline_autodiff": [
+        {
+          "sequence": 142,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80247497558594,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15969,
+              576,
+              10228
+            ],
+            "negative_per_axis": [
+              4331,
+              19726,
+              10071
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              3
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              103,
+              2,
+              65
+            ]
+          },
+          "autodiff": -298.4815368652344
+        },
+        {
+          "sequence": 143,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80276489257812,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15969,
+              576,
+              10229
+            ],
+            "negative_per_axis": [
+              4331,
+              19726,
+              10072
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              1
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              103,
+              2,
+              66
+            ]
+          },
+          "autodiff": -298.48272705078125
+        },
+        {
+          "sequence": 144,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.8026885986328,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15969,
+              576,
+              10229
+            ],
+            "negative_per_axis": [
+              4331,
+              19726,
+              10070
+            ],
+            "exact_zero_per_axis": [
+              2,
+              0,
+              3
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              106,
+              2,
+              66
+            ]
+          },
+          "autodiff": -298.4616394042969
+        }
+      ],
+      "probes": [
+        {
+          "epsilon": 0.0003,
+          "plus": [
+            {
+              "sequence": 145,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 151.73443603515625,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  16024,
+                  730,
+                  10232
+                ],
+                "negative_per_axis": [
+                  4276,
+                  19572,
+                  10069
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  96,
+                  4,
+                  65
+                ]
+              }
+            },
+            {
+              "sequence": 148,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 151.73390197753906,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  16026,
+                  730,
+                  10232
+                ],
+                "negative_per_axis": [
+                  4274,
+                  19572,
+                  10067
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  3
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  98,
+                  4,
+                  67
+                ]
+              }
+            },
+            {
+              "sequence": 149,
+              "nominal_control": 0.0013,
+              "represented_control": 0.0013000000035390258,
+              "loss": 151.73426818847656,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  16024,
+                  730,
+                  10232
+                ],
+                "negative_per_axis": [
+                  4274,
+                  19572,
+                  10067
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  0,
+                  3
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  97,
+                  4,
+                  66
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 146,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 151.92564392089844,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15932,
+                  355,
+                  10224
+                ],
+                "negative_per_axis": [
+                  4368,
+                  19946,
+                  10077
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  1,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  100,
+                  2,
+                  71
+                ]
+              }
+            },
+            {
+              "sequence": 147,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 151.9260711669922,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15930,
+                  355,
+                  10224
+                ],
+                "negative_per_axis": [
+                  4367,
+                  19946,
+                  10076
+                ],
+                "exact_zero_per_axis": [
+                  5,
+                  1,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  100,
+                  2,
+                  71
+                ]
+              }
+            },
+            {
+              "sequence": 150,
+              "nominal_control": 0.0007000000000000001,
+              "represented_control": 0.000699999975040555,
+              "loss": 151.92556762695312,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15931,
+                  356,
+                  10223
+                ],
+                "negative_per_axis": [
+                  4367,
+                  19946,
+                  10078
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  99,
+                  2,
+                  69
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 0.0001,
+          "plus": [
+            {
+              "sequence": 151,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 151.77577209472656,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15997,
+                  622,
+                  10231
+                ],
+                "negative_per_axis": [
+                  4302,
+                  19680,
+                  10069
+                ],
+                "exact_zero_per_axis": [
+                  3,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  102,
+                  2,
+                  66
+                ]
+              }
+            },
+            {
+              "sequence": 154,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 151.77581787109375,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15998,
+                  622,
+                  10230
+                ],
+                "negative_per_axis": [
+                  4302,
+                  19680,
+                  10070
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  99,
+                  2,
+                  67
+                ]
+              }
+            },
+            {
+              "sequence": 155,
+              "nominal_control": 0.0011,
+              "represented_control": 0.0010999999940395355,
+              "loss": 151.77560424804688,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15998,
+                  622,
+                  10229
+                ],
+                "negative_per_axis": [
+                  4301,
+                  19680,
+                  10068
+                ],
+                "exact_zero_per_axis": [
+                  3,
+                  0,
+                  5
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  97,
+                  2,
+                  67
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 152,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 151.83612060546875,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15961,
+                  511,
+                  10223
+                ],
+                "negative_per_axis": [
+                  4339,
+                  19791,
+                  10076
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  3
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  94,
+                  2,
+                  67
+                ]
+              }
+            },
+            {
+              "sequence": 153,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 151.83609008789062,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15961,
+                  511,
+                  10223
+                ],
+                "negative_per_axis": [
+                  4339,
+                  19791,
+                  10077
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  98,
+                  1,
+                  68
+                ]
+              }
+            },
+            {
+              "sequence": 156,
+              "nominal_control": 0.0009,
+              "represented_control": 0.0008999999845400453,
+              "loss": 151.8361053466797,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15961,
+                  511,
+                  10226
+                ],
+                "negative_per_axis": [
+                  4339,
+                  19791,
+                  10075
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  1
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  97,
+                  1,
+                  65
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "epsilon": 3e-05,
+          "plus": [
+            {
+              "sequence": 157,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 151.79461669921875,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15976,
+                  596,
+                  10232
+                ],
+                "negative_per_axis": [
+                  4322,
+                  19706,
+                  10068
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  102,
+                  3,
+                  68
+                ]
+              }
+            },
+            {
+              "sequence": 160,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 151.79421997070312,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15977,
+                  596,
+                  10230
+                ],
+                "negative_per_axis": [
+                  4322,
+                  19706,
+                  10070
+                ],
+                "exact_zero_per_axis": [
+                  3,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  103,
+                  4,
+                  66
+                ]
+              }
+            },
+            {
+              "sequence": 161,
+              "nominal_control": 0.00103,
+              "represented_control": 0.0010300000431016088,
+              "loss": 151.79400634765625,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15975,
+                  596,
+                  10231
+                ],
+                "negative_per_axis": [
+                  4323,
+                  19706,
+                  10069
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  101,
+                  3,
+                  67
+                ]
+              }
+            }
+          ],
+          "minus": [
+            {
+              "sequence": 158,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 151.81227111816406,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15971,
+                  560,
+                  10226
+                ],
+                "negative_per_axis": [
+                  4330,
+                  19742,
+                  10074
+                ],
+                "exact_zero_per_axis": [
+                  1,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  94,
+                  3,
+                  66
+                ]
+              }
+            },
+            {
+              "sequence": 159,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 151.812255859375,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15970,
+                  560,
+                  10227
+                ],
+                "negative_per_axis": [
+                  4328,
+                  19742,
+                  10075
+                ],
+                "exact_zero_per_axis": [
+                  4,
+                  0,
+                  0
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  94,
+                  4,
+                  65
+                ]
+              }
+            },
+            {
+              "sequence": 162,
+              "nominal_control": 0.00097,
+              "represented_control": 0.0009699999936856329,
+              "loss": 151.8118896484375,
+              "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+              "active_particles": 40604,
+              "milk_displacement_branch_counts": {
+                "positive_per_axis": [
+                  15971,
+                  560,
+                  10226
+                ],
+                "negative_per_axis": [
+                  4329,
+                  19742,
+                  10074
+                ],
+                "exact_zero_per_axis": [
+                  2,
+                  0,
+                  2
+                ],
+                "abs_below_1e_minus_6_per_axis": [
+                  96,
+                  3,
+                  65
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "baseline_tail": [
+        {
+          "sequence": 163,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80331420898438,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15968,
+              576,
+              10227
+            ],
+            "negative_per_axis": [
+              4331,
+              19726,
+              10072
+            ],
+            "exact_zero_per_axis": [
+              3,
+              0,
+              3
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              103,
+              2,
+              67
+            ]
+          }
+        },
+        {
+          "sequence": 164,
+          "nominal_control": 0.001,
+          "represented_control": 0.0010000000474974513,
+          "loss": 151.80235290527344,
+          "reset_state_sha256": "c8bf714c416e98e493e0a43e27682c86d480076aecf4c9507ed403de8c575eec",
+          "active_particles": 40604,
+          "milk_displacement_branch_counts": {
+            "positive_per_axis": [
+              15968,
+              576,
+              10229
+            ],
+            "negative_per_axis": [
+              4329,
+              19726,
+              10071
+            ],
+            "exact_zero_per_axis": [
+              5,
+              0,
+              2
+            ],
+            "abs_below_1e_minus_6_per_axis": [
+              103,
+              2,
+              65
+            ]
+          }
+        }
+      ],
+      "exported_resets_identical": true,
+      "seconds": 111.88848543167114
+    }
+  ],
+  "terminal_test_executed": false,
+  "optimization_executed": false,
+  "started_utc": "2026-10-25T05:53:43Z",
+  "runtime": {
+    "backend": "Arch.x64",
+    "particle_count": 40604,
+    "dt": 0.0002,
+    "substeps": 10,
+    "original_max_loss_steps": 1000
+  },
+  "initial_template_sha256_before": "1b5c640c79c9990820ae6c7f9abc7b52768bc6cb8ee92ae776be4334a30b608b",
+  "initial_template_sha256_after": "1b5c640c79c9990820ae6c7f9abc7b52768bc6cb8ee92ae776be4334a30b608b",
+  "initial_template_unchanged": true,
+  "evaluations_completed": 164,
+  "completed_utc": "2026-10-25T06:02:57Z"
+}

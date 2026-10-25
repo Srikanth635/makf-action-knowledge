@@ -17,7 +17,7 @@
 - E2.2: implement prompt builder with small per-perspective ontology context — implemented
 - E2.3: offline fixture transport and optional OpenAI structured-output adapter — implemented, offline-tested
 - E2.4: validate candidates, save report and quarantine failures — minimal batch-level runner implemented
-- E2.5: run a scientific pilot — prepared genuine PourIt! excerpt; live run blocked on credentials; evaluate OntoGPT only after that run
+- E2.5: run a scientific pilot — genuine PourIt! excerpt exercised live; see CURRENT_PROGRESS.md for outcomes; scientific evaluation and OntoGPT comparison remain pending
 
 E2.1/E2.2 design, synthetic usage, tests and remaining boundaries are documented in
 [E2_PROMPT_INTERFACE.md](E2_PROMPT_INTERFACE.md). The acceptance criteria above cover

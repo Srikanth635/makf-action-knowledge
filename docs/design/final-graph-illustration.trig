@@ -1,0 +1,176 @@
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix demo: <https://example.org/makf-design/> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix paf: <https://w3id.org/aicor/pouring-frame#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+demo:provisionalCandidate {
+    demo:pouring a demo:ActionTopic ;
+        demo:aboutActionClass aicor:Pouring ;
+        demo:hasClaim demo:claimPourIt ;
+        demo:usesFrameClass paf:PouringKnowledgeFrame .
+
+    demo:anchorPourIt a demo:EvidenceAnchor ;
+        demo:passage demo:passagePourIt ;
+        demo:quote """The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring
+point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by
+the inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated
+mask of AFA provides the wrong visual feedback to adjust
+the pouring point, making the liquid spill out of the target
+container instead.""" ;
+        demo:supportRole "asserts_claim" .
+
+    demo:claimPourIt a demo:Claim ;
+        demo:derivationMode "source_paraphrase" ;
+        demo:epistemicStatus "proposed_strategy" ;
+        demo:evidence demo:anchorPourIt ;
+        demo:evidenceStatus "source_anchored" ;
+        demo:hasComponent demo:comparativeDescription,
+            demo:poseFeedbackStrategy ;
+        demo:knowledgeKind "strategy_description" ;
+        demo:modality "conditional" ;
+        demo:review demo:reviewPourIt ;
+        demo:sourcePath "docs/experiments/e23_pouring/quality-selected.json" ;
+        demo:statement "The source describes a pouring strategy that uses object pose information to calculate liquid-to-container distance as feedback for adjusting the pouring point, and reports that this strategy is less influenced by inaccurate size estimation." .
+
+    demo:comparativeDescription rdfs:label "Reported as less influenced by inaccurate size estimation." ;
+        demo:groundingNote "The provided ontology context offers no clearly fitting class for a comparative robustness-to-estimation-error description." ;
+        demo:groundingStatus "needs_mapping" .
+
+    demo:poseFeedbackStrategy a makf:GeneralizedStrategy ;
+        rdfs:label "Use object pose information to calculate liquid-to-container distance as feedback to adjust the pouring point." ;
+        demo:groundingStatus "grounded" .
+
+    demo:reviewPourIt a demo:ReviewRecord ;
+        demo:status "model_selected_provisional; human_review_pending" .
+}
+
+demo:publicationVocabulary {
+    demo:ActionTopic a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:Claim a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:EvidenceAnchor a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:ReviewRecord a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:SourceDocument a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:SourcePassage a rdfs:Class ;
+        rdfs:comment "Proposed publication vocabulary for this design illustration only." .
+
+    demo:aboutActionClass a rdf:Property .
+
+    demo:derivationMode a rdf:Property .
+
+    demo:document a rdf:Property .
+
+    demo:epistemicStatus a rdf:Property .
+
+    demo:evidence a rdf:Property .
+
+    demo:evidenceStatus a rdf:Property .
+
+    demo:groundingNote a rdf:Property .
+
+    demo:groundingStatus a rdf:Property .
+
+    demo:hasClaim a rdf:Property .
+
+    demo:hasComponent a rdf:Property .
+
+    demo:illustrative a rdf:Property .
+
+    demo:knowledgeKind a rdf:Property .
+
+    demo:modality a rdf:Property .
+
+    demo:passage a rdf:Property .
+
+    demo:publicationVocabulary rdfs:comment "All example.org/makf-design terms and instance IRIs are proposed illustration identifiers, not an implemented E3 schema." .
+
+    demo:qualifiesClaim a rdf:Property .
+
+    demo:quote a rdf:Property .
+
+    demo:review a rdf:Property .
+
+    demo:sourcePath a rdf:Property .
+
+    demo:statement a rdf:Property .
+
+    demo:status a rdf:Property .
+
+    demo:supportRole a rdf:Property .
+
+    demo:syntheticDemo a rdf:Property .
+
+    demo:usesFrameClass a rdf:Property .
+}
+
+demo:sourceRecords {
+    demo:paperPourIt a demo:SourceDocument ;
+        rdfs:label "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring" ;
+        rdfs:seeAlso <https://arxiv.org/abs/2307.11299> ;
+        demo:syntheticDemo false .
+
+    demo:passagePourIt a demo:SourcePassage ;
+        rdfs:label "Author-hosted preprint, section 4.3 Results and Analysis, PDF page 8" ;
+        rdf:value """The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring
+point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by
+the inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated
+mask of AFA provides the wrong visual feedback to adjust
+the pouring point, making the liquid spill out of the target
+container instead.""" ;
+        demo:document demo:paperPourIt .
+}
+
+demo:syntheticIllustration {
+    demo:claimB a demo:Claim ;
+        prov:wasDerivedFrom demo:paperB ;
+        demo:qualifiesClaim demo:claimPourIt ;
+        demo:statement "Synthetic example only: condition C may limit applicability of the comparison." ;
+        demo:status "illustration_only; not_assessed" ;
+        demo:syntheticDemo true .
+
+    demo:deviationD a makf:DeviationPattern ;
+        rdfs:label "Synthetic deviation D: outcome differs from prediction" ;
+        makf:potentiallyContradicts demo:effectE .
+
+    demo:hypothesisFeedback a makf:StrategyHypothesis ;
+        rdfs:label "Illustrative hypothesis: feedback may reduce a deviation under condition C." ;
+        demo:derivationMode "illustrative_design_proposal" ;
+        demo:epistemicStatus "hypothesis" ;
+        demo:evidenceStatus "not_assessed" ;
+        demo:illustrative true ;
+        demo:modality "possible" ;
+        makf:concernsStrategy demo:poseFeedbackStrategy ;
+        makf:couldBeTestedBy demo:observationO ;
+        makf:hasApplicabilityCondition demo:conditionC ;
+        makf:predictsPossibleEffect demo:effectE .
+
+    demo:syntheticIllustration rdfs:comment "Invented design examples, not scientific findings, extracted results or robot events." ;
+        demo:syntheticDemo true .
+
+    demo:conditionC a makf:ApplicabilityCondition ;
+        rdfs:label "Synthetic condition C: feedback signal is reliable" .
+
+    demo:observationO a makf:ObservationPattern ;
+        rdfs:label "Synthetic observation pattern O: compare deviation under C" .
+
+    demo:paperB a demo:SourceDocument ;
+        rdfs:label "Synthetic source B — invented demonstration, not a real paper" ;
+        demo:syntheticDemo true .
+
+    demo:effectE a makf:PredictedEffectPattern ;
+        rdfs:label "Synthetic predicted effect E: reduced deviation" .
+}
+

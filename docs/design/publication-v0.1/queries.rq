@@ -1,0 +1,14 @@
+PREFIX pub: <https://example.org/makf/publication/0.1#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?claim ?statement ?strategy ?sourceTitle ?quote ?reviewState ?mappingGap WHERE {
+ GRAPH ?candidateGraph {
+  ?claim a pub:Claim; pub:statement ?statement; pub:hasComponent ?strategy;
+         pub:evidence ?anchor; pub:review ?review.
+  ?strategy pub:componentKind "strategy".
+  ?anchor pub:document ?source; pub:exactQuote ?quote.
+  ?review pub:reviewState ?reviewState.
+  FILTER(?reviewState = "model_selected_provisional")
+  OPTIONAL { ?claim pub:hasComponent ?gap. ?gap pub:groundingStatus "needs_mapping"; pub:description ?mappingGap. }
+ }
+ GRAPH ?sourcesGraph { ?source dct:title ?sourceTitle; pub:syntheticDemo false. }
+}

@@ -1,4 +1,4 @@
-"""Offline CLI for ontology inspection, E1 validation and E2 prompt construction."""
+"""CLI for ontology inspection, E1/E2 extraction and local provisional RDF export."""
 import argparse
 import json
 import sys
@@ -13,6 +13,7 @@ from .ontology import list_ontologies, describe_class
 from .extraction import ExtractionRequest, SourceDocument, SourcePassage, build_extraction_prompt
 from .pipeline import extract
 from .providers import FixtureProvider, OpenAIProvider, ProviderError
+from .quality import OpenAIReviewer, review_and_revise
 
 
 def source_arguments(parser):
@@ -69,10 +70,26 @@ def run(argv=None):
     parser.add_argument('--api-key-env',default='MAKF_OPENAI_API_KEY',help='Credential variable NAME, never a key value')
     parser.add_argument('--max-output-tokens',type=int,default=6000)
     parser.add_argument('--timeout',type=float,default=60)
+    parser.add_argument('--review-model',help='Optional OpenAI model for a separate evidence/scope/mapping review')
+    parser.add_argument('--revise-once',action='store_true',help='Allow one revision and second review; requires --review-model')
+    parser.add_argument('--select-reviewed',action='store_true',help='Save a separate subset of candidates passing every model review check')
     parser.add_argument('--out-dir',type=Path,required=True,help='New run directory; existing directories are not overwritten')
     parser=sub.add_parser('schema',help='Regenerate JSON Schema from the bundled LinkML subset')
     parser.add_argument('--out',type=Path,help='Output JSON schema; if omitted print to stdout')
+    parser=sub.add_parser('export-rdf',help='Validate and save a local provisional RDF snapshot; requires the rdf extra')
+    parser.add_argument('input',help='E1 JSON file or pouring/grasping synthetic example')
+    parser.add_argument('--profile',default='pouring',help='pouring, grasping, or local profile YAML')
+    parser.add_argument('--base-iri',required=True,help='Explicit HTTP(S) base for data identifiers; never fetched')
+    parser.add_argument('--selection-file',type=Path,help='E2 selection/report.json (advisory model review only)')
+    parser.add_argument('--reviewed-batch',type=Path,help='Original reviewed candidates.json; required with --selection-file')
+    parser.add_argument('--out-dir',type=Path,required=True,help='New local bundle directory; never overwrite an existing directory')
+    parser=sub.add_parser('export-quantitative-rdf',help='Export provisional quantitative evidence with scalar and SHACL checks')
+    parser.add_argument('input',help='Quantitative JSON file or fluidlab')
+    parser.add_argument('--base-iri',required=True)
+    parser.add_argument('--out-dir',type=Path,required=True)
     parser=sub.add_parser('ontologies',help='List bundled ontology files and metadata')
+    parser=sub.add_parser('validate-quantitative',help='Validate scalar quantitative evidence and report unresolved issues')
+    parser.add_argument('input',help='Quantitative JSON file or fluidlab for the packaged published-source fixture')
     parser=sub.add_parser('class',help='Inspect direct OWL restrictions of an ontology class')
     parser.add_argument('term',help='e.g. paf:PouringKnowledgeFrame')
     parser=sub.add_parser('inventory',help='Display precomputed P1.1 inventory statistics')
@@ -80,7 +97,7 @@ def run(argv=None):
     args=p.parse_args(argv)
     try:
         if args.command=='status':
-            print_json({'package_version':__version__,'completed':['P1.1 ontology inventory','P1.2 pouring frame','P1.3 MAKF refactor and grasping smoke test','E1 schema, profiles, offline validator','E2.1 extraction interface and E2.2 deterministic prompt builder','E2.3 optional OpenAI and fixture transports','Request-bound parsing, validation and local quarantine runner'],'not_implemented':['Scientific entailment and generalization assessment','E3 RDF populated candidates/SHACL','TigerGraph runtime integration','OWL DL consistency check with resolved DUL'],'live_experiment':'See docs/experiments/e23_pouring/README.md for verified run status','bundled_official_DUL':False,'world_model_data_included':False})
+            print_json({'package_version':__version__,'completed':['P1.1 ontology inventory','P1.2 pouring frame','P1.3 MAKF refactor and grasping smoke test','E1 schema, profiles, offline validator','E2.1 extraction interface and E2.2 deterministic prompt builder','E2.3 optional OpenAI and fixture transports','Request-bound parsing, validation and local quarantine runner','E3 local provisional RDF export with E1 and SHACL validation'],'not_implemented':['Scientific entailment and generalization assessment','Authenticated human RDF promotion and graph-store publication','TigerGraph runtime integration','OWL DL consistency check with resolved DUL'],'live_experiment':'See docs/experiments/e23_pouring/README.md for verified run status','bundled_official_DUL':False,'world_model_data_included':False})
         elif args.command=='validate':print_json(validate_file(resolved_input(args.input),resolved_profile(args.profile)))
         elif args.command=='guidance':
             result=build_context(resolved_profile(args.profile))
@@ -97,6 +114,10 @@ def run(argv=None):
         elif args.command=='extract':
             if args.out_dir.exists():
                 raise ValueError('Choose a new --out-dir; existing runs are preserved')
+            if (args.revise_once or args.select_reviewed) and not args.review_model:
+                raise ValueError('--revise-once and --select-reviewed require --review-model')
+            if args.review_model and args.provider != 'openai':
+                raise ValueError('--review-model requires --provider openai')
             request = extraction_request(args)
             if args.provider == 'openai':
                 if not args.model or args.fixture_file:
@@ -107,21 +128,64 @@ def run(argv=None):
                 if not args.fixture_file or args.model:
                     raise ValueError('Fixture transport requires --fixture-file and cannot use --model')
                 provider = FixtureProvider(args.fixture_file.read_bytes().decode('utf-8'))
+            reviewer = None
+            workflow = None
             try:
                 result = extract(request, provider)
                 result.save(args.out_dir)
+                if args.review_model:
+                    reviewer = OpenAIReviewer(args.review_model, api_key_env=args.api_key_env,
+                        max_output_tokens=args.max_output_tokens, timeout=args.timeout)
+                    workflow = review_and_revise(request, result, provider, reviewer, args.out_dir,
+                                                 revise_once=args.revise_once, select_passed=args.select_reviewed)
             finally:
+                if reviewer is not None:
+                    reviewer.close()
                 if isinstance(provider, OpenAIProvider):
                     provider.close()
+            if workflow is not None:
+                print_json({**workflow, 'out_dir': str(args.out_dir)})
+                return 0 if workflow['status'] in {'quality_passed_provisional', 'model_reviewed_subset', 'abstained'} else 1
             print_json({'status': result.report['status'], 'out_dir': str(args.out_dir),
                         'candidate_count': result.report.get('candidate_count', 0),
                         'error_code': result.report.get('error_code')})
             return 0 if result.report['status'] in {'provisional', 'abstained'} else 1
+        elif args.command=='export-rdf':
+            from .publication import export_batch, read_json
+            if args.out_dir.exists():
+                raise ValueError('Choose a new --out-dir; existing RDF bundles are preserved')
+            if bool(args.selection_file) != bool(args.reviewed_batch):
+                raise ValueError('--selection-file and --reviewed-batch must be supplied together')
+            result = export_batch(read_json(resolved_input(args.input)), base_iri=args.base_iri,
+                profile=args.profile,
+                selection=read_json(args.selection_file) if args.selection_file else None,
+                reviewed_batch=read_json(args.reviewed_batch) if args.reviewed_batch else None)
+            result.save(args.out_dir)
+            manifest = json.loads(result.manifest_json)
+            print_json({'status': 'exported_provisional', 'out_dir': str(args.out_dir),
+                'candidate_count': manifest['candidate_count'], 'review_state': manifest['review_state'],
+                'shacl_conforms': manifest['shacl_conforms']})
         elif args.command=='schema':
             schema=compile_schema(yaml.safe_load(resource_path('schema','makf_extraction.linkml.yaml').read_text()))
             if args.out:
                 args.out.parent.mkdir(parents=True,exist_ok=True);args.out.write_text(json.dumps(schema,indent=2)+'\n',encoding='utf8');print(f'Wrote {args.out}')
             else:print_json(schema)
+        elif args.command=='export-quantitative-rdf':
+            from .publication import read_json
+            from .quantitative_rdf import export_quantitative
+            if args.out_dir.exists():
+                raise ValueError('Existing quantitative RDF bundles are preserved; choose a new --out-dir')
+            path = resource_path('quantitative','fluidlab.json') if args.input == 'fluidlab' else Path(args.input)
+            result = export_quantitative(read_json(path),base_iri=args.base_iri)
+            result.save(args.out_dir)
+            manifest=json.loads(result.manifest_json)
+            print_json({'status':'exported_pending','quantity_count':manifest['quantity_count'],
+                'shacl_conforms':True,'out_dir':str(args.out_dir)})
+        elif args.command=='validate-quantitative':
+            from .publication import read_json
+            from .quantitative import validate_quantitative
+            path = resource_path('quantitative','fluidlab.json') if args.input == 'fluidlab' else Path(args.input)
+            print_json(validate_quantitative(read_json(path)))
         elif args.command=='ontologies':print_json(list_ontologies())
         elif args.command=='class':print_json(describe_class(args.term))
         elif args.command=='inventory':print(resource_path('inventory','inventory_stats.json').read_text(),end='')

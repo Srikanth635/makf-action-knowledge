@@ -1,0 +1,92 @@
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix paf: <https://w3id.org/aicor/pouring-frame#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pub: <https://example.org/makf/publication/0.1#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/makf/data/candidates-graph/596cf11009af45a7ca9980c6be70d98ccf16f39ccdb13eb33f836a596a6bb04e> {
+    <https://example.org/makf/data/batch/91666b5b1cc0a0e8a9d0a8997528ab7bda1b066179228b6c4b36b00967b8dd56> a pub:Batch ;
+        pub:batchId "e23-pourit-pilot-20261024-010" ;
+        pub:claim <https://example.org/makf/data/claim/1c27cdf2e4e74bfcf5509b9e91b66a4b83c0c59cbe9924b74117cb2010fc0d5f> ;
+        pub:document <https://example.org/makf/data/source/90262097eeaa603087b5114f701def5b860969981aba02cb41cd309663f98b28> ;
+        pub:profileId "pouring-v0.1" .
+
+    <https://example.org/makf/data/component/c53de64e8b60376d147d48867517f415d05db2c91f55331c9f5727226428a12a> a pub:Component ;
+        pub:componentId "c2" ;
+        pub:componentKind "generic_description" ;
+        pub:description "Reported as less influenced by inaccurate size estimation." ;
+        pub:groundingNote "The provided ontology context offers no clearly fitting class for a comparative robustness-to-estimation-error description." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/cafbe003f4a8788abf032c0f6f28af24a26c62dbd4da372f90322e87a648d86c> a pub:Component ;
+        pub:componentId "c1" ;
+        pub:componentKind "strategy" ;
+        pub:description "Use object pose information to calculate liquid-to-container distance as feedback to adjust the pouring point." ;
+        pub:groundedClass makf:GeneralizedStrategy ;
+        pub:groundingStatus "grounded" .
+
+    <https://example.org/makf/data/evidence/f5529058cb06d0611b8cd3fa147ba54e82ae242b3bd26c9237d52c994133a109> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/90262097eeaa603087b5114f701def5b860969981aba02cb41cd309663f98b28> ;
+        pub:exactQuote """The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring
+point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by
+the inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated
+mask of AFA provides the wrong visual feedback to adjust
+the pouring point, making the liquid spill out of the target
+container instead.""" ;
+        pub:passage <https://example.org/makf/data/passage/9d5f7a94934987e2164aac50130df6313712ea29af9922e8e5b66f8b9762fc2f> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/review/fa08ace913bdabd3760c78c0ea8b4abd8b0915692c382f73df030a590d7f3a6f> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "db79b79c30c4e94f2ecd790f6b4e193f6858e47e2759922f1cf4d67b84c6d638" ;
+        pub:assesses <https://example.org/makf/data/claim/1c27cdf2e4e74bfcf5509b9e91b66a4b83c0c59cbe9924b74117cb2010fc0d5f> ;
+        pub:reviewState "model_selected_provisional" ;
+        pub:reviewerKind "model" .
+
+    <https://example.org/makf/data/run/08e505df281e00fa4c31cb1400abaacb47ce3a26712c2b37e67a3ade3171650a> a prov:Activity,
+            pub:ExtractionRun ;
+        pub:engine "openai" ;
+        pub:modelName "gpt-5.4-2026-03-05" ;
+        pub:promptVersion "makf-e2.2-v3" ;
+        pub:recordedAt "2026-10-24T08:49:42.985112+00:00"^^xsd:dateTime .
+
+    <https://example.org/makf/data/claim/1c27cdf2e4e74bfcf5509b9e91b66a4b83c0c59cbe9924b74117cb2010fc0d5f> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/08e505df281e00fa4c31cb1400abaacb47ce3a26712c2b37e67a3ade3171650a> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "pourit-pilot-cand-2" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "proposed_strategy" ;
+        pub:evidence <https://example.org/makf/data/evidence/f5529058cb06d0611b8cd3fa147ba54e82ae242b3bd26c9237d52c994133a109> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/c53de64e8b60376d147d48867517f415d05db2c91f55331c9f5727226428a12a>,
+            <https://example.org/makf/data/component/cafbe003f4a8788abf032c0f6f28af24a26c62dbd4da372f90322e87a648d86c> ;
+        pub:knowledgeKind "strategy_description" ;
+        pub:modality "conditional" ;
+        pub:perspective "procedural" ;
+        pub:review <https://example.org/makf/data/review/fa08ace913bdabd3760c78c0ea8b4abd8b0915692c382f73df030a590d7f3a6f> ;
+        pub:statement "The source describes a pouring strategy that uses object pose information to calculate liquid-to-container distance as feedback for adjusting the pouring point, and reports that this strategy is less influenced by inaccurate size estimation." .
+}
+
+<https://example.org/makf/data/sources-graph/84dc95e5aae87cd4ebe71c17d06e47248ce09b854616a3a995d6a17cecd13f69> {
+    <https://example.org/makf/data/passage/9d5f7a94934987e2164aac50130df6313712ea29af9922e8e5b66f8b9762fc2f> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/90262097eeaa603087b5114f701def5b860969981aba02cb41cd309663f98b28> ;
+        pub:locator "Author-hosted preprint, section 4.3 Results and Analysis, PDF page 8" ;
+        pub:passageId "results-analysis-strategies" ;
+        pub:text """The method of Lin et al. [17] only uses the estimated object pose and size for calculating container-tocontainer distance as the initial pouring point. Such a strategy sometimes fails due to an imperfect initial pouring
+point, as the transparent bottleneck results in inaccurate object size estimation. Our method only use object pose information to calculate the liquid-to-container distance as feedback to adjust the pouring point, which is less influenced by
+the inaccurate size estimation. However, AFA method performs poorly than [17], because the inaccurately estimated
+mask of AFA provides the wrong visual feedback to adjust
+the pouring point, making the liquid spill out of the target
+container instead.""" .
+
+    <https://example.org/makf/data/source/90262097eeaa603087b5114f701def5b860969981aba02cb41cd309663f98b28> a pub:SourceSnapshot ;
+        dct:title "PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring" ;
+        pub:documentId "lin-etal-2023-pourit-author-preprint" ;
+        pub:passage <https://example.org/makf/data/passage/9d5f7a94934987e2164aac50130df6313712ea29af9922e8e5b66f8b9762fc2f> ;
+        pub:sourceURI "https://arxiv.org/abs/2307.11299" ;
+        pub:syntheticDemo false .
+}
+

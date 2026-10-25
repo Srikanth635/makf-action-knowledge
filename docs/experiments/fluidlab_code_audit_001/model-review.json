@@ -1,0 +1,45 @@
+{
+  "assessments": [
+    {
+      "finding_id": "time-step",
+      "supported_by_supplied_evidence": true,
+      "rationale": "The paper excerpt is internally inconsistent: 10 \u00d7 1e-4 seconds equals 1e-3 seconds, not its stated 2e-3 seconds. Both code excerpts set dt=2e-4 and compute 10 substeps, giving a nominal 2e-3 code-time step. This supports the qualified discrepancy, but establishes neither physical time scaling nor the intended published configuration or successful execution."
+    },
+    {
+      "finding_id": "density",
+      "supported_by_supplied_evidence": false,
+      "rationale": "The numerical-default discrepancy is supported: Table 4 gives pouring densities 0.8 and 1.5, while the code initializes MILK at 0.5 and WATER at 1.0 through RHO[material]. With gravity along negative y, MILK at y=0.53 is the lower, lighter body and WATER at y=0.73 is the upper, heavier body. However, the supplied paper excerpt gives no spatial placement, so the finding's additional claim of a different order from the paper is unsupported. Neither commit is established as the published experiment."
+    },
+    {
+      "finding_id": "material",
+      "supported_by_supplied_evidence": true,
+      "rationale": "The limited, partially-explained conclusion is supported: Table 4 labels both pouring liquids Liquid with mu=0 and lambda=277.78, matching the supplied WATER/MILK class and parameter mappings. These mappings alone do not establish the complete constitutive implementation. The Section 4.1 non-Newtonian wording is reported in the payload but its source passage is not quoted, so that wording cannot be independently checked here."
+    },
+    {
+      "finding_id": "observation-budget",
+      "supported_by_supplied_evidence": true,
+      "rationale": "Table 3 lists 500 particles per fluid body for Pouring, and the code sets _n_obs_ptcls_per_body=500, supporting the observation-budget interpretation rather than a total simulated-particle count. The supplied annex also identifies this as an observation count, although the explanatory Appendix B.1 passage and observation-sampling implementation are not quoted. Static assignment does not verify the actual runtime observation count."
+    },
+    {
+      "finding_id": "units",
+      "supported_by_supplied_evidence": true,
+      "rationale": "The supplied material table and code excerpts do not establish physical reference scales or SI units for density and Lam\u00e9 parameters. Retaining the reported values without conversion is justified. The paper explicitly labels its timing values in seconds, but that does not establish an SI mapping for the code or material parameters. This is an advisory evidence review, not scientific approval."
+    }
+  ],
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-6-astra",
+    "live": true,
+    "wire_request_sha256": "f5fdfb733a7bc24fb04ef3e07c415923e3fc9368b1133de84a2512ca3aaf9f29",
+    "model_name": "gpt-6-astra",
+    "response_id": "chatcmpl-EckOHTu003mkn74RuO8R0d8XVXBUj",
+    "request_id": "req_1ce3b25cb3e44db78a19a6e899e1a87b",
+    "usage": {
+      "prompt_tokens": 8218,
+      "completion_tokens": 676,
+      "total_tokens": 8894
+    },
+    "finish_reason": "stop"
+  },
+  "scope": "Advisory review of supplied excerpts only; no execution or human approval."
+}

@@ -1,0 +1,14 @@
+{
+  "e1": {
+    "status": "PASS",
+    "batch_id": "corpus-expansion-001-softgym",
+    "profile_id": "pouring-v0.1",
+    "candidates": 1,
+    "warnings": [
+      "cand-1: candidate has components pending ontology grounding",
+      "cand-1: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "shacl_conforms": true
+}

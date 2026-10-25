@@ -1,0 +1,176 @@
+{
+  "profile_version": "0.1",
+  "created_at": "2026-10-25T05:09:25.392759+00:00",
+  "purpose": "Proposed new native-unit reproduction, not a reconstruction certified to match published results.",
+  "repository": "https://github.com/zhouxian/FluidLab",
+  "commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "official_repo_provenance": {
+    "status": "supported_by_public_author_response",
+    "note_id": "wAAUKkoszGT",
+    "note_url": "https://openreview.net/forum?id=wAAUKkoszGT",
+    "note_cdate": 1675970612266
+  },
+  "paper_experiment_match": "unverified",
+  "published_checkpoint": "not_found_in_inspected_sources",
+  "inspection_scope": "Pinned repository tree, main branch, tags/releases API, README, experiment/configuration/launcher/solver files; not a claim about all possible external artifacts.",
+  "tracked_result_artifacts": [],
+  "files": [
+    {
+      "path": "exp.sh",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/exp.sh",
+      "sha256": "34d04aeab1b1f8379d7b83be335a71621d9bc3f5e9a66ce7956411c822cdc96b"
+    },
+    {
+      "path": "environment.yml",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/environment.yml",
+      "sha256": "e7df3e25cb1062e7a8131ca78e8bfe9442176ad9ececc98d4e6d9dbeccdf8844"
+    },
+    {
+      "path": ".gitignore",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/.gitignore",
+      "sha256": "7a44bf4c941ccf91f2dbc22db7305365b0b61c1f80a1e507cb3be8b6c8387227"
+    },
+    {
+      "path": "fluidlab/run.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/run.py",
+      "sha256": "3cfbf70ac146147deed569a52173dcb935d6d116a717070a9bfeccfa29507eae"
+    },
+    {
+      "path": "fluidlab/envs/fluid_env.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/fluid_env.py",
+      "sha256": "bdee1428ae2787ed8e5389044b7d6b1247fbe11eac7e165e4b19025d7c33aa85"
+    },
+    {
+      "path": "fluidlab/fluidengine/taichi_env.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/taichi_env.py",
+      "sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234"
+    },
+    {
+      "path": "fluidlab/optimizer/policies.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/optimizer/policies.py",
+      "sha256": "f268802924d52676cc37242569f030525e76cf9f8b693b0c8e3794f5aa6631bf"
+    },
+    {
+      "path": "fluidlab/optimizer/solver.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/optimizer/solver.py",
+      "sha256": "ae6b67a3f96ec7c23ee26094df4ce2b6aa3a1d06552bd89178a73f1b75af21a4"
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_pouring.yaml",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/configs/agent_pouring.yaml",
+      "sha256": "ecf5da814b170530ebf8343aa6d7eda566604f2183e2f37d5e2f9e87ea3b76e9"
+    },
+    {
+      "path": "fluidlab/utils/misc.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/utils/misc.py",
+      "sha256": "e41118592bc757933bc206690e69eb6aabf27376ed85ef906edc48f49d43cbfd"
+    },
+    {
+      "path": "fluidlab/utils/config.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/utils/config.py",
+      "sha256": "26c59ac7b787e1c34d6e28cdc1bb8be8987a50f860e1a9bbe377547e9d3e7f36"
+    },
+    {
+      "path": "fluidlab/__init__.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fluidlab/envs/__init__.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/__init__.py",
+      "sha256": "1737e6e76453b3fcbffe5d8f81f4fedfb18f5a4be9094400757e4256207ca15f"
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/losses/pouring_loss.py",
+      "sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/README.md",
+      "sha256": "72b05e8237c59feff78337ce2404b1bcd0f31852898f9e84e3ce690d0eec229f"
+    },
+    {
+      "path": "fluidlab/configs/macros.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py",
+      "sha256": "b99e4f50ebbff6ab8abdc38f5134c4c96e7654753a9d667c390486fc39ab0522"
+    },
+    {
+      "path": "fluidlab/envs/pouring_env.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py",
+      "sha256": "85329d1dffe689d5ca7518a9a5de467f3a6219f92e338b026a7091baca1b329f"
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "sha256": "a5214be504124940399e3f06021bf4479c293790172ed3d185c36a1495c82b95"
+    },
+    {
+      "path": "fluidlab/configs/exp_pouring.yaml",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/exp_pouring.yaml",
+      "sha256": "7d9a3b3252017965ee433e13ebf73f6a7130c822ffbd27b8ff9a5a1aa8316417"
+    },
+    {
+      "path": "fluidlab/configs/default_config.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/default_config.py",
+      "sha256": "da5df86e49c8ef6ffac30705350426a9117870f22e44b93a3e607fd8d50ab996"
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/smoke_field.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/smoke_field.py",
+      "sha256": "73219ba656d0537aa75f33b69c59303cec3dd887a32333912e3f2358a603c81f"
+    },
+    {
+      "path": "fluidlab/fluidengine/bodies/bodies.py",
+      "url": "https://raw.githubusercontent.com/zhouxian/FluidLab/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py",
+      "sha256": "5c3b0c17e58a317d70e0379b24343f78f0680ffce54b225d4d9d92691b82bb35"
+    }
+  ],
+  "candidate_command": [
+    "python",
+    "fluidlab/run.py",
+    "--cfg_file",
+    "configs/exp_pouring.yaml",
+    "--exp_name",
+    "makf-native-pouring-pilot"
+  ],
+  "candidate_settings": {
+    "env": "Pouring-v0",
+    "seed": 0,
+    "optimizer": "Adam",
+    "iterations": 500,
+    "learning_rate": "1e-4",
+    "horizon": 1000,
+    "observed_particles_per_body": 500,
+    "simulation_dt_code_units": "2e-4",
+    "nominal_step_code_units": "2e-3",
+    "substeps": 10,
+    "gravity_code_units": [
+      0.0,
+      -20.0,
+      0.0
+    ]
+  },
+  "physical_unit_scales": {
+    "length": "unestablished",
+    "time": "unestablished",
+    "mass": "unestablished",
+    "source_reference": "No SI reference-scale declaration identified in inspected artifacts."
+  },
+  "readiness": {
+    "static_profile_prepared": true,
+    "native_runtime_verified": false,
+    "paper_result_match_verified": false,
+    "si_conversion_eligible": false,
+    "execution_eligible": false
+  },
+  "blockers": [
+    "Launcher passes renderer_type but pinned PouringEnv constructor lacks that parameter.",
+    "Pinned environment/runtime compatibility and a usable compute/rendering backend are unverified.",
+    "No checkpoint/result manifest tying the published Pouring results to exact inputs was located in inspected sources.",
+    "No validated physical length/time/mass scales or material-unit conversion was located."
+  ],
+  "environment_scope": "No nvidia-smi command or /dev/nvidia* devices observed in this workspace; other Taichi compute backends were not tested.",
+  "simulation_executed": false,
+  "review_state": "pending"
+}

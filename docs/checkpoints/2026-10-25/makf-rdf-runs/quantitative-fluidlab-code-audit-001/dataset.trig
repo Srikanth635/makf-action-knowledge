@@ -1,0 +1,983 @@
+@prefix q: <https://example.org/makf/quantitative/0.1#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/makf/data/quantitative/38c440b3c06a942da6e6d02c938feba6ec14b032f553cd06363818e08efa6653> {
+    <https://example.org/makf/data/quantitative/793cb6e0147fb29434c0fad33dd8d32822408958e8843f1a246b93a5af1781c2> a q:Snapshot ;
+        q:artifact <https://example.org/makf/data/quantitative/018982897c008595ef26d0b59a06c8a3f2365a5a6554f89ca5b924b04b609617>,
+            <https://example.org/makf/data/quantitative/142455c2513576a5bef11e4f1e13cee0b1c98e645fce803cb19c576756f306e8>,
+            <https://example.org/makf/data/quantitative/20388ac3c4696cc7b1f56a82539bcd449a245c8e49ee82f4b73daf080f620ed3>,
+            <https://example.org/makf/data/quantitative/2279c77b6b42df771253ac16074ac6fd1d3e1996de5ec836b90f2684a7c2d947>,
+            <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10>,
+            <https://example.org/makf/data/quantitative/4366c517672f0cf0766f07a373f8784ff2a3e5ddd40a29b9822ffa7650536cda>,
+            <https://example.org/makf/data/quantitative/51c83f413fc803af3523a513e9ec25b0cd548a9dfe74e89c8251af816eff8a22>,
+            <https://example.org/makf/data/quantitative/9051ed587841a7710712c358de8594b0ce462a3a339d3cac6cd7d5ac5b9ccc44>,
+            <https://example.org/makf/data/quantitative/ada24384138fade95bd762dc15182bb9f7a85acd7bed104c69da808a775dc1e4>,
+            <https://example.org/makf/data/quantitative/af2221766b567bb1563f940076346a03393fe5591d02fc3a94ce17569ac15ce8>,
+            <https://example.org/makf/data/quantitative/af26472d728969e26b2d36bc21220c674332bfe6d0e2be52312f655ad2841aa5>,
+            <https://example.org/makf/data/quantitative/cde6f9c101471af583cd6877dc9b87d3daf858776093827d954752f7102e00f3>,
+            <https://example.org/makf/data/quantitative/d662610556ea308ba9448d413605811563dd7f6c540cd1f4f28e7b1046defa64>,
+            <https://example.org/makf/data/quantitative/f8043ce8fc3ad626487dfd21f4d61d2f9272790a657ca9875c0ea75fc09d569f> ;
+        q:calculation <https://example.org/makf/data/quantitative/756a08b8d044b02ac15ee7544f264135e727efbcb520112e8f6b4dac00b67be1> ;
+        q:comparison_ready false ;
+        q:execution_eligible false ;
+        q:inputJSON "{\"artifacts\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"locator\":\"arXiv 2303.02346v1 PDF page 15\",\"sha256\":\"d121d230e6a125cc2a36fb5bd5ed550945a3ada2af88b38a4ea15f72e487f67e\",\"text\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n Latte Art (Pouring)          Along x and z                -               1000                       -\\n Latte Art (Stirring)         Along x and z                -               1000                       -\\n Ice Cream (Static)          Along x, y and z              -               2000                       -\\nIce Cream (Dynamic)          Along x, y and z              -               2000                       -\\n    Transporting              Along x and z         Around y                500                       -\\n       Mixing                 Along x and z                -               1000                       -\\n       Pouring                      -               Around z                500                       -\\n  Gathering (Easy)            Along x and z                -                500                       -\\n  Gathering (Hard)            Along x and z                -                500                       -\\n   Air Circulation                  -               Around y                 -               128 × 9 × 128\\n\\n                                        Table 3: Task-specfic settings.\\n\\n                                                                   Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   Water                         Liquid              0.0         277.78      1.0\\n                   Milk                          Liquid              0.0         277.78      1.0\\n                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0\\n                  Coffee                         Liquid              0.0         277.78      1.0\\n                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5\\n             Floating object                     Elastic           416.67        277.78      0.5\\n                Sugar cube                   Viscous Liquid        208.33        277.78      1.0\\n        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\\n        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\\n         Object in Transporting                   Rigid            416.67        277.78      5.0\\n\\n                        Table 4: Details of materials properties used in FluidLab.\\n\\n\\n\"},{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"locator\":\"arXiv 2303.02346v1 PDF page 14\",\"sha256\":\"cfec9c4550b090f627244926512746238f8227795352bbdfdc59c317a2019b4d\",\"text\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"},{\"artifact_id\":\"task\",\"locator\":\"Section 4.1, PDF page 5\",\"sha256\":\"6ed5e7a5f1a354ed465411ca296ddea629fe4ec51cda0a1334063f206045d8ba\",\"text\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"},{\"artifact_id\":\"observation-context\",\"locator\":\"Appendix B.1, PDF page 14\",\"sha256\":\"0ba2714369345fe6cfd418bd1ab52039ca4d365f271964df109a0acfe16edb95\",\"text\":\"Each task has a task-specific action range and action space, with certain dimensions of the full\\naction-space locked. We present our task-specific settings for action spaces, observed number of\\nparticles per fluid body and observed number of grid cells in Table 3. Detailed properties of all\\nmaterials used are listed in Table 4.\\n\\n\"},{\"artifact_id\":\"code-excerpt-0\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L64\",\"sha256\":\"94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15\",\"text\":\"############ material class #############\\nMAT_CLASS = {\\n    WATER          : MAT_LIQUID,\\n    INVISCID_DEMO  : MAT_LIQUID,\\n    INVISCID_DEMO2 : MAT_LIQUID,\\n    INVISCID_DEMO3 : MAT_LIQUID,\\n    VISCOUS_DEMO   : MAT_LIQUID,\\n    MILK           : MAT_LIQUID,\\n    COFFEE         : MAT_LIQUID,\\n    ELASTIC        : MAT_ELASTIC,\\n    ELASTIC_DEMO   : MAT_ELASTIC,\\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\\n    RIGID          : MAT_RIGID,\\n    RIGID_HEAVY    : MAT_RIGID,\\n    RIGID_LIGHT    : MAT_RIGID,\\n    ICECREAM       : MAT_PLASTO_ELASTIC,\\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\\n    MILK_VIS       : MAT_LIQUID,\\n    COFFEE_VIS     : MAT_LIQUID,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-1\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L143\",\"sha256\":\"17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464\",\"text\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-2\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py#L18\",\"sha256\":\"9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357\",\"text\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"},{\"artifact_id\":\"code-excerpt-3\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py#L20\",\"sha256\":\"21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387\",\"text\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"},{\"artifact_id\":\"code-excerpt-4\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py#L62\",\"sha256\":\"e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f\",\"text\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"},{\"artifact_id\":\"code-excerpt-5\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L64\",\"sha256\":\"94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15\",\"text\":\"############ material class #############\\nMAT_CLASS = {\\n    WATER          : MAT_LIQUID,\\n    INVISCID_DEMO  : MAT_LIQUID,\\n    INVISCID_DEMO2 : MAT_LIQUID,\\n    INVISCID_DEMO3 : MAT_LIQUID,\\n    VISCOUS_DEMO   : MAT_LIQUID,\\n    MILK           : MAT_LIQUID,\\n    COFFEE         : MAT_LIQUID,\\n    ELASTIC        : MAT_ELASTIC,\\n    ELASTIC_DEMO   : MAT_ELASTIC,\\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\\n    RIGID          : MAT_RIGID,\\n    RIGID_HEAVY    : MAT_RIGID,\\n    RIGID_LIGHT    : MAT_RIGID,\\n    ICECREAM       : MAT_PLASTO_ELASTIC,\\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\\n    MILK_VIS       : MAT_LIQUID,\\n    COFFEE_VIS     : MAT_LIQUID,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-6\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L143\",\"sha256\":\"17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464\",\"text\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-7\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/envs/pouring_env.py#L18\",\"sha256\":\"9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357\",\"text\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"},{\"artifact_id\":\"code-excerpt-8\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/simulators/mpm_simulator.py#L20\",\"sha256\":\"21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387\",\"text\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"},{\"artifact_id\":\"code-excerpt-9\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/bodies/bodies.py#L62\",\"sha256\":\"e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f\",\"text\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"}],\"conversions\":[],\"issues\":[{\"code\":\"material_model_ambiguity\",\"evidence\":[{\"artifact_id\":\"task\",\"exact_quote\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n Latte Art (Pouring)          Along x and z                -               1000                       -\\n Latte Art (Stirring)         Along x and z                -               1000                       -\\n Ice Cream (Static)          Along x, y and z              -               2000                       -\\nIce Cream (Dynamic)          Along x, y and z              -               2000                       -\\n    Transporting              Along x and z         Around y                500                       -\\n       Mixing                 Along x and z                -               1000                       -\\n       Pouring                      -               Around z                500                       -\\n  Gathering (Easy)            Along x and z                -                500                       -\\n  Gathering (Hard)            Along x and z                -                500                       -\\n   Air Circulation                  -               Around y                 -               128 × 9 × 128\\n\\n                                        Table 3: Task-specfic settings.\\n\\n                                                                   Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   Water                         Liquid              0.0         277.78      1.0\\n                   Milk                          Liquid              0.0         277.78      1.0\\n                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0\\n                  Coffee                         Liquid              0.0         277.78      1.0\\n                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5\\n             Floating object                     Elastic           416.67        277.78      0.5\\n                Sugar cube                   Viscous Liquid        208.33        277.78      1.0\\n        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\\n        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\\n         Object in Transporting                   Rigid            416.67        277.78      5.0\\n\\n                        Table 4: Details of materials properties used in FluidLab.\\n\\n\\n\"}],\"issue_id\":\"material-wording\",\"message\":\"Section 4.1 says non-Newtonian while Table 4 lists Liquid with mu=0; implementation/version check pending.\",\"quantity_ids\":[\"light-mu\",\"light-lambda\",\"light-density_rho\",\"heavy-mu\",\"heavy-lambda\",\"heavy-density_rho\"]},{\"code\":\"source_code_mismatch\",\"evidence\":[{\"artifact_id\":\"code-excerpt-3\",\"exact_quote\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"},{\"artifact_id\":\"code-excerpt-8\",\"exact_quote\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"}],\"issue_id\":\"paper-code-timing\",\"message\":\"Both inspected commits set dt=2e-4 and n_substeps=int(2e-3/dt), differing from the paper substep duration; exact experiment version/time scale is unverified.\",\"quantity_ids\":[\"step\",\"substep-time\"]},{\"code\":\"source_code_mismatch\",\"evidence\":[{\"artifact_id\":\"code-excerpt-1\",\"exact_quote\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-6\",\"exact_quote\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"},{\"artifact_id\":\"code-excerpt-2\",\"exact_quote\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"},{\"artifact_id\":\"code-excerpt-7\",\"exact_quote\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"},{\"artifact_id\":\"code-excerpt-4\",\"exact_quote\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"},{\"artifact_id\":\"code-excerpt-9\",\"exact_quote\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"}],\"issue_id\":\"paper-code-density\",\"message\":\"Pinned code uses MILK below WATER and defaults RHO[MILK]=0.5 and RHO[WATER]=1.0; paper density settings are retained separately, not corrected.\",\"quantity_ids\":[\"light-density_rho\",\"heavy-density_rho\"]}],\"quantities\":[{\"annex_record_id\":\"fluidlab-pouring-observation-budget\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"       Pouring                      -               Around z                500                       -\"},{\"artifact_id\":\"observation-context\",\"exact_quote\":\"Each task has a task-specific action range and action space, with certain dimensions of the full\\naction-space locked. We present our task-specific settings for action spaces, observed number of\\nparticles per fluid body and observed number of grid cells in Table 3. Detailed properties of all\\nmaterials used are listed in Table 4.\\n\\n\"}],\"quantity_id\":\"observed-particles\",\"quantity_kind\":\"observed_particle_count\",\"reported_value_text\":\"500\",\"role\":\"configuration\",\"subject\":\"Observed particle budget per fluid body in Pouring, not total simulated particles\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}},{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-mu\",\"quantity_kind\":\"lame_mu_parameter\",\"reported_value_text\":\"0.0\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-lambda\",\"quantity_kind\":\"lame_lambda_parameter\",\"reported_value_text\":\"277.78\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-density_rho\",\"quantity_kind\":\"reported_density_parameter\",\"reported_value_text\":\"0.8\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-mu\",\"quantity_kind\":\"lame_mu_parameter\",\"reported_value_text\":\"0.0\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-lambda\",\"quantity_kind\":\"lame_lambda_parameter\",\"reported_value_text\":\"277.78\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-density_rho\",\"quantity_kind\":\"reported_density_parameter\",\"reported_value_text\":\"1.5\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}},{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"step\",\"quantity_kind\":\"time_step\",\"reported_value_text\":\"2e-3\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}},{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"substeps\",\"quantity_kind\":\"substep_count\",\"reported_value_text\":\"10\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"substeps\",\"status\":\"explicit\",\"symbol\":\"count\"}},{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"substep-time\",\"quantity_kind\":\"substep_duration\",\"reported_value_text\":\"1e-4\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}}],\"schema_version\":\"0.1\",\"study\":{\"context\":{\"description\":\"Published task and runtime settings; units, version and material interpretation unresolved. No simulation was reproduced.\",\"evidence\":[{\"artifact_id\":\"task\",\"exact_quote\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"}],\"status\":\"partial\"},\"document_version\":\"arXiv 2303.02346v1; PDF SHA-256 8decba48c2c63b6611ac1ee3096bd0836c2c9334a3e76899a7188bbb1ae872a7\",\"evidence_origin\":\"published_simulation\",\"review_state\":\"pending\",\"simulator\":{\"name\":\"FluidEngine\",\"version_status\":\"not_reported\"},\"source_uri\":\"https://arxiv.org/abs/2303.02346v1\",\"study_id\":\"xian-etal-fluidlab-arxiv-2303.02346v1\",\"synthetic_demo\":false,\"title\":\"FluidLab published pouring configuration\",\"transcription_method\":\"Assistant-authored migration of four preserved annex records; scalar spellings checked against source text. Separate pinned-code audit issues appended; original reported quantities unchanged.\"},\"timing_checks\":[{\"check_id\":\"runtime-step-consistency\",\"count_id\":\"substeps\",\"step_id\":\"step\",\"substep_id\":\"substep-time\"}]}" ;
+        q:input_sha256 "914e04f05549ade2c36494e40ff63e83177e60a672a116cfa522ff52f327ad5d" ;
+        q:issue <https://example.org/makf/data/quantitative/0b1d62be74e3da216675227414c86de1cc8c7919b856904251b0f40699e8bd79>,
+            <https://example.org/makf/data/quantitative/1133f5b5ddf607e8b8d9dc7d626961ea3f34ebbec6e4503729af3b4a446992da>,
+            <https://example.org/makf/data/quantitative/50eee4a9564c3b40cceef2c801d6453642981924ef6b562a0584123d219983ec>,
+            <https://example.org/makf/data/quantitative/639fae00b158d0aeb0346c230a9874b91ff313b8834683fdcca0a0a26b0d06f5>,
+            <https://example.org/makf/data/quantitative/67f4752863f8e47ed4ce9d3f4176210ffd3ac3e4068baecd67a6c1dfae91290b>,
+            <https://example.org/makf/data/quantitative/91fd23f642f7d8b154b5b73a3b1e0d1b7a80f23bcf2fb6550b3bfd87a333b430>,
+            <https://example.org/makf/data/quantitative/924bfca145987fc77e45def0677db6b09674c9d0f0deb47edad037209f5f01f4>,
+            <https://example.org/makf/data/quantitative/9f7f2c3463c8366edfe372373d9a6c7b9e9d0bb4693c0c3ec3d99e3f68082ef5>,
+            <https://example.org/makf/data/quantitative/de6b9b5c5da1a42283478bb007e67a21cea0a2c3a15152069bf9e5603eee559a>,
+            <https://example.org/makf/data/quantitative/e184a5ab61ec62ec8d9c164cad361c42805ff28d2dc7b8f17cbfc8b72ee96331>,
+            <https://example.org/makf/data/quantitative/e374f364c1cc91a0a1c6c355b10ac1bfb756abd7af1e5e83339426b1ea1fc9d9> ;
+        q:quantity <https://example.org/makf/data/quantitative/26bb7e92e18118d86645bac5c275f6cc3a45fa67a8299df26df45ba53c89dc03>,
+            <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c>,
+            <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af>,
+            <https://example.org/makf/data/quantitative/937f90bb05e3b05bbc8e0f370968f8a25404ac94ead4c7e98abcf4f6d61292bc>,
+            <https://example.org/makf/data/quantitative/a1bc195d19b56b373c1276c416c9540fbc002785711328e268c57e9afe7244c8>,
+            <https://example.org/makf/data/quantitative/a66d2703f9f4c84d59b7a596e585a6199642e5d4456fcdddf117b91d09914554>,
+            <https://example.org/makf/data/quantitative/b7ab2ecdc694d437c8f67802a820481c0ddda699b9f48560a0d930cfcf05f13c>,
+            <https://example.org/makf/data/quantitative/d2bb75c87d6208ffb3d6d4e4598e6796890acce1deff19fe576c11ee569d2b52>,
+            <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235>,
+            <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> ;
+        q:recordJSON "{\"comparison_ready\":false,\"execution_eligible\":false,\"input_sha256\":\"914e04f05549ade2c36494e40ff63e83177e60a672a116cfa522ff52f327ad5d\",\"review_state\":\"pending\",\"schema_version\":\"0.1\",\"storage_eligible\":true}" ;
+        q:review_state "pending" ;
+        q:schema_version "0.1" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> .
+
+    <https://example.org/makf/data/quantitative/018982897c008595ef26d0b59a06c8a3f2365a5a6554f89ca5b924b04b609617> a q:Artifact ;
+        q:artifact_id "code-excerpt-1" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L143" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-1\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L143\",\"sha256\":\"17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464\",\"text\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"}" ;
+        q:sha256 "17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464" ;
+        q:text """MU = {
+    WATER          : 0.0,
+    INVISCID_DEMO  : 0.0,
+    INVISCID_DEMO2 : 0.0,
+    INVISCID_DEMO3 : 0.0,
+    VISCOUS_DEMO   : 800.0,
+    MILK           : 0.0,
+    COFFEE         : 0.0,
+    MILK_VIS       : 200.0,
+    COFFEE_VIS     : 200.0,
+    ELASTIC        : 416.67,
+    ELASTIC_DEMO   : 10.0,
+    PLASTIC_DEMO   : 160.0,
+    ICECREAM       : 416.67,
+    ICECREAM1       : 216.67,
+    RIGID          : 416.67,
+    RIGID_HEAVY    : 416.67,
+    RIGID_LIGHT    : 416.67,
+}
+
+LAMDA = {
+    WATER          : 277.78,
+    INVISCID_DEMO  : 277.78,
+    INVISCID_DEMO2 : 277.78,
+    INVISCID_DEMO3 : 277.78,
+    VISCOUS_DEMO   : 277.78,
+    MILK           : 277.78,
+    COFFEE         : 277.78,
+    MILK_VIS       : 277.78,
+    COFFEE_VIS     : 277.78,
+    ELASTIC        : 277.78,
+    ELASTIC_DEMO   : 100.0,
+    PLASTIC_DEMO   : 277.78,
+    ICECREAM       : 277.78,
+    ICECREAM1       : 277.78,
+    RIGID          : 277.78,
+    RIGID_HEAVY    : 277.78,
+    RIGID_LIGHT    : 277.78,
+}
+
+RHO = {
+    WATER          : 1.0,
+    INVISCID_DEMO  : 5.0,
+    INVISCID_DEMO2 : 1.0,
+    INVISCID_DEMO3 : 3.0,
+    VISCOUS_DEMO   : 5.0,
+    MILK           : 0.5,
+    COFFEE         : 1.0,
+    MILK_VIS       : 1.0,
+    COFFEE_VIS     : 1.0,
+    ELASTIC        : 1.0,
+    ELASTIC_DEMO   : 1.0,
+    PLASTIC_DEMO   : 1.0,
+    ICECREAM       : 0.5,
+    ICECREAM1       : 0.5,
+    RIGID          : 1.0,
+    RIGID_HEAVY    : 10.0,
+    RIGID_LIGHT    : 0.5,
+}
+""" .
+
+    <https://example.org/makf/data/quantitative/06eb1b72af6d68e114e2a38d3603368aa3a947a7e10fecbc1482d5ce2ed2369e> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"substeps\",\"status\":\"explicit\",\"symbol\":\"count\"}" ;
+        q:reported_text "substeps" ;
+        q:status "explicit" ;
+        q:symbol "count" .
+
+    <https://example.org/makf/data/quantitative/0b1d62be74e3da216675227414c86de1cc8c7919b856904251b0f40699e8bd79> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af>,
+            <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235> ;
+        q:code "source_code_mismatch" ;
+        q:message "Both inspected commits set dt=2e-4 and n_substeps=int(2e-3/dt), differing from the paper substep duration; exact experiment version/time scale is unverified." ;
+        q:recordJSON "{\"code\":\"source_code_mismatch\",\"message\":\"Both inspected commits set dt=2e-4 and n_substeps=int(2e-3/dt), differing from the paper substep duration; exact experiment version/time scale is unverified.\",\"quantity_ids\":[\"step\",\"substep-time\"]}" .
+
+    <https://example.org/makf/data/quantitative/1133f5b5ddf607e8b8d9dc7d626961ea3f34ebbec6e4503729af3b4a446992da> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/937f90bb05e3b05bbc8e0f370968f8a25404ac94ead4c7e98abcf4f6d61292bc> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"light-mu\"]}" .
+
+    <https://example.org/makf/data/quantitative/142455c2513576a5bef11e4f1e13cee0b1c98e645fce803cb19c576756f306e8> a q:Artifact ;
+        q:artifact_id "code-excerpt-4" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py#L62" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-4\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/bodies/bodies.py#L62\",\"sha256\":\"e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f\",\"text\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"}" ;
+        q:sha256 "e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f" ;
+        q:text """        if color is not None:
+            body_color = color
+        else:
+            body_color = COLOR[material]
+
+        body_color = np.tile(body_color, [len(particles), 1])
+        body_rho = np.full(len(particles), RHO[material] )
+        body_material = np.full(len(particles), material)
+        body_used = np.full(len(particles), used)
+        body_id = np.full(len(particles), len(self.bodies))
+
+        # rotate
+""" .
+
+    <https://example.org/makf/data/quantitative/18aeaa2ab998734b6490ccbe1cc53987beb6c06655e22d2b046e9eda778e5c50> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/20388ac3c4696cc7b1f56a82539bcd449a245c8e49ee82f4b73daf080f620ed3> ;
+        q:artifact_id "observation-context" ;
+        q:exact_quote """Each task has a task-specific action range and action space, with certain dimensions of the full
+action-space locked. We present our task-specific settings for action spaces, observed number of
+particles per fluid body and observed number of grid cells in Table 3. Detailed properties of all
+materials used are listed in Table 4.
+
+""" ;
+        q:recordJSON "{\"artifact_id\":\"observation-context\",\"exact_quote\":\"Each task has a task-specific action range and action space, with certain dimensions of the full\\naction-space locked. We present our task-specific settings for action spaces, observed number of\\nparticles per fluid body and observed number of grid cells in Table 3. Detailed properties of all\\nmaterials used are listed in Table 4.\\n\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/19c264ce66ddf6cbff1b8bbb6d9b61b56e533ab77a7e64efe875db85c3314e47> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/1e06a304dec13f9f5c66863fefeb6c617c695c789e0f86eeb077142b1d820481> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/2279c77b6b42df771253ac16074ac6fd1d3e1996de5ec836b90f2684a7c2d947> a q:Artifact ;
+        q:artifact_id "code-excerpt-3" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py#L20" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-3\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/fluidengine/simulators/mpm_simulator.py#L20\",\"sha256\":\"21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387\",\"text\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"}" ;
+        q:sha256 "21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387" ;
+        q:text """
+        self.n_grid              = int(64 * quality)
+        self.dx                  = 1 / self.n_grid
+        self.inv_dx              = float(self.n_grid)
+        self.dt                  = 2e-4
+        self.p_vol               = (self.dx * 0.5) ** 2
+        self.res                 = (self.n_grid,) * self.dim
+        self.max_substeps_local  = max_substeps_local
+        self.max_substeps_global = max_substeps_global
+        self.horizon             = horizon
+        self.n_substeps          = int(2e-3 / self.dt)
+        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)
+
+        assert self.n_substeps * self.horizon < self.max_substeps_global
+        assert self.max_substeps_local % self.n_substeps == 0
+""" .
+
+    <https://example.org/makf/data/quantitative/2ed9e460119bc4289280a34c886f6dc1034eec0a811fb1762a0147fcc0ab78bf> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """                                        Action space              number of particles      number of grid cells
+         Task
+                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field
+ """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n \"}" .
+
+    <https://example.org/makf/data/quantitative/31aae751eb3c711bdf500a343012b6725c9809f1a6c21c2334160c4442281c3a> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/3360e203ddb979fe6482f4b4caf077b35ba334ad02b1eb54055eb21d1b431169> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/40d7181b722e4931a8d238daade73e69f62fb9668b4fd3e0840e6403d52bc1c9> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/415a628a6af80c8393c79026ac9e773ae0bb5092f2eeaa849b1b83db2fc2db26> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/ada24384138fade95bd762dc15182bb9f7a85acd7bed104c69da808a775dc1e4> ;
+        q:artifact_id "fluidlab-runtime-settings.txt" ;
+        q:exact_quote """All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for
+ensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in
+real time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an
+Nvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/4366c517672f0cf0766f07a373f8784ff2a3e5ddd40a29b9822ffa7650536cda> a q:Artifact ;
+        q:artifact_id "code-excerpt-8" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/simulators/mpm_simulator.py#L20" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-8\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/simulators/mpm_simulator.py#L20\",\"sha256\":\"21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387\",\"text\":\"\\n        self.n_grid              = int(64 * quality)\\n        self.dx                  = 1 / self.n_grid\\n        self.inv_dx              = float(self.n_grid)\\n        self.dt                  = 2e-4\\n        self.p_vol               = (self.dx * 0.5) ** 2\\n        self.res                 = (self.n_grid,) * self.dim\\n        self.max_substeps_local  = max_substeps_local\\n        self.max_substeps_global = max_substeps_global\\n        self.horizon             = horizon\\n        self.n_substeps          = int(2e-3 / self.dt)\\n        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)\\n\\n        assert self.n_substeps * self.horizon < self.max_substeps_global\\n        assert self.max_substeps_local % self.n_substeps == 0\\n\"}" ;
+        q:sha256 "21f226bc9514bb05feff428ec35ad73665e9bfeae370f85d72ede34e75972387" ;
+        q:text """
+        self.n_grid              = int(64 * quality)
+        self.dx                  = 1 / self.n_grid
+        self.inv_dx              = float(self.n_grid)
+        self.dt                  = 2e-4
+        self.p_vol               = (self.dx * 0.5) ** 2
+        self.res                 = (self.n_grid,) * self.dim
+        self.max_substeps_local  = max_substeps_local
+        self.max_substeps_global = max_substeps_global
+        self.horizon             = horizon
+        self.n_substeps          = int(2e-3 / self.dt)
+        self.max_steps_local     = int(self.max_substeps_local / self.n_substeps)
+
+        assert self.n_substeps * self.horizon < self.max_substeps_global
+        assert self.max_substeps_local % self.n_substeps == 0
+""" .
+
+    <https://example.org/makf/data/quantitative/468b6520652885a73e9d81b458b839660c75cea2f68450818391f7baeb2ac0f6> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/46d72361be869a2689127e974e7d664b294bd2713c06c813f3a4e39da593ed09> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/50eee4a9564c3b40cceef2c801d6453642981924ef6b562a0584123d219983ec> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/b7ab2ecdc694d437c8f67802a820481c0ddda699b9f48560a0d930cfcf05f13c> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"heavy-lambda\"]}" .
+
+    <https://example.org/makf/data/quantitative/51c83f413fc803af3523a513e9ec25b0cd548a9dfe74e89c8251af816eff8a22> a q:Artifact ;
+        q:artifact_id "code-excerpt-7" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/envs/pouring_env.py#L18" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-7\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/envs/pouring_env.py#L18\",\"sha256\":\"9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357\",\"text\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"}" ;
+        q:sha256 "9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357" ;
+        q:text """        self.horizon               = 1000
+        self.horizon_action        = 1000
+        self.target_file           = None
+        self._n_obs_ptcls_per_body = 500
+        self.loss                  = loss
+        self.loss_type             = loss_type
+        self.action_range          = np.array([-0.02, 0.02])
+
+        # create a taichi env
+        self.taichi_env = TaichiEnv(
+            dim=3,
+            particle_density=1e6,
+            max_substeps_local=20,
+            gravity=(0.0, -20.0, 0.0),
+            horizon=self.horizon,
+        )
+        self.build_env()
+        self.gym_misc()
+
+    def setup_agent(self):
+        agent_cfg = CfgNode(new_allowed=True)
+        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))
+        self.taichi_env.setup_agent(agent_cfg)
+        self.agent = self.taichi_env.agent
+
+    def setup_statics(self):
+        pass
+
+    def setup_bodies(self):
+        self.taichi_env.add_body(
+            type='cylinder',
+            center=(0.6, 0.53, 0.5),
+            height=0.2,
+            radius=0.18,
+            material=MILK,
+        )
+        self.taichi_env.add_body(
+            type='cylinder',
+            center=(0.6, 0.73, 0.5),
+            height=0.2,
+            radius=0.18,
+            material=WATER,
+        )
+
+    def setup_boundary(self):
+""" .
+
+    <https://example.org/makf/data/quantitative/53a7b513840b6d018e835ee3919d504ba150cdb5fd70297f2fde3a876fc673b3> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}" ;
+        q:reported_text "seconds" ;
+        q:status "explicit" ;
+        q:symbol "s" .
+
+    <https://example.org/makf/data/quantitative/59e86aff58cece2a5b3a805d665836f811d8499da8e00171d1384383992343da> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}" .
+
+    <https://example.org/makf/data/quantitative/5d38869ffc759d20cb4a7096bcc8cf11313252418d9e7c050a73f281a096e227> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "       Pouring                      -               Around z                500                       -" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"       Pouring                      -               Around z                500                       -\"}" .
+
+    <https://example.org/makf/data/quantitative/61a5c14663a4930e09370799aa7c2edbf5eb3e735fcae16d5533170406210843> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/61c59de934616d452927db0c3f02f108b33b748dadfe34882fe1ac62e746223b> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}" .
+
+    <https://example.org/makf/data/quantitative/639fae00b158d0aeb0346c230a9874b91ff313b8834683fdcca0a0a26b0d06f5> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"heavy-density_rho\"]}" .
+
+    <https://example.org/makf/data/quantitative/67f4752863f8e47ed4ce9d3f4176210ffd3ac3e4068baecd67a6c1dfae91290b> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/26bb7e92e18118d86645bac5c275f6cc3a45fa67a8299df26df45ba53c89dc03>,
+            <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c>,
+            <https://example.org/makf/data/quantitative/937f90bb05e3b05bbc8e0f370968f8a25404ac94ead4c7e98abcf4f6d61292bc>,
+            <https://example.org/makf/data/quantitative/a1bc195d19b56b373c1276c416c9540fbc002785711328e268c57e9afe7244c8>,
+            <https://example.org/makf/data/quantitative/b7ab2ecdc694d437c8f67802a820481c0ddda699b9f48560a0d930cfcf05f13c>,
+            <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> ;
+        q:code "material_model_ambiguity" ;
+        q:message "Section 4.1 says non-Newtonian while Table 4 lists Liquid with mu=0; implementation/version check pending." ;
+        q:recordJSON "{\"code\":\"material_model_ambiguity\",\"message\":\"Section 4.1 says non-Newtonian while Table 4 lists Liquid with mu=0; implementation/version check pending.\",\"quantity_ids\":[\"light-mu\",\"light-lambda\",\"light-density_rho\",\"heavy-mu\",\"heavy-lambda\",\"heavy-density_rho\"]}" .
+
+    <https://example.org/makf/data/quantitative/756a08b8d044b02ac15ee7544f264135e727efbcb520112e8f6b4dac00b67be1> a q:TimingCalculation ;
+        q:calculated_step_seconds "0.0010" ;
+        q:check_id "runtime-step-consistency" ;
+        q:consistent false ;
+        q:input <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af>,
+            <https://example.org/makf/data/quantitative/a66d2703f9f4c84d59b7a596e585a6199642e5d4456fcdddf117b91d09914554>,
+            <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235> ;
+        q:method "count_times_substep_v1" ;
+        q:recordJSON "{\"calculated_step_seconds\":\"0.0010\",\"check_id\":\"runtime-step-consistency\",\"consistent\":false,\"input_ids\":[\"step\",\"substeps\",\"substep-time\"],\"method\":\"count_times_substep_v1\",\"reported_step_seconds\":\"0.002\"}" ;
+        q:reported_step_seconds "0.002" .
+
+    <https://example.org/makf/data/quantitative/8cb5c92a41fc8154f2ff2aa0d8e1b6b59fd3ac7a89f0db27c09463905645e6dc> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/91fd23f642f7d8b154b5b73a3b1e0d1b7a80f23bcf2fb6550b3bfd87a333b430> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"light-density_rho\"]}" .
+
+    <https://example.org/makf/data/quantitative/924bfca145987fc77e45def0677db6b09674c9d0f0deb47edad037209f5f01f4> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/26bb7e92e18118d86645bac5c275f6cc3a45fa67a8299df26df45ba53c89dc03> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"heavy-mu\"]}" .
+
+    <https://example.org/makf/data/quantitative/9af8dee8eb5d69be3e2d7b13498f3f73b795cf55f6aed1c178253887c16d9b41> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/ada24384138fade95bd762dc15182bb9f7a85acd7bed104c69da808a775dc1e4> ;
+        q:artifact_id "fluidlab-runtime-settings.txt" ;
+        q:exact_quote """All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for
+ensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in
+real time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an
+Nvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/9f5fc95afecc615d6b25a8be39e75af5f216535a6b46d3084cfd8d12af03b46d> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/9f7f2c3463c8366edfe372373d9a6c7b9e9d0bb4693c0c3ec3d99e3f68082ef5> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c>,
+            <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> ;
+        q:code "source_code_mismatch" ;
+        q:message "Pinned code uses MILK below WATER and defaults RHO[MILK]=0.5 and RHO[WATER]=1.0; paper density settings are retained separately, not corrected." ;
+        q:recordJSON "{\"code\":\"source_code_mismatch\",\"message\":\"Pinned code uses MILK below WATER and defaults RHO[MILK]=0.5 and RHO[WATER]=1.0; paper density settings are retained separately, not corrected.\",\"quantity_ids\":[\"light-density_rho\",\"heavy-density_rho\"]}" .
+
+    <https://example.org/makf/data/quantitative/a540f6f5113fae16d5ea12667997dd60ddfedba5bf7ccc799defeb8cddf9218e> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/9051ed587841a7710712c358de8594b0ce462a3a339d3cac6cd7d5ac5b9ccc44> ;
+        q:artifact_id "task" ;
+        q:exact_quote """Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass
+while retaining as much white heavy liquid as possible.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"task\",\"exact_quote\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/a6c8febcf7088e15a69a64f0660f1297eaf4a145abec19aff6e6d0541904ef1c> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/ada24384138fade95bd762dc15182bb9f7a85acd7bed104c69da808a775dc1e4> ;
+        q:artifact_id "fluidlab-runtime-settings.txt" ;
+        q:exact_quote """All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for
+ensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in
+real time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an
+Nvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/add9ebf4322c3e5c5fbf462dc5898eb3bce6f21b8d8d0a28a64ddbac8ea1846a> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}" ;
+        q:reported_text "seconds" ;
+        q:status "explicit" ;
+        q:symbol "s" .
+
+    <https://example.org/makf/data/quantitative/af2221766b567bb1563f940076346a03393fe5591d02fc3a94ce17569ac15ce8> a q:Artifact ;
+        q:artifact_id "code-excerpt-9" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/bodies/bodies.py#L62" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-9\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/engine/bodies/bodies.py#L62\",\"sha256\":\"e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f\",\"text\":\"        if color is not None:\\n            body_color = color\\n        else:\\n            body_color = COLOR[material]\\n\\n        body_color = np.tile(body_color, [len(particles), 1])\\n        body_rho = np.full(len(particles), RHO[material] )\\n        body_material = np.full(len(particles), material)\\n        body_used = np.full(len(particles), used)\\n        body_id = np.full(len(particles), len(self.bodies))\\n\\n        # rotate\\n\"}" ;
+        q:sha256 "e4fc9ab441fd97f1158ddcbb991416d645bebc8c725db9a494f72ea430af169f" ;
+        q:text """        if color is not None:
+            body_color = color
+        else:
+            body_color = COLOR[material]
+
+        body_color = np.tile(body_color, [len(particles), 1])
+        body_rho = np.full(len(particles), RHO[material] )
+        body_material = np.full(len(particles), material)
+        body_used = np.full(len(particles), used)
+        body_id = np.full(len(particles), len(self.bodies))
+
+        # rotate
+""" .
+
+    <https://example.org/makf/data/quantitative/af26472d728969e26b2d36bc21220c674332bfe6d0e2be52312f655ad2841aa5> a q:Artifact ;
+        q:artifact_id "code-excerpt-5" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L64" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-5\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L64\",\"sha256\":\"94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15\",\"text\":\"############ material class #############\\nMAT_CLASS = {\\n    WATER          : MAT_LIQUID,\\n    INVISCID_DEMO  : MAT_LIQUID,\\n    INVISCID_DEMO2 : MAT_LIQUID,\\n    INVISCID_DEMO3 : MAT_LIQUID,\\n    VISCOUS_DEMO   : MAT_LIQUID,\\n    MILK           : MAT_LIQUID,\\n    COFFEE         : MAT_LIQUID,\\n    ELASTIC        : MAT_ELASTIC,\\n    ELASTIC_DEMO   : MAT_ELASTIC,\\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\\n    RIGID          : MAT_RIGID,\\n    RIGID_HEAVY    : MAT_RIGID,\\n    RIGID_LIGHT    : MAT_RIGID,\\n    ICECREAM       : MAT_PLASTO_ELASTIC,\\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\\n    MILK_VIS       : MAT_LIQUID,\\n    COFFEE_VIS     : MAT_LIQUID,\\n}\\n\"}" ;
+        q:sha256 "94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15" ;
+        q:text """############ material class #############
+MAT_CLASS = {
+    WATER          : MAT_LIQUID,
+    INVISCID_DEMO  : MAT_LIQUID,
+    INVISCID_DEMO2 : MAT_LIQUID,
+    INVISCID_DEMO3 : MAT_LIQUID,
+    VISCOUS_DEMO   : MAT_LIQUID,
+    MILK           : MAT_LIQUID,
+    COFFEE         : MAT_LIQUID,
+    ELASTIC        : MAT_ELASTIC,
+    ELASTIC_DEMO   : MAT_ELASTIC,
+    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,
+    RIGID          : MAT_RIGID,
+    RIGID_HEAVY    : MAT_RIGID,
+    RIGID_LIGHT    : MAT_RIGID,
+    ICECREAM       : MAT_PLASTO_ELASTIC,
+    ICECREAM1       : MAT_PLASTO_ELASTIC,
+    MILK_VIS       : MAT_LIQUID,
+    COFFEE_VIS     : MAT_LIQUID,
+}
+""" .
+
+    <https://example.org/makf/data/quantitative/bc3b1a3dffe7b74015799478ab53589d9b7c68dd2569880e5eb75235b78d9b68> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}" ;
+        q:reported_text "particles" ;
+        q:status "explicit" ;
+        q:symbol "count" .
+
+    <https://example.org/makf/data/quantitative/cdd5d01db2e57ce10fa9b518d56dbb17aad3b832b38f0ddca8508b213669edfd> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}" .
+
+    <https://example.org/makf/data/quantitative/cde6f9c101471af583cd6877dc9b87d3daf858776093827d954752f7102e00f3> a q:Artifact ;
+        q:artifact_id "code-excerpt-2" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py#L18" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-2\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/envs/pouring_env.py#L18\",\"sha256\":\"9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357\",\"text\":\"        self.horizon               = 1000\\n        self.horizon_action        = 1000\\n        self.target_file           = None\\n        self._n_obs_ptcls_per_body = 500\\n        self.loss                  = loss\\n        self.loss_type             = loss_type\\n        self.action_range          = np.array([-0.02, 0.02])\\n\\n        # create a taichi env\\n        self.taichi_env = TaichiEnv(\\n            dim=3,\\n            particle_density=1e6,\\n            max_substeps_local=20,\\n            gravity=(0.0, -20.0, 0.0),\\n            horizon=self.horizon,\\n        )\\n        self.build_env()\\n        self.gym_misc()\\n\\n    def setup_agent(self):\\n        agent_cfg = CfgNode(new_allowed=True)\\n        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))\\n        self.taichi_env.setup_agent(agent_cfg)\\n        self.agent = self.taichi_env.agent\\n\\n    def setup_statics(self):\\n        pass\\n\\n    def setup_bodies(self):\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.53, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=MILK,\\n        )\\n        self.taichi_env.add_body(\\n            type='cylinder',\\n            center=(0.6, 0.73, 0.5),\\n            height=0.2,\\n            radius=0.18,\\n            material=WATER,\\n        )\\n\\n    def setup_boundary(self):\\n\"}" ;
+        q:sha256 "9e522ead77ee61ea38986eac4013310ed4a442053587ad8218c3455a7b597357" ;
+        q:text """        self.horizon               = 1000
+        self.horizon_action        = 1000
+        self.target_file           = None
+        self._n_obs_ptcls_per_body = 500
+        self.loss                  = loss
+        self.loss_type             = loss_type
+        self.action_range          = np.array([-0.02, 0.02])
+
+        # create a taichi env
+        self.taichi_env = TaichiEnv(
+            dim=3,
+            particle_density=1e6,
+            max_substeps_local=20,
+            gravity=(0.0, -20.0, 0.0),
+            horizon=self.horizon,
+        )
+        self.build_env()
+        self.gym_misc()
+
+    def setup_agent(self):
+        agent_cfg = CfgNode(new_allowed=True)
+        agent_cfg.merge_from_file(get_cfg_path('agent_pouring.yaml'))
+        self.taichi_env.setup_agent(agent_cfg)
+        self.agent = self.taichi_env.agent
+
+    def setup_statics(self):
+        pass
+
+    def setup_bodies(self):
+        self.taichi_env.add_body(
+            type='cylinder',
+            center=(0.6, 0.53, 0.5),
+            height=0.2,
+            radius=0.18,
+            material=MILK,
+        )
+        self.taichi_env.add_body(
+            type='cylinder',
+            center=(0.6, 0.73, 0.5),
+            height=0.2,
+            radius=0.18,
+            material=WATER,
+        )
+
+    def setup_boundary(self):
+""" .
+
+    <https://example.org/makf/data/quantitative/d662610556ea308ba9448d413605811563dd7f6c540cd1f4f28e7b1046defa64> a q:Artifact ;
+        q:artifact_id "code-excerpt-6" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L143" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-6\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/51d06b4189922ebb3390ba3c14d0887e3e785a5c/fluidlab/configs/macros.py#L143\",\"sha256\":\"17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464\",\"text\":\"MU = {\\n    WATER          : 0.0,\\n    INVISCID_DEMO  : 0.0,\\n    INVISCID_DEMO2 : 0.0,\\n    INVISCID_DEMO3 : 0.0,\\n    VISCOUS_DEMO   : 800.0,\\n    MILK           : 0.0,\\n    COFFEE         : 0.0,\\n    MILK_VIS       : 200.0,\\n    COFFEE_VIS     : 200.0,\\n    ELASTIC        : 416.67,\\n    ELASTIC_DEMO   : 10.0,\\n    PLASTIC_DEMO   : 160.0,\\n    ICECREAM       : 416.67,\\n    ICECREAM1       : 216.67,\\n    RIGID          : 416.67,\\n    RIGID_HEAVY    : 416.67,\\n    RIGID_LIGHT    : 416.67,\\n}\\n\\nLAMDA = {\\n    WATER          : 277.78,\\n    INVISCID_DEMO  : 277.78,\\n    INVISCID_DEMO2 : 277.78,\\n    INVISCID_DEMO3 : 277.78,\\n    VISCOUS_DEMO   : 277.78,\\n    MILK           : 277.78,\\n    COFFEE         : 277.78,\\n    MILK_VIS       : 277.78,\\n    COFFEE_VIS     : 277.78,\\n    ELASTIC        : 277.78,\\n    ELASTIC_DEMO   : 100.0,\\n    PLASTIC_DEMO   : 277.78,\\n    ICECREAM       : 277.78,\\n    ICECREAM1       : 277.78,\\n    RIGID          : 277.78,\\n    RIGID_HEAVY    : 277.78,\\n    RIGID_LIGHT    : 277.78,\\n}\\n\\nRHO = {\\n    WATER          : 1.0,\\n    INVISCID_DEMO  : 5.0,\\n    INVISCID_DEMO2 : 1.0,\\n    INVISCID_DEMO3 : 3.0,\\n    VISCOUS_DEMO   : 5.0,\\n    MILK           : 0.5,\\n    COFFEE         : 1.0,\\n    MILK_VIS       : 1.0,\\n    COFFEE_VIS     : 1.0,\\n    ELASTIC        : 1.0,\\n    ELASTIC_DEMO   : 1.0,\\n    PLASTIC_DEMO   : 1.0,\\n    ICECREAM       : 0.5,\\n    ICECREAM1       : 0.5,\\n    RIGID          : 1.0,\\n    RIGID_HEAVY    : 10.0,\\n    RIGID_LIGHT    : 0.5,\\n}\\n\"}" ;
+        q:sha256 "17e8241b9db0a08c3a1051c6a832197ede982d8bc01d81121937ca1193891464" ;
+        q:text """MU = {
+    WATER          : 0.0,
+    INVISCID_DEMO  : 0.0,
+    INVISCID_DEMO2 : 0.0,
+    INVISCID_DEMO3 : 0.0,
+    VISCOUS_DEMO   : 800.0,
+    MILK           : 0.0,
+    COFFEE         : 0.0,
+    MILK_VIS       : 200.0,
+    COFFEE_VIS     : 200.0,
+    ELASTIC        : 416.67,
+    ELASTIC_DEMO   : 10.0,
+    PLASTIC_DEMO   : 160.0,
+    ICECREAM       : 416.67,
+    ICECREAM1       : 216.67,
+    RIGID          : 416.67,
+    RIGID_HEAVY    : 416.67,
+    RIGID_LIGHT    : 416.67,
+}
+
+LAMDA = {
+    WATER          : 277.78,
+    INVISCID_DEMO  : 277.78,
+    INVISCID_DEMO2 : 277.78,
+    INVISCID_DEMO3 : 277.78,
+    VISCOUS_DEMO   : 277.78,
+    MILK           : 277.78,
+    COFFEE         : 277.78,
+    MILK_VIS       : 277.78,
+    COFFEE_VIS     : 277.78,
+    ELASTIC        : 277.78,
+    ELASTIC_DEMO   : 100.0,
+    PLASTIC_DEMO   : 277.78,
+    ICECREAM       : 277.78,
+    ICECREAM1       : 277.78,
+    RIGID          : 277.78,
+    RIGID_HEAVY    : 277.78,
+    RIGID_LIGHT    : 277.78,
+}
+
+RHO = {
+    WATER          : 1.0,
+    INVISCID_DEMO  : 5.0,
+    INVISCID_DEMO2 : 1.0,
+    INVISCID_DEMO3 : 3.0,
+    VISCOUS_DEMO   : 5.0,
+    MILK           : 0.5,
+    COFFEE         : 1.0,
+    MILK_VIS       : 1.0,
+    COFFEE_VIS     : 1.0,
+    ELASTIC        : 1.0,
+    ELASTIC_DEMO   : 1.0,
+    PLASTIC_DEMO   : 1.0,
+    ICECREAM       : 0.5,
+    ICECREAM1       : 0.5,
+    RIGID          : 1.0,
+    RIGID_HEAVY    : 10.0,
+    RIGID_LIGHT    : 0.5,
+}
+""" .
+
+    <https://example.org/makf/data/quantitative/d909577f612f2a39b87c0419e8e2e4d5436b8d52b70a383c75efb044b2b23c04> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}" .
+
+    <https://example.org/makf/data/quantitative/de6b9b5c5da1a42283478bb007e67a21cea0a2c3a15152069bf9e5603eee559a> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/a1bc195d19b56b373c1276c416c9540fbc002785711328e268c57e9afe7244c8> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"light-lambda\"]}" .
+
+    <https://example.org/makf/data/quantitative/e184a5ab61ec62ec8d9c164cad361c42805ff28d2dc7b8f17cbfc8b72ee96331> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/26bb7e92e18118d86645bac5c275f6cc3a45fa67a8299df26df45ba53c89dc03>,
+            <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c>,
+            <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af>,
+            <https://example.org/makf/data/quantitative/937f90bb05e3b05bbc8e0f370968f8a25404ac94ead4c7e98abcf4f6d61292bc>,
+            <https://example.org/makf/data/quantitative/a1bc195d19b56b373c1276c416c9540fbc002785711328e268c57e9afe7244c8>,
+            <https://example.org/makf/data/quantitative/a66d2703f9f4c84d59b7a596e585a6199642e5d4456fcdddf117b91d09914554>,
+            <https://example.org/makf/data/quantitative/b7ab2ecdc694d437c8f67802a820481c0ddda699b9f48560a0d930cfcf05f13c>,
+            <https://example.org/makf/data/quantitative/d2bb75c87d6208ffb3d6d4e4598e6796890acce1deff19fe576c11ee569d2b52>,
+            <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235>,
+            <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> ;
+        q:code "context_incomplete" ;
+        q:message "Study context is incomplete for controlled comparison." ;
+        q:recordJSON "{\"code\":\"context_incomplete\",\"message\":\"Study context is incomplete for controlled comparison.\",\"quantity_ids\":[\"observed-particles\",\"light-mu\",\"light-lambda\",\"light-density_rho\",\"heavy-mu\",\"heavy-lambda\",\"heavy-density_rho\",\"step\",\"substeps\",\"substep-time\"]}" .
+
+    <https://example.org/makf/data/quantitative/e374f364c1cc91a0a1c6c355b10ac1bfb756abd7af1e5e83339426b1ea1fc9d9> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af>,
+            <https://example.org/makf/data/quantitative/a66d2703f9f4c84d59b7a596e585a6199642e5d4456fcdddf117b91d09914554>,
+            <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235> ;
+        q:code "timing_conflict" ;
+        q:message "Reported step differs from count times substep; no value was corrected." ;
+        q:recordJSON "{\"code\":\"timing_conflict\",\"message\":\"Reported step differs from count times substep; no value was corrected.\",\"quantity_ids\":[\"step\",\"substeps\",\"substep-time\"]}" .
+
+    <https://example.org/makf/data/quantitative/e47551ab329b4c39e0995dfcda2ba442abd5857edfb2bfc0374c6c6de24ef96a> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}" .
+
+    <https://example.org/makf/data/quantitative/e74b695e92bf2f7d2bc53cb49f8ede7a153cd0141537a73b551647e26d55dcc4> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote """Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   """ ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"}" .
+
+    <https://example.org/makf/data/quantitative/eb422a26b688124c81301ffec8e6f8c236f59553445de9e149fa7a07a3156412> a q:UnitDeclaration ;
+        q:recordJSON "{\"status\":\"unreported\"}" ;
+        q:status "unreported" .
+
+    <https://example.org/makf/data/quantitative/f03edc182f715de90b99d99bf3e73856393308379421e4f853334f015a06785a> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:exact_quote "        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}" .
+
+    <https://example.org/makf/data/quantitative/f8043ce8fc3ad626487dfd21f4d61d2f9272790a657ca9875c0ea75fc09d569f> a q:Artifact ;
+        q:artifact_id "code-excerpt-0" ;
+        q:locator "https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L64" ;
+        q:recordJSON "{\"artifact_id\":\"code-excerpt-0\",\"locator\":\"https://github.com/zhouxian/FluidLab/blob/7295eb6ed7ee92b2be471fd30b432238577f28ce/fluidlab/configs/macros.py#L64\",\"sha256\":\"94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15\",\"text\":\"############ material class #############\\nMAT_CLASS = {\\n    WATER          : MAT_LIQUID,\\n    INVISCID_DEMO  : MAT_LIQUID,\\n    INVISCID_DEMO2 : MAT_LIQUID,\\n    INVISCID_DEMO3 : MAT_LIQUID,\\n    VISCOUS_DEMO   : MAT_LIQUID,\\n    MILK           : MAT_LIQUID,\\n    COFFEE         : MAT_LIQUID,\\n    ELASTIC        : MAT_ELASTIC,\\n    ELASTIC_DEMO   : MAT_ELASTIC,\\n    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,\\n    RIGID          : MAT_RIGID,\\n    RIGID_HEAVY    : MAT_RIGID,\\n    RIGID_LIGHT    : MAT_RIGID,\\n    ICECREAM       : MAT_PLASTO_ELASTIC,\\n    ICECREAM1       : MAT_PLASTO_ELASTIC,\\n    MILK_VIS       : MAT_LIQUID,\\n    COFFEE_VIS     : MAT_LIQUID,\\n}\\n\"}" ;
+        q:sha256 "94a4f433cabf06ce2d06196b681aa1cad65e3a57fa3946b8b0a28e8f06635b15" ;
+        q:text """############ material class #############
+MAT_CLASS = {
+    WATER          : MAT_LIQUID,
+    INVISCID_DEMO  : MAT_LIQUID,
+    INVISCID_DEMO2 : MAT_LIQUID,
+    INVISCID_DEMO3 : MAT_LIQUID,
+    VISCOUS_DEMO   : MAT_LIQUID,
+    MILK           : MAT_LIQUID,
+    COFFEE         : MAT_LIQUID,
+    ELASTIC        : MAT_ELASTIC,
+    ELASTIC_DEMO   : MAT_ELASTIC,
+    PLASTIC_DEMO   : MAT_PLASTO_ELASTIC_DEMO,
+    RIGID          : MAT_RIGID,
+    RIGID_HEAVY    : MAT_RIGID,
+    RIGID_LIGHT    : MAT_RIGID,
+    ICECREAM       : MAT_PLASTO_ELASTIC,
+    ICECREAM1       : MAT_PLASTO_ELASTIC,
+    MILK_VIS       : MAT_LIQUID,
+    COFFEE_VIS     : MAT_LIQUID,
+}
+""" .
+
+    <https://example.org/makf/data/quantitative/20388ac3c4696cc7b1f56a82539bcd449a245c8e49ee82f4b73daf080f620ed3> a q:Artifact ;
+        q:artifact_id "observation-context" ;
+        q:locator "Appendix B.1, PDF page 14" ;
+        q:recordJSON "{\"artifact_id\":\"observation-context\",\"locator\":\"Appendix B.1, PDF page 14\",\"sha256\":\"0ba2714369345fe6cfd418bd1ab52039ca4d365f271964df109a0acfe16edb95\",\"text\":\"Each task has a task-specific action range and action space, with certain dimensions of the full\\naction-space locked. We present our task-specific settings for action spaces, observed number of\\nparticles per fluid body and observed number of grid cells in Table 3. Detailed properties of all\\nmaterials used are listed in Table 4.\\n\\n\"}" ;
+        q:sha256 "0ba2714369345fe6cfd418bd1ab52039ca4d365f271964df109a0acfe16edb95" ;
+        q:text """Each task has a task-specific action range and action space, with certain dimensions of the full
+action-space locked. We present our task-specific settings for action spaces, observed number of
+particles per fluid body and observed number of grid cells in Table 3. Detailed properties of all
+materials used are listed in Table 4.
+
+""" .
+
+    <https://example.org/makf/data/quantitative/9051ed587841a7710712c358de8594b0ce462a3a339d3cac6cd7d5ac5b9ccc44> a q:Artifact ;
+        q:artifact_id "task" ;
+        q:locator "Section 4.1, PDF page 5" ;
+        q:recordJSON "{\"artifact_id\":\"task\",\"locator\":\"Section 4.1, PDF page 5\",\"sha256\":\"6ed5e7a5f1a354ed465411ca296ddea629fe4ec51cda0a1334063f206045d8ba\",\"text\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"}" ;
+        q:sha256 "6ed5e7a5f1a354ed465411ca296ddea629fe4ec51cda0a1334063f206045d8ba" ;
+        q:text """Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass
+while retaining as much white heavy liquid as possible.
+""" .
+
+    <https://example.org/makf/data/quantitative/d2bb75c87d6208ffb3d6d4e4598e6796890acce1deff19fe576c11ee569d2b52> a q:Quantity ;
+        q:annex_record_id "fluidlab-pouring-observation-budget" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/18aeaa2ab998734b6490ccbe1cc53987beb6c06655e22d2b046e9eda778e5c50>,
+            <https://example.org/makf/data/quantitative/2ed9e460119bc4289280a34c886f6dc1034eec0a811fb1762a0147fcc0ab78bf>,
+            <https://example.org/makf/data/quantitative/5d38869ffc759d20cb4a7096bcc8cf11313252418d9e7c050a73f281a096e227> ;
+        q:execution_eligible false ;
+        q:quantity_id "observed-particles" ;
+        q:quantity_kind "observed_particle_count" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-pouring-observation-budget\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"       Pouring                      -               Around z                500                       -\"},{\"artifact_id\":\"observation-context\",\"exact_quote\":\"Each task has a task-specific action range and action space, with certain dimensions of the full\\naction-space locked. We present our task-specific settings for action spaces, observed number of\\nparticles per fluid body and observed number of grid cells in Table 3. Detailed properties of all\\nmaterials used are listed in Table 4.\\n\\n\"}],\"quantity_id\":\"observed-particles\",\"quantity_kind\":\"observed_particle_count\",\"reported_value_text\":\"500\",\"role\":\"configuration\",\"subject\":\"Observed particle budget per fluid body in Pouring, not total simulated particles\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}}" ;
+        q:reported_decimal 500.0 ;
+        q:reported_value_text "500" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Observed particle budget per fluid body in Pouring, not total simulated particles" ;
+        q:unit <https://example.org/makf/data/quantitative/bc3b1a3dffe7b74015799478ab53589d9b7c68dd2569880e5eb75235b78d9b68> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/26bb7e92e18118d86645bac5c275f6cc3a45fa67a8299df26df45ba53c89dc03> a q:Quantity ;
+        q:annex_record_id "fluidlab-heavy-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/61c59de934616d452927db0c3f02f108b33b748dadfe34882fe1ac62e746223b>,
+            <https://example.org/makf/data/quantitative/e74b695e92bf2f7d2bc53cb49f8ede7a153cd0141537a73b551647e26d55dcc4> ;
+        q:execution_eligible false ;
+        q:quantity_id "heavy-mu" ;
+        q:quantity_kind "lame_mu_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-mu\",\"quantity_kind\":\"lame_mu_parameter\",\"reported_value_text\":\"0.0\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 0.0 ;
+        q:reported_value_text "0.0" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Heavy Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/61a5c14663a4930e09370799aa7c2edbf5eb3e735fcae16d5533170406210843> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/937f90bb05e3b05bbc8e0f370968f8a25404ac94ead4c7e98abcf4f6d61292bc> a q:Quantity ;
+        q:annex_record_id "fluidlab-light-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/468b6520652885a73e9d81b458b839660c75cea2f68450818391f7baeb2ac0f6>,
+            <https://example.org/makf/data/quantitative/cdd5d01db2e57ce10fa9b518d56dbb17aad3b832b38f0ddca8508b213669edfd> ;
+        q:execution_eligible false ;
+        q:quantity_id "light-mu" ;
+        q:quantity_kind "lame_mu_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-mu\",\"quantity_kind\":\"lame_mu_parameter\",\"reported_value_text\":\"0.0\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 0.0 ;
+        q:reported_value_text "0.0" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Light Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/eb422a26b688124c81301ffec8e6f8c236f59553445de9e149fa7a07a3156412> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/a1bc195d19b56b373c1276c416c9540fbc002785711328e268c57e9afe7244c8> a q:Quantity ;
+        q:annex_record_id "fluidlab-light-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/3360e203ddb979fe6482f4b4caf077b35ba334ad02b1eb54055eb21d1b431169>,
+            <https://example.org/makf/data/quantitative/e47551ab329b4c39e0995dfcda2ba442abd5857edfb2bfc0374c6c6de24ef96a> ;
+        q:execution_eligible false ;
+        q:quantity_id "light-lambda" ;
+        q:quantity_kind "lame_lambda_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-lambda\",\"quantity_kind\":\"lame_lambda_parameter\",\"reported_value_text\":\"277.78\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 277.78 ;
+        q:reported_value_text "277.78" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Light Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/8cb5c92a41fc8154f2ff2aa0d8e1b6b59fd3ac7a89f0db27c09463905645e6dc> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/a66d2703f9f4c84d59b7a596e585a6199642e5d4456fcdddf117b91d09914554> a q:Quantity ;
+        q:annex_record_id "fluidlab-runtime-timing" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/415a628a6af80c8393c79026ac9e773ae0bb5092f2eeaa849b1b83db2fc2db26> ;
+        q:execution_eligible false ;
+        q:quantity_id "substeps" ;
+        q:quantity_kind "substep_count" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"substeps\",\"quantity_kind\":\"substep_count\",\"reported_value_text\":\"10\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"substeps\",\"status\":\"explicit\",\"symbol\":\"count\"}}" ;
+        q:reported_decimal 10.0 ;
+        q:reported_value_text "10" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Reported runtime integration settings" ;
+        q:unit <https://example.org/makf/data/quantitative/06eb1b72af6d68e114e2a38d3603368aa3a947a7e10fecbc1482d5ce2ed2369e> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/ada24384138fade95bd762dc15182bb9f7a85acd7bed104c69da808a775dc1e4> a q:Artifact ;
+        q:artifact_id "fluidlab-runtime-settings.txt" ;
+        q:locator "arXiv 2303.02346v1 PDF page 14" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"locator\":\"arXiv 2303.02346v1 PDF page 14\",\"sha256\":\"cfec9c4550b090f627244926512746238f8227795352bbdfdc59c317a2019b4d\",\"text\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}" ;
+        q:sha256 "cfec9c4550b090f627244926512746238f8227795352bbdfdc59c317a2019b4d" ;
+        q:text """All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for
+ensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in
+real time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an
+Nvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.
+""" .
+
+    <https://example.org/makf/data/quantitative/b7ab2ecdc694d437c8f67802a820481c0ddda699b9f48560a0d930cfcf05f13c> a q:Quantity ;
+        q:annex_record_id "fluidlab-heavy-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/1e06a304dec13f9f5c66863fefeb6c617c695c789e0f86eeb077142b1d820481>,
+            <https://example.org/makf/data/quantitative/59e86aff58cece2a5b3a805d665836f811d8499da8e00171d1384383992343da> ;
+        q:execution_eligible false ;
+        q:quantity_id "heavy-lambda" ;
+        q:quantity_kind "lame_lambda_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-lambda\",\"quantity_kind\":\"lame_lambda_parameter\",\"reported_value_text\":\"277.78\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 277.78 ;
+        q:reported_value_text "277.78" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Heavy Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/31aae751eb3c711bdf500a343012b6725c9809f1a6c21c2334160c4442281c3a> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/5856569f2a396f81489e0a7afaa7c1057d306ab3ae336646da59b908762fcb3c> a q:Quantity ;
+        q:annex_record_id "fluidlab-light-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/19c264ce66ddf6cbff1b8bbb6d9b61b56e533ab77a7e64efe875db85c3314e47>,
+            <https://example.org/makf/data/quantitative/f03edc182f715de90b99d99bf3e73856393308379421e4f853334f015a06785a> ;
+        q:execution_eligible false ;
+        q:quantity_id "light-density_rho" ;
+        q:quantity_kind "reported_density_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-light-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\"}],\"quantity_id\":\"light-density_rho\",\"quantity_kind\":\"reported_density_parameter\",\"reported_value_text\":\"0.8\",\"role\":\"configuration\",\"subject\":\"Light Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 0.8 ;
+        q:reported_value_text "0.8" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Light Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/9f5fc95afecc615d6b25a8be39e75af5f216535a6b46d3084cfd8d12af03b46d> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/750ddf135e55c3081f1a053d3bb478fa4803e5cd6e9c6c15e037355e5f7e50af> a q:Quantity ;
+        q:annex_record_id "fluidlab-runtime-timing" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/9af8dee8eb5d69be3e2d7b13498f3f73b795cf55f6aed1c178253887c16d9b41> ;
+        q:execution_eligible false ;
+        q:quantity_id "step" ;
+        q:quantity_kind "time_step" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"step\",\"quantity_kind\":\"time_step\",\"reported_value_text\":\"2e-3\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}}" ;
+        q:reported_decimal 0.002 ;
+        q:reported_value_text "2e-3" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Reported runtime integration settings" ;
+        q:unit <https://example.org/makf/data/quantitative/add9ebf4322c3e5c5fbf462dc5898eb3bce6f21b8d8d0a28a64ddbac8ea1846a> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/ea9f006f0d8aa31ac96d26486fac1dcabe9220b23033ce03a83bcb8990ac1235> a q:Quantity ;
+        q:annex_record_id "fluidlab-runtime-timing" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/a6c8febcf7088e15a69a64f0660f1297eaf4a145abec19aff6e6d0541904ef1c> ;
+        q:execution_eligible false ;
+        q:quantity_id "substep-time" ;
+        q:quantity_kind "substep_duration" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-runtime-timing\",\"evidence\":[{\"artifact_id\":\"fluidlab-runtime-settings.txt\",\"exact_quote\":\"All our tasks use a simulation step of 2e-3 seconds, each containing 10 substeps of 1e-4 seconds for\\nensuring simulation stability. All our proposed tasks contain around 100,000 particles and runs in\\nreal time (60 FPS where each frame is a simulation step) on a desktop computer equipped with an\\nNvidia RTX 3090 GPU and an Intel i7-8700K CPU, and the typical GPU usage is under 50%.\\n\"}],\"quantity_id\":\"substep-time\",\"quantity_kind\":\"substep_duration\",\"reported_value_text\":\"1e-4\",\"role\":\"configuration\",\"subject\":\"Reported runtime integration settings\",\"unit\":{\"reported_text\":\"seconds\",\"status\":\"explicit\",\"symbol\":\"s\"}}" ;
+        q:reported_decimal 0.0001 ;
+        q:reported_value_text "1e-4" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Reported runtime integration settings" ;
+        q:unit <https://example.org/makf/data/quantitative/53a7b513840b6d018e835ee3919d504ba150cdb5fd70297f2fde3a876fc673b3> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/fe285f6fae2a1cc2bad44120464adaf3636911f75207a7c38e02adc8f31c386c> a q:Quantity ;
+        q:annex_record_id "fluidlab-heavy-liquid-parameters" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/46d72361be869a2689127e974e7d664b294bd2713c06c813f3a4e39da593ed09>,
+            <https://example.org/makf/data/quantitative/d909577f612f2a39b87c0419e8e2e4d5436b8d52b70a383c75efb044b2b23c04> ;
+        q:execution_eligible false ;
+        q:quantity_id "heavy-density_rho" ;
+        q:quantity_kind "reported_density_parameter" ;
+        q:recordJSON "{\"annex_record_id\":\"fluidlab-heavy-liquid-parameters\",\"evidence\":[{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   \"},{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"exact_quote\":\"        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\"}],\"quantity_id\":\"heavy-density_rho\",\"quantity_kind\":\"reported_density_parameter\",\"reported_value_text\":\"1.5\",\"role\":\"configuration\",\"subject\":\"Heavy Liquid in Pouring\",\"unit\":{\"status\":\"unreported\"}}" ;
+        q:reported_decimal 1.5 ;
+        q:reported_value_text "1.5" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> ;
+        q:subject "Heavy Liquid in Pouring" ;
+        q:unit <https://example.org/makf/data/quantitative/40d7181b722e4931a8d238daade73e69f62fb9668b4fd3e0840e6403d52bc1c9> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/2df7d27ad9b4fccac882a526bf6d68da7bdbd6b3037195fd2f18780a666bb3bf> a q:Study ;
+        q:document_version "arXiv 2303.02346v1; PDF SHA-256 8decba48c2c63b6611ac1ee3096bd0836c2c9334a3e76899a7188bbb1ae872a7" ;
+        q:evidence <https://example.org/makf/data/quantitative/a540f6f5113fae16d5ea12667997dd60ddfedba5bf7ccc799defeb8cddf9218e> ;
+        q:evidence_origin "published_simulation" ;
+        q:recordJSON "{\"context\":{\"description\":\"Published task and runtime settings; units, version and material interpretation unresolved. No simulation was reproduced.\",\"evidence\":[{\"artifact_id\":\"task\",\"exact_quote\":\"Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\\nwhile retaining as much white heavy liquid as possible.\\n\"}],\"status\":\"partial\"},\"document_version\":\"arXiv 2303.02346v1; PDF SHA-256 8decba48c2c63b6611ac1ee3096bd0836c2c9334a3e76899a7188bbb1ae872a7\",\"evidence_origin\":\"published_simulation\",\"review_state\":\"pending\",\"simulator\":{\"name\":\"FluidEngine\",\"version_status\":\"not_reported\"},\"source_uri\":\"https://arxiv.org/abs/2303.02346v1\",\"study_id\":\"xian-etal-fluidlab-arxiv-2303.02346v1\",\"synthetic_demo\":false,\"title\":\"FluidLab published pouring configuration\",\"transcription_method\":\"Assistant-authored migration of four preserved annex records; scalar spellings checked against source text. Separate pinned-code audit issues appended; original reported quantities unchanged.\"}" ;
+        q:review_state "pending" ;
+        q:source_uri "https://arxiv.org/abs/2303.02346v1" ;
+        q:study_id "xian-etal-fluidlab-arxiv-2303.02346v1" ;
+        q:synthetic_demo false ;
+        q:title "FluidLab published pouring configuration" ;
+        q:transcription_method "Assistant-authored migration of four preserved annex records; scalar spellings checked against source text. Separate pinned-code audit issues appended; original reported quantities unchanged." .
+
+    <https://example.org/makf/data/quantitative/261878e7db341fc3d82843be7a02cb1db8d449da2b48358071ff029d49ee4d10> a q:Artifact ;
+        q:artifact_id "fluidlab-tables-3-4.txt" ;
+        q:locator "arXiv 2303.02346v1 PDF page 15" ;
+        q:recordJSON "{\"artifact_id\":\"fluidlab-tables-3-4.txt\",\"locator\":\"arXiv 2303.02346v1 PDF page 15\",\"sha256\":\"d121d230e6a125cc2a36fb5bd5ed550945a3ada2af88b38a4ea15f72e487f67e\",\"text\":\"                                        Action space              number of particles      number of grid cells\\n         Task\\n                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field\\n Latte Art (Pouring)          Along x and z                -               1000                       -\\n Latte Art (Stirring)         Along x and z                -               1000                       -\\n Ice Cream (Static)          Along x, y and z              -               2000                       -\\nIce Cream (Dynamic)          Along x, y and z              -               2000                       -\\n    Transporting              Along x and z         Around y                500                       -\\n       Mixing                 Along x and z                -               1000                       -\\n       Pouring                      -               Around z                500                       -\\n  Gathering (Easy)            Along x and z                -                500                       -\\n  Gathering (Hard)            Along x and z                -                500                       -\\n   Air Circulation                  -               Around y                 -               128 × 9 × 128\\n\\n                                        Table 3: Task-specfic settings.\\n\\n                                                                   Lamé parameters\\n                  Material                        Type                                    Density ρ\\n                                                                      µ            λ\\n                   Water                         Liquid              0.0         277.78      1.0\\n                   Milk                          Liquid              0.0         277.78      1.0\\n                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0\\n                  Coffee                         Liquid              0.0         277.78      1.0\\n                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5\\n             Floating object                     Elastic           416.67        277.78      0.5\\n                Sugar cube                   Viscous Liquid        208.33        277.78      1.0\\n        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8\\n        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5\\n         Object in Transporting                   Rigid            416.67        277.78      5.0\\n\\n                        Table 4: Details of materials properties used in FluidLab.\\n\\n\\n\"}" ;
+        q:sha256 "d121d230e6a125cc2a36fb5bd5ed550945a3ada2af88b38a4ea15f72e487f67e" ;
+        q:text """                                        Action space              number of particles      number of grid cells
+         Task
+                             Trans. Velocity      Rot. Velocity      per fluid body            for gas field
+ Latte Art (Pouring)          Along x and z                -               1000                       -
+ Latte Art (Stirring)         Along x and z                -               1000                       -
+ Ice Cream (Static)          Along x, y and z              -               2000                       -
+Ice Cream (Dynamic)          Along x, y and z              -               2000                       -
+    Transporting              Along x and z         Around y                500                       -
+       Mixing                 Along x and z                -               1000                       -
+       Pouring                      -               Around z                500                       -
+  Gathering (Easy)            Along x and z                -                500                       -
+  Gathering (Hard)            Along x and z                -                500                       -
+   Air Circulation                  -               Around y                 -               128 × 9 × 128
+
+                                        Table 3: Task-specfic settings.
+
+                                                                   Lamé parameters
+                  Material                        Type                                    Density ρ
+                                                                      µ            λ
+                   Water                         Liquid              0.0         277.78      1.0
+                   Milk                          Liquid              0.0         277.78      1.0
+                Frothed Milk                 Viscous Liquid        208.33        277.78      1.0
+                  Coffee                         Liquid              0.0         277.78      1.0
+                 Ice Cream               Non-newtonian Liquid      416.67        277.78      0.5
+             Floating object                     Elastic           416.67        277.78      0.5
+                Sugar cube                   Viscous Liquid        208.33        277.78      1.0
+        Light Liquid in Pouring                  Liquid              0.0         277.78      0.8
+        Heavy Liquid in Pouring                  Liquid              0.0         277.78      1.5
+         Object in Transporting                   Rigid            416.67        277.78      5.0
+
+                        Table 4: Details of materials properties used in FluidLab.
+
+
+""" .
+}
+

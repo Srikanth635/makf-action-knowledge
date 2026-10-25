@@ -1,0 +1,2160 @@
+{
+  "protocol": {
+    "rollout_steps": 100,
+    "control_values": [
+      0.0,
+      0.00115
+    ],
+    "initial_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "gradient_horizon": 4,
+    "gradient_parameter": "last-step vertical displacement control, component 1",
+    "gradient_control": 0.001,
+    "epsilons": [
+      0.0001,
+      3e-05
+    ],
+    "absolute_tolerance": 0.01,
+    "relative_tolerance": 0.15,
+    "minimum_gradient_magnitude": 1e-05,
+    "optimizer_iterations_if_gate_passes": 3,
+    "optimizer_horizon": 4,
+    "note": "Short local CPU development check; no SI calibration or paper replication."
+  },
+  "rollouts": [
+    {
+      "control_wz": 0.0,
+      "steps": 100,
+      "initial": {
+        "active_particles": 40604,
+        "active_mass": 1.85870361328125,
+        "max_speed": 0.0,
+        "water_below_y_055": 0,
+        "milk_active": 20302,
+        "water_active": 20302
+      },
+      "final": {
+        "active_particles": 40604,
+        "active_mass": 1.85870361328125,
+        "max_speed": 0.5523901581764221,
+        "water_below_y_055": 14,
+        "milk_active": 20302,
+        "water_active": 20302,
+        "step": 100,
+        "step_loss": 1.0294686279296876
+      },
+      "all_states_finite": true,
+      "seconds": 55.2562780380249,
+      "records": [
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.04001441225409508,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 1,
+          "step_loss": 0.001
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.08004096150398254,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 2,
+          "step_loss": 0.0033630287647247316
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.12454240024089813,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 3,
+          "step_loss": 0.0071455078125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.17874443531036377,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 4,
+          "step_loss": 0.012369908332824708
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.22782711684703827,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 5,
+          "step_loss": 0.01915216636657715
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.2870729863643646,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 6,
+          "step_loss": 0.027653215408325195
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.3408204913139343,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 7,
+          "step_loss": 0.037950897216796876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.3837907612323761,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 8,
+          "step_loss": 0.04999046325683594
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.4218263626098633,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 9,
+          "step_loss": 0.06362004470825196
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.46581554412841797,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 10,
+          "step_loss": 0.07864623260498046
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5038755536079407,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 11,
+          "step_loss": 0.09487754058837891
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5242940187454224,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 12,
+          "step_loss": 0.1121543197631836
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5371623039245605,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 13,
+          "step_loss": 0.13037351989746093
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5647515058517456,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 14,
+          "step_loss": 0.14948626708984375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6030898690223694,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 15,
+          "step_loss": 0.16947003173828126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6430520415306091,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 16,
+          "step_loss": 0.19030535888671876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6833155155181885,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 17,
+          "step_loss": 0.21195249938964844
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7229059338569641,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 18,
+          "step_loss": 0.2343406219482422
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7628494501113892,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 19,
+          "step_loss": 0.25736660766601566
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8030043244361877,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 20,
+          "step_loss": 0.28091015625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8433300852775574,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 21,
+          "step_loss": 0.30484451293945314
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8830886483192444,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 22,
+          "step_loss": 0.32905078125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.925525963306427,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 23,
+          "step_loss": 0.35340673828125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0088948011398315,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 24,
+          "step_loss": 0.37777716064453126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0590137243270874,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 25,
+          "step_loss": 0.40201980590820313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1068544387817383,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 26,
+          "step_loss": 0.42599197387695314
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0863922834396362,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 27,
+          "step_loss": 0.449567626953125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1269805431365967,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 28,
+          "step_loss": 0.4726719970703125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1680707931518555,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 29,
+          "step_loss": 0.49526992797851566
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.208570957183838,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 30,
+          "step_loss": 0.517358154296875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2487502098083496,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 31,
+          "step_loss": 0.5389480590820312
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4004876613616943,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 32,
+          "step_loss": 0.5600377807617187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.575164794921875,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 33,
+          "step_loss": 0.58060498046875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6565812826156616,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 34,
+          "step_loss": 0.6006309814453125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6041547060012817,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 35,
+          "step_loss": 0.6200872802734375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5492231845855713,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 36,
+          "step_loss": 0.6389685668945313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4916576147079468,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 37,
+          "step_loss": 0.6572708129882813
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5320225954055786,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 38,
+          "step_loss": 0.6749771728515626
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5706034898757935,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 39,
+          "step_loss": 0.6921011352539063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6101773977279663,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 40,
+          "step_loss": 0.7086575927734375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6667801141738892,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 41,
+          "step_loss": 0.7246880493164063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.702684998512268,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 42,
+          "step_loss": 0.7402258911132813
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.7312618494033813,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 43,
+          "step_loss": 0.7552929077148438
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8251076936721802,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 44,
+          "step_loss": 0.7698917236328126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9529359340667725,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 45,
+          "step_loss": 0.784008056640625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8977488279342651,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 46,
+          "step_loss": 0.7976657104492187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9989845752716064,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 47,
+          "step_loss": 0.8108546752929687
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.0469753742218018,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 48,
+          "step_loss": 0.8235653686523438
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.096848249435425,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 49,
+          "step_loss": 0.8357742309570313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1626110076904297,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 50,
+          "step_loss": 0.8474598388671876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1683995723724365,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 51,
+          "step_loss": 0.8586119995117187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1722311973571777,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 52,
+          "step_loss": 0.86922021484375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.2388288974761963,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 53,
+          "step_loss": 0.8792672119140625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.2856407165527344,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 54,
+          "step_loss": 0.8887115478515625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3339452743530273,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 55,
+          "step_loss": 0.897498779296875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.367973566055298,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 56,
+          "step_loss": 0.9055703125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3769707679748535,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 57,
+          "step_loss": 0.912860595703125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3546218872070312,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 58,
+          "step_loss": 0.9193312377929688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3340673446655273,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 59,
+          "step_loss": 0.9249147338867187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3215439319610596,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 60,
+          "step_loss": 0.9295662231445313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.293217658996582,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 61,
+          "step_loss": 0.93324609375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.2430105209350586,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 62,
+          "step_loss": 0.9359645385742188
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.205298900604248,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 63,
+          "step_loss": 0.9377909545898437
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.164259672164917,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 64,
+          "step_loss": 0.9388419799804688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1194381713867188,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 65,
+          "step_loss": 0.939282470703125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.064432382583618,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 66,
+          "step_loss": 0.9392597045898438
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.016263723373413,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 67,
+          "step_loss": 0.9389116821289063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.973729133605957,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 68,
+          "step_loss": 0.9383728027343751
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9237607717514038,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 69,
+          "step_loss": 0.9377310180664062
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.870412826538086,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 70,
+          "step_loss": 0.9370516357421875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.822616696357727,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 71,
+          "step_loss": 0.9363886108398438
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.7800601720809937,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 72,
+          "step_loss": 0.9358175659179687
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.7324888706207275,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 73,
+          "step_loss": 0.935408935546875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.682331919670105,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 74,
+          "step_loss": 0.9352429809570313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6352417469024658,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 75,
+          "step_loss": 0.935393310546875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5930707454681396,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 76,
+          "step_loss": 0.9359500122070312
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5529543161392212,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 77,
+          "step_loss": 0.9369834594726563
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.510524034500122,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 78,
+          "step_loss": 0.9385209350585938
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4651161432266235,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 79,
+          "step_loss": 0.9405680541992187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4202804565429688,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 80,
+          "step_loss": 0.943093505859375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.3758991956710815,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 81,
+          "step_loss": 0.9460731201171875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.3330656290054321,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 82,
+          "step_loss": 0.9494630737304688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.292792797088623,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 83,
+          "step_loss": 0.9532349243164062
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2516144514083862,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 84,
+          "step_loss": 0.9573457641601563
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2093414068222046,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 85,
+          "step_loss": 0.9617640991210937
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1671669483184814,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 86,
+          "step_loss": 0.9664329223632813
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1253610849380493,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 87,
+          "step_loss": 0.9713165893554687
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0828031301498413,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 88,
+          "step_loss": 0.9763543090820312
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0393651723861694,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 89,
+          "step_loss": 0.9814906005859375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.9949208498001099,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 90,
+          "step_loss": 0.9866614990234375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.9502054452896118,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 91,
+          "step_loss": 0.9917987060546876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.9061508178710938,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 92,
+          "step_loss": 0.9968551025390625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8623133897781372,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 93,
+          "step_loss": 1.0017684326171876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8184994459152222,
+          "water_below_y_055": 1,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 94,
+          "step_loss": 1.0065032348632812
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7746177911758423,
+          "water_below_y_055": 1,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 95,
+          "step_loss": 1.0110030517578126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7305464744567871,
+          "water_below_y_055": 4,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 96,
+          "step_loss": 1.015261962890625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6862317323684692,
+          "water_below_y_055": 5,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 97,
+          "step_loss": 1.0192468872070313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.641739010810852,
+          "water_below_y_055": 10,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 98,
+          "step_loss": 1.0229454345703126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5971680879592896,
+          "water_below_y_055": 14,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 99,
+          "step_loss": 1.026355712890625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5523901581764221,
+          "water_below_y_055": 14,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 100,
+          "step_loss": 1.0294686279296876
+        }
+      ]
+    },
+    {
+      "control_wz": 0.00115,
+      "steps": 100,
+      "initial": {
+        "active_particles": 40604,
+        "active_mass": 1.85870361328125,
+        "max_speed": 0.0,
+        "water_below_y_055": 0,
+        "milk_active": 20302,
+        "water_active": 20302
+      },
+      "final": {
+        "active_particles": 40604,
+        "active_mass": 1.85870361328125,
+        "max_speed": 0.5883537530899048,
+        "water_below_y_055": 46,
+        "milk_active": 20302,
+        "water_active": 20302,
+        "step": 100,
+        "step_loss": 1.1915556640625
+      },
+      "all_states_finite": true,
+      "seconds": 38.43999195098877,
+      "records": [
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.11306071281433105,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 1,
+          "step_loss": 0.001
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.20506711304187775,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 2,
+          "step_loss": 0.003486597776412964
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.25106391310691833,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 3,
+          "step_loss": 0.007464804172515869
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.28756797313690186,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 4,
+          "step_loss": 0.012827919960021974
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.3339797258377075,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 5,
+          "step_loss": 0.019654617309570313
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.3804597556591034,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 6,
+          "step_loss": 0.02816843414306641
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.4201376140117645,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 7,
+          "step_loss": 0.03844577026367187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.44611862301826477,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 8,
+          "step_loss": 0.050477519989013675
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.4576336145401001,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 9,
+          "step_loss": 0.06414002990722656
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.4803118109703064,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 10,
+          "step_loss": 0.07924302673339843
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5202128887176514,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 11,
+          "step_loss": 0.09558528900146485
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5468192100524902,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 12,
+          "step_loss": 0.11301936340332032
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5571268796920776,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 13,
+          "step_loss": 0.13143231201171876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5661779046058655,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 14,
+          "step_loss": 0.15075228881835936
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6034042835235596,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 15,
+          "step_loss": 0.1709559783935547
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6429008841514587,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 16,
+          "step_loss": 0.19203120422363282
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6827787756919861,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 17,
+          "step_loss": 0.2139515838623047
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7230465412139893,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 18,
+          "step_loss": 0.2366987762451172
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7632257342338562,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 19,
+          "step_loss": 0.26022384643554686
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8033086061477661,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 20,
+          "step_loss": 0.28446499633789063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8437710404396057,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 21,
+          "step_loss": 0.309313720703125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.884330689907074,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 22,
+          "step_loss": 0.3346686706542969
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.924593448638916,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 23,
+          "step_loss": 0.36040884399414064
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.9800246953964233,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 24,
+          "step_loss": 0.38639813232421877
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0432286262512207,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 25,
+          "step_loss": 0.4125140380859375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0461137294769287,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 26,
+          "step_loss": 0.4386203002929688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.086794137954712,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 27,
+          "step_loss": 0.4645577087402344
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1267244815826416,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 28,
+          "step_loss": 0.49019125366210936
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1675381660461426,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 29,
+          "step_loss": 0.5155340576171875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2085384130477905,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 30,
+          "step_loss": 0.5405352172851563
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2483959197998047,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 31,
+          "step_loss": 0.5651384887695312
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.3409600257873535,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 32,
+          "step_loss": 0.5893003540039062
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4840326309204102,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 33,
+          "step_loss": 0.6130082397460938
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5468164682388306,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 34,
+          "step_loss": 0.6363812866210937
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5095696449279785,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 35,
+          "step_loss": 0.6594385375976562
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4550728797912598,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 36,
+          "step_loss": 0.6819976196289063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4900286197662354,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 37,
+          "step_loss": 0.703854248046875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6016209125518799,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 38,
+          "step_loss": 0.724906005859375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.705152153968811,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 39,
+          "step_loss": 0.7451552124023437
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.7979769706726074,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 40,
+          "step_loss": 0.7646852416992188
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8752771615982056,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 41,
+          "step_loss": 0.783583740234375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8782297372817993,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 42,
+          "step_loss": 0.8019689331054688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8491904735565186,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 43,
+          "step_loss": 0.8198148803710937
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8971905708312988,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 44,
+          "step_loss": 0.8370380859375001
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9480504989624023,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 45,
+          "step_loss": 0.8536293334960938
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9611512422561646,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 46,
+          "step_loss": 0.8696227416992187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.000093936920166,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 47,
+          "step_loss": 0.88508447265625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.049222707748413,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 48,
+          "step_loss": 0.9000532836914062
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.047567129135132,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 49,
+          "step_loss": 0.9145889892578125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.115192174911499,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 50,
+          "step_loss": 0.9286257324218751
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.184569835662842,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 51,
+          "step_loss": 0.9419725341796875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.152186870574951,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 52,
+          "step_loss": 0.95452392578125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1526453495025635,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 53,
+          "step_loss": 0.9663193969726562
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.223141670227051,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 54,
+          "step_loss": 0.9774987182617187
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3053171634674072,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 55,
+          "step_loss": 0.9881099243164063
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.350175619125366,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 56,
+          "step_loss": 0.9980928955078125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.376890182495117,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 57,
+          "step_loss": 1.0073341674804688
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.443161964416504,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 58,
+          "step_loss": 1.0157877807617188
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.3484597206115723,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 59,
+          "step_loss": 1.0233958129882812
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.340507984161377,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 60,
+          "step_loss": 1.0300260009765625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.2645416259765625,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 61,
+          "step_loss": 1.0355799560546874
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.2545392513275146,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 62,
+          "step_loss": 1.040075927734375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.175983190536499,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 63,
+          "step_loss": 1.043586181640625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.1323721408843994,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 64,
+          "step_loss": 1.0462093505859376
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.088559627532959,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 65,
+          "step_loss": 1.0481004638671876
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.050327777862549,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 66,
+          "step_loss": 1.049460205078125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 2.009894371032715,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 67,
+          "step_loss": 1.0504825439453125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.966188669204712,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 68,
+          "step_loss": 1.0513079833984376
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.9223661422729492,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 69,
+          "step_loss": 1.05197265625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.8764060735702515,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 70,
+          "step_loss": 1.0524967041015625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.829959511756897,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 71,
+          "step_loss": 1.052908203125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.785048007965088,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 72,
+          "step_loss": 1.053280029296875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.7414542436599731,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 73,
+          "step_loss": 1.0537247314453124
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6965336799621582,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 74,
+          "step_loss": 1.054370849609375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.652098536491394,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 75,
+          "step_loss": 1.055314697265625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.6073200702667236,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 76,
+          "step_loss": 1.05665478515625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5617618560791016,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 77,
+          "step_loss": 1.0584466552734375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.5165190696716309,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 78,
+          "step_loss": 1.060758056640625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4728082418441772,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 79,
+          "step_loss": 1.063580078125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.4307971000671387,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 80,
+          "step_loss": 1.06693603515625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.388535499572754,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 81,
+          "step_loss": 1.070823486328125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.3458038568496704,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 82,
+          "step_loss": 1.0752303466796875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.3026047945022583,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 83,
+          "step_loss": 1.08009912109375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2588889598846436,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 84,
+          "step_loss": 1.0853909912109376
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.2147539854049683,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 85,
+          "step_loss": 1.0910823974609376
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1717689037322998,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 86,
+          "step_loss": 1.0971566162109376
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.1292784214019775,
+          "water_below_y_055": 0,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 87,
+          "step_loss": 1.103572021484375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.087119698524475,
+          "water_below_y_055": 1,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 88,
+          "step_loss": 1.110268798828125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0456862449645996,
+          "water_below_y_055": 2,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 89,
+          "step_loss": 1.1171917724609375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 1.0038535594940186,
+          "water_below_y_055": 4,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 90,
+          "step_loss": 1.1242734375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.9616271257400513,
+          "water_below_y_055": 5,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 91,
+          "step_loss": 1.1314366455078124
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.918208658695221,
+          "water_below_y_055": 7,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 92,
+          "step_loss": 1.1386430664062501
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8734546303749084,
+          "water_below_y_055": 12,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 93,
+          "step_loss": 1.1458634033203126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.8278003931045532,
+          "water_below_y_055": 16,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 94,
+          "step_loss": 1.1530098876953125
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7815025448799133,
+          "water_below_y_055": 20,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 95,
+          "step_loss": 1.159992919921875
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.7346309423446655,
+          "water_below_y_055": 24,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 96,
+          "step_loss": 1.1667744140625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6873438954353333,
+          "water_below_y_055": 31,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 97,
+          "step_loss": 1.173340087890625
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6398639678955078,
+          "water_below_y_055": 35,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 98,
+          "step_loss": 1.1796553955078126
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.6100828647613525,
+          "water_below_y_055": 41,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 99,
+          "step_loss": 1.1857288818359375
+        },
+        {
+          "active_particles": 40604,
+          "active_mass": 1.85870361328125,
+          "max_speed": 0.5883537530899048,
+          "water_below_y_055": 46,
+          "milk_active": 20302,
+          "water_active": 20302,
+          "step": 100,
+          "step_loss": 1.1915556640625
+        }
+      ]
+    }
+  ],
+  "gradient": {
+    "status": "PASS",
+    "base_loss": 23.7833251953125,
+    "autodiff": 449.6150817871094,
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "plus_loss": 23.83068084716797,
+        "minus_loss": 23.74191665649414,
+        "finite_difference": 443.8209533691406,
+        "absolute_error": 5.79412841796875,
+        "threshold": 67.4422622680664,
+        "within_tolerance": true
+      },
+      {
+        "epsilon": 3e-05,
+        "plus_loss": 23.796892166137695,
+        "minus_loss": 23.770008087158203,
+        "finite_difference": 448.06798299153644,
+        "absolute_error": 1.5470987955729356,
+        "threshold": 67.4422622680664,
+        "within_tolerance": true
+      }
+    ],
+    "informative": true,
+    "seconds": 59.911303758621216
+  },
+  "optimization": {
+    "status": "completed_bounded_pilot",
+    "method": "one-parameter sign-gradient descent with forward acceptance check",
+    "iterations": [
+      {
+        "iteration": 0,
+        "control": 0.001,
+        "loss": 23.783273696899414,
+        "gradient": 449.6218566894531,
+        "candidate": 0.0009,
+        "candidate_loss": 23.74191665649414,
+        "accepted": true
+      },
+      {
+        "iteration": 1,
+        "control": 0.0009,
+        "loss": 23.741954803466797,
+        "gradient": 380.474365234375,
+        "candidate": 0.0007999999999999999,
+        "candidate_loss": 23.70763397216797,
+        "accepted": true
+      },
+      {
+        "iteration": 2,
+        "control": 0.0007999999999999999,
+        "loss": 23.707603454589844,
+        "gradient": 309.1474609375,
+        "candidate": 0.0006999999999999999,
+        "candidate_loss": 23.68052101135254,
+        "accepted": true
+      }
+    ],
+    "final_control": 0.0006999999999999999,
+    "final_loss": 23.680402755737305
+  },
+  "runtime": {
+    "backend": "Arch.x64",
+    "python": "3.7.17 (default, Sep 20 2023, 12:13:47) \n[GCC 10.2.1 20210110]",
+    "taichi": [
+      1,
+      1,
+      0
+    ],
+    "particle_count": 40604,
+    "dt": 0.0002,
+    "substeps": 10
+  },
+  "status": "completed_with_gradient_gate",
+  "total_seconds": 182.37789344787598
+}

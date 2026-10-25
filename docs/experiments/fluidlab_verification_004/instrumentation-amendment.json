@@ -1,0 +1,13 @@
+{
+  "recorded_utc_before_corrected_run": "2026-10-25T07:01:52.673943+00:00",
+  "reason": "Original observer indexed records by local f; upstream max_substeps_local=20 reuses slots. Original counters aggregate multiple times and original masks retain only last visits. They cannot validate per-global-substep identity changes.",
+  "correction": "Use cur_substep_global as recording index while retaining local f for all simulator reads. Native source, derivative criteria and original artifacts unchanged.",
+  "scope": "Rerun only two observer/reference blocks in a new process, 18 forward evaluations / 8 reverse passes. Supplement existing numerical verification and fresh controls; not a numerical retry-until-pass.",
+  "protocol_ref": "protocol.json",
+  "criterion_changes": false,
+  "replacement_inputs_sha256": {
+    "collision_observer_v2.py": "e6cc5bab7b58c21ba29e67422449ec79ccc7a0a035eaabc8385aa72ed0d5e908",
+    "verify_observer_repair.py": "59b51823b159f27afb0d75d803ee54e5f39253be74ce7d4e4d195d25d3a5464c"
+  },
+  "original_mask_analysis_failure": "Mask/counter mismatch; e.g. particle counters 81208 versus 40604 identities in a local frame, unused later global frames."
+}

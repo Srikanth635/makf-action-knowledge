@@ -1,0 +1,63 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.47kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.5s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/8] FROM docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#6 DONE 0.0s
+
+#7 [stage-0 2/8] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir pip==23.0 setuptools==65.5.0 wheel==0.38.4
+#7 CACHED
+
+#8 [stage-0 3/8] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir numpy==1.21.5 taichi==1.1.0 gym==0.21.0 scipy==1.7.3 trimesh==3.12.9 transforms3d==0.4.1 yacs==0.1.8 pyyaml==6.0 tqdm==4.64.1 scikit-learn==1.0.2
+#8 CACHED
+
+#9 [stage-0 4/8] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir torch==1.12.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+#9 CACHED
+
+#10 [stage-0 5/8] WORKDIR /work
+#10 CACHED
+
+#11 [stage-0 6/8] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir matplotlib==3.5.3
+#11 CACHED
+
+#12 [stage-0 7/8] RUN --mount=type=secret,id=ca,required=true,mode=0444 sed -i 's|http://deb.debian.org|https://deb.debian.org|g; s|http://security.debian.org|https://security.debian.org|g' /etc/apt/sources.list && apt-get -o Acquire::https::CaInfo=/run/secrets/ca update && apt-get -o Acquire::https::CaInfo=/run/secrets/ca install -y --no-install-recommends libx11-6 libxrandr2 libxinerama1 libxcursor1 libxi6 && rm -rf /var/lib/apt/lists/*
+#12 CACHED
+
+#13 [stage-0 8/8] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir importlib-metadata==4.11.3
+#13 10.84 Collecting importlib-metadata==4.11.3
+#13 11.01   Downloading importlib_metadata-4.11.3-py3-none-any.whl (18 kB)
+#13 11.04 Requirement already satisfied: typing-extensions>=3.6.4 in /usr/local/lib/python3.7/site-packages (from importlib-metadata==4.11.3) (4.7.1)
+#13 11.04 Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.7/site-packages (from importlib-metadata==4.11.3) (3.15.0)
+#13 11.39 Installing collected packages: importlib-metadata
+#13 11.39   Attempting uninstall: importlib-metadata
+#13 11.39     Found existing installation: importlib-metadata 6.7.0
+#13 11.40     Uninstalling importlib-metadata-6.7.0:
+#13 11.40       Successfully uninstalled importlib-metadata-6.7.0
+#13 11.43 Successfully installed importlib-metadata-4.11.3
+#13 11.43 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#13 11.70 
+#13 11.70 [notice] A new release of pip is available: 23.0 -> 24.0
+#13 11.70 [notice] To update, run: pip install --upgrade pip
+#13 DONE 11.8s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.7s done
+#14 writing image sha256:9439c8e9dd53ee27b3bc5857036c1786d0890209b825c75f6b1fb0ae017c860f done
+#14 naming to docker.io/library/makf-fluidlab-smoke:003 done
+#14 DONE 0.8s

@@ -1,0 +1,8 @@
+{
+  "manifest_entries": 109,
+  "modified_vs_upstream": [
+    "fluidlab/envs/pouring_env.py",
+    "fluidlab/utils/mesh.py"
+  ],
+  "only_recorded_compatibility_patches": true
+}

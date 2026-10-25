@@ -1,0 +1,148 @@
+{
+  "batch_id": "synthetic-review-controls",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "synthetic-controls",
+      "title": "Invented review controls; not scientific evidence",
+      "synthetic_demo": true,
+      "passages": [
+        {
+          "passage_id": "p1",
+          "text": "In a bench test with water, a slow tilt reduced spillage compared with a rapid tilt. The test did not evaluate viscous liquids."
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "control-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported bench test with water, slow tilting reduced spillage compared with rapid tilting; viscous liquids were not evaluated.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s",
+          "component_kind": "strategy",
+          "description": "Tilt slowly in the reported water bench-test comparison.",
+          "grounding_status": "grounded",
+          "ontology_class": "makf:GeneralizedStrategy"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "synthetic-controls",
+          "passage_id": "p1",
+          "exact_quote": "In a bench test with water, a slow tilt reduced spillage compared with a rapid tilt. The test did not evaluate viscous liquids.",
+          "support_role": "asserts_claim"
+        }
+      ]
+    },
+    {
+      "candidate_id": "control-2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported bench test with water, slow tilting reduced spillage compared with rapid tilting; viscous liquids were not evaluated.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s",
+          "component_kind": "strategy",
+          "description": "Tilt slowly in the reported water bench-test comparison.",
+          "grounding_status": "grounded",
+          "ontology_class": "makf:GeneralizedStrategy"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "synthetic-controls",
+          "passage_id": "p1",
+          "exact_quote": "In a bench test with water,",
+          "support_role": "asserts_claim"
+        }
+      ]
+    },
+    {
+      "candidate_id": "control-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "Slow tilting always prevents all spillage for every liquid.",
+      "modality": "conditional",
+      "epistemic_status": "conditional_principle",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s",
+          "component_kind": "strategy",
+          "description": "Tilt slowly in the reported water bench-test comparison.",
+          "grounding_status": "grounded",
+          "ontology_class": "makf:GeneralizedStrategy"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "synthetic-controls",
+          "passage_id": "p1",
+          "exact_quote": "In a bench test with water, a slow tilt reduced spillage compared with a rapid tilt. The test did not evaluate viscous liquids.",
+          "support_role": "asserts_claim"
+        }
+      ]
+    },
+    {
+      "candidate_id": "control-4",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported bench test with water, slow tilting reduced spillage compared with rapid tilting; viscous liquids were not evaluated.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s",
+          "component_kind": "causal_mechanism",
+          "description": "Slow tilting reduces spillage.",
+          "grounding_status": "grounded",
+          "ontology_class": "aicor:PouringTemplate"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "synthetic-controls",
+          "passage_id": "p1",
+          "exact_quote": "In a bench test with water, a slow tilt reduced spillage compared with a rapid tilt. The test did not evaluate viscous liquids.",
+          "support_role": "asserts_claim"
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "offline_fixture",
+    "prompt_version": "makf-e2.2-v3",
+    "recorded_at": "2026-10-24T08:47:53.388059+00:00"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "provider_error",
+  "recorded_at": "2026-10-24T04:54:39.168117+00:00",
+  "prompt_version": "makf-e2.2-v1",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "992a1d9578188e2d1b8d0023345bea4c947f6bb90b57408dc1e4f793386070e7",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "error_code": "api_error",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "2e2fa4c782adddbb909757da21e26c1086d798dac83b2af48c1bb7b4a2d52a1f",
+    "http_status": 401
+  }
+}

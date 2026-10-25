@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "schema_version": "0.1",
+  "study_id": "fluidlab-native-validation-001",
+  "quantity_count": 6,
+  "annex_record_count": 2,
+  "storage_eligible": true,
+  "comparison_ready": false,
+  "execution_eligible": false,
+  "execution_reason": "Archival scalar contract; no executable configuration validation.",
+  "quantities": {
+    "zero-particles": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "zero-mass-retention": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "zero-duration": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "tilt-particles": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "tilt-mass-retention": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": true,
+      "comparison_ready": false,
+      "execution_eligible": false
+    },
+    "tilt-duration": {
+      "storage_eligible": true,
+      "unit_conversion_eligible": false,
+      "comparison_ready": false,
+      "execution_eligible": false
+    }
+  },
+  "issues": [
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "zero-duration"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "units_unresolved",
+      "quantity_ids": [
+        "tilt-duration"
+      ],
+      "message": "No validated physical-unit conversion is available."
+    },
+    {
+      "code": "context_incomplete",
+      "quantity_ids": [
+        "zero-particles",
+        "zero-mass-retention",
+        "zero-duration",
+        "tilt-particles",
+        "tilt-mass-retention",
+        "tilt-duration"
+      ],
+      "message": "Study context is incomplete for controlled comparison."
+    }
+  ],
+  "calculations": [],
+  "conversions": [],
+  "scope": "Structural/numeric evidence checks; not source entailment, scientific approval or simulator reproduction."
+}

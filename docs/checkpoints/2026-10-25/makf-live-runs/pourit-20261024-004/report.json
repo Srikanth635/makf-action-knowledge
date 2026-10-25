@@ -1,0 +1,26 @@
+{
+  "status": "quarantined",
+  "recorded_at": "2026-10-24T05:02:08.103703+00:00",
+  "prompt_version": "makf-e2.2-v2",
+  "source_sha256": "1980e83f655a2e737c58c1b59ad50e248d0bfe680cc32f1ef560c5af69820924",
+  "prompt_sha256": "c354c98844a46e06e8cbb4ddc8c1e7f4fbe9586a43a4320895dcdf7e7e4517e0",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "live": true,
+    "wire_request_sha256": "2ecf54d21cce507a319b73a523b6d21dadf0b9266687d0ddd88d0fbb1f073f54",
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "response_id": "chatcmpl-EcOBNRHpipjGiVmslg7SXoF0KHCj7",
+    "request_id": "req_6cd1d99e81ff4cf0955adc235de6ebea",
+    "usage": {
+      "prompt_tokens": 7707,
+      "completion_tokens": 1161,
+      "total_tokens": 8868
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "9064bd38a04f0055f2c04b3200dacce9c335751b3ce25a6118dafc184b55d67c",
+  "error_code": "invalid_output",
+  "error": "pourit-002: exact_quote does not occur verbatim in source passage"
+}

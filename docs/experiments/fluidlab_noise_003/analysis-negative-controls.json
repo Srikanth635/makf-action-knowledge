@@ -1,0 +1,45 @@
+{
+  "scope": "Offline corrupted-report rejection checks; not simulator validation.",
+  "controls": [
+    {
+      "case": "incomplete_run",
+      "rejected": true,
+      "reason": "Incomplete/error experiment"
+    },
+    {
+      "case": "missing_repeat",
+      "rejected": true,
+      "reason": "Perturbation repeats"
+    },
+    {
+      "case": "nonfinite_loss",
+      "rejected": true,
+      "reason": "Non-finite loss"
+    },
+    {
+      "case": "inconsistent_reset",
+      "rejected": true,
+      "reason": "Exported reset mismatch"
+    },
+    {
+      "case": "wrong_float32_control",
+      "rejected": true,
+      "reason": "Float32 control mismatch"
+    },
+    {
+      "case": "duplicate_sequence",
+      "rejected": true,
+      "reason": "Sequence gaps/duplicates"
+    },
+    {
+      "case": "changed_initial_template",
+      "rejected": true,
+      "reason": "Initial template changed"
+    },
+    {
+      "case": "unexpected_terminal_run",
+      "rejected": true,
+      "reason": "Unexpected terminal or optimizer run"
+    }
+  ]
+}

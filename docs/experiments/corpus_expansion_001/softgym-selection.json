@@ -1,0 +1,14 @@
+{
+  "status": "model_reviewed_subset",
+  "selected_candidate_ids": [
+    "cand-1"
+  ],
+  "withheld_candidate_ids": [
+    "cand-2",
+    "cand-3"
+  ],
+  "reviewed_batch_sha256": "06fef25ef8739d26a17141750b7fa2c8afad305ffb7891eabd618c82fe67a600",
+  "review_response_sha256": "6e703c522bf084974f779b2f8cd24fdd7a2c033d6ddc72856664534bdb8aa0ea",
+  "human_review_required": true,
+  "scope": "Explicit selection of unchanged candidates; advisory model review only."
+}

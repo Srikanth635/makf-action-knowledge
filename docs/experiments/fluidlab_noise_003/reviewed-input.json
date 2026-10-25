@@ -1,0 +1,819 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "experiment_id": "fluidlab_noise_003",
+    "purpose": "Exploratory per-condition repeat and rotation sensitivity diagnostics, not replacement verification or promotion",
+    "base_pose": [
+      0.6,
+      0.7,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "base_value": 0.001,
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_horizontal_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 0,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "base_rotation_h4",
+        "horizon": 4,
+        "action_step": 3,
+        "component": 5,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "horizon": 8,
+        "action_step": 3,
+        "component": 1,
+        "pose_offset_x": 0
+      },
+      {
+        "id": "offset_vertical_h8",
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0.02
+      }
+    ],
+    "baseline_forward_repeats": 5,
+    "baseline_autodiff_repeats": 3,
+    "baseline_tail_repeats": 2,
+    "perturbation_repeats_per_sign": 3,
+    "standard_epsilons": [
+      0.0003,
+      0.0001,
+      3e-05
+    ],
+    "rotation_epsilons": [
+      0.0003,
+      0.0002,
+      0.00015,
+      0.0001,
+      7e-05,
+      5e-05,
+      3e-05
+    ],
+    "ordering": "Case order fixed; baseline forward then AD; for each epsilon alternate plus-minus and minus-plus by repeat index; two baseline forward repeats after sweep.",
+    "empirical_signal_ratio_marker": 10,
+    "summary": "Median losses, actual float32 control denominators, min/max derivative envelope from repeated plus/minus losses, empirical per-condition ranges and median AD discrepancies. Ranges and envelopes are not statistical confidence bounds. No automatic pass/fail gate.",
+    "reset_check": "Hash exported physical state immediately after reset and pose application for every run; hash source initial-state template before and after. Does not verify every internal simulator field.",
+    "branch_diagnostic": "Final active MILK displacement relative to upstream first-step reference: per-axis positive/negative/exact-zero and abs(delta)<1e-6 counts. Not a contact counter or proof of branch crossing.",
+    "scope": "Original max_loss_steps remains 1000, temporal sum is four/eight steps; terminal attraction excluded. No terminal test, optimizer or source equation changes. Existing failed gate stays unchanged."
+  },
+  "runtime": {
+    "backend": "Arch.x64",
+    "particle_count": 40604,
+    "dt": 0.0002,
+    "substeps": 10,
+    "original_max_loss_steps": 1000
+  },
+  "analysis": {
+    "scope": "Exploratory calibration only; observed ranges are not confidence bounds.",
+    "cases": [
+      {
+        "id": "base_vertical_h4",
+        "baseline_loss_median": 23.783353805541992,
+        "baseline_loss_range": 0.0001068115234375,
+        "autodiff_median": 449.62493896484375,
+        "autodiff_range": 0.02001953125,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "represented_central_denominator": 0.0006000000284984708,
+            "plus_loss_range": 4.1961669921875e-05,
+            "minus_loss_range": 0.00012969970703125,
+            "central_difference_median_losses": 434.33505220547846,
+            "central_difference_observed_envelope": [
+              434.23332694989347,
+              434.51942923122624
+            ],
+            "empirical_signal_ratio": 2009.264705882353,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.034005868968404365,
+            "one_sided_forward": 525.748012014063,
+            "one_sided_backward": 342.9221278697825,
+            "one_sided_asymmetry": 0.3477443185070762,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.0001,
+            "represented_central_denominator": 0.00020000000949949026,
+            "plus_loss_range": 5.7220458984375e-05,
+            "minus_loss_range": 0.000102996826171875,
+            "central_difference_median_losses": 443.80185880335534,
+            "central_difference_observed_envelope": [
+              443.34409515322295,
+              444.14518154095464
+            ],
+            "empirical_signal_ratio": 831.0,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.01295097237020412,
+            "one_sided_forward": 472.69846436466884,
+            "one_sided_backward": 414.90528688209696,
+            "one_sided_asymmetry": 0.12226224927607686,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 3e-05,
+            "represented_central_denominator": 6.000004941597581e-05,
+            "plus_loss_range": 8.7738037109375e-05,
+            "minus_loss_range": 6.103515625e-05,
+            "central_difference_median_losses": 449.3709677888771,
+            "central_difference_observed_envelope": [
+              448.0358248455315,
+              450.5153760260304
+            ],
+            "empirical_signal_ratio": 252.42857142857142,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.0005648511769639276,
+            "one_sided_forward": 452.7410534812067,
+            "one_sided_backward": 446.0008886353626,
+            "one_sided_asymmetry": 0.014887461152501457,
+            "observed_fd_and_ad_ranges_overlap": true
+          }
+        ],
+        "exact_zero_displacement_counts_per_axis_range": [
+          [
+            2333,
+            2355
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1982,
+            2012
+          ]
+        ],
+        "exported_resets_identical": true,
+        "evaluations": 28
+      },
+      {
+        "id": "base_horizontal_h4",
+        "baseline_loss_median": 23.854004859924316,
+        "baseline_loss_range": 0.0001354217529296875,
+        "autodiff_median": -53.35725784301758,
+        "autodiff_range": 0.000537872314453125,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "represented_central_denominator": 0.0006000000284984708,
+            "plus_loss_range": 4.9591064453125e-05,
+            "minus_loss_range": 7.82012939453125e-05,
+            "central_difference_median_losses": -54.99203738639078,
+            "central_difference_observed_envelope": [
+              -55.12873069858309,
+              -54.915743444702045
+            ],
+            "empirical_signal_ratio": 243.64788732394365,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.02972756822750066,
+            "one_sided_forward": -50.179170967566684,
+            "one_sided_backward": -59.80490193757734,
+            "one_sided_asymmetry": 0.16095220722973047,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.0001,
+            "represented_central_denominator": 0.00020000000949949026,
+            "plus_loss_range": 0.0001049041748046875,
+            "minus_loss_range": 9.34600830078125e-05,
+            "central_difference_median_losses": -53.74908191971185,
+            "central_difference_observed_envelope": [
+              -54.03518420104459,
+              -53.04336295909108
+            ],
+            "empirical_signal_ratio": 79.38028169014085,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.007289874779248523,
+            "one_sided_forward": -52.65238715565785,
+            "one_sided_backward": -54.84577540704591,
+            "one_sided_asymmetry": 0.03999192709209623,
+            "observed_fd_and_ad_ranges_overlap": true
+          },
+          {
+            "epsilon": 3e-05,
+            "represented_central_denominator": 6.000004941597581e-05,
+            "plus_loss_range": 9.1552734375e-05,
+            "minus_loss_range": 0.00016021728515625,
+            "central_difference_median_losses": -53.787187146206854,
+            "central_difference_observed_envelope": [
+              -55.18590832494982,
+              -50.98974478872092
+            ],
+            "empirical_signal_ratio": 20.142857142857142,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.007993154615440699,
+            "one_sided_forward": -52.03883615705205,
+            "one_sided_backward": -55.53553474312035,
+            "one_sided_asymmetry": 0.06296326491213743,
+            "observed_fd_and_ad_ranges_overlap": true
+          }
+        ],
+        "exact_zero_displacement_counts_per_axis_range": [
+          [
+            2326,
+            2352
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2008,
+            2029
+          ]
+        ],
+        "exported_resets_identical": true,
+        "evaluations": 28
+      },
+      {
+        "id": "base_rotation_h4",
+        "baseline_loss_median": 23.895219802856445,
+        "baseline_loss_range": 0.000164031982421875,
+        "autodiff_median": 11.478944778442383,
+        "autodiff_range": 0.01627826690673828,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "represented_central_denominator": 0.0006000000284984708,
+            "plus_loss_range": 8.96453857421875e-05,
+            "minus_loss_range": 2.47955322265625e-05,
+            "central_difference_median_losses": 12.032190387160478,
+            "central_difference_observed_envelope": [
+              11.920928388864409,
+              12.11166324308624
+            ],
+            "empirical_signal_ratio": 44.01162790697674,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.04598045666801135,
+            "one_sided_forward": 9.237926565204232,
+            "one_sided_backward": 14.826453124799912,
+            "one_sided_asymmetry": 0.37692943231634163,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.0002,
+            "represented_central_denominator": 0.00040000007720664144,
+            "plus_loss_range": 5.53131103515625e-05,
+            "minus_loss_range": 3.24249267578125e-05,
+            "central_difference_median_losses": 12.021062438036138,
+            "central_difference_observed_envelope": [
+              11.882779688848098,
+              12.1021247392843
+            ],
+            "empirical_signal_ratio": 29.313953488372093,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.04509731667963284,
+            "one_sided_forward": 10.05172681749047,
+            "one_sided_backward": 13.9903974854299,
+            "one_sided_asymmetry": 0.28152671659552936,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.00015,
+            "represented_central_denominator": 0.0003000000142492354,
+            "plus_loss_range": 4.9591064453125e-05,
+            "minus_loss_range": 0.000141143798828125,
+            "central_difference_median_losses": 11.475880395680138,
+            "central_difference_observed_envelope": [
+              11.266072056036124,
+              11.901854903442226
+            ],
+            "empirical_signal_ratio": 20.988372093023255,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.00026695683456898764,
+            "one_sided_forward": 9.969076981583093,
+            "one_sided_backward": 12.982683225060642,
+            "one_sided_asymmetry": 0.23212506931235488,
+            "observed_fd_and_ad_ranges_overlap": true
+          },
+          {
+            "epsilon": 0.0001,
+            "represented_central_denominator": 0.00020000000949949026,
+            "plus_loss_range": 8.392333984375e-05,
+            "minus_loss_range": 5.7220458984375e-05,
+            "central_difference_median_losses": 11.42501776788765,
+            "central_difference_observed_envelope": [
+              11.17706245739927,
+              11.882781418020043
+            ],
+            "empirical_signal_ratio": 13.930232558139535,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.004697906610371339,
+            "one_sided_forward": 10.547643578003546,
+            "one_sided_backward": 12.30239093637441,
+            "one_sided_asymmetry": 0.1426346608107382,
+            "observed_fd_and_ad_ranges_overlap": true
+          },
+          {
+            "epsilon": 7e-05,
+            "represented_central_denominator": 0.00014000001829117537,
+            "plus_loss_range": 0.000118255615234375,
+            "minus_loss_range": 6.67572021484375e-05,
+            "central_difference_median_losses": 11.253355463328763,
+            "central_difference_observed_envelope": [
+              10.803766201476645,
+              12.125286152981355
+            ],
+            "empirical_signal_ratio": 9.604651162790697,
+            "signal_separated": false,
+            "ad_relative_discrepancy": 0.01965244362332675,
+            "one_sided_forward": 10.817399113579857,
+            "one_sided_backward": 11.689311088049813,
+            "one_sided_asymmetry": 0.07459053556726085,
+            "observed_fd_and_ad_ranges_overlap": true
+          },
+          {
+            "epsilon": 5e-05,
+            "represented_central_denominator": 9.999994654208422e-05,
+            "plus_loss_range": 0.00016021728515625,
+            "minus_loss_range": 2.09808349609375e-05,
+            "central_difference_median_losses": 12.245184768676811,
+            "central_difference_observed_envelope": [
+              11.177068963309363,
+              12.989051133129141
+            ],
+            "empirical_signal_ratio": 7.465116279069767,
+            "signal_separated": false,
+            "ad_relative_discrepancy": 0.0625748001936623,
+            "one_sided_forward": 11.329670124983702,
+            "one_sided_backward": 13.160697280772625,
+            "one_sided_asymmetry": 0.13912843041105413,
+            "observed_fd_and_ad_ranges_overlap": true
+          },
+          {
+            "epsilon": 3e-05,
+            "represented_central_denominator": 6.000004941597581e-05,
+            "plus_loss_range": 6.4849853515625e-05,
+            "minus_loss_range": 3.814697265625e-05,
+            "central_difference_median_losses": 11.825551783917819,
+            "central_difference_observed_envelope": [
+              10.617565311367073,
+              12.33417766709708
+            ],
+            "empirical_signal_ratio": 4.325581395348837,
+            "signal_separated": false,
+            "ad_relative_discrepancy": 0.02931000699238446,
+            "one_sided_forward": 13.415020683125208,
+            "one_sided_backward": 10.236085968680454,
+            "one_sided_asymmetry": 0.2369683051211054,
+            "observed_fd_and_ad_ranges_overlap": true
+          }
+        ],
+        "exact_zero_displacement_counts_per_axis_range": [
+          [
+            2319,
+            2347
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1990,
+            2024
+          ]
+        ],
+        "exported_resets_identical": true,
+        "evaluations": 52
+      },
+      {
+        "id": "earlier_vertical_h8",
+        "baseline_loss_median": 162.1683120727539,
+        "baseline_loss_range": 0.000762939453125,
+        "autodiff_median": 16374.9375,
+        "autodiff_range": 1.521484375,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "represented_central_denominator": 0.0006000000284984708,
+            "plus_loss_range": 0.00103759765625,
+            "minus_loss_range": 0.000701904296875,
+            "central_difference_median_losses": 15317.356653649495,
+            "central_difference_observed_envelope": [
+              15315.881637443512,
+              15318.780807227684
+            ],
+            "empirical_signal_ratio": 8857.39705882353,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.0645853363623834,
+            "one_sided_forward": 18368.761846812937,
+            "one_sided_backward": 12265.952644586825,
+            "one_sided_asymmetry": 0.3322384629470808,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.0001,
+            "represented_central_denominator": 0.00020000000949949026,
+            "plus_loss_range": 0.0004119873046875,
+            "minus_loss_range": 0.0001220703125,
+            "central_difference_median_losses": 15897.292335739445,
+            "central_difference_observed_envelope": [
+              15896.224220555801,
+              15898.894508514908
+            ],
+            "empirical_signal_ratio": 4167.38,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.0291692816696586,
+            "one_sided_forward": 16685.876229491976,
+            "one_sided_backward": 15108.709360018813,
+            "one_sided_asymmetry": 0.09452106966282958,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 3e-05,
+            "represented_central_denominator": 6.000004941597581e-05,
+            "plus_loss_range": 0.0004425048828125,
+            "minus_loss_range": 0.0004119873046875,
+            "central_difference_median_losses": 16415.137440785882,
+            "central_difference_observed_envelope": [
+              16407.508052538193,
+              16421.749577267212
+            ],
+            "empirical_signal_ratio": 1290.94,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.002448955479714672,
+            "one_sided_forward": 16557.568751018633,
+            "one_sided_backward": 16272.706406905745,
+            "one_sided_asymmetry": 0.017204358224112013,
+            "observed_fd_and_ad_ranges_overlap": false
+          }
+        ],
+        "exact_zero_displacement_counts_per_axis_range": [
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "exported_resets_identical": true,
+        "evaluations": 28
+      },
+      {
+        "id": "offset_vertical_h8",
+        "baseline_loss_median": 151.80276489257812,
+        "baseline_loss_range": 0.0009613037109375,
+        "autodiff_median": -298.4815368652344,
+        "autodiff_range": 0.021087646484375,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "represented_central_denominator": 0.0006000000284984708,
+            "plus_loss_range": 0.0005340576171875,
+            "minus_loss_range": 0.0005035400390625,
+            "central_difference_median_losses": -318.95953888669317,
+            "central_difference_observed_envelope": [
+              -320.2819672092979,
+              -318.55263786435324
+            ],
+            "empirical_signal_ratio": 199.0793650793651,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.06420250697921084,
+            "one_sided_forward": -228.32238046084953,
+            "one_sided_backward": -409.59666214069875,
+            "one_sided_asymmetry": 0.44256777077343584,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 0.0001,
+            "represented_central_denominator": 0.00020000000949949026,
+            "plus_loss_range": 0.000213623046875,
+            "minus_loss_range": 3.0517578125e-05,
+            "central_difference_median_losses": -301.6662454372472,
+            "central_difference_observed_envelope": [
+              -302.581772737512,
+              -301.36106967049227
+            ],
+            "empirical_signal_ratio": 62.76190476190476,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.010557059731349057,
+            "one_sided_forward": -269.92812281357357,
+            "one_sided_backward": -333.4043311129065,
+            "one_sided_asymmetry": 0.19038807350657028,
+            "observed_fd_and_ad_ranges_overlap": false
+          },
+          {
+            "epsilon": 3e-05,
+            "represented_central_denominator": 6.000004941597581e-05,
+            "plus_loss_range": 0.0006103515625,
+            "minus_loss_range": 0.0003814697265625,
+            "central_difference_median_losses": -300.59789695894324,
+            "central_difference_observed_envelope": [
+              -304.41259108278774,
+              -287.8822498794617
+            ],
+            "empirical_signal_ratio": 18.761904761904763,
+            "signal_separated": true,
+            "ad_relative_discrepancy": 0.0070405019965855695,
+            "one_sided_forward": -284.83077090237407,
+            "one_sided_backward": -316.3649924233164,
+            "one_sided_asymmetry": 0.09967670973768022,
+            "observed_fd_and_ad_ranges_overlap": true
+          }
+        ],
+        "exact_zero_displacement_counts_per_axis_range": [
+          [
+            1,
+            5
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "exported_resets_identical": true,
+        "evaluations": 28
+      }
+    ],
+    "verification_gate_status": "not_executed",
+    "evaluations": 164,
+    "autodiff_evaluations": 15,
+    "initial_template_unchanged": true,
+    "completeness_and_consistency_checks": "passed",
+    "previous_failed_gate_unchanged": true
+  },
+  "rotation_raw_measurements": {
+    "baseline_forward_losses": [
+      23.89523696899414,
+      23.89519691467285,
+      23.895191192626953,
+      23.89516830444336,
+      23.895280838012695
+    ],
+    "baseline_ad": [
+      [
+        23.895252227783203,
+        11.48620891571045
+      ],
+      [
+        23.895225524902344,
+        11.478944778442383
+      ],
+      [
+        23.895214080810547,
+        11.469930648803711
+      ]
+    ],
+    "baseline_tail_losses": [
+      23.89533233642578,
+      23.89516830444336
+    ],
+    "probes": [
+      {
+        "epsilon": 0.0003,
+        "plus_losses": [
+          23.898014068603516,
+          23.897924423217773,
+          23.897991180419922
+        ],
+        "minus_losses": [
+          23.890771865844727,
+          23.890771865844727,
+          23.8907470703125
+        ],
+        "represented_plus": 0.0013000000035390258,
+        "represented_minus": 0.000699999975040555
+      },
+      {
+        "epsilon": 0.0002,
+        "plus_losses": [
+          23.897249221801758,
+          23.89723014831543,
+          23.897193908691406
+        ],
+        "minus_losses": [
+          23.892440795898438,
+          23.89240837097168,
+          23.89242172241211
+        ],
+        "represented_plus": 0.0012000000569969416,
+        "represented_minus": 0.0007999999797903001
+      },
+      {
+        "epsilon": 0.00015,
+        "plus_losses": [
+          23.896739959716797,
+          23.89671516418457,
+          23.896690368652344
+        ],
+        "minus_losses": [
+          23.893169403076172,
+          23.893272399902344,
+          23.893310546875
+        ],
+        "represented_plus": 0.0011500000255182385,
+        "represented_minus": 0.0008500000112690032
+      },
+      {
+        "epsilon": 0.0001,
+        "plus_losses": [
+          23.89623260498047,
+          23.896316528320312,
+          23.89627456665039
+        ],
+        "minus_losses": [
+          23.893997192382812,
+          23.89398956298828,
+          23.893939971923828
+        ],
+        "represented_plus": 0.0010999999940395355,
+        "represented_minus": 0.0008999999845400453
+      },
+      {
+        "epsilon": 7e-05,
+        "plus_losses": [
+          23.89605712890625,
+          23.895938873291016,
+          23.895977020263672
+        ],
+        "minus_losses": [
+          23.894359588623047,
+          23.894426345825195,
+          23.89440155029297
+        ],
+        "represented_plus": 0.001069999998435378,
+        "represented_minus": 0.0009299999801442027
+      },
+      {
+        "epsilon": 5e-05,
+        "plus_losses": [
+          23.895841598510742,
+          23.895681381225586,
+          23.89578628540039
+        ],
+        "minus_losses": [
+          23.894563674926758,
+          23.894542694091797,
+          23.894561767578125
+        ],
+        "represented_plus": 0.0010499999625608325,
+        "represented_minus": 0.0009500000160187483
+      },
+      {
+        "epsilon": 3e-05,
+        "plus_losses": [
+          23.895641326904297,
+          23.89562225341797,
+          23.89557647705078
+        ],
+        "minus_losses": [
+          23.894901275634766,
+          23.894939422607422,
+          23.894912719726562
+        ],
+        "represented_plus": 0.0010300000431016088,
+        "represented_minus": 0.0009699999936856329
+      }
+    ]
+  },
+  "harness": "\"\"\"Run only the saved exploratory protocol inside the pinned FluidLab image.\"\"\"\nimport hashlib\nimport json\nimport time\nimport traceback\nfrom pathlib import Path\n\nimport numpy as np\n\nROOT = Path('/out')\nprotocol = json.loads((ROOT / 'protocol.json').read_text())\nreport = {'protocol': protocol, 'status': 'running', 'cases': [],\n          'terminal_test_executed': False, 'optimization_executed': False,\n          'started_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}\n\n\ndef save():\n    temp = ROOT / 'repeat-report.tmp'\n    temp.write_text(json.dumps(report, indent=2, allow_nan=False) + '\\n')\n    temp.replace(ROOT / 'repeat-report.json')\n\n\ndef fingerprint(value):\n    digest = hashlib.sha256()\n\n    def visit(item):\n        if isinstance(item, np.ndarray):\n            digest.update(str((item.dtype.str, item.shape)).encode())\n            digest.update(np.ascontiguousarray(item).tobytes())\n        elif isinstance(item, dict):\n            for key in sorted(item):\n                digest.update(json.dumps(key).encode())\n                visit(item[key])\n        elif isinstance(item, (list, tuple)):\n            for child in item:\n                visit(child)\n        else:\n            digest.update(json.dumps(item).encode())\n\n    visit(value)\n    return digest.hexdigest()\n\n\ntry:\n    import gym\n    import fluidlab.envs\n    import taichi as ti\n    from fluidlab.configs.macros import MILK\n\n    env = gym.make('Pouring-v0', seed=0, loss=True, loss_type='diff', renderer_type='GGUI')\n    t = env.unwrapped.taichi_env\n    initial = t.get_state()['state']\n    initial_hash = fingerprint(initial)\n    original_max = t.loss.max_loss_steps\n    milk = t.loss.particle_mat.to_numpy() == MILK\n    report['runtime'] = {'backend': str(ti.lang.impl.current_cfg().arch),\n                         'particle_count': t.simulator.n_particles,\n                         'dt': float(t.simulator.dt), 'substeps': int(t.simulator.n_substeps),\n                         'original_max_loss_steps': original_max}\n    report['initial_template_sha256_before'] = initial_hash\n    sequence = [0]\n\n    def evaluate(case, nominal, grad=False):\n        sequence[0] += 1\n        t.loss.max_loss_steps = original_max\n        h = case['horizon']\n        t.loss.temporal_range = [0, h]\n        pose = np.asarray(protocol['base_pose'], dtype=np.float32)\n        pose[0] += case['pose_offset_x']\n        t.set_state(initial, grad_enabled=grad)\n        t.apply_agent_action_p(pose)\n        reset_hash = fingerprint(t.get_state()['state'])\n        actions = []\n        for step in range(h):\n            action = np.zeros(6, dtype=np.float32)\n            if step == case['action_step']:\n                action[case['component']] = nominal\n            actions.append(action)\n            t.step(action)\n        loss = float(t.get_final_loss()['loss'])\n        state = t.get_state()['state']\n        if not all(np.isfinite(state[key]).all() for key in ['x', 'v', 'C', 'F']):\n            raise ValueError('Non-finite exported particle state')\n        delta = state['x'][milk & state['used'].astype(bool)] - t.loss.init_particle_pos.to_numpy()[milk & state['used'].astype(bool)]\n        result = {'sequence': sequence[0], 'nominal_control': nominal,\n                  'represented_control': float(actions[case['action_step']][case['component']]),\n                  'loss': loss, 'reset_state_sha256': reset_hash,\n                  'active_particles': int(state['used'].sum()),\n                  'milk_displacement_branch_counts': {\n                      'positive_per_axis': (delta > 0).sum(axis=0).tolist(),\n                      'negative_per_axis': (delta < 0).sum(axis=0).tolist(),\n                      'exact_zero_per_axis': (delta == 0).sum(axis=0).tolist(),\n                      'abs_below_1e_minus_6_per_axis': (np.abs(delta) < 1e-6).sum(axis=0).tolist()}}\n        if grad:\n            t.reset_grad()\n            t.get_final_loss_grad()\n            for action in reversed(actions):\n                t.step_grad(action)\n            t.apply_agent_action_p_grad(pose)\n            result['autodiff'] = float(t.agent.get_grad(h)[case['action_step'], case['component']])\n        if not np.isfinite(loss) or ('autodiff' in result and not np.isfinite(result['autodiff'])):\n            raise ValueError('Non-finite loss or derivative')\n        return result\n\n    for case in protocol['cases']:\n        tick = time.time()\n        current = {'case': case, 'status': 'running', 'baseline_forward': [],\n                   'baseline_autodiff': [], 'probes': [], 'baseline_tail': []}\n        report['cases'].append(current)\n        save()\n        try:\n            value = protocol['base_value']\n            for i in range(protocol['baseline_forward_repeats']):\n                current['baseline_forward'].append(evaluate(case, value))\n            for i in range(protocol['baseline_autodiff_repeats']):\n                current['baseline_autodiff'].append(evaluate(case, value, True))\n            save()\n            print('Baseline', case['id'], 'losses', [r['loss'] for r in current['baseline_forward']],\n                  'AD', [r['autodiff'] for r in current['baseline_autodiff']], flush=True)\n            epsilons = protocol['rotation_epsilons'] if case['component'] == 5 else protocol['standard_epsilons']\n            for epsilon in epsilons:\n                probe = {'epsilon': epsilon, 'plus': [], 'minus': []}\n                current['probes'].append(probe)\n                for repeat in range(protocol['perturbation_repeats_per_sign']):\n                    order = [('plus', 1), ('minus', -1)]\n                    if repeat % 2:\n                        order.reverse()\n                    for label, sign in order:\n                        probe[label].append(evaluate(case, value + sign * epsilon))\n                save()\n                print('Probe', case['id'], epsilon,\n                      'plus', [r['loss'] for r in probe['plus']],\n                      'minus', [r['loss'] for r in probe['minus']], flush=True)\n            for i in range(protocol['baseline_tail_repeats']):\n                current['baseline_tail'].append(evaluate(case, value))\n            runs = current['baseline_forward'] + current['baseline_autodiff'] + current['baseline_tail']\n            runs += [r for p in current['probes'] for side in ['plus', 'minus'] for r in p[side]]\n            current['exported_resets_identical'] = len(set(r['reset_state_sha256'] for r in runs)) == 1\n            current['status'] = 'completed'\n            print('Completed', case['id'], 'resets identical:', current['exported_resets_identical'], flush=True)\n        except Exception as exc:\n            current.update(status='ERROR', error_type=type(exc).__name__, error=str(exc))\n            traceback.print_exc()\n        current['seconds'] = time.time() - tick\n        save()\n    report['initial_template_sha256_after'] = fingerprint(initial)\n    report['initial_template_unchanged'] = report['initial_template_sha256_after'] == initial_hash\n    report['evaluations_completed'] = sequence[0]\n    report['completed_utc'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())\n    report['status'] = 'completed' if all(c['status'] == 'completed' for c in report['cases']) else 'completed_with_errors'\n    save()\n    print('Finished', report['status'], 'evaluations', sequence[0], flush=True)\nexcept BaseException as exc:\n    report.update(status='ERROR', error_type=type(exc).__name__, error=str(exc))\n    save()\n    traceback.print_exc()\n    raise\n",
+  "source_audit": {
+    "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+    "scope": "Read-only source inspection, not a numerical fix or contact instrumentation.",
+    "findings": [
+      "Component 5 controls angular axis index 2, divided over the ten substeps with configured scale 1. The effector applies world-coordinate quaternion rotation and normalization; native units are retained.",
+      "Initial action_p applies position only; source has a TODO for orientation. These experiments use the reset zero orientation rather than claiming orientation pose control.",
+      "The diff partial objective uses MILK L1 displacement; WATER distance weight is zero. Absolute values can be nonsmooth. Counts near zero are a proximity diagnostic only.",
+      "Collision code has signed-distance and velocity/friction branches. These runs do not log actual grid collision branches, so they cannot establish which contact transitions occurred.",
+      "set_state restores exported particle state and agent position/quaternion, resets counters and loss. Hash equality checks that exported state, not every internal buffer."
+    ],
+    "files": [
+      {
+        "path": "fluidlab/fluidengine/taichi_env.py",
+        "full_file_sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+        "excerpts": [
+          {
+            "start_line": 197,
+            "end_line": 217,
+            "exact_text": "    def get_state(self):\n        return {\n            'state': self.simulator.get_state(),\n            'grad_enabled': self.grad_enabled\n        }\n\n    def set_state(self, state, grad_enabled=False):\n        self.t = 0\n\n        self.simulator.cur_substep_global = 0\n        self.simulator.set_state(0, state)\n\n        if grad_enabled:\n            self.enable_grad()\n        else:\n            self.disable_grad()\n\n        if self.loss:\n            self.loss.reset()\n\n    def apply_agent_action_p(self, action_p):\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/fluidengine/simulators/mpm_simulator.py",
+        "full_file_sha256": "a5214be504124940399e3f06021bf4479c293790172ed3d185c36a1495c82b95",
+        "excerpts": [
+          {
+            "start_line": 611,
+            "end_line": 647,
+            "exact_text": "    def get_state(self):\n        f = self.cur_substep_local\n        s = self.cur_step_local\n\n        state = {}\n\n        if self.has_particles:\n            state['x']    = np.zeros((self.n_particles, self.dim), dtype=DTYPE_NP)\n            state['v']    = np.zeros((self.n_particles, self.dim), dtype=DTYPE_NP)\n            state['C']    = np.zeros((self.n_particles, self.dim, self.dim), dtype=DTYPE_NP)\n            state['F']    = np.zeros((self.n_particles, self.dim, self.dim), dtype=DTYPE_NP)\n            state['used'] = np.zeros((self.n_particles,), dtype=np.int32)\n            self.readframe(f, state['x'], state['v'], state['C'], state['F'], state['used'])\n\n        if self.agent is not None:\n            state['agent'] = self.agent.get_state(f)\n\n        if self.smoke_field is not None:\n            state['smoke_field'] = self.smoke_field.get_state(s)\n\n        return state\n\n    def set_state(self, f_global, state):\n        f = self.f_global_to_f_local(f_global)\n        s = self.f_global_to_s_local(f_global)\n\n        if self.has_particles:\n            self.setframe(f, state['x'], state['v'], state['C'], state['F'], state['used'])\n\n        if self.agent is not None:\n            self.agent.set_state(f, state['agent'])\n\n        if self.smoke_field is not None:\n            self.smoke_field.set_state(s, state['smoke_field'])\n\n    @ti.kernel\n    def get_x_kernel(self, f: ti.i32, x: ti.types.ndarray()):\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/fluidengine/effectors/effector.py",
+        "full_file_sha256": "434ef69e46c17de50f8117e9f7c03c1bfd2e31d1a85108160fefd4fe43645f19",
+        "excerpts": [
+          {
+            "start_line": 157,
+            "end_line": 161,
+            "exact_text": "    @ti.kernel\n    def move_kernel(self, f: ti.i32):\n        self.pos[f+1] = self.boundary.impose_x(self.pos[f] + self.v[f])\n        # rotate in world coordinates about itself.\n        self.quat[f+1] = qmul(w2quat(self.w[f], DTYPE_TI), self.quat[f])\n"
+          },
+          {
+            "start_line": 224,
+            "end_line": 235,
+            "exact_text": "    def apply_action_p_kernel(self):\n        self.pos[0] = self.boundary.impose_x(self.action_buffer_p[None][:3] * self.action_scale_p[None][:3])\n        # TODO: add orientation\n\n    def apply_action_p(self, action_p):\n        action_p = action_p.astype(DTYPE_NP)\n        self.set_action_p_kernel(action_p)\n        self.apply_action_p_kernel()\n\n    def apply_action_p_grad(self, action_p):\n        self.apply_action_p_kernel.grad()\n\n"
+          },
+          {
+            "start_line": 251,
+            "end_line": 260,
+            "exact_text": "\n    @ti.kernel\n    def set_velocity(self, s: ti.i32, s_global: ti.i32, n_substeps: ti.i32):\n        for j in range(s*n_substeps, (s+1)*n_substeps):\n            n_substeps_f = ti.cast(n_substeps, DTYPE_TI)\n            for k in ti.static(range(3)):\n                self.v[j][k] = self.action_buffer[s_global][k] * self.action_scale[None][k]/n_substeps_f\n            if ti.static(self.action_dim>3):\n                for k in ti.static(range(3)):\n                    self.w[j][k] = self.action_buffer[s_global][k+3] * self.action_scale[None][k+3]/n_substeps_f\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/utils/geom.py",
+        "full_file_sha256": "d1385077846cdad5133ae168c795096ba9c058a92d083032d27cf21c36761f9f",
+        "excerpts": [
+          {
+            "start_line": 7,
+            "end_line": 26,
+            "exact_text": "@ti.func\ndef qmul(q, r):\n    terms = r.outer_product(q)\n    w = terms[0, 0] - terms[1, 1] - terms[2, 2] - terms[3, 3]\n    x = terms[0, 1] + terms[1, 0] - terms[2, 3] + terms[3, 2]\n    y = terms[0, 2] + terms[1, 3] + terms[2, 0] - terms[3, 1]\n    z = terms[0, 3] - terms[1, 2] + terms[2, 1] + terms[3, 0]\n    out = ti.Vector([w, x, y, z])\n    return out / ti.sqrt(out.dot(out)) # normalize it to prevent some unknown NaN problems.\n\n@ti.func\ndef w2quat(axis_angle, dtype):\n    w = axis_angle.norm(EPS)\n    out = ti.Vector.zero(dt=dtype, n=4)\n\n    v = (axis_angle/w) * ti.sin(w/2)\n    out[0] = ti.cos(w/2)\n    out[1] = v[0]\n    out[2] = v[1]\n    out[3] = v[2]\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+        "full_file_sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+        "excerpts": [
+          {
+            "start_line": 27,
+            "end_line": 33,
+            "exact_text": "        self.type                    = type\n\n        if self.type == 'diff':\n            self.dist_scale = 0.0\n        elif self.type == 'default':\n            self.dist_scale = 0.2\n        else:\n"
+          },
+          {
+            "start_line": 73,
+            "end_line": 81,
+            "exact_text": "    def compute_step_loss(self, s, f):\n        if s == 0:\n            self.get_init_particles(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss(s, f)\n\n        self.compute_dist_loss(s, f)\n"
+          },
+          {
+            "start_line": 132,
+            "end_line": 138,
+            "exact_text": "    @ti.kernel\n    def compute_dist_loss_kernel(self, s: ti.i32, f: ti.i32):\n        for p in range(self.n_particles):\n            if self.particle_used[f, p] and self.particle_mat[p] == WATER:\n                self.dist_loss[s] += ti.abs(self.particle_x[f, p][1] - 0.05) * self.dist_scale\n            if self.particle_used[f, p] and self.particle_mat[p] == MILK:\n                self.dist_loss[s] += ti.abs(self.particle_x[f, p] - self.init_particle_pos[p]).sum()\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/fluidengine/meshes/dynamic.py",
+        "full_file_sha256": "9f1524acb8e4333495caa77f75fd6231586617688ea72511dfeab412a5245991",
+        "excerpts": [
+          {
+            "start_line": 94,
+            "end_line": 122,
+            "exact_text": "    def collide(self, f, pos_world, mat_v, dt):\n        if ti.static(self.has_dynamics):\n            signed_dist = self.sdf(f, pos_world)\n            influence = min(ti.exp(-signed_dist * self.softness), 1)\n            if signed_dist <= 0 or (self.softness > 0 and influence > 0.1):\n                collider_v = self.collider_v(f, pos_world, dt)\n\n                if ti.static(self.friction > 10.0):\n                    mat_v = collider_v\n                else:\n                    # v w.r.t collider\n                    rel_v = mat_v - collider_v\n                    normal_vec = self.normal(f, pos_world)\n                    normal_component = rel_v.dot(normal_vec)\n\n                    # remove inward velocity, if any\n                    rel_v_t = rel_v - min(normal_component, 0) * normal_vec\n                    rel_v_t_norm = rel_v_t.norm()\n\n                    # tangential component after friction (if friction exists)\n                    rel_v_t_friction = rel_v_t / rel_v_t_norm * max(0, rel_v_t_norm + normal_component * self.friction)\n\n                    # tangential component after friction\n                    flag = ti.cast(normal_component < 0 and rel_v_t_norm > EPS, DTYPE_TI)\n                    rel_v_t = rel_v_t_friction * flag + rel_v_t * (1 - flag)\n                    mat_v = collider_v + rel_v_t * influence + rel_v * (1-influence)\n\n        return mat_v\n\n"
+          }
+        ]
+      },
+      {
+        "path": "fluidlab/envs/configs/agent_pouring.yaml",
+        "full_file_sha256": "ecf5da814b170530ebf8343aa6d7eda566604f2183e2f37d5e2f9e87ea3b76e9",
+        "excerpts": [
+          {
+            "start_line": 1,
+            "end_line": 24,
+            "exact_text": "type: AgentPouring\nparams:\n  collector_boundary:\n    type: cube\n    lower: (0.0, 0.1, 0.0)\n    upper: (1.0, 1.0, 1.0)\neffectors:\n  - type: Rigid\n    params:\n      init_pos: (0.5, 0.5, 0.5)\n      init_euler: (0.0, 0.0, 0.0)\n      action_dim: 6\n      action_scale_p: (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)\n      action_scale_v: (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)\n    mesh:\n      file: glass.obj\n      file_vis: glass_vis.obj\n      scale: (0.75, 0.65, 0.75)\n      euler: (0.0, 0.0, 0.0)\n      material: BOTTLE\n    boundary:\n      type: cube\n      lower: (0.05, 0.05, 0.05)\n      upper: (0.95, 0.95, 0.95)"
+          }
+        ]
+      }
+    ],
+    "verified_against_pinned_smoke_source_manifest": true
+  },
+  "interpretation": {
+    "conclusions": [
+      "164 forward evaluations, with 15 reverse passes, completed under a protocol saved before execution. Exported reset hashes match across repeats and same poses; the initial template is unchanged. These do not verify every hidden simulator buffer.",
+      "Rotation has a useful exploratory intermediate scale: median FD at .00015/.0001 differs from median AD by about .027%/.470%. These exploratory measurements are not an independent new verification gate.",
+      "At .00007/.00005/.00003, signal ratios are below the fixed descriptive marker 10. Coarse .0003 still has asymmetric one-sided slopes. This is consistent with scale-sensitive differentiation and numerical variability, but does not isolate a cause or establish that no derivative bug exists.",
+      "Per-condition baseline ranges differ materially. Single-condition empirical ranges cannot be used as global uncertainty bounds. Observed min/max envelopes are not confidence intervals and do not capture all rounding bias.",
+      "MILK absolute-displacement components are near/exactly zero in final snapshots, indicating kink proximity only, not proving contact transitions or causation.",
+      "Previous failed gate is unchanged. No terminal or optimizer run; no SI calibration, paper reproduction, successful-pouring or scientific/RDF promotion claim."
+    ],
+    "next_step": "Predeclare fresh verification measurements at perturbation scales outside the exploratory grid, with per-condition repeats, represented controls, signal/noise and one-sided/stability checks. Retain the original failed gate. Only after a new broader verification passes, audit/test the shortened terminal objective and then extend horizons. Do not modify numerical physics merely to obtain a pass."
+  }
+}

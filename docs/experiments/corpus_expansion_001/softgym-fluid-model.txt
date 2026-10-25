@@ -1,0 +1,4 @@
+Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant
+density constraint is applied to each particle to enforce the incompressibility of the fluid. For each
+particle, the constant density constraint is based on the position of that particle, as well as the positions
+of its neighboring particles.

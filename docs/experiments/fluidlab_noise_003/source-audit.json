@@ -1,0 +1,111 @@
+{
+  "upstream_commit": "7295eb6ed7ee92b2be471fd30b432238577f28ce",
+  "scope": "Read-only source inspection, not a numerical fix or contact instrumentation.",
+  "findings": [
+    "Component 5 controls angular axis index 2, divided over the ten substeps with configured scale 1. The effector applies world-coordinate quaternion rotation and normalization; native units are retained.",
+    "Initial action_p applies position only; source has a TODO for orientation. These experiments use the reset zero orientation rather than claiming orientation pose control.",
+    "The diff partial objective uses MILK L1 displacement; WATER distance weight is zero. Absolute values can be nonsmooth. Counts near zero are a proximity diagnostic only.",
+    "Collision code has signed-distance and velocity/friction branches. These runs do not log actual grid collision branches, so they cannot establish which contact transitions occurred.",
+    "set_state restores exported particle state and agent position/quaternion, resets counters and loss. Hash equality checks that exported state, not every internal buffer."
+  ],
+  "files": [
+    {
+      "path": "fluidlab/fluidengine/taichi_env.py",
+      "full_file_sha256": "69cb2ed307dc423d716e6d863f6db51d291091db6953f1571225fac842876234",
+      "excerpts": [
+        {
+          "start_line": 197,
+          "end_line": 217,
+          "exact_text": "    def get_state(self):\n        return {\n            'state': self.simulator.get_state(),\n            'grad_enabled': self.grad_enabled\n        }\n\n    def set_state(self, state, grad_enabled=False):\n        self.t = 0\n\n        self.simulator.cur_substep_global = 0\n        self.simulator.set_state(0, state)\n\n        if grad_enabled:\n            self.enable_grad()\n        else:\n            self.disable_grad()\n\n        if self.loss:\n            self.loss.reset()\n\n    def apply_agent_action_p(self, action_p):\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/fluidengine/simulators/mpm_simulator.py",
+      "full_file_sha256": "a5214be504124940399e3f06021bf4479c293790172ed3d185c36a1495c82b95",
+      "excerpts": [
+        {
+          "start_line": 611,
+          "end_line": 647,
+          "exact_text": "    def get_state(self):\n        f = self.cur_substep_local\n        s = self.cur_step_local\n\n        state = {}\n\n        if self.has_particles:\n            state['x']    = np.zeros((self.n_particles, self.dim), dtype=DTYPE_NP)\n            state['v']    = np.zeros((self.n_particles, self.dim), dtype=DTYPE_NP)\n            state['C']    = np.zeros((self.n_particles, self.dim, self.dim), dtype=DTYPE_NP)\n            state['F']    = np.zeros((self.n_particles, self.dim, self.dim), dtype=DTYPE_NP)\n            state['used'] = np.zeros((self.n_particles,), dtype=np.int32)\n            self.readframe(f, state['x'], state['v'], state['C'], state['F'], state['used'])\n\n        if self.agent is not None:\n            state['agent'] = self.agent.get_state(f)\n\n        if self.smoke_field is not None:\n            state['smoke_field'] = self.smoke_field.get_state(s)\n\n        return state\n\n    def set_state(self, f_global, state):\n        f = self.f_global_to_f_local(f_global)\n        s = self.f_global_to_s_local(f_global)\n\n        if self.has_particles:\n            self.setframe(f, state['x'], state['v'], state['C'], state['F'], state['used'])\n\n        if self.agent is not None:\n            self.agent.set_state(f, state['agent'])\n\n        if self.smoke_field is not None:\n            self.smoke_field.set_state(s, state['smoke_field'])\n\n    @ti.kernel\n    def get_x_kernel(self, f: ti.i32, x: ti.types.ndarray()):\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/fluidengine/effectors/effector.py",
+      "full_file_sha256": "434ef69e46c17de50f8117e9f7c03c1bfd2e31d1a85108160fefd4fe43645f19",
+      "excerpts": [
+        {
+          "start_line": 157,
+          "end_line": 161,
+          "exact_text": "    @ti.kernel\n    def move_kernel(self, f: ti.i32):\n        self.pos[f+1] = self.boundary.impose_x(self.pos[f] + self.v[f])\n        # rotate in world coordinates about itself.\n        self.quat[f+1] = qmul(w2quat(self.w[f], DTYPE_TI), self.quat[f])\n"
+        },
+        {
+          "start_line": 224,
+          "end_line": 235,
+          "exact_text": "    def apply_action_p_kernel(self):\n        self.pos[0] = self.boundary.impose_x(self.action_buffer_p[None][:3] * self.action_scale_p[None][:3])\n        # TODO: add orientation\n\n    def apply_action_p(self, action_p):\n        action_p = action_p.astype(DTYPE_NP)\n        self.set_action_p_kernel(action_p)\n        self.apply_action_p_kernel()\n\n    def apply_action_p_grad(self, action_p):\n        self.apply_action_p_kernel.grad()\n\n"
+        },
+        {
+          "start_line": 251,
+          "end_line": 260,
+          "exact_text": "\n    @ti.kernel\n    def set_velocity(self, s: ti.i32, s_global: ti.i32, n_substeps: ti.i32):\n        for j in range(s*n_substeps, (s+1)*n_substeps):\n            n_substeps_f = ti.cast(n_substeps, DTYPE_TI)\n            for k in ti.static(range(3)):\n                self.v[j][k] = self.action_buffer[s_global][k] * self.action_scale[None][k]/n_substeps_f\n            if ti.static(self.action_dim>3):\n                for k in ti.static(range(3)):\n                    self.w[j][k] = self.action_buffer[s_global][k+3] * self.action_scale[None][k+3]/n_substeps_f\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/utils/geom.py",
+      "full_file_sha256": "d1385077846cdad5133ae168c795096ba9c058a92d083032d27cf21c36761f9f",
+      "excerpts": [
+        {
+          "start_line": 7,
+          "end_line": 26,
+          "exact_text": "@ti.func\ndef qmul(q, r):\n    terms = r.outer_product(q)\n    w = terms[0, 0] - terms[1, 1] - terms[2, 2] - terms[3, 3]\n    x = terms[0, 1] + terms[1, 0] - terms[2, 3] + terms[3, 2]\n    y = terms[0, 2] + terms[1, 3] + terms[2, 0] - terms[3, 1]\n    z = terms[0, 3] - terms[1, 2] + terms[2, 1] + terms[3, 0]\n    out = ti.Vector([w, x, y, z])\n    return out / ti.sqrt(out.dot(out)) # normalize it to prevent some unknown NaN problems.\n\n@ti.func\ndef w2quat(axis_angle, dtype):\n    w = axis_angle.norm(EPS)\n    out = ti.Vector.zero(dt=dtype, n=4)\n\n    v = (axis_angle/w) * ti.sin(w/2)\n    out[0] = ti.cos(w/2)\n    out[1] = v[0]\n    out[2] = v[1]\n    out[3] = v[2]\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/fluidengine/losses/pouring_loss.py",
+      "full_file_sha256": "5a6eb8955bc3302f69a8e7a1657b3836b3610714e67bd39a355b252d4de7744c",
+      "excerpts": [
+        {
+          "start_line": 27,
+          "end_line": 33,
+          "exact_text": "        self.type                    = type\n\n        if self.type == 'diff':\n            self.dist_scale = 0.0\n        elif self.type == 'default':\n            self.dist_scale = 0.2\n        else:\n"
+        },
+        {
+          "start_line": 73,
+          "end_line": 81,
+          "exact_text": "    def compute_step_loss(self, s, f):\n        if s == 0:\n            self.get_init_particles(s, f)\n\n        if self.type == 'diff' and s == self.max_loss_steps - 1:\n            self.find_best_particle(s, f)\n            self.compute_attraction_loss(s, f)\n\n        self.compute_dist_loss(s, f)\n"
+        },
+        {
+          "start_line": 132,
+          "end_line": 138,
+          "exact_text": "    @ti.kernel\n    def compute_dist_loss_kernel(self, s: ti.i32, f: ti.i32):\n        for p in range(self.n_particles):\n            if self.particle_used[f, p] and self.particle_mat[p] == WATER:\n                self.dist_loss[s] += ti.abs(self.particle_x[f, p][1] - 0.05) * self.dist_scale\n            if self.particle_used[f, p] and self.particle_mat[p] == MILK:\n                self.dist_loss[s] += ti.abs(self.particle_x[f, p] - self.init_particle_pos[p]).sum()\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/fluidengine/meshes/dynamic.py",
+      "full_file_sha256": "9f1524acb8e4333495caa77f75fd6231586617688ea72511dfeab412a5245991",
+      "excerpts": [
+        {
+          "start_line": 94,
+          "end_line": 122,
+          "exact_text": "    def collide(self, f, pos_world, mat_v, dt):\n        if ti.static(self.has_dynamics):\n            signed_dist = self.sdf(f, pos_world)\n            influence = min(ti.exp(-signed_dist * self.softness), 1)\n            if signed_dist <= 0 or (self.softness > 0 and influence > 0.1):\n                collider_v = self.collider_v(f, pos_world, dt)\n\n                if ti.static(self.friction > 10.0):\n                    mat_v = collider_v\n                else:\n                    # v w.r.t collider\n                    rel_v = mat_v - collider_v\n                    normal_vec = self.normal(f, pos_world)\n                    normal_component = rel_v.dot(normal_vec)\n\n                    # remove inward velocity, if any\n                    rel_v_t = rel_v - min(normal_component, 0) * normal_vec\n                    rel_v_t_norm = rel_v_t.norm()\n\n                    # tangential component after friction (if friction exists)\n                    rel_v_t_friction = rel_v_t / rel_v_t_norm * max(0, rel_v_t_norm + normal_component * self.friction)\n\n                    # tangential component after friction\n                    flag = ti.cast(normal_component < 0 and rel_v_t_norm > EPS, DTYPE_TI)\n                    rel_v_t = rel_v_t_friction * flag + rel_v_t * (1 - flag)\n                    mat_v = collider_v + rel_v_t * influence + rel_v * (1-influence)\n\n        return mat_v\n\n"
+        }
+      ]
+    },
+    {
+      "path": "fluidlab/envs/configs/agent_pouring.yaml",
+      "full_file_sha256": "ecf5da814b170530ebf8343aa6d7eda566604f2183e2f37d5e2f9e87ea3b76e9",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 24,
+          "exact_text": "type: AgentPouring\nparams:\n  collector_boundary:\n    type: cube\n    lower: (0.0, 0.1, 0.0)\n    upper: (1.0, 1.0, 1.0)\neffectors:\n  - type: Rigid\n    params:\n      init_pos: (0.5, 0.5, 0.5)\n      init_euler: (0.0, 0.0, 0.0)\n      action_dim: 6\n      action_scale_p: (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)\n      action_scale_v: (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)\n    mesh:\n      file: glass.obj\n      file_vis: glass_vis.obj\n      scale: (0.75, 0.65, 0.75)\n      euler: (0.0, 0.0, 0.0)\n      material: BOTTLE\n    boundary:\n      type: cube\n      lower: (0.05, 0.05, 0.05)\n      upper: (0.95, 0.95, 0.95)"
+        }
+      ]
+    }
+  ],
+  "verified_against_pinned_smoke_source_manifest": true
+}

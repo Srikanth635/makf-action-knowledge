@@ -1,0 +1,35 @@
+{
+  "sources_graph": "https://example.org/makf/data/sources-graph/241a8ebc816b2f878046b9f92e4094044d535d842970a9720160d1e40edfda87",
+  "candidates_graph": "https://example.org/makf/data/candidates-graph/db7619bfc126c779f9ec852fea952e3ef5460da2c2ce97820163e369dd919231",
+  "input_sha256": "f75c3f160664b15b5af983824cd77ae29550af0072654d4b3a4b5936adf4f386",
+  "assessment_sha256": "b9b8ac3b0cdfa256878cf071e14dbbc43f6034c939f68f7bb5fa27c88d01c178",
+  "contract_version": "draft-0.1",
+  "data_base_iri": "https://example.org/makf/data/",
+  "review_state": "pending",
+  "candidate_count": 3,
+  "quad_count": 168,
+  "shacl_conforms": true,
+  "dependencies": {
+    "rdflib": "7.6.0",
+    "pyshacl": "0.30.1"
+  },
+  "profile_sha256": "9daff0cc9710e45582f33bbe3dd15f2a46cfb6561c6d2e62b82e688d8f83c4f4",
+  "resource_sha256": {
+    "ontology/cram-aicor-ontology.ttl": "a33fb7af8c28792825542b1c663f233102e19ae076bbf747fdd16e4297ef0cda",
+    "ontology/dul-alignment.ttl": "e4a69125164cc6ef7a808a4b3ea2f9b4214bb4c7ba02c98699262563e761a1ed",
+    "ontology/makf-core.ttl": "d59ae50ce427b25c325300bd30b45620bcaa949fc3aa9f2688b894d3dddaadb9",
+    "ontology/pouring-frame.ttl": "8d568dca5f843613ebb5c4ff9ff94fec95e44ced30ce57d53a4393760b7e8822",
+    "ontology/grasping-smoke.ttl": "7ad212b65206a02a13cf8f6766b9799f05f8ec77efe8a95030014112f2c8ee0a",
+    "schema/makf_extraction.linkml.yaml": "88a39964ad9af91cd819ee0967906383e8f6581679e0e8672a740153d37b21ae",
+    "publication/shapes.ttl": "5d379b6e84875dc603c20d3c54d386bab70d961f694da4ce8cef4bfd40f70185",
+    "publication/vocabulary.ttl": "2bae27a74ea8f58f6cad58ae39cec9af0acd991363bcda1079b8983718660ef7"
+  },
+  "files_sha256": {
+    "dataset.trig": "2b260057819fa506e3060094a51fde33b600419ed9ee9f2b6148e54f9ecb777c",
+    "candidates.json": "a22ad9f82ef83cd7730429c58cd1784e00ff7b2cc51bb78d06344a16eed93f6c",
+    "assessment.json": "1a54b83af09cd52593eb447fb54d1e28e2afad17e0b2e37493511c26440c4f87",
+    "validation.json": "944e251f93c0a3f9ce7b26f01def6ff4c1cbb2415fb38c288283605f8521b63e",
+    "shacl-report.ttl": "4a53a3befd9bcdb7273ef3d6e47a83be519927771faee49ef0d2a44ee23be2be"
+  },
+  "scope": "Local provisional RDF records; no scientific acceptance, human promotion or OWL inference."
+}

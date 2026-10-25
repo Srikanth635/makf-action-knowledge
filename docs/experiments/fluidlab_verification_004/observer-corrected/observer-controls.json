@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "scope": "Synthetic fixture exercises actual observer function, not native collision physics or simulation trajectories.",
+  "checks": [
+    "Zero tangential norm is detected",
+    "Nonzero inward friction flag is detected",
+    "Repeated local index retains separate global recording slots"
+  ],
+  "counts": [
+    [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ]
+  ],
+  "minimum_norm": [
+    0.0,
+    1.0
+  ]
+}

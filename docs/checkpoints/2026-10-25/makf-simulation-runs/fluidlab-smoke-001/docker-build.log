@@ -1,0 +1,164 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 792B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 1.8s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 9.08kB / 9.08kB done
+#3 sha256:7b32114e84ca21aeb2d6f871a0b62b3a0762193f75d9afd048ee4cbe889f3148 1.13kB / 1.13kB done
+#3 sha256:528c92d70d7e39dbb3dd1c6681f6750c565c7e45b70527cda47c1a61495c1b6a 1.41kB / 1.41kB done
+#3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0B / 14.28MB 0.1s
+#3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 1.05MB / 14.28MB 0.5s
+#3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 7.34MB / 14.28MB 0.7s
+#3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 12.58MB / 14.28MB 0.9s
+#3 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 14.28MB / 14.28MB 0.9s done
+#3 extracting sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0.1s
+#3 extracting sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0.2s done
+#3 DONE 1.2s
+
+#4 [internal] load metadata for docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/5] FROM docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#6 DONE 0.1s
+
+#7 [stage-0 2/5] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir pip==23.0 setuptools==65.5.0 wheel==0.38.4
+#7 2.247 Collecting pip==23.0
+#7 2.421   Downloading pip-23.0-py3-none-any.whl (2.1 MB)
+#7 2.478      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 38.6 MB/s eta 0:00:00
+#7 2.784 Collecting setuptools==65.5.0
+#7 2.909   Downloading setuptools-65.5.0-py3-none-any.whl (1.2 MB)
+#7 2.970      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 21.1 MB/s eta 0:00:00
+#7 3.046 Collecting wheel==0.38.4
+#7 3.089   Downloading wheel-0.38.4-py3-none-any.whl (36 kB)
+#7 3.234 Installing collected packages: wheel, setuptools, pip
+#7 3.235   Attempting uninstall: wheel
+#7 3.235     Found existing installation: wheel 0.41.2
+#7 3.242     Uninstalling wheel-0.41.2:
+#7 3.243       Successfully uninstalled wheel-0.41.2
+#7 3.276   Attempting uninstall: setuptools
+#7 3.276     Found existing installation: setuptools 57.5.0
+#7 3.302     Uninstalling setuptools-57.5.0:
+#7 3.309       Successfully uninstalled setuptools-57.5.0
+#7 3.793   Attempting uninstall: pip
+#7 3.793     Found existing installation: pip 23.0.1
+#7 3.889     Uninstalling pip-23.0.1:
+#7 3.897       Successfully uninstalled pip-23.0.1
+#7 4.860 Successfully installed pip-23.0 setuptools-65.5.0 wheel-0.38.4
+#7 4.860 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#7 DONE 5.2s
+
+#8 [stage-0 3/5] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir numpy==1.21.5 taichi==1.1.0 gym==0.21.0 scipy==1.7.3 trimesh==3.12.9 transforms3d==0.4.1 yacs==0.1.8 pyyaml==6.0 tqdm==4.64.1 scikit-learn==1.0.2
+#8 1.543 Collecting numpy==1.21.5
+#8 1.746   Downloading numpy-1.21.5-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (15.7 MB)
+#8 2.223      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 45.8 MB/s eta 0:00:00
+#8 2.520 Collecting taichi==1.1.0
+#8 2.902   Downloading taichi-1.1.0-cp37-cp37m-manylinux_2_27_x86_64.whl (55.5 MB)
+#8 8.215      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.5/55.5 MB 10.2 MB/s eta 0:00:00
+#8 8.418 Collecting gym==0.21.0
+#8 8.542   Downloading gym-0.21.0.tar.gz (1.5 MB)
+#8 8.595      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 31.5 MB/s eta 0:00:00
+#8 8.698   Preparing metadata (setup.py): started
+#8 8.995   Preparing metadata (setup.py): finished with status 'done'
+#8 9.349 Collecting scipy==1.7.3
+#8 9.386   Downloading scipy-1.7.3-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (38.1 MB)
+#8 9.978      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 38.1/38.1 MB 74.7 MB/s eta 0:00:00
+#8 10.25 Collecting trimesh==3.12.9
+#8 10.30   Downloading trimesh-3.12.9-py3-none-any.whl (652 kB)
+#8 10.30      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 652.5/652.5 kB 149.1 MB/s eta 0:00:00
+#8 10.38 Collecting transforms3d==0.4.1
+#8 10.43   Downloading transforms3d-0.4.1-py3-none-any.whl (1.4 MB)
+#8 10.67      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 5.8 MB/s eta 0:00:00
+#8 10.74 Collecting yacs==0.1.8
+#8 10.82   Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
+#8 10.93 Collecting pyyaml==6.0
+#8 10.99   Downloading PyYAML-6.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (596 kB)
+#8 11.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 596.3/596.3 kB 61.1 MB/s eta 0:00:00
+#8 11.10 Collecting tqdm==4.64.1
+#8 11.13   Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+#8 11.13      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 40.1 MB/s eta 0:00:00
+#8 11.38 Collecting scikit-learn==1.0.2
+#8 11.47   Downloading scikit_learn-1.0.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (24.8 MB)
+#8 11.87      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.8/24.8 MB 64.0 MB/s eta 0:00:00
+#8 11.98 Collecting astunparse
+#8 12.02   Downloading astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+#8 12.07 Collecting colorama
+#8 12.10   Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+#8 12.17 Collecting sourceinspect>=0.0.4
+#8 12.23   Downloading sourceinspect-0.0.4-py3-none-any.whl (3.5 kB)
+#8 12.43 Collecting rich
+#8 12.46   Downloading rich-13.8.1-py3-none-any.whl (241 kB)
+#8 12.47      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.6/241.6 kB 31.2 MB/s eta 0:00:00
+#8 12.54 Collecting cloudpickle>=1.2.0
+#8 12.57   Downloading cloudpickle-2.2.1-py3-none-any.whl (25 kB)
+#8 12.68 Collecting importlib_metadata>=4.8.1
+#8 12.72   Downloading importlib_metadata-6.7.0-py3-none-any.whl (22 kB)
+#8 12.92 Collecting joblib>=0.11
+#8 12.97   Downloading joblib-1.3.2-py3-none-any.whl (302 kB)
+#8 12.97      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 302.2/302.2 kB 264.0 MB/s eta 0:00:00
+#8 13.03 Collecting threadpoolctl>=2.0.0
+#8 13.07   Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+#8 13.17 Collecting zipp>=0.5
+#8 13.21   Downloading zipp-3.15.0-py3-none-any.whl (6.8 kB)
+#8 13.28 Collecting typing-extensions>=3.6.4
+#8 13.31   Downloading typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+#8 13.36 Collecting dill
+#8 13.40   Downloading dill-0.3.7-py3-none-any.whl (115 kB)
+#8 13.40      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.3/115.3 kB 270.6 MB/s eta 0:00:00
+#8 13.46 Collecting six<2.0,>=1.6.1
+#8 13.49   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#8 13.49 Requirement already satisfied: wheel<1.0,>=0.23.0 in /usr/local/lib/python3.7/site-packages (from astunparse->taichi==1.1.0) (0.38.4)
+#8 13.55 Collecting markdown-it-py>=2.2.0
+#8 13.58   Downloading markdown_it_py-2.2.0-py3-none-any.whl (84 kB)
+#8 13.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 kB 144.9 MB/s eta 0:00:00
+#8 13.67 Collecting pygments<3.0.0,>=2.13.0
+#8 13.73   Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
+#8 13.76      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 53.1 MB/s eta 0:00:00
+#8 13.84 Collecting mdurl~=0.1
+#8 13.87   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+#8 13.92 Building wheels for collected packages: gym
+#8 13.92   Building wheel for gym (setup.py): started
+#8 14.56   Building wheel for gym (setup.py): finished with status 'done'
+#8 14.57   Created wheel for gym: filename=gym-0.21.0-py3-none-any.whl size=1616800 sha256=86a9559e0b44232f3d93a4eede9137302b7db436acde7e2ac60a7a88b537c8f3
+#8 14.57   Stored in directory: /tmp/pip-ephem-wheel-cache-z28lqhbm/wheels/76/ee/9c/36bfe3e079df99acf5ae57f4e3464ff2771b34447d6d2f2148
+#8 14.57 Successfully built gym
+#8 14.83 Installing collected packages: zipp, typing-extensions, transforms3d, tqdm, threadpoolctl, six, pyyaml, pygments, numpy, mdurl, joblib, dill, colorama, cloudpickle, yacs, trimesh, sourceinspect, scipy, markdown-it-py, importlib_metadata, astunparse, scikit-learn, rich, gym, taichi
+#8 24.33 Successfully installed astunparse-1.6.3 cloudpickle-2.2.1 colorama-0.4.6 dill-0.3.7 gym-0.21.0 importlib_metadata-6.7.0 joblib-1.3.2 markdown-it-py-2.2.0 mdurl-0.1.2 numpy-1.21.5 pygments-2.17.2 pyyaml-6.0 rich-13.8.1 scikit-learn-1.0.2 scipy-1.7.3 six-1.17.0 sourceinspect-0.0.4 taichi-1.1.0 threadpoolctl-3.1.0 tqdm-4.64.1 transforms3d-0.4.1 trimesh-3.12.9 typing-extensions-4.7.1 yacs-0.1.8 zipp-3.15.0
+#8 24.33 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#8 24.54 
+#8 24.54 [notice] A new release of pip is available: 23.0 -> 24.0
+#8 24.54 [notice] To update, run: pip install --upgrade pip
+#8 DONE 24.7s
+
+#9 [stage-0 4/5] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir torch==1.12.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+#9 1.400 Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+#9 2.359 Collecting torch==1.12.1+cpu
+#9 2.628   Downloading https://download-r2.pytorch.org/whl/cpu/torch-1.12.1%2Bcpu-cp37-cp37m-linux_x86_64.whl (189.2 MB)
+#9 6.864      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 189.2/189.2 MB 61.2 MB/s eta 0:00:00
+#9 7.157 Requirement already satisfied: typing-extensions in /usr/local/lib/python3.7/site-packages (from torch==1.12.1+cpu) (4.7.1)
+#9 7.478 Installing collected packages: torch
+#9 15.90 Successfully installed torch-1.12.1+cpu
+#9 15.90 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 16.55 
+#9 16.55 [notice] A new release of pip is available: 23.0 -> 24.0
+#9 16.55 [notice] To update, run: pip install --upgrade pip
+#9 DONE 16.7s
+
+#10 [stage-0 5/5] WORKDIR /work
+#10 DONE 2.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 4.5s done
+#11 writing image sha256:4899f82402517990f259b0ea4b5104d9661e9e52dfd372971ecc90f17f1ca19d done
+#11 naming to docker.io/library/makf-fluidlab-smoke:001 done
+#11 DONE 4.5s

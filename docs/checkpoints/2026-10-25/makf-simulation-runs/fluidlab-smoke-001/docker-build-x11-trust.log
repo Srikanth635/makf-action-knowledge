@@ -1,0 +1,140 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.34kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/7] FROM docker.io/library/python:3.7-slim-bullseye@sha256:603879aeff06df23f0d392a19f7ce02aa85e14e6b4d25fd9647b116e0cb93467
+#6 DONE 0.0s
+
+#7 [stage-0 2/7] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir pip==23.0 setuptools==65.5.0 wheel==0.38.4
+#7 CACHED
+
+#8 [stage-0 3/7] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir numpy==1.21.5 taichi==1.1.0 gym==0.21.0 scipy==1.7.3 trimesh==3.12.9 transforms3d==0.4.1 yacs==0.1.8 pyyaml==6.0 tqdm==4.64.1 scikit-learn==1.0.2
+#8 CACHED
+
+#9 [stage-0 4/7] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir torch==1.12.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+#9 CACHED
+
+#10 [stage-0 5/7] WORKDIR /work
+#10 CACHED
+
+#11 [stage-0 6/7] RUN --mount=type=secret,id=ca,required=true     PIP_CERT=/run/secrets/ca pip install --no-cache-dir matplotlib==3.5.3
+#11 CACHED
+
+#12 [stage-0 7/7] RUN --mount=type=secret,id=ca,required=true,mode=0444 sed -i 's|http://deb.debian.org|https://deb.debian.org|g; s|http://security.debian.org|https://security.debian.org|g' /etc/apt/sources.list && apt-get -o Acquire::https::CaInfo=/run/secrets/ca update && apt-get -o Acquire::https::CaInfo=/run/secrets/ca install -y --no-install-recommends libx11-6 libxrandr2 libxinerama1 libxcursor1 libxi6 && rm -rf /var/lib/apt/lists/*
+#12 8.842 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#12 8.966 Get:2 https://deb.debian.org/debian-security bullseye-security InRelease [27.1 kB]
+#12 9.041 Get:3 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#12 9.249 Get:4 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#12 9.932 Get:5 https://deb.debian.org/debian-security bullseye-security/main amd64 Packages [475 kB]
+#12 10.11 Get:6 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#12 11.04 Fetched 8706 kB in 2s (3511 kB/s)
+#12 11.04 Reading package lists...
+#12 11.81 Reading package lists...
+#12 12.42 Building dependency tree...
+#12 12.54 Reading state information...
+#12 12.73 The following additional packages will be installed:
+#12 12.74   libbsd0 libmd0 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxfixes3
+#12 12.74   libxrender1
+#12 12.90 The following NEW packages will be installed:
+#12 12.90   libbsd0 libmd0 libx11-6 libx11-data libxau6 libxcb1 libxcursor1 libxdmcp6
+#12 12.90   libxext6 libxfixes3 libxi6 libxinerama1 libxrandr2 libxrender1
+#12 13.23 0 upgraded, 14 newly installed, 0 to remove and 46 not upgraded.
+#12 13.23 Need to get 1688 kB of archives.
+#12 13.23 After this operation, 4611 kB of additional disk space will be used.
+#12 13.23 Get:1 https://deb.debian.org/debian bullseye/main amd64 libmd0 amd64 1.0.3-3 [28.0 kB]
+#12 13.32 Get:2 https://deb.debian.org/debian bullseye/main amd64 libbsd0 amd64 0.11.3-1+deb11u1 [108 kB]
+#12 13.45 Get:3 https://deb.debian.org/debian bullseye/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#12 13.65 Get:4 https://deb.debian.org/debian bullseye/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#12 13.72 Get:5 https://deb.debian.org/debian bullseye/main amd64 libxcb1 amd64 1.14-3 [140 kB]
+#12 13.89 Get:6 https://deb.debian.org/debian bullseye/main amd64 libx11-data all 2:1.7.2-1+deb11u2 [311 kB]
+#12 14.00 Get:7 https://deb.debian.org/debian bullseye/main amd64 libx11-6 amd64 2:1.7.2-1+deb11u2 [772 kB]
+#12 14.16 Get:8 https://deb.debian.org/debian bullseye/main amd64 libxfixes3 amd64 1:5.0.3-2 [22.1 kB]
+#12 14.25 Get:9 https://deb.debian.org/debian bullseye/main amd64 libxrender1 amd64 1:0.9.10-1 [33.0 kB]
+#12 14.33 Get:10 https://deb.debian.org/debian bullseye/main amd64 libxcursor1 amd64 1:1.2.0-2 [37.3 kB]
+#12 14.40 Get:11 https://deb.debian.org/debian bullseye/main amd64 libxext6 amd64 2:1.3.3-1.1 [52.7 kB]
+#12 14.46 Get:12 https://deb.debian.org/debian bullseye/main amd64 libxi6 amd64 2:1.7.10-1 [83.4 kB]
+#12 14.50 Get:13 https://deb.debian.org/debian bullseye/main amd64 libxinerama1 amd64 2:1.1.4-2 [17.7 kB]
+#12 14.58 Get:14 https://deb.debian.org/debian bullseye/main amd64 libxrandr2 amd64 2:1.5.1-1 [37.5 kB]
+#12 14.76 debconf: delaying package configuration, since apt-utils is not installed
+#12 14.79 Fetched 1688 kB in 2s (1007 kB/s)
+#12 14.82 Selecting previously unselected package libmd0:amd64.
+#12 14.82 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7034 files and directories currently installed.)
+#12 14.82 Preparing to unpack .../00-libmd0_1.0.3-3_amd64.deb ...
+#12 14.82 Unpacking libmd0:amd64 (1.0.3-3) ...
+#12 14.85 Selecting previously unselected package libbsd0:amd64.
+#12 14.85 Preparing to unpack .../01-libbsd0_0.11.3-1+deb11u1_amd64.deb ...
+#12 14.85 Unpacking libbsd0:amd64 (0.11.3-1+deb11u1) ...
+#12 14.90 Selecting previously unselected package libxau6:amd64.
+#12 14.90 Preparing to unpack .../02-libxau6_1%3a1.0.9-1_amd64.deb ...
+#12 14.90 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#12 14.93 Selecting previously unselected package libxdmcp6:amd64.
+#12 14.93 Preparing to unpack .../03-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#12 14.93 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#12 14.96 Selecting previously unselected package libxcb1:amd64.
+#12 14.96 Preparing to unpack .../04-libxcb1_1.14-3_amd64.deb ...
+#12 14.96 Unpacking libxcb1:amd64 (1.14-3) ...
+#12 14.99 Selecting previously unselected package libx11-data.
+#12 14.99 Preparing to unpack .../05-libx11-data_2%3a1.7.2-1+deb11u2_all.deb ...
+#12 14.99 Unpacking libx11-data (2:1.7.2-1+deb11u2) ...
+#12 15.07 Selecting previously unselected package libx11-6:amd64.
+#12 15.07 Preparing to unpack .../06-libx11-6_2%3a1.7.2-1+deb11u2_amd64.deb ...
+#12 15.08 Unpacking libx11-6:amd64 (2:1.7.2-1+deb11u2) ...
+#12 15.16 Selecting previously unselected package libxfixes3:amd64.
+#12 15.16 Preparing to unpack .../07-libxfixes3_1%3a5.0.3-2_amd64.deb ...
+#12 15.16 Unpacking libxfixes3:amd64 (1:5.0.3-2) ...
+#12 15.19 Selecting previously unselected package libxrender1:amd64.
+#12 15.19 Preparing to unpack .../08-libxrender1_1%3a0.9.10-1_amd64.deb ...
+#12 15.19 Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+#12 15.22 Selecting previously unselected package libxcursor1:amd64.
+#12 15.22 Preparing to unpack .../09-libxcursor1_1%3a1.2.0-2_amd64.deb ...
+#12 15.22 Unpacking libxcursor1:amd64 (1:1.2.0-2) ...
+#12 15.24 Selecting previously unselected package libxext6:amd64.
+#12 15.24 Preparing to unpack .../10-libxext6_2%3a1.3.3-1.1_amd64.deb ...
+#12 15.25 Unpacking libxext6:amd64 (2:1.3.3-1.1) ...
+#12 15.27 Selecting previously unselected package libxi6:amd64.
+#12 15.27 Preparing to unpack .../11-libxi6_2%3a1.7.10-1_amd64.deb ...
+#12 15.27 Unpacking libxi6:amd64 (2:1.7.10-1) ...
+#12 15.30 Selecting previously unselected package libxinerama1:amd64.
+#12 15.30 Preparing to unpack .../12-libxinerama1_2%3a1.1.4-2_amd64.deb ...
+#12 15.31 Unpacking libxinerama1:amd64 (2:1.1.4-2) ...
+#12 15.33 Selecting previously unselected package libxrandr2:amd64.
+#12 15.33 Preparing to unpack .../13-libxrandr2_2%3a1.5.1-1_amd64.deb ...
+#12 15.33 Unpacking libxrandr2:amd64 (2:1.5.1-1) ...
+#12 15.36 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#12 15.36 Setting up libx11-data (2:1.7.2-1+deb11u2) ...
+#12 15.37 Setting up libmd0:amd64 (1.0.3-3) ...
+#12 15.38 Setting up libbsd0:amd64 (0.11.3-1+deb11u1) ...
+#12 15.38 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#12 15.39 Setting up libxcb1:amd64 (1.14-3) ...
+#12 15.40 Setting up libx11-6:amd64 (2:1.7.2-1+deb11u2) ...
+#12 15.40 Setting up libxrender1:amd64 (1:0.9.10-1) ...
+#12 15.41 Setting up libxext6:amd64 (2:1.3.3-1.1) ...
+#12 15.42 Setting up libxfixes3:amd64 (1:5.0.3-2) ...
+#12 15.42 Setting up libxinerama1:amd64 (2:1.1.4-2) ...
+#12 15.43 Setting up libxrandr2:amd64 (2:1.5.1-1) ...
+#12 15.44 Setting up libxi6:amd64 (2:1.7.10-1) ...
+#12 15.44 Setting up libxcursor1:amd64 (1:1.2.0-2) ...
+#12 15.45 Processing triggers for libc-bin (2.31-13+deb11u6) ...
+#12 DONE 15.5s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.8s done
+#13 writing image sha256:8ea68aa8fffcc7baf38b2614c6ecd0cbe174be091469929a5792658b9bb58e69 done
+#13 naming to docker.io/library/makf-fluidlab-smoke:002 done
+#13 DONE 0.8s

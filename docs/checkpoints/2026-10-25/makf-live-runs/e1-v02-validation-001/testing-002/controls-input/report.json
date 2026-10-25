@@ -1,0 +1,49 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T19:32:31.694032+00:00",
+  "prompt_version": "makf-e2.2-v4",
+  "source_sha256": "22ca047cd7d9c04bca8c1b3b8e24be23208fb652d2088c524a82da3eddbcb1a7",
+  "prompt_sha256": "613abffc4020554bdebca4d450797c47b385488a8b7abf40507b250b1742fddc",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "offline_fixture",
+    "live": false
+  },
+  "response_sha256": "cdb65d75e7b63fdb070bc034ff19619285f430d1590ccfab51a1bc1155252ff8",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "e1-v02-review-calibration",
+    "profile_id": "pouring-v0.1",
+    "candidates": 12,
+    "warnings": [
+      "invalid-1: candidate has components pending ontology grounding",
+      "invalid-1: quote matching does not prove scientific truth or entailment",
+      "invalid-2: quote matching does not prove scientific truth or entailment",
+      "invalid-3: quote matching does not prove scientific truth or entailment",
+      "invalid-4: candidate has components pending ontology grounding",
+      "invalid-4: quote matching does not prove scientific truth or entailment",
+      "invalid-5: candidate has components pending ontology grounding",
+      "invalid-5: quote matching does not prove scientific truth or entailment",
+      "invalid-6: quote matching does not prove scientific truth or entailment",
+      "valid-1: candidate has components pending ontology grounding",
+      "valid-1: quote matching does not prove scientific truth or entailment",
+      "valid-2: candidate has components pending ontology grounding",
+      "valid-2: quote matching does not prove scientific truth or entailment",
+      "valid-3: quote matching does not prove scientific truth or entailment",
+      "valid-4: candidate has components pending ontology grounding",
+      "valid-4: quote matching does not prove scientific truth or entailment",
+      "valid-5: candidate has components pending ontology grounding",
+      "valid-5: quote matching does not prove scientific truth or entailment",
+      "valid-6: candidate has components pending ontology grounding",
+      "valid-6: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 12,
+  "perspectives": [
+    "applicability",
+    "observational",
+    "procedural"
+  ],
+  "human_review_required": true
+}

@@ -1,0 +1,121 @@
+{
+  "batch_id": "corpus-expansion-001-fluidlab",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+      "title": "FluidLab: A Differentiable Environment for Benchmarking Complex Fluid Manipulation",
+      "uri": "https://arxiv.org/abs/2303.02346v1",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "pouring-task",
+          "text": "Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\nwhile retaining as much white heavy liquid as possible.\n",
+          "locator": "arXiv 2303.02346v1, Section 4.1, task details, PDF pages 5-5"
+        },
+        {
+          "passage_id": "trajectory-optimization",
+          "text": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n",
+          "locator": "arXiv 2303.02346v1, Section 5.2, reported optimization results, PDF pages 8-9"
+        },
+        {
+          "passage_id": "pouring-loss",
+          "text": "Transporting, Pouring, Gathering (Easy) and Gathering (Hard): These tasks use a single spatial\nlocation as the goal and the loss is computed as: L = Σi kpi − pgoal k, which is summed over all\nparticles of the object(s) to be manipulated. For Pouring, we apply this loss between the particles\nof the upper layer fluid and the ground location, with an additional loss attracting the particles of the\nlower layer fluid to their initial positions.\n",
+          "locator": "arXiv 2303.02346v1, Appendix B.2, loss and reward, PDF pages 15-15"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "cand-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported fine-grained pouring task, a proposed pouring strategy is to pour the light blue liquid out of the glass while retaining as much white heavy liquid as possible.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s1",
+          "component_kind": "strategy",
+          "description": "Pour the light blue liquid out of the glass while retaining as much white heavy liquid as possible.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "The passage states a task objective for pouring, but the offered strategy classes are more specific than the text supports."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "pouring-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\nwhile retaining as much white heavy liquid as possible.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "cand-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational",
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported evaluations, the differentiable-simulation method coupled with the proposed optimization schemes is described as providing informative optimization information for complex fluid systems, while CMA-ES is reported to struggle in fine-grained control tasks such as pouring and DP-H is reported to fail in pouring with a fine-grained control objective under more complex and non-convex optimization landscapes.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s1",
+          "component_kind": "strategy",
+          "description": "Use differentiable-simulation gradient information coupled with the proposed optimization schemes for trajectory optimization in the reported evaluations.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "The offered strategy classes are pouring-specific and carry stronger restrictions than the text directly supports for this reported optimization method."
+        },
+        {
+          "component_id": "o1",
+          "component_kind": "observation_pattern",
+          "description": "CMA-ES struggles in fine-grained control tasks such as pouring in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o2",
+          "component_kind": "observation_pattern",
+          "description": "DP-H fails to produce good trajectories in pouring with a fine-grained control objective under scenarios with more complex and non-convex optimization landscapes in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o3",
+          "component_kind": "observation_pattern",
+          "description": "The differentiable simulator's gradient information, coupled with the proposed optimization schemes, provides informative optimization information when dealing with complex fluid systems in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "trajectory-optimization",
+          "support_role": "asserts_claim",
+          "exact_quote": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n"
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "openai",
+    "prompt_version": "makf-e2.2-v3",
+    "recorded_at": "2026-10-24T18:15:34.664142+00:00",
+    "model_name": "gpt-5.4-2026-03-05"
+  }
+}

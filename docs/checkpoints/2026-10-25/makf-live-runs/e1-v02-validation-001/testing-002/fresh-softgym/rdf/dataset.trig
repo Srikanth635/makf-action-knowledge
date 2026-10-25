@@ -1,0 +1,204 @@
+@prefix aicor: <http://aicor.knowledge/l2-ontology.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix makf: <https://w3id.org/aicor/makf#> .
+@prefix paf: <https://w3id.org/aicor/pouring-frame#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pub: <https://example.org/makf/publication/0.1#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/makf/data/candidates-graph/89f0e1144a801f82db1f3548c541939439cc56fea38ee5437ee3079cdf33425b> {
+    <https://example.org/makf/data/batch/f073c080e7d863b2532aa8cb8424c784a9228ce3107723470ba09469e8d9aad0> a pub:Batch ;
+        pub:batchId "e1-v02-fresh-softgym" ;
+        pub:claim <https://example.org/makf/data/claim/869579b34d5c30a37da509f3b13b348776e61d5d53356bfa3b446449738c0f76>,
+            <https://example.org/makf/data/claim/94470d8ccc1076c3147c83be7d30c7ae7e5445afe7ef249ccd8fc533760ea6e4>,
+            <https://example.org/makf/data/claim/cd3e6a314f0629a2d01a113ee8cb157ae5927e1b9fa1c11a6f7eb40c5687c7a6> ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:profileId "pouring-v0.1" .
+
+    <https://example.org/makf/data/component/32fa366b1d502bff154408ee20c76d419d1d53ca2469bd841c01074e5e83f3af> a pub:Component ;
+        pub:componentId "d2" ;
+        pub:componentKind "generic_description" ;
+        pub:description "A benchmark reward metric defined as the fraction of water successfully poured into the target cup." ;
+        pub:groundingNote "No declared class specifically represents a reward metric; the metric is not an expected observation or predicted effect." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/3edf4aab84ed62520d30f61f527b40175cc15346a8e5b3f8a14a1e713b4f32ed> a pub:Component ;
+        pub:componentId "g1" ;
+        pub:componentKind "generic_description" ;
+        pub:description "The benchmark-scoped objective of pouring a cup of water into a target cup." ;
+        pub:groundingNote "No declared class specifically represents a task objective; a strategy class would misrepresent an objective as a method." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/430648007a72261b6e15f6abe5052e46408a767386b5212a04edde09ca4bbb52> a pub:Component ;
+        pub:componentId "a1" ;
+        pub:componentKind "applicability_condition" ;
+        pub:description "Scope restricted to the reported PourWater and PourWaterAmount benchmark variations, where both cups are modeled as cuboids without the top face." ;
+        pub:groundedClass makf:ApplicabilityCondition ;
+        pub:groundingStatus "grounded" .
+
+    <https://example.org/makf/data/component/9b9e1ce83fb429e2ed2ee300afcdd01f47c2f4c15ace4e272662b7452089a53b> a pub:Component ;
+        pub:componentId "d1" ;
+        pub:componentKind "generic_description" ;
+        pub:description "Benchmark variation parameters comprising both cups' height, length, and width, the distance between the controlled and target cups, and the volume of water in the controlled cup." ;
+        pub:groundingNote "No declared class specifically represents benchmark variation parameters. These parameters are not asserted to cause any particular outcome." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/component/ff295a17b5bd6e555cd139f33924a14886e690992fed9c836858388e1aa003e0> a pub:Component ;
+        pub:componentId "d1" ;
+        pub:componentKind "generic_description" ;
+        pub:description "A benchmark control interface specifying cup displacement in x and y and rotation about its geometric center, with direct control of cup position and rotation." ;
+        pub:groundingNote "The declared classes do not represent benchmark action spaces or control interfaces; this interface is not itself a pouring strategy." ;
+        pub:groundingStatus "needs_mapping" .
+
+    <https://example.org/makf/data/evidence/269a9378559cf5684b51c0b8e3ee61c2e1023049084c13cfac6aec6e48433e07> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:exactQuote """PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are
+modeled as cuboids without the top face. We vary the height, length, and width of both cups, the
+distance between the controlled cup and the target cup, as well as the volume of water in the controlled
+cup. """ ;
+        pub:passage <https://example.org/makf/data/passage/5e22056cbbaf60ce2bcf80a4af6105dd51665b79d7490d042f075eab2599febc> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/evidence/4c6083a3fd13224dfaa3835fc184f5f17da2de732e1157e835d381cb5433dc08> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:exactQuote """PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation
+of the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing
+the displacement of the cup in the x, y dimension and its rotation around its geometric center. The
+reward is the fraction of water that is successfully poured into the target cup.
+""" ;
+        pub:passage <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/evidence/564024fb939e2f520a08b2342dcb0d5254b75dc7532a8306c702a0ac135128b5> a pub:EvidenceAnchor ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:exactQuote """PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation
+of the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing
+the displacement of the cup in the x, y dimension and its rotation around its geometric center. The
+reward is the fraction of water that is successfully poured into the target cup.
+""" ;
+        pub:passage <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> ;
+        pub:supportRole "asserts_claim" .
+
+    <https://example.org/makf/data/review/4e4ff1cf6a8fd339a81821ff69ee2ef3e513e314f2e2ef0eae850001ce0969be> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "480257f6e5a9c324180f527b614cce29c84e00cd6b5e4451ca69e5be2cf2d4b2" ;
+        pub:assesses <https://example.org/makf/data/claim/869579b34d5c30a37da509f3b13b348776e61d5d53356bfa3b446449738c0f76> ;
+        pub:reviewState "model_selected_provisional" ;
+        pub:reviewerKind "model" .
+
+    <https://example.org/makf/data/review/ad42fdc4d2718368e39ecc3b4a98fe4571c17a4efbb18ff39707a0ac476fe14a> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "480257f6e5a9c324180f527b614cce29c84e00cd6b5e4451ca69e5be2cf2d4b2" ;
+        pub:assesses <https://example.org/makf/data/claim/94470d8ccc1076c3147c83be7d30c7ae7e5445afe7ef249ccd8fc533760ea6e4> ;
+        pub:reviewState "model_selected_provisional" ;
+        pub:reviewerKind "model" .
+
+    <https://example.org/makf/data/review/c2a79c9f53a037dbba15572bea99b51e3465b3b728fc511a190d9059e636d3be> a pub:Review ;
+        pub:artifactPath "assessment.json" ;
+        pub:artifactSha256 "480257f6e5a9c324180f527b614cce29c84e00cd6b5e4451ca69e5be2cf2d4b2" ;
+        pub:assesses <https://example.org/makf/data/claim/cd3e6a314f0629a2d01a113ee8cb157ae5927e1b9fa1c11a6f7eb40c5687c7a6> ;
+        pub:reviewState "model_selected_provisional" ;
+        pub:reviewerKind "model" .
+
+    <https://example.org/makf/data/claim/869579b34d5c30a37da509f3b13b348776e61d5d53356bfa3b446449738c0f76> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/ab511c08b4d524651196848b4d689205c096cfa472a63d996e4d981f886f76a8> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "c1" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "definition" ;
+        pub:evidence <https://example.org/makf/data/evidence/4c6083a3fd13224dfaa3835fc184f5f17da2de732e1157e835d381cb5433dc08> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/3edf4aab84ed62520d30f61f527b40175cc15346a8e5b3f8a14a1e713b4f32ed> ;
+        pub:knowledgeKind "task_objective" ;
+        pub:modality "conditional" ;
+        pub:perspective "procedural" ;
+        pub:review <https://example.org/makf/data/review/4e4ff1cf6a8fd339a81821ff69ee2ef3e513e314f2e2ef0eae850001ce0969be> ;
+        pub:reviewerNote "Provisional task definition, not evidence that any strategy achieves the objective." ;
+        pub:statement "Within SoftGym's PourWater task, the objective is to pour a cup of water into a target cup." .
+
+    <https://example.org/makf/data/claim/94470d8ccc1076c3147c83be7d30c7ae7e5445afe7ef249ccd8fc533760ea6e4> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/ab511c08b4d524651196848b4d689205c096cfa472a63d996e4d981f886f76a8> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "c3" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "definition" ;
+        pub:evidence <https://example.org/makf/data/evidence/269a9378559cf5684b51c0b8e3ee61c2e1023049084c13cfac6aec6e48433e07> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/430648007a72261b6e15f6abe5052e46408a767386b5212a04edde09ca4bbb52>,
+            <https://example.org/makf/data/component/9b9e1ce83fb429e2ed2ee300afcdd01f47c2f4c15ace4e272662b7452089a53b> ;
+        pub:knowledgeKind "benchmark_definition" ;
+        pub:modality "conditional" ;
+        pub:perspective "applicability" ;
+        pub:review <https://example.org/makf/data/review/ad42fdc4d2718368e39ecc3b4a98fe4571c17a4efbb18ff39707a0ac476fe14a> ;
+        pub:reviewerNote "Provisional scope description; the passage supplies no parameter ranges or performance effects." ;
+        pub:statement "For the reported SoftGym PourWater and PourWaterAmount task variations, both cups are modeled as cuboids without the top face. The varied parameters are both cups' height, length, and width, the distance between the controlled and target cups, and the water volume in the controlled cup." .
+
+    <https://example.org/makf/data/claim/cd3e6a314f0629a2d01a113ee8cb157ae5927e1b9fa1c11a6f7eb40c5687c7a6> a pub:Claim ;
+        prov:wasGeneratedBy <https://example.org/makf/data/run/ab511c08b4d524651196848b4d689205c096cfa472a63d996e4d981f886f76a8> ;
+        pub:actionClass aicor:Pouring ;
+        pub:candidateId "c2" ;
+        pub:derivationMode "source_paraphrase" ;
+        pub:epistemicStatus "definition" ;
+        pub:evidence <https://example.org/makf/data/evidence/564024fb939e2f520a08b2342dcb0d5254b75dc7532a8306c702a0ac135128b5> ;
+        pub:evidenceStatus "source_anchored" ;
+        pub:frameClass paf:PouringKnowledgeFrame ;
+        pub:hasComponent <https://example.org/makf/data/component/32fa366b1d502bff154408ee20c76d419d1d53ca2469bd841c01074e5e83f3af>,
+            <https://example.org/makf/data/component/ff295a17b5bd6e555cd139f33924a14886e690992fed9c836858388e1aa003e0> ;
+        pub:knowledgeKind "benchmark_definition" ;
+        pub:modality "conditional" ;
+        pub:perspective "observational",
+            "procedural" ;
+        pub:review <https://example.org/makf/data/review/c2a79c9f53a037dbba15572bea99b51e3465b3b728fc511a190d9059e636d3be> ;
+        pub:reviewerNote "Provisional benchmark definition; it does not establish a successful control policy." ;
+        pub:statement "Within SoftGym's PourWater benchmark, the agent directly controls cup position and rotation through a = (dx, dy, dθ): displacement in x and y and rotation about the cup's geometric center. The reward is the fraction of water successfully poured into the target cup." .
+
+    <https://example.org/makf/data/run/ab511c08b4d524651196848b4d689205c096cfa472a63d996e4d981f886f76a8> a prov:Activity,
+            pub:ExtractionRun ;
+        pub:engine "openai" ;
+        pub:modelName "gpt-6.1-sol" ;
+        pub:promptVersion "makf-e2.2-v4" ;
+        pub:recordedAt "2026-10-24T19:32:52.031418+00:00"^^xsd:dateTime .
+}
+
+<https://example.org/makf/data/sources-graph/fa5557cc488a630c4d0257dc6ac077186799bf73c1de1f1b0cedd6ff0d63a20e> {
+    <https://example.org/makf/data/passage/64cf4ba42d8b514d0534d51d653f53a5764df2b36bb7b1d95ff477f0405cc96a> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3" ;
+        pub:passageId "fluid-model" ;
+        pub:text """Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant
+density constraint is applied to each particle to enforce the incompressibility of the fluid. For each
+particle, the constant density constraint is based on the position of that particle, as well as the positions
+of its neighboring particles.
+""" .
+
+    <https://example.org/makf/data/passage/5e22056cbbaf60ce2bcf80a4af6105dd51665b79d7490d042f075eab2599febc> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14" ;
+        pub:passageId "pouring-variations" ;
+        pub:text """PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are
+modeled as cuboids without the top face. We vary the height, length, and width of both cups, the
+distance between the controlled cup and the target cup, as well as the volume of water in the controlled
+cup. """ .
+
+    <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> a pub:Passage ;
+        pub:document <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> ;
+        pub:locator "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4" ;
+        pub:passageId "pourwater-task" ;
+        pub:text """PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation
+of the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing
+the displacement of the cup in the x, y dimension and its rotation around its geometric center. The
+reward is the fraction of water that is successfully poured into the target cup.
+""" .
+
+    <https://example.org/makf/data/source/414a8a5541f93c8dfb676e46bb539e8c6e7602ea234f6a86662cd5726c8d3aa1> a pub:SourceSnapshot ;
+        dct:title "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation" ;
+        pub:documentId "lin-etal-softgym-arxiv-2011.07215v2" ;
+        pub:passage <https://example.org/makf/data/passage/5e22056cbbaf60ce2bcf80a4af6105dd51665b79d7490d042f075eab2599febc>,
+            <https://example.org/makf/data/passage/64cf4ba42d8b514d0534d51d653f53a5764df2b36bb7b1d95ff477f0405cc96a>,
+            <https://example.org/makf/data/passage/a3a6f28080bc6d2962ddd979076560ebb5c10de18aca0e73d89181b6d056ff32> ;
+        pub:sourceURI "https://arxiv.org/abs/2011.07215v2" ;
+        pub:syntheticDemo false .
+}
+

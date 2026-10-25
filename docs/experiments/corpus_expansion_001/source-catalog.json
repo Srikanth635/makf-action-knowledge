@@ -1,0 +1,95 @@
+[
+  {
+    "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+    "title": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+    "authors": [
+      "Xingyu Lin",
+      "Yufei Wang",
+      "Jake Olkin",
+      "David Held"
+    ],
+    "version": "2011.07215v2",
+    "evidence_origin": "published_simulation",
+    "simulation_reproduced": false,
+    "bibliographic_uri": "https://arxiv.org/abs/2011.07215v2",
+    "retrieved_from": "https://arxiv.org/pdf/2011.07215",
+    "retrieved_at": "2026-10-24T18:11:04.111378+00:00",
+    "pdf_sha256": "0e0bd8b74b7d8b3aa1a203694debf47d425adbfe2eab8bf4555b198525e89903",
+    "extracted_text_sha256": "3c263fbfe91af898b0ac6b8312f56b5dba9d8326424846ec12ca2b5ecd52cfae",
+    "text_extraction": "pdftotext version 25.03.0; default reading order; exact contiguous slices",
+    "passages": [
+      {
+        "passage_id": "pourwater-task",
+        "file": "softgym-pourwater-task.txt",
+        "locator": "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4",
+        "text_start": 12303,
+        "text_end": 12697,
+        "sha256": "c802d4acf0a5bd2bd8373c1d1f89250b38961c53545185d04d14704ce276be4a"
+      },
+      {
+        "passage_id": "fluid-model",
+        "file": "softgym-fluid-model.txt",
+        "locator": "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3",
+        "text_start": 8649,
+        "text_end": 8992,
+        "sha256": "b652297217cc8d20b98406f9d3cd0d8513d88ef3f90e791789a20dccf8f2e0e5"
+      },
+      {
+        "passage_id": "pouring-variations",
+        "file": "softgym-pouring-variations.txt",
+        "locator": "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14",
+        "text_start": 46316,
+        "text_end": 46613,
+        "sha256": "2cb003dd317d69765abb344df68d0e14e1f714e807c0eed23ea71dda6d3acd6d"
+      }
+    ]
+  },
+  {
+    "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+    "title": "FluidLab: A Differentiable Environment for Benchmarking Complex Fluid Manipulation",
+    "authors": [
+      "Zhou Xian",
+      "Bo Zhu",
+      "Zhenjia Xu",
+      "Hsiao-Yu Tung",
+      "Antonio Torralba",
+      "Katerina Fragkiadaki",
+      "Chuang Gan"
+    ],
+    "version": "2303.02346v1",
+    "evidence_origin": "published_simulation",
+    "simulation_reproduced": false,
+    "bibliographic_uri": "https://arxiv.org/abs/2303.02346v1",
+    "retrieved_from": "https://arxiv.org/pdf/2303.02346",
+    "retrieved_at": "2026-10-24T18:11:04.201332+00:00",
+    "pdf_sha256": "8decba48c2c63b6611ac1ee3096bd0836c2c9334a3e76899a7188bbb1ae872a7",
+    "extracted_text_sha256": "4d59d21ac399f3334b31cce94907cc391210683bf0b27939656e1ddfa03af2b1",
+    "text_extraction": "pdftotext version 25.03.0; default reading order; exact contiguous slices",
+    "passages": [
+      {
+        "passage_id": "pouring-task",
+        "file": "fluidlab-pouring-task.txt",
+        "locator": "arXiv 2303.02346v1, Section 4.1, task details, PDF pages 5-5",
+        "text_start": 21227,
+        "text_end": 21484,
+        "sha256": "6ed5e7a5f1a354ed465411ca296ddea629fe4ec51cda0a1334063f206045d8ba"
+      },
+      {
+        "passage_id": "trajectory-optimization",
+        "file": "fluidlab-trajectory-optimization.txt",
+        "locator": "arXiv 2303.02346v1, Section 5.2, reported optimization results, PDF pages 8-9",
+        "text_start": 33592,
+        "text_end": 35099,
+        "sha256": "c399a087f3650fbd6a1adf60485fad5cb69d70173d4c4f88e19ea07115cb43ac"
+      },
+      {
+        "passage_id": "pouring-loss",
+        "file": "fluidlab-pouring-loss.txt",
+        "locator": "arXiv 2303.02346v1, Appendix B.2, loss and reward, PDF pages 15-15",
+        "text_start": 57877,
+        "text_end": 58321,
+        "sha256": "036fd7d38efcc6cbd379d8bd02e25089df2f55944d7c6fc1fff7b6b63e8a413c"
+      }
+    ]
+  }
+]

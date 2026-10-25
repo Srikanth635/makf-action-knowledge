@@ -1,11 +1,9 @@
 # PourIt! scientific extraction pilot
 
-**Status: prepared, not executed live.** The OpenAI command below was attempted
-but exited before any API call: `Set MAKF_OPENAI_API_KEY securely before using OpenAI`.
-Both supported credential variables were absent, and the saved environment secret
-requirement had no value binding. A separate unauthenticated API connectivity probe
-was blocked by the existing network allowlist. There are **zero live model responses
-or extracted candidates** to evaluate. Offline fixture results are not substituted.
+See [candidate review](REVIEW.md) for the original three candidates, proposed
+revisions, annotated evidence checks and the latest live-run limitations.
+
+**Updated 2026-10-24:** OpenAI authentication and live API access work. Live pilot runs and fixes are recorded in [current progress](../../CURRENT_PROGRESS.md). Earlier credential-blocked status is superseded. Raw responses and reports are retained outside the checkout under `/workspace/makf-live-runs/`.
 
 ## Genuine source
 
@@ -76,3 +74,11 @@ One short passage is a feasibility pilot, not a benchmark of extraction accuracy
 
 **OntoGPT evaluation is deferred until this live experiment has actually run.**
 No alternative-backend comparison has been performed yet.
+
+## RDF export audit input
+
+`quality-reviewed.json` preserves the unchanged full revision batch from experiment
+014, before its explicit model-reviewed subset selection. Its digest matches
+`quality-evaluation.json`'s `selection.reviewed_batch_sha256`. It is audit material,
+including withheld candidates; it does not promote those candidates. The selected
+subset can now be exported locally with the [RDF exporter](../../RDF_PUBLICATION.md).

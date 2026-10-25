@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.1",
+  "study": {
+    "study_id": "fluidlab-native-validation-001",
+    "title": "Local FluidLab zero-action and small-tilt development checks",
+    "source_uri": "urn:makf:local-simulation:fluidlab-validation-001",
+    "document_version": "Raw runtime report SHA-256 720cc549cf13eac3e63cf5b3479f5a89eac0d22a5e48f979451959115c1c8526",
+    "evidence_origin": "local_simulation",
+    "synthetic_demo": false,
+    "simulator": {
+      "name": "FluidLab/FluidEngine patched CPU runtime",
+      "version_status": "reported",
+      "version": "7295eb6ed7ee92b2be471fd30b432238577f28ce; runtime.patch from fluidlab_smoke_001; makf-fluidlab-smoke:005"
+    },
+    "context": {
+      "status": "partial",
+      "description": "Seed 0; 40,604 particles; 64^3 grid; config initial pose; 100 steps at control 0 or 0.00115. Not SI calibrated, not a held-out benchmark, not verified as paper-result replication. Raw loss and height-threshold proxies remain in runtime artifacts; no pouring-success claim.",
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ]
+    },
+    "transcription_method": "Deterministic extraction from local report; duration is steps*dt*substeps and mass fraction is final ledger/initial ledger. Raw report hash retained.",
+    "review_state": "pending"
+  },
+  "artifacts": [
+    {
+      "artifact_id": "local-summary",
+      "text": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n",
+      "sha256": "c4d282661035be7e92383be1aa879bca0ec4d55282a4acc00ee5ef5843e527c1",
+      "locator": "Local runtime validation-report.json, rollouts and gradient gate; full raw report retained beside this evidence"
+    }
+  ],
+  "quantities": [
+    {
+      "quantity_id": "zero-particles",
+      "annex_record_id": "zero",
+      "quantity_kind": "total_particle_count",
+      "role": "result",
+      "subject": "zero control_wz=0.0",
+      "reported_value_text": "40604",
+      "unit": {
+        "status": "explicit",
+        "symbol": "count",
+        "reported_text": "particles"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Total active particles at the final recorded state, not a sampled observation budget."
+    },
+    {
+      "quantity_id": "zero-mass-retention",
+      "annex_record_id": "zero",
+      "quantity_kind": "mass_fraction",
+      "role": "result",
+      "subject": "zero control_wz=0.0",
+      "reported_value_text": "1",
+      "unit": {
+        "status": "dimensionless",
+        "symbol": "1",
+        "reported_text": "fraction"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.",
+      "denominator": "1.85870361328125 initial active mass in code units"
+    },
+    {
+      "quantity_id": "zero-duration",
+      "annex_record_id": "zero",
+      "quantity_kind": "duration",
+      "role": "configuration",
+      "subject": "zero control_wz=0.0",
+      "reported_value_text": "0.2000",
+      "unit": {
+        "status": "simulation_units",
+        "symbol": "code_time",
+        "reported_text": "code time units"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted."
+    },
+    {
+      "quantity_id": "tilt-particles",
+      "annex_record_id": "tilt",
+      "quantity_kind": "total_particle_count",
+      "role": "result",
+      "subject": "tilt control_wz=0.00115",
+      "reported_value_text": "40604",
+      "unit": {
+        "status": "explicit",
+        "symbol": "count",
+        "reported_text": "particles"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Total active particles at the final recorded state, not a sampled observation budget."
+    },
+    {
+      "quantity_id": "tilt-mass-retention",
+      "annex_record_id": "tilt",
+      "quantity_kind": "mass_fraction",
+      "role": "result",
+      "subject": "tilt control_wz=0.00115",
+      "reported_value_text": "1",
+      "unit": {
+        "status": "dimensionless",
+        "symbol": "1",
+        "reported_text": "fraction"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.",
+      "denominator": "1.85870361328125 initial active mass in code units"
+    },
+    {
+      "quantity_id": "tilt-duration",
+      "annex_record_id": "tilt",
+      "quantity_kind": "duration",
+      "role": "configuration",
+      "subject": "tilt control_wz=0.00115",
+      "reported_value_text": "0.2000",
+      "unit": {
+        "status": "simulation_units",
+        "symbol": "code_time",
+        "reported_text": "code time units"
+      },
+      "evidence": [
+        {
+          "artifact_id": "local-summary",
+          "exact_quote": "Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\nGradient gate: PASS. Optimization: completed_bounded_pilot.\n"
+        }
+      ],
+      "metric_definition": "Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted."
+    }
+  ],
+  "conversions": [],
+  "timing_checks": [],
+  "issues": []
+}

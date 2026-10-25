@@ -1,0 +1,31 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+[W 10/25/26 05:30:28.548 1] [cuda_driver.cpp:CUDADriver@39] CUDA driver not found.
+[W 10/25/26 05:30:28.551 1] [opengl_api.cpp:initialize_opengl@156] Can not create OpenGL context
+[W 10/25/26 05:30:28.553 1] [misc.py:adaptive_arch_select@750] Arch=[<Arch.cuda: 5>, <Arch.metal: 6>, <Arch.vulkan: 11>, <Arch.opengl: 7>, <Arch.dx11: 8>] is not supported, falling back to CPU
+[Taichi] Starting on arch=x64
+===>  TaichiEnv created.
+===>    20302 particles of     milk cylinder added.
+===>    20302 particles of    water cylinder added.
+===>  PouringEnv built successfully.
+rollout 0.0 step 10 active 40604
+rollout 0.0 step 20 active 40604
+rollout 0.0 step 30 active 40604
+rollout 0.0 step 40 active 40604
+rollout 0.0 step 50 active 40604
+rollout 0.0 step 60 active 40604
+rollout 0.0 step 70 active 40604
+rollout 0.0 step 80 active 40604
+rollout 0.0 step 90 active 40604
+rollout 0.0 step 100 active 40604
+rollout 0.00115 step 10 active 40604
+rollout 0.00115 step 20 active 40604
+rollout 0.00115 step 30 active 40604
+rollout 0.00115 step 40 active 40604
+rollout 0.00115 step 50 active 40604
+rollout 0.00115 step 60 active 40604
+rollout 0.00115 step 70 active 40604
+rollout 0.00115 step 80 active 40604
+rollout 0.00115 step 90 active 40604
+rollout 0.00115 step 100 active 40604
+Gradient result {"status": "PASS", "base_loss": 23.7833251953125, "autodiff": 449.6150817871094, "finite_differences": [{"epsilon": 0.0001, "plus_loss": 23.83068084716797, "minus_loss": 23.74191665649414, "finite_difference": 443.8209533691406, "absolute_error": 5.79412841796875, "threshold": 67.4422622680664, "within_tolerance": true}, {"epsilon": 3e-05, "plus_loss": 23.796892166137695, "minus_loss": 23.770008087158203, "finite_difference": 448.06798299153644, "absolute_error": 1.5470987955729356, "threshold": 67.4422622680664, "within_tolerance": true}], "informative": true, "seconds": 59.911303758621216}
+[W 10/25/26 05:33:30.874 1] [llvm_offline_cache.cpp:clean_cache@379] Lock /root/.cache/taichi/ticache/metadata.lock failed

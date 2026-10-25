@@ -1,0 +1,12 @@
+{
+  "extract_model": "gpt-6.1-sol",
+  "review_model": "gpt-6-astra",
+  "controls_sha256": "79920796e5c995e412041f8a7d029f80fbf2c67a73ca37e05a92af1997163f96",
+  "expected_sha256": "249db88669ef037e8ec256256ebac9aed7661e10d650e5baea86fd922034cb21",
+  "planned_model_calls": 8,
+  "revision_calls": 0,
+  "repetitions_per_model": 2,
+  "max_output_tokens_per_call": 9000,
+  "timeout_seconds": 180,
+  "scope": "Assistant-annotated development calibration, not held-out or scientific validation."
+}

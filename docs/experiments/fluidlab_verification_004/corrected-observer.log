@@ -1,0 +1,46 @@
+[Taichi] version 1.1.0, llvm 10.0.0, commit f5bb6464, linux, python 3.7.17
+[W 10/25/26 07:08:04.067 1] [cuda_driver.cpp:CUDADriver@39] CUDA driver not found.
+[W 10/25/26 07:08:04.067 1] [opengl_api.cpp:initialize_opengl@156] Can not create OpenGL context
+[W 10/25/26 07:08:04.068 1] [misc.py:adaptive_arch_select@750] Arch=[<Arch.cuda: 5>, <Arch.metal: 6>, <Arch.vulkan: 11>, <Arch.opengl: 7>, <Arch.dx11: 8>] is not supported, falling back to CPU
+[Taichi] Starting on arch=x64
+===>  TaichiEnv created.
+===>    20302 particles of     milk cylinder added.
+===>    20302 particles of    water cylinder added.
+===>  PouringEnv built successfully.
+Start 1 observer_reference base_rotation_h4 base_forward
+Done 1 loss 23.89525604248047 AD None
+Start 2 observer_reference base_rotation_h4 base_forward
+Done 2 loss 23.895214080810547 AD None
+Start 3 observer_reference base_rotation_h4 base_forward
+Done 3 loss 23.895191192626953 AD None
+Start 4 observer_reference base_rotation_h4 base_ad
+Done 4 loss 23.89519500732422 AD 11.475780487060547
+Start 5 observer_reference base_rotation_h4 base_ad
+Done 5 loss 23.89521598815918 AD 11.477651596069336
+Start 6 observer_reference base_rotation_h4 base_ad
+Done 6 loss 23.895191192626953 AD 11.463582038879395
+Start 7 observed base_rotation_h4 base
+Done 7 loss 23.89517593383789 AD 11.479476928710938
+Start 8 observed base_rotation_h4 plus
+Done 8 loss 23.89658546447754 AD None
+Start 9 observed base_rotation_h4 minus
+Done 9 loss 23.89337158203125 AD None
+Start 10 observer_reference earlier_vertical_h8 base_forward
+Done 10 loss 162.168212890625 AD None
+Start 11 observer_reference earlier_vertical_h8 base_forward
+Done 11 loss 162.1683349609375 AD None
+Start 12 observer_reference earlier_vertical_h8 base_forward
+Done 12 loss 162.168212890625 AD None
+Start 13 observer_reference earlier_vertical_h8 base_ad
+Done 13 loss 162.16818237304688 AD 16374.19921875
+Start 14 observer_reference earlier_vertical_h8 base_ad
+Done 14 loss 162.16793823242188 AD 16374.158203125
+Start 15 observer_reference earlier_vertical_h8 base_ad
+Done 15 loss 162.16806030273438 AD 16374.19140625
+Start 16 observed earlier_vertical_h8 base
+Done 16 loss 162.1682891845703 AD 16374.1259765625
+Start 17 observed earlier_vertical_h8 plus
+Done 17 loss 162.56414794921875 AD None
+Start 18 observed earlier_vertical_h8 minus
+Done 18 loss 161.77459716796875 AD None
+[W 10/25/26 07:10:42.542 1] [llvm_offline_cache.cpp:clean_cache@379] Lock /root/.cache/taichi/ticache/metadata.lock failed

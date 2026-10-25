@@ -1,0 +1,288 @@
+@prefix q: <https://example.org/makf/quantitative/0.1#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/makf/data/quantitative/0c204a4d6026283c5e5e9a5488b154f6f8bb539ed790fe49d85d14f20c2ca1a3> {
+    <https://example.org/makf/data/quantitative/4443c36ba7abfeffbce7219616db891acaaf2a0ba50ade0272ad98e62b45fadd> a q:Snapshot ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:comparison_ready false ;
+        q:execution_eligible false ;
+        q:inputJSON "{\"artifacts\":[{\"artifact_id\":\"local-summary\",\"locator\":\"Local runtime validation-report.json, rollouts and gradient gate; full raw report retained beside this evidence\",\"sha256\":\"c4d282661035be7e92383be1aa879bca0ec4d55282a4acc00ee5ef5843e527c1\",\"text\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"conversions\":[],\"issues\":[],\"quantities\":[{\"annex_record_id\":\"zero\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Total active particles at the final recorded state, not a sampled observation budget.\",\"quantity_id\":\"zero-particles\",\"quantity_kind\":\"total_particle_count\",\"reported_value_text\":\"40604\",\"role\":\"result\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}},{\"annex_record_id\":\"zero\",\"denominator\":\"1.85870361328125 initial active mass in code units\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.\",\"quantity_id\":\"zero-mass-retention\",\"quantity_kind\":\"mass_fraction\",\"reported_value_text\":\"1\",\"role\":\"result\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}},{\"annex_record_id\":\"zero\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted.\",\"quantity_id\":\"zero-duration\",\"quantity_kind\":\"duration\",\"reported_value_text\":\"0.2000\",\"role\":\"configuration\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}},{\"annex_record_id\":\"tilt\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Total active particles at the final recorded state, not a sampled observation budget.\",\"quantity_id\":\"tilt-particles\",\"quantity_kind\":\"total_particle_count\",\"reported_value_text\":\"40604\",\"role\":\"result\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}},{\"annex_record_id\":\"tilt\",\"denominator\":\"1.85870361328125 initial active mass in code units\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.\",\"quantity_id\":\"tilt-mass-retention\",\"quantity_kind\":\"mass_fraction\",\"reported_value_text\":\"1\",\"role\":\"result\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}},{\"annex_record_id\":\"tilt\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted.\",\"quantity_id\":\"tilt-duration\",\"quantity_kind\":\"duration\",\"reported_value_text\":\"0.2000\",\"role\":\"configuration\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}}],\"schema_version\":\"0.1\",\"study\":{\"context\":{\"description\":\"Seed 0; 40,604 particles; 64^3 grid; config initial pose; 100 steps at control 0 or 0.00115. Not SI calibrated, not a held-out benchmark, not verified as paper-result replication. Raw loss and height-threshold proxies remain in runtime artifacts; no pouring-success claim.\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"status\":\"partial\"},\"document_version\":\"Raw runtime report SHA-256 720cc549cf13eac3e63cf5b3479f5a89eac0d22a5e48f979451959115c1c8526\",\"evidence_origin\":\"local_simulation\",\"review_state\":\"pending\",\"simulator\":{\"name\":\"FluidLab/FluidEngine patched CPU runtime\",\"version\":\"7295eb6ed7ee92b2be471fd30b432238577f28ce; runtime.patch from fluidlab_smoke_001; makf-fluidlab-smoke:005\",\"version_status\":\"reported\"},\"source_uri\":\"urn:makf:local-simulation:fluidlab-validation-001\",\"study_id\":\"fluidlab-native-validation-001\",\"synthetic_demo\":false,\"title\":\"Local FluidLab zero-action and small-tilt development checks\",\"transcription_method\":\"Deterministic extraction from local report; duration is steps*dt*substeps and mass fraction is final ledger/initial ledger. Raw report hash retained.\"},\"timing_checks\":[]}" ;
+        q:input_sha256 "802464ab98618a4cf280b5929131a6afe29838208472ac18e0cc4d049a4bc908" ;
+        q:issue <https://example.org/makf/data/quantitative/1b5d34ecd7db8179e4818da0d1bc5bd94696ca79198a194c53be506c7b431c27>,
+            <https://example.org/makf/data/quantitative/4c0f2dc04d45ea65ba82de70faf6d22c03ca5581f0b9b94581053d3544f20bd8>,
+            <https://example.org/makf/data/quantitative/d5c3f8fced506415d39453650e810490966cc8f07e946f8685d9dcf87f12bffc> ;
+        q:quantity <https://example.org/makf/data/quantitative/279effbd96671528895d60a25abebdc8da7c54867b484c74733551d802664dd5>,
+            <https://example.org/makf/data/quantitative/30da7df9b524d8f21e6336e769bc05a88c655dbfac8979bd08dd5215c47701e9>,
+            <https://example.org/makf/data/quantitative/4428890fdc2f88b348af1d5a1aa993c39f06889f7a7938fddfef049cd29e31af>,
+            <https://example.org/makf/data/quantitative/879badddf4251101603a86bca923be6ab4e8b51878a2622e3a65431443159e0b>,
+            <https://example.org/makf/data/quantitative/9dc51f1a02d3c17ea5e470335498113e7e119ab133b414a3bdc86dc68cdeb8a5>,
+            <https://example.org/makf/data/quantitative/c2acbd44c228f05dee67fce2f2d9a1a6e8c192ad1c38ba02d7de6a895527b6a7> ;
+        q:recordJSON "{\"comparison_ready\":false,\"execution_eligible\":false,\"input_sha256\":\"802464ab98618a4cf280b5929131a6afe29838208472ac18e0cc4d049a4bc908\",\"review_state\":\"pending\",\"schema_version\":\"0.1\",\"storage_eligible\":true}" ;
+        q:review_state "pending" ;
+        q:schema_version "0.1" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> .
+
+    <https://example.org/makf/data/quantitative/1b5d34ecd7db8179e4818da0d1bc5bd94696ca79198a194c53be506c7b431c27> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/30da7df9b524d8f21e6336e769bc05a88c655dbfac8979bd08dd5215c47701e9> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"tilt-duration\"]}" .
+
+    <https://example.org/makf/data/quantitative/2a1bd2a0033480d23c81430b16f74b442c959db7da415f544c9a3eb49dbfbc79> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/3e2639e4f00cb8dbe81b433258ce33eba34c4e2c1f76dc9883e8820191df6706> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/4c0bdaa00d6714e6d0148ce25a1337a3c7f9ff285871caf577e5904abcd55421> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}" ;
+        q:reported_text "fraction" ;
+        q:status "dimensionless" ;
+        q:symbol "1" .
+
+    <https://example.org/makf/data/quantitative/4c0f2dc04d45ea65ba82de70faf6d22c03ca5581f0b9b94581053d3544f20bd8> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/279effbd96671528895d60a25abebdc8da7c54867b484c74733551d802664dd5>,
+            <https://example.org/makf/data/quantitative/30da7df9b524d8f21e6336e769bc05a88c655dbfac8979bd08dd5215c47701e9>,
+            <https://example.org/makf/data/quantitative/4428890fdc2f88b348af1d5a1aa993c39f06889f7a7938fddfef049cd29e31af>,
+            <https://example.org/makf/data/quantitative/879badddf4251101603a86bca923be6ab4e8b51878a2622e3a65431443159e0b>,
+            <https://example.org/makf/data/quantitative/9dc51f1a02d3c17ea5e470335498113e7e119ab133b414a3bdc86dc68cdeb8a5>,
+            <https://example.org/makf/data/quantitative/c2acbd44c228f05dee67fce2f2d9a1a6e8c192ad1c38ba02d7de6a895527b6a7> ;
+        q:code "context_incomplete" ;
+        q:message "Study context is incomplete for controlled comparison." ;
+        q:recordJSON "{\"code\":\"context_incomplete\",\"message\":\"Study context is incomplete for controlled comparison.\",\"quantity_ids\":[\"zero-particles\",\"zero-mass-retention\",\"zero-duration\",\"tilt-particles\",\"tilt-mass-retention\",\"tilt-duration\"]}" .
+
+    <https://example.org/makf/data/quantitative/5c87bfc696c98823f4c0e764b1fc628755d174f56fe268991b7de53c20e85eab> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/8dca780c3db766f890057b98b8aa417f4a90d97e59168994b6470ab4563f9456> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}" ;
+        q:reported_text "particles" ;
+        q:status "explicit" ;
+        q:symbol "count" .
+
+    <https://example.org/makf/data/quantitative/9a166185cc01263d7ecbfd6bc56a36a4c809fec5f09014c954ac5568b5396360> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/c32b56379d380b39de19e8cd7a3d1ff98f1292ba1b141a7c6adf7d8e07a3c920> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/c532704592c68966f0850dc50dd8d44c61d526cd034a0c4fa51d50449e07f34c> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}" ;
+        q:reported_text "particles" ;
+        q:status "explicit" ;
+        q:symbol "count" .
+
+    <https://example.org/makf/data/quantitative/c57b700839e319776a22bad95f95256003647acd7b6f1f8b1ce23af7f86fc5c1> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}" ;
+        q:reported_text "code time units" ;
+        q:status "simulation_units" ;
+        q:symbol "code_time" .
+
+    <https://example.org/makf/data/quantitative/ca28a6b171b35ccffeb1012572fc057689c66c951e5bccd7ad1dbf025d6aae11> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/d5c3f8fced506415d39453650e810490966cc8f07e946f8685d9dcf87f12bffc> a q:Issue ;
+        q:affects <https://example.org/makf/data/quantitative/4428890fdc2f88b348af1d5a1aa993c39f06889f7a7938fddfef049cd29e31af> ;
+        q:code "units_unresolved" ;
+        q:message "No validated physical-unit conversion is available." ;
+        q:recordJSON "{\"code\":\"units_unresolved\",\"message\":\"No validated physical-unit conversion is available.\",\"quantity_ids\":[\"zero-duration\"]}" .
+
+    <https://example.org/makf/data/quantitative/e2eafc2f8f97e8dc58095f3e7268213de95f5d983f4cedc7ab0420a721dfb40c> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}" ;
+        q:reported_text "fraction" ;
+        q:status "dimensionless" ;
+        q:symbol "1" .
+
+    <https://example.org/makf/data/quantitative/e6c685e7577c3a6a8bb3ed78d659b4bcc1a80f76722602543023cc06cb481d9f> a q:Anchor ;
+        q:artifact <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> ;
+        q:artifact_id "local-summary" ;
+        q:exact_quote """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" .
+
+    <https://example.org/makf/data/quantitative/ff3682cfed87ff21981d3eacd7c1710aa48fa3751c74e95ec5bfcd0a8efcf1b9> a q:UnitDeclaration ;
+        q:recordJSON "{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}" ;
+        q:reported_text "code time units" ;
+        q:status "simulation_units" ;
+        q:symbol "code_time" .
+
+    <https://example.org/makf/data/quantitative/279effbd96671528895d60a25abebdc8da7c54867b484c74733551d802664dd5> a q:Quantity ;
+        q:annex_record_id "tilt" ;
+        q:comparison_ready false ;
+        q:denominator "1.85870361328125 initial active mass in code units" ;
+        q:evidence <https://example.org/makf/data/quantitative/ca28a6b171b35ccffeb1012572fc057689c66c951e5bccd7ad1dbf025d6aae11> ;
+        q:execution_eligible false ;
+        q:metric_definition "Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric." ;
+        q:quantity_id "tilt-mass-retention" ;
+        q:quantity_kind "mass_fraction" ;
+        q:recordJSON "{\"annex_record_id\":\"tilt\",\"denominator\":\"1.85870361328125 initial active mass in code units\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.\",\"quantity_id\":\"tilt-mass-retention\",\"quantity_kind\":\"mass_fraction\",\"reported_value_text\":\"1\",\"role\":\"result\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}}" ;
+        q:reported_decimal 1.0 ;
+        q:reported_value_text "1" ;
+        q:role "result" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "tilt control_wz=0.00115" ;
+        q:unit <https://example.org/makf/data/quantitative/4c0bdaa00d6714e6d0148ce25a1337a3c7f9ff285871caf577e5904abcd55421> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/879badddf4251101603a86bca923be6ab4e8b51878a2622e3a65431443159e0b> a q:Quantity ;
+        q:annex_record_id "tilt" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/2a1bd2a0033480d23c81430b16f74b442c959db7da415f544c9a3eb49dbfbc79> ;
+        q:execution_eligible false ;
+        q:metric_definition "Total active particles at the final recorded state, not a sampled observation budget." ;
+        q:quantity_id "tilt-particles" ;
+        q:quantity_kind "total_particle_count" ;
+        q:recordJSON "{\"annex_record_id\":\"tilt\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Total active particles at the final recorded state, not a sampled observation budget.\",\"quantity_id\":\"tilt-particles\",\"quantity_kind\":\"total_particle_count\",\"reported_value_text\":\"40604\",\"role\":\"result\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}}" ;
+        q:reported_decimal 40604.0 ;
+        q:reported_value_text "40604" ;
+        q:role "result" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "tilt control_wz=0.00115" ;
+        q:unit <https://example.org/makf/data/quantitative/8dca780c3db766f890057b98b8aa417f4a90d97e59168994b6470ab4563f9456> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/9dc51f1a02d3c17ea5e470335498113e7e119ab133b414a3bdc86dc68cdeb8a5> a q:Quantity ;
+        q:annex_record_id "zero" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/e6c685e7577c3a6a8bb3ed78d659b4bcc1a80f76722602543023cc06cb481d9f> ;
+        q:execution_eligible false ;
+        q:metric_definition "Total active particles at the final recorded state, not a sampled observation budget." ;
+        q:quantity_id "zero-particles" ;
+        q:quantity_kind "total_particle_count" ;
+        q:recordJSON "{\"annex_record_id\":\"zero\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Total active particles at the final recorded state, not a sampled observation budget.\",\"quantity_id\":\"zero-particles\",\"quantity_kind\":\"total_particle_count\",\"reported_value_text\":\"40604\",\"role\":\"result\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"particles\",\"status\":\"explicit\",\"symbol\":\"count\"}}" ;
+        q:reported_decimal 40604.0 ;
+        q:reported_value_text "40604" ;
+        q:role "result" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "zero control_wz=0.0" ;
+        q:unit <https://example.org/makf/data/quantitative/c532704592c68966f0850dc50dd8d44c61d526cd034a0c4fa51d50449e07f34c> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/c2acbd44c228f05dee67fce2f2d9a1a6e8c192ad1c38ba02d7de6a895527b6a7> a q:Quantity ;
+        q:annex_record_id "zero" ;
+        q:comparison_ready false ;
+        q:denominator "1.85870361328125 initial active mass in code units" ;
+        q:evidence <https://example.org/makf/data/quantitative/c32b56379d380b39de19e8cd7a3d1ff98f1292ba1b141a7c6adf7d8e07a3c920> ;
+        q:execution_eligible false ;
+        q:metric_definition "Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric." ;
+        q:quantity_id "zero-mass-retention" ;
+        q:quantity_kind "mass_fraction" ;
+        q:recordJSON "{\"annex_record_id\":\"zero\",\"denominator\":\"1.85870361328125 initial active mass in code units\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Final active particle mass ledger divided by its initial ledger; not a fluid-transfer or grid-conservation metric.\",\"quantity_id\":\"zero-mass-retention\",\"quantity_kind\":\"mass_fraction\",\"reported_value_text\":\"1\",\"role\":\"result\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"fraction\",\"status\":\"dimensionless\",\"symbol\":\"1\"}}" ;
+        q:reported_decimal 1.0 ;
+        q:reported_value_text "1" ;
+        q:role "result" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "zero control_wz=0.0" ;
+        q:unit <https://example.org/makf/data/quantitative/e2eafc2f8f97e8dc58095f3e7268213de95f5d983f4cedc7ab0420a721dfb40c> ;
+        q:unit_conversion_eligible true .
+
+    <https://example.org/makf/data/quantitative/30da7df9b524d8f21e6336e769bc05a88c655dbfac8979bd08dd5215c47701e9> a q:Quantity ;
+        q:annex_record_id "tilt" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/5c87bfc696c98823f4c0e764b1fc628755d174f56fe268991b7de53c20e85eab> ;
+        q:execution_eligible false ;
+        q:metric_definition "Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted." ;
+        q:quantity_id "tilt-duration" ;
+        q:quantity_kind "duration" ;
+        q:recordJSON "{\"annex_record_id\":\"tilt\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted.\",\"quantity_id\":\"tilt-duration\",\"quantity_kind\":\"duration\",\"reported_value_text\":\"0.2000\",\"role\":\"configuration\",\"subject\":\"tilt control_wz=0.00115\",\"unit\":{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}}" ;
+        q:reported_decimal 0.2000 ;
+        q:reported_value_text "0.2000" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "tilt control_wz=0.00115" ;
+        q:unit <https://example.org/makf/data/quantitative/ff3682cfed87ff21981d3eacd7c1710aa48fa3751c74e95ec5bfcd0a8efcf1b9> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/4428890fdc2f88b348af1d5a1aa993c39f06889f7a7938fddfef049cd29e31af> a q:Quantity ;
+        q:annex_record_id "zero" ;
+        q:comparison_ready false ;
+        q:evidence <https://example.org/makf/data/quantitative/9a166185cc01263d7ecbfd6bc56a36a4c809fec5f09014c954ac5568b5396360> ;
+        q:execution_eligible false ;
+        q:metric_definition "Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted." ;
+        q:quantity_id "zero-duration" ;
+        q:quantity_kind "duration" ;
+        q:recordJSON "{\"annex_record_id\":\"zero\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"metric_definition\":\"Nominal numerical duration = forward steps * integration dt * substeps; no SI time scale asserted.\",\"quantity_id\":\"zero-duration\",\"quantity_kind\":\"duration\",\"reported_value_text\":\"0.2000\",\"role\":\"configuration\",\"subject\":\"zero control_wz=0.0\",\"unit\":{\"reported_text\":\"code time units\",\"status\":\"simulation_units\",\"symbol\":\"code_time\"}}" ;
+        q:reported_decimal 0.2000 ;
+        q:reported_value_text "0.2000" ;
+        q:role "configuration" ;
+        q:storage_eligible true ;
+        q:study <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> ;
+        q:subject "zero control_wz=0.0" ;
+        q:unit <https://example.org/makf/data/quantitative/c57b700839e319776a22bad95f95256003647acd7b6f1f8b1ce23af7f86fc5c1> ;
+        q:unit_conversion_eligible false .
+
+    <https://example.org/makf/data/quantitative/4a67bbaa32a757e2f8df15d47cb1a89a139a0ea74b9c5c0e2ad07b9bdebc6dba> a q:Study ;
+        q:document_version "Raw runtime report SHA-256 720cc549cf13eac3e63cf5b3479f5a89eac0d22a5e48f979451959115c1c8526" ;
+        q:evidence <https://example.org/makf/data/quantitative/3e2639e4f00cb8dbe81b433258ce33eba34c4e2c1f76dc9883e8820191df6706> ;
+        q:evidence_origin "local_simulation" ;
+        q:recordJSON "{\"context\":{\"description\":\"Seed 0; 40,604 particles; 64^3 grid; config initial pose; 100 steps at control 0 or 0.00115. Not SI calibrated, not a held-out benchmark, not verified as paper-result replication. Raw loss and height-threshold proxies remain in runtime artifacts; no pouring-success claim.\",\"evidence\":[{\"artifact_id\":\"local-summary\",\"exact_quote\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}],\"status\":\"partial\"},\"document_version\":\"Raw runtime report SHA-256 720cc549cf13eac3e63cf5b3479f5a89eac0d22a5e48f979451959115c1c8526\",\"evidence_origin\":\"local_simulation\",\"review_state\":\"pending\",\"simulator\":{\"name\":\"FluidLab/FluidEngine patched CPU runtime\",\"version\":\"7295eb6ed7ee92b2be471fd30b432238577f28ce; runtime.patch from fluidlab_smoke_001; makf-fluidlab-smoke:005\",\"version_status\":\"reported\"},\"source_uri\":\"urn:makf:local-simulation:fluidlab-validation-001\",\"study_id\":\"fluidlab-native-validation-001\",\"synthetic_demo\":false,\"title\":\"Local FluidLab zero-action and small-tilt development checks\",\"transcription_method\":\"Deterministic extraction from local report; duration is steps*dt*substeps and mass fraction is final ledger/initial ledger. Raw report hash retained.\"}" ;
+        q:review_state "pending" ;
+        q:source_uri "urn:makf:local-simulation:fluidlab-validation-001" ;
+        q:study_id "fluidlab-native-validation-001" ;
+        q:synthetic_demo false ;
+        q:title "Local FluidLab zero-action and small-tilt development checks" ;
+        q:transcription_method "Deterministic extraction from local report; duration is steps*dt*substeps and mass fraction is final ledger/initial ledger. Raw report hash retained." .
+
+    <https://example.org/makf/data/quantitative/c6643f971b5706dd6d57d094b7d5bf27b4cc687eb33e3681f933c9b5473d446e> a q:Artifact ;
+        q:artifact_id "local-summary" ;
+        q:locator "Local runtime validation-report.json, rollouts and gradient gate; full raw report retained beside this evidence" ;
+        q:recordJSON "{\"artifact_id\":\"local-summary\",\"locator\":\"Local runtime validation-report.json, rollouts and gradient gate; full raw report retained beside this evidence\",\"sha256\":\"c4d282661035be7e92383be1aa879bca0ec4d55282a4acc00ee5ef5843e527c1\",\"text\":\"Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.\\nzero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\ntilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.\\nGradient gate: PASS. Optimization: completed_bounded_pilot.\\n\"}" ;
+        q:sha256 "c4d282661035be7e92383be1aa879bca0ec4d55282a4acc00ee5ef5843e527c1" ;
+        q:text """Local native-unit FluidLab CPU validation, not a paper reproduction or physical experiment.
+zero: control_wz=0.0; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+tilt: control_wz=0.00115; 100 forward steps; 40604 active particles at final state; nominal horizon 0.2000 code time units (steps * dt * substeps); initial active mass 1.85870361328125, final active mass 1.85870361328125, active mass fraction 1 (final / initial); finite states at every tested step.
+Gradient gate: PASS. Optimization: completed_bounded_pilot.
+""" .
+}
+

@@ -1,0 +1,108 @@
+{
+  "scope": "Draft worked fixture only; no OWL inference or scientific acceptance.",
+  "pyshacl_version": "0.30.1",
+  "rdflib_version": "7.6.0",
+  "baseline_conforms": true,
+  "quad_count": 61,
+  "deterministic_rebuild": true,
+  "fixture_fidelity_checks": "passed",
+  "query_rows_provisional": 1,
+  "query_rows_human_approved": 0,
+  "mutation_checks": [
+    {
+      "case": "valid paired offsets",
+      "expected_conforms": true,
+      "actual_conforms": true
+    },
+    {
+      "case": "missing evidence",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "missing quote",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "fabricated quote",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "missing grounded class",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "unmapped component has class",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "missing mapping explanation",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "unknown modality",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "empty statement",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "unpaired offset",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "incorrect offsets",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "out of bounds offsets",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "model review relabelled human approval",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "missing review",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "generated claim attributed to source",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "source claim with context-only evidence",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "evidence and passage document mismatch",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "structural endpoint outside claim",
+      "expected_conforms": false,
+      "actual_conforms": false
+    },
+    {
+      "case": "review targets another claim",
+      "expected_conforms": false,
+      "actual_conforms": false
+    }
+  ]
+}

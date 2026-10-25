@@ -1,0 +1,477 @@
+{
+  "batch_id": "e1-v02-review-calibration",
+  "profile_id": "pouring-v0.1",
+  "documents": [
+    {
+      "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+      "title": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+      "uri": "https://arxiv.org/abs/2011.07215v2",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "pourwater-task",
+          "text": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n",
+          "locator": "arXiv 2011.07215v2, Section 4, Tasks, PDF pages 4-4"
+        },
+        {
+          "passage_id": "fluid-model",
+          "text": "Fluids can naturally be modeled in a particle system, as detailed in [42]; specifically, a constant\ndensity constraint is applied to each particle to enforce the incompressibility of the fluid. For each\nparticle, the constant density constraint is based on the position of that particle, as well as the positions\nof its neighboring particles.\n",
+          "locator": "arXiv 2011.07215v2, Section 3, fluid model, PDF pages 3-3"
+        },
+        {
+          "passage_id": "pouring-variations",
+          "text": "PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are\nmodeled as cuboids without the top face. We vary the height, length, and width of both cups, the\ndistance between the controlled cup and the target cup, as well as the volume of water in the controlled\ncup. ",
+          "locator": "arXiv 2011.07215v2, Appendix, task variations, PDF pages 14-14"
+        }
+      ]
+    },
+    {
+      "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+      "title": "FluidLab: A Differentiable Environment for Benchmarking Complex Fluid Manipulation",
+      "uri": "https://arxiv.org/abs/2303.02346v1",
+      "synthetic_demo": false,
+      "passages": [
+        {
+          "passage_id": "pouring-task",
+          "text": "Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\nwhile retaining as much white heavy liquid as possible.\n",
+          "locator": "arXiv 2303.02346v1, Section 4.1, task details, PDF pages 5-5"
+        },
+        {
+          "passage_id": "trajectory-optimization",
+          "text": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n",
+          "locator": "arXiv 2303.02346v1, Section 5.2, reported optimization results, PDF pages 8-9"
+        },
+        {
+          "passage_id": "pouring-loss",
+          "text": "Transporting, Pouring, Gathering (Easy) and Gathering (Hard): These tasks use a single spatial\nlocation as the goal and the loss is computed as: L = Σi kpi − pgoal k, which is summed over all\nparticles of the object(s) to be manipulated. For Pouring, we apply this loss between the particles\nof the upper layer fluid and the ground location, with an additional loss attracting the particles of the\nlower layer fluid to their initial positions.\n",
+          "locator": "arXiv 2303.02346v1, Appendix B.2, loss and reward, PDF pages 15-15"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "valid-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "For the reported PourWater task, the success measure is the fraction of water successfully poured into the target cup.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "metric",
+          "component_kind": "generic_description",
+          "description": "The reported PourWater reward is the fraction of water reaching the target cup.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "No offered class specifically describes a benchmark reward definition."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "reward is the fraction of water that is successfully poured into the target cup."
+        }
+      ]
+    },
+    {
+      "candidate_id": "valid-2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "task_objective",
+      "statement": "The reported FluidLab fine-grained pouring task aims to pour light blue liquid out of the glass while retaining as much heavy white liquid as possible.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "goal",
+          "component_kind": "generic_description",
+          "description": "Reported task objective: pour out the light blue liquid while retaining as much heavy white liquid as possible.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "A benchmark task objective is not a strategy; no precise offered objective-description class has been established."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "pouring-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\nwhile retaining as much white heavy liquid as possible.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "valid-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational",
+        "procedural"
+      ],
+      "knowledge_kind": "reported_observation",
+      "statement": "In the reported evaluations, the differentiable-simulation method coupled with the proposed optimization schemes is described as providing informative optimization information for complex fluid systems, while CMA-ES is reported to struggle in fine-grained control tasks such as pouring and DP-H is reported to fail in pouring with a fine-grained control objective under more complex and non-convex optimization landscapes.",
+      "modality": "conditional",
+      "epistemic_status": "reported_observation",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "o1",
+          "component_kind": "observation_pattern",
+          "description": "CMA-ES struggles in fine-grained control tasks such as pouring in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o2",
+          "component_kind": "observation_pattern",
+          "description": "DP-H fails to produce good trajectories in pouring with a fine-grained control objective under scenarios with more complex and non-convex optimization landscapes in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o3",
+          "component_kind": "observation_pattern",
+          "description": "The differentiable simulator's gradient information, coupled with the proposed optimization schemes, provides informative optimization information when dealing with complex fluid systems in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "trajectory-optimization",
+          "support_role": "asserts_claim",
+          "exact_quote": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "valid-4",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "In the reported PourWater task formulation, pouring is carried out by directly controlling the held cup's position and rotation through x/y displacement and rotation updates.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "description",
+          "component_kind": "generic_description",
+          "description": "In the reported PourWater task formulation, pouring is carried out by directly controlling the held cup's position and rotation through x/y displacement and rotation updates.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "No precise offered class is established for this benchmark definition."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "valid-5",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "applicability"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "In the reported PourWater and PourWaterAmount task setup, relevant task conditions include open-top cuboid controlled and target cups, with variation in cup dimensions, inter-cup distance, and the volume of water in the controlled cup.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "description",
+          "component_kind": "generic_description",
+          "description": "In the reported PourWater and PourWaterAmount task setup, relevant task conditions include open-top cuboid controlled and target cups, with variation in cup dimensions, inter-cup distance, and the volume of water in the controlled cup.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "No precise offered class is established for this benchmark definition."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pouring-variations",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater, PourWaterAmount: For this task, both the controlled cup and the target cup are\nmodeled as cuboids without the top face. We vary the height, length, and width of both cups, the\ndistance between the controlled cup and the target cup, as well as the volume of water in the controlled\ncup. "
+        }
+      ],
+      "reviewer_note": "The source passage describes task/setup conditions rather than a strategy; this candidate is limited to applicability-relevant setup content using a broad offered condition class."
+    },
+    {
+      "candidate_id": "valid-6",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "strategy_description",
+      "statement": "In the reported PourWater task formulation, pouring is carried out by directly controlling the held cup's position and rotation through x/y displacement and rotation updates.",
+      "modality": "conditional",
+      "epistemic_status": "proposed_strategy",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "s1",
+          "component_kind": "strategy",
+          "description": "A reported pouring control strategy in which the held cup is manipulated via x and y displacement together with rotation.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "The source supports a task control interface/action space description, but the offered class paf:PouringStrategy carries additional restrictions not established by the passage."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater Pour a cup of water into a target cup. The agent directly controls the position and rotation\nof the cup at hand. Specifically, the action space of the agent is a vector a = (dx , dy , dθ ), representing\nthe displacement of the cup in the x, y dimension and its rotation around its geometric center. The\nreward is the fraction of water that is successfully poured into the target cup.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-1",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "For the reported PourWater task, the success measure is the fraction of water successfully poured into the target cup.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "metric",
+          "component_kind": "generic_description",
+          "description": "The reported PourWater reward is the fraction of water reaching the target cup.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "No offered class specifically describes a benchmark reward definition."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "PourWater Pour a cup of water into a target cup."
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-2",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational",
+        "procedural"
+      ],
+      "knowledge_kind": "reported_observation",
+      "statement": "The paper proves that differentiable simulation always achieves perfect pouring for every fluid.",
+      "modality": "conditional",
+      "epistemic_status": "reported_observation",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "o1",
+          "component_kind": "observation_pattern",
+          "description": "CMA-ES struggles in fine-grained control tasks such as pouring in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o2",
+          "component_kind": "observation_pattern",
+          "description": "DP-H fails to produce good trajectories in pouring with a fine-grained control objective under scenarios with more complex and non-convex optimization landscapes in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o3",
+          "component_kind": "observation_pattern",
+          "description": "The differentiable simulator's gradient information, coupled with the proposed optimization schemes, provides informative optimization information when dealing with complex fluid systems in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "trajectory-optimization",
+          "support_role": "asserts_claim",
+          "exact_quote": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-3",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "For the reported PourWater task, the success measure is the fraction of water successfully poured into the target cup.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "metric",
+          "component_kind": "generic_description",
+          "description": "The reported PourWater reward is the fraction of water reaching the target cup.",
+          "grounding_status": "grounded",
+          "ontology_class": "paf:PouringStrategy"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "reward is the fraction of water that is successfully poured into the target cup."
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-4",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "procedural"
+      ],
+      "knowledge_kind": "task_objective",
+      "statement": "The FluidLab pouring objective is to keep all the light liquid inside the glass.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "goal",
+          "component_kind": "generic_description",
+          "description": "Reported task objective: pour out the light blue liquid while retaining as much heavy white liquid as possible.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "A benchmark task objective is not a strategy; no precise offered objective-description class has been established."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "pouring-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "Fined Grained Pouring A glass filled with two types of non-Newtonian liquid with different densities, colored as blue and white respectively. The task is to pour the light blue liquid out of the glass\nwhile retaining as much white heavy liquid as possible.\n"
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-5",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational"
+      ],
+      "knowledge_kind": "benchmark_definition",
+      "statement": "For the reported PourWater task, the success measure is the fraction of water successfully poured into the target cup.",
+      "modality": "conditional",
+      "epistemic_status": "definition",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "metric",
+          "component_kind": "generic_description",
+          "description": "The benchmark reward includes a viscosity sensor measuring fluid viscosity in pascal seconds.",
+          "grounding_status": "needs_mapping",
+          "grounding_note": "No offered class specifically describes a benchmark reward definition."
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "lin-etal-softgym-arxiv-2011.07215v2",
+          "passage_id": "pourwater-task",
+          "support_role": "asserts_claim",
+          "exact_quote": "reward is the fraction of water that is successfully poured into the target cup."
+        }
+      ]
+    },
+    {
+      "candidate_id": "invalid-6",
+      "action_class": "aicor:Pouring",
+      "frame_class": "paf:PouringKnowledgeFrame",
+      "perspectives": [
+        "observational",
+        "procedural"
+      ],
+      "knowledge_kind": "reported_observation",
+      "statement": "The reported experiments establish that viscosity is the sole cause of all pouring failures.",
+      "modality": "conditional",
+      "epistemic_status": "reported_observation",
+      "derivation_mode": "source_paraphrase",
+      "evidence_status": "source_anchored",
+      "components": [
+        {
+          "component_id": "o1",
+          "component_kind": "observation_pattern",
+          "description": "CMA-ES struggles in fine-grained control tasks such as pouring in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o2",
+          "component_kind": "observation_pattern",
+          "description": "DP-H fails to produce good trajectories in pouring with a fine-grained control objective under scenarios with more complex and non-convex optimization landscapes in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        },
+        {
+          "component_id": "o3",
+          "component_kind": "observation_pattern",
+          "description": "The differentiable simulator's gradient information, coupled with the proposed optimization schemes, provides informative optimization information when dealing with complex fluid systems in the reported evaluations.",
+          "ontology_class": "makf:ObservationPattern",
+          "grounding_status": "grounded"
+        }
+      ],
+      "source_support": [
+        {
+          "document_id": "xian-etal-fluidlab-arxiv-2303.02346v1",
+          "passage_id": "trajectory-optimization",
+          "support_role": "asserts_claim",
+          "exact_quote": "Sampling-based trajectory optimization CMA-ES does reasonably well in many tasks with simple\nspatial configuration as goals. However, it struggles in fine-grained shape matching tasks (e.g. Ice\nCream) and fine-grained control tasks (e.g. pouring). This is because CMA-ES searches for action\nsequences via trajectory sampling, and thus cannot handle delicate interactions well.\nDifferentiable physics-based trajectory optimization In most of the tasks, the gradients provided\nby our differentiable simulation are able to guide trajectory optimization towards a good optimization spot, resulting in near-oracle performance. It also demonstrates better sample-efficiency than\n8\n\n\fPublished as a conference paper at ICLR 2023\n\nother methods in most tasks. We additionally compare with a hard version of differentiable physics\n(DP-H), which uses the gradient to optimize trajectory, but without using the optimization techniques proposed in Section 5.1. DP-H does similarly well on tasks with relatively simple settings,\nbut fails to produce good trajectories in scenarios with interactions between fluids and other materials bodies, as well as in tasks with more complex and non-convex optimization landscapes, such\nas Pouring with fine-grained control objective. The experimental results demonstrate that the gradient information provided by our differentiable simulator, coupled with the optimization schemes we\nproposed, provides informative optimization information when dealing with complex fluid systems.\n"
+        }
+      ]
+    }
+  ],
+  "extraction_run": {
+    "engine": "offline_fixture",
+    "prompt_version": "makf-e2.2-v4",
+    "recorded_at": "2026-10-24T19:32:31.694032+00:00"
+  }
+}

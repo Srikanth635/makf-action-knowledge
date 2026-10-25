@@ -1,0 +1,44 @@
+{
+  "status": "provisional",
+  "recorded_at": "2026-10-24T18:13:34.163607+00:00",
+  "prompt_version": "makf-e2.2-v3",
+  "source_sha256": "fd45a3cecd75c04b18142848f064fd5f40b9c0bb26d006933b6583a92f2c301f",
+  "prompt_sha256": "777c6fcbe534d8cd473f3d2759d808981f306d93805e41c70176f3efb807edb8",
+  "scope": "Mechanical validation only; scientific support and generalization need review.",
+  "provider": {
+    "engine": "openai",
+    "requested_model": "gpt-5.4",
+    "live": true,
+    "wire_request_sha256": "8d4f2af333464c6e7035872e4503fd8645da0f807374c6339afb4311f5bf3793",
+    "model_name": "gpt-5.4-2026-03-05",
+    "response_id": "chatcmpl-EcaXIMbN3uvvqGzlV4zBWmyncMa51",
+    "request_id": "req_055141128659470d8cbd839b0a5f4b17",
+    "usage": {
+      "prompt_tokens": 7359,
+      "completion_tokens": 1726,
+      "total_tokens": 9085
+    },
+    "finish_reason": "stop"
+  },
+  "response_sha256": "4d01fc97d562f12d46f1fae36ff684e96db0309a690b2a2ff3551aa1dd6aa1f0",
+  "validation": {
+    "status": "PASS",
+    "batch_id": "corpus-expansion-001-fluidlab",
+    "profile_id": "pouring-v0.1",
+    "candidates": 3,
+    "warnings": [
+      "cand-1: quote matching does not prove scientific truth or entailment",
+      "cand-2: candidate has components pending ontology grounding",
+      "cand-2: quote matching does not prove scientific truth or entailment",
+      "cand-3: quote matching does not prove scientific truth or entailment"
+    ],
+    "scope": "offline structural and local-ontology checks ONLY"
+  },
+  "candidate_count": 3,
+  "perspectives": [
+    "applicability",
+    "observational",
+    "procedural"
+  ],
+  "human_review_required": true
+}

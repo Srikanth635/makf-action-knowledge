@@ -31,6 +31,12 @@
   "src/makf_knowledge/resources/profiles/grasping_guidance.json": "a7177565ac0875bd3f382189e34995ba3d71a6dbb2f73c6839a13b4bca02b6d5",
   "src/makf_knowledge/resources/profiles/pouring.yaml": "4b6ae016e7be52914a905b074a1b85fcb7e78de2e8959d1ccb238b30039aa8db",
   "src/makf_knowledge/resources/profiles/pouring_guidance.json": "bf95cc8d74434bcd67ae9bbdeabbe829da588c6b557e8207a528e0d4f6d0974c",
+  "src/makf_knowledge/resources/publication/shapes.ttl": "5d379b6e84875dc603c20d3c54d386bab70d961f694da4ce8cef4bfd40f70185",
+  "src/makf_knowledge/resources/publication/vocabulary.ttl": "2bae27a74ea8f58f6cad58ae39cec9af0acd991363bcda1079b8983718660ef7",
+  "src/makf_knowledge/resources/quantitative/fluidlab.json": "8ae0b779abb37a4c42d50c641f525c798dae1f6b4dc8f0becdbcce6b06ac5636",
+  "src/makf_knowledge/resources/quantitative/schema.json": "c0080185d9ac4029a6b61f2c3624984d13e6baa8c52c812c602d25969d424c37",
+  "src/makf_knowledge/resources/quantitative/shapes.ttl": "1a27742cf72b6abd15421666d21491cd1adc2e1ec9b1a1d0fd22d17c075d27a7",
+  "src/makf_knowledge/resources/quantitative/vocabulary.ttl": "172efd9011f05b8191bd615c017b132c3db088f7626ede09aad5501d50d2288e",
   "src/makf_knowledge/resources/reports/e1/E1_ACCEPTANCE.md": "e7d9c7d5fb15ac020ecca9832fd3fcc90f209043f7886508206163ca54abc2ac",
   "src/makf_knowledge/resources/reports/e1/source_checksums.sha256": "ba54fbdd4c1d51d767be27467022d620f8ee5d6674d523eab11729bba220818e",
   "src/makf_knowledge/resources/reports/e1/test_results.txt": "0c46e4c44d44bf789204bb8d2da3a3bd630f83e5845b897f9f2e8ed892781990",
@@ -41,6 +47,6 @@
   "src/makf_knowledge/resources/reports/p1_3/SOURCE_CHECKSUMS.sha256": "e6cd656829b07a5287518991f185e16b1a73ed8be5a6c39abb2e251873e392a9",
   "src/makf_knowledge/resources/reports/p1_3/migration_map.csv": "d5fb4bc6a5f0406e83480894beddf8d4f3a87b421f296366e6a75d736840683a",
   "src/makf_knowledge/resources/reports/p1_3/validation_summary.json": "a4cbc913f4bdd11ba1656c2bb52664185a09b2728ffee5cf338d82b6b0734774",
-  "src/makf_knowledge/resources/schema/makf_extraction.linkml.yaml": "6b9bda171392b35f0b577ea2e5c3156095cf6cc34f7b97fdfd006f6097274324",
-  "src/makf_knowledge/resources/schema/makf_extraction.schema.json": "a832c725e2ebc92e8c7b80b2066a9902e0fc3fc5715bdd15c5be276db92a2b27"
+  "src/makf_knowledge/resources/schema/makf_extraction.linkml.yaml": "88a39964ad9af91cd819ee0967906383e8f6581679e0e8672a740153d37b21ae",
+  "src/makf_knowledge/resources/schema/makf_extraction.schema.json": "4a9059dfd16314ec0bbe798bef6c96a8f57528467f8059b490d74f834bb529eb"
 }

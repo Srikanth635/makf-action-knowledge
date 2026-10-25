@@ -1,0 +1,30 @@
+[
+  {
+    "source": "softgym",
+    "status": "model_reviewed_subset",
+    "selected_run": "revision/selection",
+    "human_review_required": true,
+    "omitted_candidate_ids": [],
+    "withheld_candidate_ids": [
+      "cand-2",
+      "cand-3"
+    ],
+    "selected_candidate_ids": [
+      "cand-1"
+    ],
+    "selection_dir": "revision/selection"
+  },
+  {
+    "source": "fluidlab",
+    "status": "changes_required",
+    "selected_run": null,
+    "human_review_required": true,
+    "omitted_candidate_ids": [
+      "cand-2"
+    ],
+    "withheld_candidate_ids": [
+      "cand-1",
+      "cand-3"
+    ]
+  }
+]

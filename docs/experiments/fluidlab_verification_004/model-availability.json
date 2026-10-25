@@ -1,0 +1,10 @@
+{
+  "observed_utc_date": "2026-10-25",
+  "api_gpt6_models": [
+    "gpt-6-astra",
+    "gpt-6-luna",
+    "gpt-6-sol",
+    "gpt-6.1-sol"
+  ],
+  "advisory_model_choice": "gpt-6-astra"
+}

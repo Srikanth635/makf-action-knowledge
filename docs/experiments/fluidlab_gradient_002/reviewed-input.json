@@ -1,0 +1,455 @@
+{
+  "report": {
+    "protocol": {
+      "version": "0.1",
+      "purpose": "Predeclared CPU noise and directional gradient development checks; no optimization",
+      "base_pose": [
+        0.6,
+        0.7,
+        0.5,
+        0,
+        0,
+        0
+      ],
+      "base_value": 0.001,
+      "forward_noise_repeats": 5,
+      "autodiff_noise_repeats": 3,
+      "epsilons": [
+        0.0003,
+        0.0001,
+        3e-05
+      ],
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0.05,
+      "minimum_signal_to_noise": 10,
+      "maximum_one_sided_asymmetry": 0.3,
+      "adjacent_fd_relative_stability": 0.1,
+      "minimum_informative_cases": 3,
+      "cases": [
+        {
+          "id": "base_vertical_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 1,
+          "pose_offset_x": 0
+        },
+        {
+          "id": "base_horizontal_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 0,
+          "pose_offset_x": 0
+        },
+        {
+          "id": "base_rotation_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 5,
+          "pose_offset_x": 0
+        },
+        {
+          "id": "earlier_vertical_h8",
+          "horizon": 8,
+          "action_step": 3,
+          "component": 1,
+          "pose_offset_x": 0
+        },
+        {
+          "id": "offset_vertical_h8",
+          "horizon": 8,
+          "action_step": 7,
+          "component": 1,
+          "pose_offset_x": 0.02
+        }
+      ],
+      "terminal_diagnostic_if_gate_passes": {
+        "horizon": 8,
+        "action_step": 7,
+        "component": 1,
+        "pose_offset_x": 0,
+        "note": "Move terminal trigger to step 7 in an explicitly shortened diagnostic; not the original 1000-step objective."
+      },
+      "gate": "No informative failed case; at least three passing cases, including both h8 cases. Each passing case requires two adjacent informative/noise-separated epsilon checks that satisfy AD agreement, one-sided asymmetry and FD stability limits.",
+      "scope": "Altered pose probes contact sensitivity without asserting a contact-free/penetrating regime. First-step detached reference is unchanged by each tested action. No parameter tuning or retry-until-pass."
+    },
+    "cases": [
+      {
+        "case": {
+          "id": "base_vertical_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 1,
+          "pose_offset_x": 0
+        },
+        "terminal_diagnostic": false,
+        "loss": 23.783374786376953,
+        "autodiff": 449.6166687011719,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "plus_loss": 23.9410400390625,
+            "minus_loss": 23.680463790893555,
+            "fd": 434.29374694824224,
+            "ad_error": 15.32292175292963,
+            "threshold": 22.880969746907553,
+            "noise_bound": 0.40013631184895837,
+            "one_sided_forward": 525.5508422851562,
+            "one_sided_backward": 343.0366516113282,
+            "asymmetry": 0.3472817013863685,
+            "informative": true,
+            "passes": false
+          },
+          {
+            "epsilon": 0.0001,
+            "plus_loss": 23.83063507080078,
+            "minus_loss": 23.741809844970703,
+            "fd": 444.1261291503906,
+            "ad_error": 5.49053955078125,
+            "threshold": 23.66934051513672,
+            "noise_bound": 1.188507080078125,
+            "one_sided_forward": 472.60284423828125,
+            "one_sided_backward": 415.6494140625,
+            "asymmetry": 0.12051012995399145,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 3e-05,
+            "plus_loss": 23.796937942504883,
+            "minus_loss": 23.769948959350586,
+            "fd": 449.8163859049479,
+            "ad_error": 0.19971720377600377,
+            "threshold": 26.438624064127602,
+            "noise_bound": 3.947804768880208,
+            "one_sided_forward": 452.1052042643229,
+            "one_sided_backward": 447.5275675455729,
+            "asymmetry": 0.010125158205596963,
+            "informative": true,
+            "passes": true
+          }
+        ],
+        "adjacent_fd_relative_changes": [
+          0.0221387159115309,
+          0.012650176678445146
+        ],
+        "status": "PASS",
+        "seconds": 17.96893811225891
+      },
+      {
+        "case": {
+          "id": "base_horizontal_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 0,
+          "pose_offset_x": 0
+        },
+        "terminal_diagnostic": false,
+        "loss": 23.85397720336914,
+        "autodiff": -53.35750961303711,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "plus_loss": 23.838930130004883,
+            "minus_loss": 23.871902465820312,
+            "fd": -54.95389302571615,
+            "ad_error": 1.5963834126790388,
+            "threshold": 3.147830963134766,
+            "noise_bound": 0.40013631184895837,
+            "one_sided_forward": -50.15691121419271,
+            "one_sided_backward": -59.750874837239586,
+            "asymmetry": 0.16056607788891253,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 0.0001,
+            "plus_loss": 23.84878158569336,
+            "minus_loss": 23.859500885009766,
+            "fd": -53.59649658203125,
+            "ad_error": 0.23898696899414062,
+            "threshold": 3.8683319091796875,
+            "noise_bound": 1.188507080078125,
+            "one_sided_forward": -51.9561767578125,
+            "one_sided_backward": -55.23681640625,
+            "asymmetry": 0.05939226519337017,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 3e-05,
+            "plus_loss": 23.85232162475586,
+            "minus_loss": 23.855619430541992,
+            "fd": -54.963429768880204,
+            "ad_error": 1.6059201558430942,
+            "threshold": 6.695976257324219,
+            "noise_bound": 3.947804768880208,
+            "one_sided_forward": -55.185953776041664,
+            "one_sided_backward": -54.74090576171875,
+            "asymmetry": 0.008064516129032216,
+            "informative": true,
+            "passes": true
+          }
+        ],
+        "adjacent_fd_relative_changes": [
+          0.024700642101000793,
+          0.02486986697513005
+        ],
+        "status": "PASS",
+        "seconds": 15.022799015045166
+      },
+      {
+        "case": {
+          "id": "base_rotation_h4",
+          "horizon": 4,
+          "action_step": 3,
+          "component": 5,
+          "pose_offset_x": 0
+        },
+        "terminal_diagnostic": false,
+        "loss": 23.895198822021484,
+        "autodiff": 11.479289054870605,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "plus_loss": 23.897933959960938,
+            "minus_loss": 23.890716552734375,
+            "fd": 12.029012044270834,
+            "ad_error": 0.5497229894002285,
+            "threshold": 1.0015869140625,
+            "noise_bound": 0.40013631184895837,
+            "one_sided_forward": 9.11712646484375,
+            "one_sided_backward": 14.940897623697918,
+            "asymmetry": 0.3897872340425532,
+            "informative": true,
+            "passes": false
+          },
+          {
+            "epsilon": 0.0001,
+            "plus_loss": 23.89629554748535,
+            "minus_loss": 23.894012451171875,
+            "fd": 11.415481567382812,
+            "ad_error": 0.06380748748779297,
+            "threshold": 1.7624715328216554,
+            "noise_bound": 1.188507080078125,
+            "one_sided_forward": 10.967254638671875,
+            "one_sided_backward": 11.86370849609375,
+            "asymmetry": 0.07556270096463022,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 3e-05,
+            "plus_loss": 23.8955078125,
+            "minus_loss": 23.894969940185547,
+            "fd": 8.96453857421875,
+            "ad_error": 2.5147504806518555,
+            "threshold": 4.521769221623738,
+            "noise_bound": 3.947804768880208,
+            "one_sided_forward": 10.2996826171875,
+            "one_sided_backward": 7.62939453125,
+            "asymmetry": 0.25925925925925924,
+            "informative": false,
+            "passes": false
+          }
+        ],
+        "adjacent_fd_relative_changes": [
+          0.05100422832980977,
+          0.214703425229741
+        ],
+        "status": "FAIL",
+        "seconds": 14.929491758346558
+      },
+      {
+        "case": {
+          "id": "earlier_vertical_h8",
+          "horizon": 8,
+          "action_step": 3,
+          "component": 1,
+          "pose_offset_x": 0
+        },
+        "terminal_diagnostic": false,
+        "loss": 162.16806030273438,
+        "autodiff": 16373.4853515625,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "plus_loss": 167.67880249023438,
+            "minus_loss": 158.488525390625,
+            "fd": 15317.128499348959,
+            "ad_error": 1056.356852213541,
+            "threshold": 819.0744038899741,
+            "noise_bound": 0.40013631184895837,
+            "one_sided_forward": 18369.140625,
+            "one_sided_backward": 12265.116373697918,
+            "asymmetry": 0.33229775828460034,
+            "informative": true,
+            "passes": false
+          },
+          {
+            "epsilon": 0.0001,
+            "plus_loss": 163.83706665039062,
+            "minus_loss": 160.65762329101562,
+            "fd": 15897.216796875,
+            "ad_error": 476.2685546875,
+            "threshold": 819.8627746582032,
+            "noise_bound": 1.188507080078125,
+            "one_sided_forward": 16690.0634765625,
+            "one_sided_backward": 15104.3701171875,
+            "asymmetry": 0.0950082281952825,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 3e-05,
+            "plus_loss": 162.6655731201172,
+            "minus_loss": 161.6796875,
+            "fd": 16431.427001953125,
+            "ad_error": 57.941650390625,
+            "threshold": 825.5191548665365,
+            "noise_bound": 3.947804768880208,
+            "one_sided_forward": 16583.760579427082,
+            "one_sided_backward": 16279.093424479166,
+            "asymmetry": 0.018371415427081702,
+            "informative": true,
+            "passes": true
+          }
+        ],
+        "adjacent_fd_relative_changes": [
+          0.03648992807596812,
+          0.03251149185123276
+        ],
+        "status": "PASS",
+        "seconds": 28.898899793624878
+      },
+      {
+        "case": {
+          "id": "offset_vertical_h8",
+          "horizon": 8,
+          "action_step": 7,
+          "component": 1,
+          "pose_offset_x": 0.02
+        },
+        "terminal_diagnostic": false,
+        "loss": 151.8026123046875,
+        "autodiff": -298.48004150390625,
+        "samples": [
+          {
+            "epsilon": 0.0003,
+            "plus_loss": 151.73477172851562,
+            "minus_loss": 151.92572021484375,
+            "fd": -318.2474772135417,
+            "ad_error": 19.767435709635436,
+            "threshold": 16.312510172526043,
+            "noise_bound": 0.40013631184895837,
+            "one_sided_forward": -226.13525390625003,
+            "one_sided_backward": -410.35970052083337,
+            "asymmetry": 0.4489340604858701,
+            "informative": true,
+            "passes": false
+          },
+          {
+            "epsilon": 0.0001,
+            "plus_loss": 151.77574157714844,
+            "minus_loss": 151.83583068847656,
+            "fd": -300.445556640625,
+            "ad_error": 1.96551513671875,
+            "threshold": 16.210784912109375,
+            "noise_bound": 1.188507080078125,
+            "one_sided_forward": -268.707275390625,
+            "one_sided_backward": -332.183837890625,
+            "asymmetry": 0.19108865411116216,
+            "informative": true,
+            "passes": true
+          },
+          {
+            "epsilon": 3e-05,
+            "plus_loss": 151.79432678222656,
+            "minus_loss": 151.8125,
+            "fd": -302.886962890625,
+            "ad_error": 4.40692138671875,
+            "threshold": 19.092152913411457,
+            "noise_bound": 3.947804768880208,
+            "one_sided_forward": -276.18408203125,
+            "one_sided_backward": -329.58984375,
+            "asymmetry": 0.16203703703703703,
+            "informative": true,
+            "passes": true
+          }
+        ],
+        "adjacent_fd_relative_changes": [
+          0.05593735016781211,
+          0.008060453400503778
+        ],
+        "status": "PASS",
+        "seconds": 29.12038540840149
+      }
+    ],
+    "terminal": {
+      "status": "blocked_by_broader_gate",
+      "reason": "No terminal test or optimizer inference after failed/insufficient broader checks."
+    },
+    "status": "completed",
+    "runtime": {
+      "backend": "Arch.x64",
+      "particle_count": 40604,
+      "dt": 0.0002,
+      "substeps": 10
+    },
+    "noise": {
+      "forward_losses": [
+        23.783401489257812,
+        23.783287048339844,
+        23.78329849243164,
+        23.78335189819336,
+        23.783321380615234
+      ],
+      "autodiff_runs": [
+        [
+          23.783361434936523,
+          449.6277770996094
+        ],
+        [
+          23.78335952758789,
+          449.63372802734375
+        ],
+        [
+          23.783405303955078,
+          449.6300964355469
+        ]
+      ],
+      "loss_range": 0.000118255615234375,
+      "autodiff_range": 0.005950927734375,
+      "note": "Measured at base case only, not a bound for every later pose/regime."
+    },
+    "broader_gate_passed": false
+  },
+  "interpretation": {
+    "conclusions": [
+      "Four of five local cases pass the predeclared development gate; rotation does not. This does not prove an autodiff bug.",
+      "Broader gate is false; no terminal objective evaluation or optimization was executed.",
+      "The five cases use four/eight-step partial upstream loss, excluding the original terminal term at step 999. There is no SI calibration, paper replication, contact-regime validation or successful pouring claim."
+    ],
+    "rotation_explanation": "At epsilon .0003 one-sided asymmetry .3898 exceeds .3; at .0001 the sample passes; at .00003 the signal .0005378723 is below 10 times the base loss range .0001182556. Thus no two adjacent informative passing samples.",
+    "noise_limit": "Loss and AD variation were measured only at the first vertical base condition; the formula named noise_bound is an empirical allowance, not a statistical confidence bound or verified bound at other conditions. Per-case repeats remain necessary.",
+    "next_work": [
+      "Measure repeated losses and AD for each case, including plus/minus rotational probes; preserve this failed gate.",
+      "Use a fixed rotational diagnostic epsilon grid and log contact/branch sensitivity before declaring a derivative bug. Audit angular-control mapping and reset behavior. Treat calibration as exploratory, then use an independently fixed verification protocol.",
+      "Consider an isolated one-thread CPU comparison if atomic accumulation variability dominates. Record a new runtime condition.",
+      "After a new broader gate passes, test an explicitly shortened terminal diagnostic; audit detached/argmin target semantics. Then extend horizons and original full objective before larger optimization/task metrics."
+    ],
+    "archive": "Development artifacts only; no scientific or RDF approval/promotion, no change to paper evidence or ontology."
+  },
+  "harness": "import json,time,traceback\nfrom pathlib import Path\nimport numpy as np\nROOT=Path('/out');protocol=json.loads((ROOT/'protocol.json').read_text())\nreport={'protocol':protocol,'cases':[],'terminal':{'status':'blocked_until_gate'},'status':'running'}\ndef save():\n (ROOT/'gradient-report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\\n')\ntry:\n import gym,fluidlab.envs,taichi as ti\n env=gym.make('Pouring-v0',seed=0,loss=True,loss_type='diff',renderer_type='GGUI');t=env.unwrapped.taichi_env\n initial=t.get_state()['state'];original_max=t.loss.max_loss_steps\n report['runtime']={'backend':str(ti.lang.impl.current_cfg().arch),'particle_count':t.simulator.n_particles,'dt':float(t.simulator.dt),'substeps':int(t.simulator.n_substeps)}\n def evaluate(case,value,grad=False,terminal=False):\n  h=case['horizon'];t.loss.max_loss_steps=h if terminal else original_max;t.loss.temporal_range=[0,h]\n  pose=np.asarray(protocol['base_pose'],dtype=np.float32);pose[0]+=case['pose_offset_x']\n  t.set_state(initial,grad_enabled=grad);t.apply_agent_action_p(pose);actions=[]\n  for i in range(h):\n   a=np.zeros(6,dtype=np.float32)\n   if i==case['action_step']:a[case['component']]=value\n   actions.append(a);t.step(a)\n  loss=float(t.get_final_loss()['loss'])\n  if not np.isfinite(loss):raise ValueError('Non-finite loss')\n  if not grad:return loss\n  t.reset_grad();t.get_final_loss_grad()\n  for a in reversed(actions):t.step_grad(a)\n  t.apply_agent_action_p_grad(pose)\n  g=float(t.agent.get_grad(h)[case['action_step'],case['component']])\n  if not np.isfinite(g):raise ValueError('Non-finite derivative')\n  return loss,g\n base=protocol['cases'][0];value=protocol['base_value']\n losses=[evaluate(base,value) for _ in range(protocol['forward_noise_repeats'])]\n grads=[evaluate(base,value,True) for _ in range(protocol['autodiff_noise_repeats'])]\n loss_spread=max(losses+[x[0] for x in grads])-min(losses+[x[0] for x in grads]);ad_values=[x[1] for x in grads];ad_spread=max(ad_values)-min(ad_values)\n report['noise']={'forward_losses':losses,'autodiff_runs':grads,'loss_range':loss_spread,'autodiff_range':ad_spread,'note':'Measured at base case only, not a bound for every later pose/regime.'};save();print('Noise',report['noise'],flush=True)\n def check(case,terminal=False):\n  tick=time.time();loss,ad=evaluate(case,value,True,terminal);samples=[]\n  for eps in protocol['epsilons']:\n   plus=evaluate(case,value+eps,False,terminal);minus=evaluate(case,value-eps,False,terminal)\n   forward=(plus-loss)/eps;backward=(loss-minus)/eps;fd=(plus-minus)/(2*eps)\n   scale=max(abs(ad),abs(fd),1e-12);noise_bound=loss_spread/eps+ad_spread\n   separated=abs(plus-minus)>protocol['minimum_signal_to_noise']*max(loss_spread,1e-12)\n   informative=separated and max(abs(ad),abs(fd))>1e-5\n   threshold=max(protocol['absolute_tolerance'],protocol['relative_tolerance']*scale)+noise_bound\n   asym=abs(forward-backward)/max(abs(forward),abs(backward),1e-12)\n   samples.append(dict(epsilon=eps,plus_loss=plus,minus_loss=minus,fd=fd,ad_error=abs(ad-fd),threshold=threshold,noise_bound=noise_bound,one_sided_forward=forward,one_sided_backward=backward,asymmetry=asym,informative=bool(informative),passes=bool(informative and abs(ad-fd)<=threshold and asym<=protocol['maximum_one_sided_asymmetry'])))\n  adjacent=[abs(a['fd']-b['fd'])/max(abs(a['fd']),abs(b['fd']),1e-12) for a,b in zip(samples,samples[1:])]\n  pair_pass=any(a['passes'] and b['passes'] and stability<=protocol['adjacent_fd_relative_stability'] for a,b,stability in zip(samples,samples[1:],adjacent))\n  result={'case':case,'terminal_diagnostic':terminal,'loss':loss,'autodiff':ad,'samples':samples,'adjacent_fd_relative_changes':adjacent,'status':'PASS' if pair_pass else 'FAIL' if any(s['informative'] for s in samples) else 'UNINFORMATIVE','seconds':time.time()-tick}\n  print('Case',case.get('id','terminal'),result['status'],'AD',ad,'FD',[s['fd'] for s in samples],flush=True)\n  return result\n for case in protocol['cases']:\n  try:result=check(case)\n  except Exception as exc:\n   result={'case':case,'status':'ERROR','error_type':type(exc).__name__,'error':str(exc)};traceback.print_exc()\n  report['cases'].append(result);save()\n passed=[r for r in report['cases'] if r['status']=='PASS'];failures=[r for r in report['cases'] if r['status'] in ['FAIL','ERROR']]\n long_pass=all(any(r['case']['id']==name and r['status']=='PASS' for r in report['cases']) for name in ['earlier_vertical_h8','offset_vertical_h8'])\n gate=not failures and len(passed)>=protocol['minimum_informative_cases'] and long_pass\n report['broader_gate_passed']=bool(gate)\n if gate:\n  try:report['terminal']=check(protocol['terminal_diagnostic_if_gate_passes'],True)\n  except Exception as exc:report['terminal']={'status':'ERROR','error':str(exc)};traceback.print_exc()\n else:report['terminal']={'status':'blocked_by_broader_gate','reason':'No terminal test or optimizer inference after failed/insufficient broader checks.'}\n report['status']='completed';save()\nexcept BaseException as exc:\n report.update(status='ERROR',error_type=type(exc).__name__,error=str(exc));save();traceback.print_exc();raise\n",
+  "verification": {
+    "checks": 170,
+    "case_statuses": [
+      "PASS",
+      "PASS",
+      "FAIL",
+      "PASS",
+      "PASS"
+    ],
+    "broader_gate_passed": false,
+    "terminal_status": "blocked_by_broader_gate"
+  }
+}
